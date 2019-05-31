@@ -28,12 +28,12 @@ public class SplashActivity extends AppCompatActivity {
     private String mDocumentType;
     private boolean conectado = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (existConnectionInternet()){
             setContentView(R.layout.activity_splash);
-            FirebaseMessaging.getInstance().subscribeToTopic("develop_android");
             if(existeToken())
                 validarSesion(mDocumentType,mDni,mToken);
             else

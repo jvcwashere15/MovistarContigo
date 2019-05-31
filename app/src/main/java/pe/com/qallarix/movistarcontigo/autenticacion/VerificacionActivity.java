@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goodiebag.pinview.Pinview;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
@@ -39,7 +40,8 @@ public class VerificacionActivity extends TranquiParentActivity {
     private String documentType;
     private Pinview mPinview;
     private ImageView btAtras;
-
+    private final String TOPIC_PRODUCCION = "produccion_android";
+    private final String TOPIC_DESARROLLO = "develop_android";
     private ProgressDialog progressDialog;
 
     @Override
@@ -145,6 +147,7 @@ public class VerificacionActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     Employee employee = response.body().getEmployee();
                     guardarEmpleadoSharedPreferences(employee);
+                    FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_PRODUCCION);
                     Analitycs.logEventoLogin(VerificacionActivity.this);
                     Analitycs.setUserPropertyClaseYCategoria(VerificacionActivity.this,employee.getClase(),employee.getCategory());
                     irAPantallaBienvenida();

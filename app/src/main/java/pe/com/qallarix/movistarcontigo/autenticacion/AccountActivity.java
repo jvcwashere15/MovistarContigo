@@ -22,6 +22,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
+
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.loaders.CerrarSesionLoader;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
@@ -44,6 +47,8 @@ public class AccountActivity extends TranquiParentActivity {
     private String firstName;
 
     private TextView tvInicialesUsuario;
+    private final String TOPIC_PRODUCCION = "produccion_android";
+    private final String TOPIC_DESARROLLO = "develop_android";
 
     private LinearLayout lytProgress;
     public final String BASE_URL_QA = "https://qallarix-ws-qa.azurewebsites.net/";
@@ -75,6 +80,7 @@ public class AccountActivity extends TranquiParentActivity {
                     editor.remove("documentNumber");
                     editor.remove("tokenAccess");
                     editor.commit();
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_PRODUCCION);
                     Intent mainIntent = new Intent(AccountActivity.this, LoginActivity.class);
                     mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(mainIntent);
