@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:orientation="vertical"
+    tools:context=".embajador.movil.fragments.MovilPaqueteFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5BC500"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/paquete_movil_tvInternet1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:text="Ilimitados" />
+
+        <TextView
+            android:id="@+id/paquete_movil_tvInternet2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:text="Datos libres" />
+
+        <TextView
+            android:id="@+id/paquete_movil_tvInternet3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:text="(Comparte 40GB)" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/borde_paquete"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/paquete_movil_tvAplicaciones1"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Apps Ilimitadas"/>
+        <ImageView
+            android:id="@+id/paquete_movil_ivAplicaciones2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:scaleType="fitCenter"
+            />
+        <TextView
+            android:id="@+id/paquete_movil_tvAplicaciones3"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Ilimitados en 4G"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/borde_paquete"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/paquete_movil_tvVozSMS1"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:text="Llamadas y mensajes"/>
+        <TextView
+            android:id="@+id/paquete_movil_tvVozSMS2"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="Ilimitados"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/borde_paquete"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/paquete_movil_tvMegasRoaming1"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Megas internacionales"/>
+        <TextView
+            android:id="@+id/paquete_movil_tvMegasRoaming2"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="12 GB Libres + Wahtsapp solo texto"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#F4F4F4"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/paquete_movil_tvPrecio1"
+            android:textSize="14sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:text="Precio regular"/>
+        <TextView
+            android:id="@+id/paquete_movil_tvPrecio2"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="S/ 149.90"/>
+        <TextView
+            android:id="@+id/paquete_movil_tvPrecio3"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            tools:text="Cargo fijo mensual: S/ 104.93"/>
+    </LinearLayout>
+</LinearLayout>

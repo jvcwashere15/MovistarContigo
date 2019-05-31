@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/embajador_movil_quehacer_vpPasos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:tint="#757575"
+        android:layout_gravity="center_vertical|left"
+        app:srcCompat="@drawable/ic_arrow_back"/>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:tint="#757575"
+        android:rotation="180"
+        android:layout_margin="16dp"
+        android:layout_gravity="center_vertical|right"
+        app:srcCompat="@drawable/ic_arrow_back"/>
+</FrameLayout>

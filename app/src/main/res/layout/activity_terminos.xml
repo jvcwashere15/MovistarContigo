@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/my_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:gravity="center"
+                android:text="TÉRMINOS Y CONDICIONES DE MI MOVISTAR, WEB DE MOVISTAR O DE APLICATIVOS MÓVILES"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/texto_terminos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/login_terminos_texto"
+                android:fontFamily="@font/telefonica_regular"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

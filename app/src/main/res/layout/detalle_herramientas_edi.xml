@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/marco_detalle"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:fontFamily="@font/telefonica_regular"
+        android:text="@string/edi_descripcion"
+        android:layout_marginBottom="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="@string/edi_ball_1"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="@string/edi_ball_2"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/herramientas_edi_btIrHerramienta"
+        android:layout_width="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_height="40dp"
+        android:text="@string/edi_texto_boton"
+        android:fontFamily="@font/telefonica_bold"
+        android:textSize="16sp"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:background="@drawable/boton_verde"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

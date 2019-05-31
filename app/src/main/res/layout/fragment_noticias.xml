@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/noticias_rvNoticias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <include
+        android:id="@+id/view_sin_conexion"
+        layout="@layout/sin_conexion_internet"
+        android:visibility="gone"/>
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:visibility="gone"
+        android:id="@+id/noticias_shimerFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:shimmer_duration="800">
+        <include layout="@layout/placeholder_noticias"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</RelativeLayout>

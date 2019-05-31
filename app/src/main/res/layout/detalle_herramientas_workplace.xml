@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/marco_detalle"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:fontFamily="@font/telefonica_regular"
+        android:text="@string/workplace_descripcion"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/herramientas_workplace_btIrHerramienta"
+        android:layout_width="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_height="40dp"
+        android:text="@string/workplace_texto_boton"
+        android:fontFamily="@font/telefonica_bold"
+        android:textSize="16sp"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:background="@drawable/boton_verde"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

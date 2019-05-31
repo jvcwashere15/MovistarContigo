@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:background="@color/colorSalud"
+        android:fontFamily="@font/telefonica_regular"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:text="APORTES"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pareja LGBTQ+"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="S/ 125.94"
+            android:gravity="right|center_vertical"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+</LinearLayout>

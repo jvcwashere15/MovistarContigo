@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".autenticacion.AccountActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/fondo_perfil">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <ImageView
+                    android:id="@+id/account_btAtras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back_navigation" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_cabecera_contigo" />
+            </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/account_tvInicialesUsuario"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                tools:text="DR"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:fontFamily="@font/telefonica_bold"
+                android:textColor="@android:color/white"
+                android:background="@drawable/circulo_verde"
+                app:srcCompat="@drawable/account"/>
+            <TextView
+                android:id="@+id/account_tvNombreUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/telefonica_regular"
+                android:textStyle="bold"
+                tools:text="Denis Ricardo Morales Retamozo"/>
+            <TextView
+                android:id="@+id/account_tvCargo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Analista de Sistemas"
+                android:layout_gravity="center"
+                android:fontFamily="@font/telefonica_light"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center|top"
+            android:paddingRight="32dp"
+            android:paddingLeft="32dp"
+            android:paddingTop="16dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/account_tvHolaUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                tools:text="¡Hola Denis Morales!"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/telefonica_regular"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:textSize="18sp"
+                android:text="Descubre todos los beneficios que tienes como colaborador en Movistar."/>
+            <Button
+                android:id="@+id/account_btHome"
+                android:layout_marginTop="16dp"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/telefonica_regular"
+                android:textColor="@android:color/white"
+                android:background="@drawable/boton_verde"
+                android:text="Continuar al home"/>
+            <Button
+                android:id="@+id/account_btCerrarSesion"
+                android:layout_marginTop="8dp"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/telefonica_regular"
+                android:textColor="@android:color/white"
+                android:background="@drawable/boton_celeste"
+                android:text="Cerrar sesion"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/login_lytProgress"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#55000000">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:text="Cerrando Sesion..."
+            android:fontFamily="@font/telefonica_regular"/>
+    </LinearLayout>
+</FrameLayout>

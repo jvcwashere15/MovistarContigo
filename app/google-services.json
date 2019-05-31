@@ -1,0 +1,117 @@
+{
+  "project_info": {
+    "project_number": "850744109954",
+    "firebase_url": "https://tranqui-30df0.firebaseio.com",
+    "project_id": "tranqui-30df0",
+    "storage_bucket": "tranqui-30df0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850744109954:android:f6ecf0bc7da49379",
+        "android_client_info": {
+          "package_name": "pe.com.qallarix.movistarcontigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850744109954-lk80cd6mu8iiouj7rdqf9paj4jq6oosh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.com.qallarix.movistarcontigo",
+            "certificate_hash": "37ecbec5bce24ea4462d1676ea56973b7b4ae6c5"
+          }
+        },
+        {
+          "client_id": "850744109954-ore46a1hno0thkv80pvqe6rlmi8cunrh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw15ytUXfkq1bYN5QaChAJS4uEJs9kyco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850744109954-ore46a1hno0thkv80pvqe6rlmi8cunrh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "850744109954-cpi6e8isn6cqot7h40pbjh6q8lcpji3b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pe.com.movistar.qallarix-ios",
+                "app_store_id": "1460599036"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850744109954:android:04d28d7fe527ea1c",
+        "android_client_info": {
+          "package_name": "pe.com.tranqui.qallarix.tranquiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850744109954-hefp59fsv3kn9988p4jgfupeutvk3t2k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.com.tranqui.qallarix.tranquiapp",
+            "certificate_hash": "37ecbec5bce24ea4462d1676ea56973b7b4ae6c5"
+          }
+        },
+        {
+          "client_id": "850744109954-i17scb3q245hmo7g2l1cu98ejcipkpb3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.com.tranqui.qallarix.tranquiapp",
+            "certificate_hash": "8958ce8b852d297ec6bc4b150bb98dd4d134b0cf"
+          }
+        },
+        {
+          "client_id": "850744109954-24cv2s3rav6mv4h4b75vans3fmindmgm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.com.tranqui.qallarix.tranquiapp",
+            "certificate_hash": "c91c8d822d8ba101ba62b5643b3960e4b646939c"
+          }
+        },
+        {
+          "client_id": "850744109954-ore46a1hno0thkv80pvqe6rlmi8cunrh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw15ytUXfkq1bYN5QaChAJS4uEJs9kyco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850744109954-ore46a1hno0thkv80pvqe6rlmi8cunrh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "850744109954-cpi6e8isn6cqot7h40pbjh6q8lcpji3b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "pe.com.movistar.qallarix-ios",
+                "app_store_id": "1460599036"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

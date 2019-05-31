@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".embajador.total.fragments.RequisitoFragment">
+    <TextView
+        android:id="@+id/requisito_tvNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="200sp"
+        android:textColor="#2286888C"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/telefonica_regular"
+        tools:text="1"/>
+    <TextView
+        android:id="@+id/requisito_tvDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#86888C"
+        android:paddingRight="24dp"
+        android:paddingLeft="24dp"
+        android:fontFamily="@font/telefonica_regular"
+        tools:text="Ser trabajador activo de Telefónica del Perú S.A.A." />
+</FrameLayout>

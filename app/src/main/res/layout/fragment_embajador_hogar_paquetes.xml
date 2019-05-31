@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#86888C"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Disfruta de los mejores paquetes corporativos:"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/hogar_vpPaquetes"
+                    android:layout_width="match_parent"
+                    android:layout_height="480dp"/>
+                <ImageView
+                    android:id="@+id/hogar_paquetes_ivAtras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center|left"
+                    android:tint="@color/colorTextoCanalEmbajador"
+                    app:srcCompat="@drawable/ic_back_arrow"/>
+                <ImageView
+                    android:id="@+id/hogar_paquetes_ivAdelante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|right"
+                    android:layout_marginRight="8dp"
+                    android:tint="@color/colorTextoCanalEmbajador"
+                    app:srcCompat="@drawable/ic_next_arrow"/>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="#EEEEEE"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#86888C"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="*Sujeto a condiciones y características del plan vigente."/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#EEEEEE"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/telefonica_bold"
+                        android:includeFontPadding="false"
+                        android:text="\u25CF"
+                        android:textColor="@color/colorCanalEmbajador"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:paddingLeft="8dp"
+                        android:textColor="#86888C"
+                        android:text="@string/embajador_paquete_hogar_footer_1"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

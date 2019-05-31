@@ -1,0 +1,357 @@
+package pe.com.qallarix.movistarcontigo.salud.fragments;
+
+
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.BaseMultiplePermissionsListener;
+import com.karumi.dexter.listener.multi.DialogOnAnyDeniedMultiplePermissionsListener;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.karumi.dexter.listener.single.BasePermissionListener;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
+import pe.com.qallarix.movistarcontigo.salud.PdfActivity;
+import pe.com.qallarix.movistarcontigo.salud.VinetaAdapter;
+import pe.com.qallarix.movistarcontigo.salud.pojos.Detail;
+import pe.com.qallarix.movistarcontigo.salud.pojos.HealthPlan;
+import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class DetalleSaludFragment extends Fragment {
+    private CardView cvLineamientos;
+    private CardView cvBeneficios;
+    private CardView cvAportes;
+
+    private ImageView ivLineamientos;
+    private ImageView ivBeneficios;
+    private ImageView ivAportes;
+
+    private View vDescripcionLineamientos;
+    private View vDescripcionBeneficios;
+    private View vDescripcionAportes;
+
+    AlertDialog alertDialog;
+
+    private final String KEY_PDF_TITLE_ACTIVITY = "titulo_pdf_activity";
+    private final String KEY_URI_PDF = "uri_pdf";
+
+    private final String TABLE_EPS = "TABLE_EPS";
+    private final String TABLE_NONE = "TABLE_NONE";
+    private final String TABLE_LGTB = "TABLE_LGTB";
+
+    private TextView tvDescripcionAportes;
+
+    private HealthPlan healthPlan;
+    private Detail mDetail;
+
+    private TextView tvDescripcionLineamientos;
+    private TextView tvPdfLink;
+
+    private RecyclerView rvBeneficios;
+
+    private TextView tvInformacionAdicional;
+
+    private View tableEPS;
+    private View tableLGTB;
+
+    private static final String TAG = "TEST";
+    private static final String ARGUMENT_HEALTHPLAN = "healthplan";
+
+
+    public DetalleSaludFragment() {
+        // Required empty public constructor
+    }
+
+    public static DetalleSaludFragment newInstance(HealthPlan healthPlan) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARGUMENT_HEALTHPLAN, healthPlan);
+        DetalleSaludFragment fragment = new DetalleSaludFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        healthPlan = (HealthPlan) getArguments().getSerializable(ARGUMENT_HEALTHPLAN);
+        View rootView = inflater.inflate(R.layout.fragment_detalle_salud, container, false);
+        cvLineamientos = rootView.findViewById(R.id.detalle_salud_cvLineamientos);
+        cvBeneficios = rootView.findViewById(R.id.detalle_salud_cvBeneficios);
+        cvAportes = rootView.findViewById(R.id.detalle_salud_cvAportes);
+
+        ivLineamientos = rootView.findViewById(R.id.salud_eps_iv1);
+        ivBeneficios = rootView.findViewById(R.id.salud_eps_iv2);
+        ivAportes = rootView.findViewById(R.id.salud_eps_iv3);
+
+        vDescripcionLineamientos = rootView.findViewById(R.id.detalle_salud_lineamientos_descripcion);
+        vDescripcionBeneficios = rootView.findViewById(R.id.detalle_salud_beneficios_descripcion);
+        vDescripcionAportes = rootView.findViewById(R.id.detalle_salud_aportes_descripcion);
+
+        rvBeneficios = rootView.findViewById(R.id.detalle_salud_rvBeneficios);
+
+        tvInformacionAdicional = rootView.findViewById(R.id.detalle_salud_tvInformacionAdicional);
+
+        tvDescripcionLineamientos = rootView.findViewById(R.id.detalle_salud_lineamientos_tvDescripcion);
+        tvPdfLink = rootView.findViewById(R.id.detalle_salud_lineamientos_tvLinkPdf);
+
+        tvDescripcionAportes = rootView.findViewById(R.id.detalle_salud_tvDescripcionAportes);
+        tableEPS = rootView.findViewById(R.id.table_eps);
+        tableLGTB = rootView.findViewById(R.id.table_lgbtq);
+        return rootView;
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        mDetail = healthPlan.getDetail();
+
+        configurarCVLineamientos();
+        configurarCVBeneficios();
+        configurarCVAportes();
+
+        String cadena  = healthPlan.getAdditionalInformation();
+
+
+        Pattern p = Pattern.compile("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = p.matcher(cadena);
+        List<String> emails = new ArrayList<>();
+        while(matcher.find()) {
+            emails.add(matcher.group());
+        }
+
+        Pattern p1 = Pattern.compile("[0-9]{9}", Pattern.CASE_INSENSITIVE);
+        Matcher matcher1 = p1.matcher(cadena);
+        List<String> phones = new ArrayList<>();
+        while(matcher1.find()) {
+            phones.add(matcher1.group());
+        }
+
+        SpannableString tagSpan = new SpannableString(cadena);
+
+        for (final String sEmail : emails){
+            int posStart = cadena.indexOf(sEmail);
+            ClickableSpan clickSpan = new ClickableSpan() {
+                @Override
+                public void onClick(View textView) {
+                    textView.invalidate();
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                    emailIntent.setData(Uri.parse("mailto:" + sEmail));
+                    startActivity(emailIntent);
+                }
+                @Override
+                public void updateDrawState(TextPaint paint) {
+                    super.updateDrawState(paint);
+                    paint.setUnderlineText(true); // set underline if you want to underline
+                    paint.setColor(getActivity().getResources().getColor(R.color.colorCanalEmbajador)); // set the color to blue
+
+                }
+            };
+            tagSpan.setSpan(clickSpan, posStart, posStart + sEmail.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        for (final String sPhone : phones){
+            int posStart = cadena.indexOf(sPhone);
+            ClickableSpan clickSpan = new ClickableSpan() {
+                @Override
+                public void onClick(View textView) {
+                    textView.invalidate();
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" + sPhone));
+                    startActivity(intent);
+                }
+                @Override
+                public void updateDrawState(TextPaint paint) {
+                    super.updateDrawState(paint);
+                    paint.setUnderlineText(true); // set underline if you want to underline
+                    paint.setColor(getActivity().getResources().getColor(R.color.colorCanalEmbajador)); // set the color to blue
+
+                }
+            };
+            tagSpan.setSpan(clickSpan, posStart, posStart + sPhone.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        tvInformacionAdicional.setBackgroundColor(Color.TRANSPARENT);
+        tvInformacionAdicional.setText(tagSpan);
+        tvInformacionAdicional.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    private void configurarCVLineamientos() {
+        cvLineamientos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vDescripcionLineamientos.getVisibility() == View.VISIBLE){
+                    vDescripcionLineamientos.setVisibility(View.GONE);
+                    ivLineamientos.setRotation(90);
+                    return;
+                }
+                vDescripcionLineamientos.setVisibility(View.VISIBLE);
+                ivLineamientos.setRotation(270);
+            }
+        });
+        tvDescripcionLineamientos.setText(mDetail.getPlanAlignment());
+        tvPdfLink.setText(Html.fromHtml("<u>"+mDetail.getPlanAlignmentNameFile()+"</u>"));
+        tvPdfLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (PermissionUtils.neverAskAgainSelected(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                            displayNeverAskAgainDialog();
+                        } else {
+                            mostrarDialogNecesitamosPermisos();
+                        }
+                    }
+                }else{
+                    Intent intent = new Intent(getActivity(),PdfActivity.class);
+                    intent.putExtra(KEY_PDF_TITLE_ACTIVITY,healthPlan.getTitle());
+                    intent.putExtra(KEY_URI_PDF,mDetail.getPlanAlignmentFile());
+                    startActivity(intent);
+                }
+
+            }
+        });
+    }
+
+    private void configurarCVBeneficios() {
+        List<String> benefitLists = mDetail.getBenefitsList();
+        if (benefitLists.size()>0){
+            cvBeneficios.setVisibility(View.VISIBLE);
+            cvBeneficios.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (vDescripcionBeneficios.getVisibility() == View.VISIBLE){
+                        vDescripcionBeneficios.setVisibility(View.GONE);
+                        ivBeneficios.setRotation(90);
+                        return;
+                    }
+                    vDescripcionBeneficios.setVisibility(View.VISIBLE);
+                    ivBeneficios.setRotation(270);
+                }
+            });
+            rvBeneficios.setLayoutManager(new LinearLayoutManager(getActivity()));
+            rvBeneficios.setHasFixedSize(true);
+            rvBeneficios.setAdapter(new VinetaAdapter(benefitLists));
+        }
+    }
+
+    private void configurarCVAportes() {
+        tvDescripcionAportes.setText(mDetail.getContributionDescription());
+        if (mDetail.getContributionTable().equals(TABLE_LGTB)) tableLGTB.setVisibility(View.VISIBLE);
+        else if (mDetail.getContributionTable().equals(TABLE_EPS)) tableEPS.setVisibility(View.VISIBLE);
+        cvAportes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vDescripcionAportes.getVisibility() == View.VISIBLE){
+                    vDescripcionAportes.setVisibility(View.GONE);
+                    ivAportes.setRotation(90);
+                    return;
+                }
+                vDescripcionAportes.setVisibility(View.VISIBLE);
+                ivAportes.setRotation(270);
+            }
+        });
+    }
+
+
+    public void mostrarDialogNecesitamosPermisos(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("Para visualizar el archivo de los lineamientos del plan, permite que Tranqui pueda acceder al almacenamiento");
+        builder.setCancelable(false);
+        builder.setPositiveButton("CONTINUAR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                pedirPermisos();
+            }
+        });
+        builder.setNegativeButton("AHORA NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void pedirPermisos() {
+        if (alertDialog != null) alertDialog.dismiss();
+        Dexter.withActivity(getActivity()).withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new BasePermissionListener(){
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        Intent intent = new Intent(getActivity(),PdfActivity.class);
+                        intent.putExtra(KEY_PDF_TITLE_ACTIVITY,healthPlan.getTitle());
+                        intent.putExtra(KEY_URI_PDF,mDetail.getPlanAlignmentFile());
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        PermissionUtils.setShouldShowStatus(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                    }
+                }).check();
+    }
+
+    private void displayNeverAskAgainDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("Para visualizar el documento pdf sobre los lineamientos del plan, permite que podamos acceder al almacenamiento"+
+                "\nToca Ajustes > Permisos, y activa Almacenamiento");
+        builder.setCancelable(false);
+        builder.setPositiveButton("AJUSTES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent = new Intent();
+                intent.setAction(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                intent.setData(uri);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("AHORA NO", null);
+        builder.show();
+    }
+}

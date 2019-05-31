@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home" />
+    <item android:id="@+id/action_beneficios"
+        android:title="Beneficios"
+        android:icon="@drawable/ic_beneficios"/>
+    <item android:id="@+id/action_herramientas"
+        android:title="Herramientas"
+        android:icon="@drawable/ic_herramientas" />
+    <item android:id="@+id/action_noticias"
+        android:title="Noticias"
+        android:icon="@drawable/ic_noticia" />
+</menu>

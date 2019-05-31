@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+    <include layout="@layout/my_toolbar"/>
+    <ScrollView
+        android:id="@+id/estudio_detalle_lytDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <ImageView
+                            android:id="@+id/detalle_estudio_ivImagen"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="40dp"
+                            android:scaleType="centerCrop"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/detalle_estudio_ivLogo"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center|bottom"
+                            android:background="@drawable/circulo_blanco"
+                            android:src="@drawable/logo_estudio_descuento"/>
+                    </FrameLayout>
+                    <TextView
+                        android:id="@+id/detalle_estudio_tvTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¡Saca tu diplomado!"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:fontFamily="@font/telefonica_bold"
+                        android:textColor="@color/colorEstudios"/>
+                    <TextView
+                        android:id="@+id/detalle_estudio_tvDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="Capacitación y especialización profesional con programas de maestría."
+                        android:textColor="#86888C"
+                        android:gravity="center"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:textSize="20sp"/>
+                    <LinearLayout
+                        android:padding="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EEEEEE"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/detalle_estudio_tvDescuento"
+                            android:layout_width="match_parent"
+                            android:text="30% de descuento"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/telefonica_bold"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorEstudios"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/detalle_estudio_tvDescuentoDetalle"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/telefonica_regular"
+                            android:textSize="18sp"
+                            android:textColor="#86888C"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            android:text="Comienza bien tu año con este descuento."/>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:background="@drawable/boton_verde"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/telefonica_bold"
+                android:text="Úsalo ahora"
+                android:onClick="usarDescuento"/>
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/estudio_detalle_lytUsar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Muestra tu Fotocheck"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="@color/colorEstudios"/>
+        <ImageView
+            android:layout_margin="16dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_muestra_fotocheck"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#86888C"
+            android:text="al momento de utilizar tu descuento."/>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

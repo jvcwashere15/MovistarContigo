@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/marco_detalle"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="Consulta histórico de pagos y deuda actual"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="Consulta recibos"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="Detalle de llamadas"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="Atención vía Whatsapp"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorHerramientas"
+            android:fontFamily="@font/telefonica_bold"
+            android:includeFontPadding="false"
+            android:text="\u25CF"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:paddingLeft="8dp"
+            android:text="Páginas Blancas"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/herramientas_movistar_hogar_btIrHerramienta"
+        android:layout_width="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_height="40dp"
+        android:text="Ir a Movistar Hogar"
+        android:fontFamily="@font/telefonica_bold"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/boton_verde"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

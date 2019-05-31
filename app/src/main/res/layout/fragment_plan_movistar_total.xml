@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".embajador.movil.fragments.MovilPaqueteFragment">
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorCanalEmbajador"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvInternetMegas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="40 Mbps" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:text="INTERNET + TV + FIJO + MÓVIL" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#F4F4F4"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Incluye"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvInternetIncluye"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1 módem Smart WIFI"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/borde_paquete"
+            android:padding="8dp">
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="TV"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvTVDescripcion"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="103 canales + 60 canales HD"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvTVIncluye"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Incluye 2 Decos"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/borde_paquete"
+            android:padding="8dp">
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Línea Fija"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvFijaDescripcion"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Llamadas ilimitadas a fijos Movistar + 100 min. a otros operadores fijos"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/borde_paquete"
+            android:padding="8dp">
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Teléfono Móvil"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvMovilNLineas"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="2 líneas móviles"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvMovilGigas"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="8 GB libres cada uno"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/borde_paquete"
+            android:padding="8dp">
+            <TextView
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apps Ilimitadas"/>
+            <ImageView
+                android:id="@+id/paquete_movistar_total_ivApps"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_margin="8dp"
+                tools:src="@drawable/apps_ilimitadas_total"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#F4F4F4"
+            android:padding="16dp">
+            <TextView
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#444444"
+                android:textStyle="bold"
+                android:text="Precio Embajador"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvPrecioRegular"
+                android:textSize="28sp"
+                android:textColor="#444444"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="S/ 104.93"/>
+            <TextView
+                android:id="@+id/paquete_movistar_total_tvPrecioEmbajador"
+                android:textSize="16sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextoCanalEmbajador"
+                tools:text="Precio regular: S/. 149.90"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

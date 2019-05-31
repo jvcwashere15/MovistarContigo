@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCanalEmbajador"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/paquete_hogar_tvMegas1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:text="S/ 70 DE DSCTO."/>
+
+        <TextView
+            android:id="@+id/paquete_hogar_tvMegas2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:text="30 Mbps" />
+    </LinearLayout>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/borde_pedido_movil">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:padding="16dp">
+           <TextView
+               android:id="@+id/paquete_hogar_tvTrio"
+               android:textSize="16sp"
+               android:fontFamily="@font/telefonica_regular"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/colorTextoPaqueteMovil"
+               tools:text="Interna + Teléfono + Internet"/>
+       </LinearLayout>
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="2dp"
+           android:background="#EEEEEE"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:padding="16dp">
+           <TextView
+               android:id="@+id/paquete_hogar_tvHd"
+               android:textColor="@color/colorTextoPaqueteMovil"
+               android:textSize="18sp"
+               android:fontFamily="@font/telefonica_regular"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Incluye 58 canales HD"/>
+       </LinearLayout>
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="2dp"
+           android:background="#EEEEEE"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:padding="16dp">
+           <TextView
+               android:id="@+id/paquete_hogar_tvModem"
+               android:textColor="@color/colorTextoPaqueteMovil"
+               android:textSize="18sp"
+               android:fontFamily="@font/telefonica_regular"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="*Incluye Módem Smart WiFi"/>
+       </LinearLayout>
+
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#F4F4F4"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/paquete_hogar_tvPrecio1"
+            android:textColor="#444444"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio embajador"/>
+        <TextView
+            android:id="@+id/paquete_hogar_tvPrecio2"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="S/ 189.90"/>
+        <TextView
+            android:id="@+id/paquete_hogar_tvPrecio3"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextoPaqueteMovil"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Precio regular: S/ 119.90"/>
+    </LinearLayout>
+
+</LinearLayout>

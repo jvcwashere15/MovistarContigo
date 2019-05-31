@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/marco_detalle"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:paddingLeft="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_oncologico_lineamientos_bullet_1"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/salud_oncologico_tvPdfLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:paddingLeft="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/salud_oncologico_link_1"
+        android:textSize="18sp" />
+</LinearLayout>

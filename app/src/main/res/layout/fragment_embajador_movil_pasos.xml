@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="64dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#F4F4F4"
+    tools:context=".embajador.movil.fragments.MovilPasosFragment">
+    <TextView
+        android:id="@+id/embajador_movil_quehacer_tvNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/colorCanalEmbajador"
+        tools:text="1."/>
+    <TextView
+        android:id="@+id/embajador_movil_quehacer_tvDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#86888C"
+        android:fontFamily="@font/telefonica_regular"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        tools:text="El beneficio se aplicará en todas las líneas que contrate el colaborador a su nombre."
+        />
+</LinearLayout>

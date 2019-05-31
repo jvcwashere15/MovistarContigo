@@ -1,0 +1,105 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="temaToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/telefonica_bold</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="EstiloCVHerramientas" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:layout_height">@dimen/altura_item_beneficio</item>
+    </style>
+
+    <style name="EstiloInfoAdicionalHerramienta" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/colorTextoDescripcionHerramienta</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@color/colorInfoAdicionalHerramientas</item>
+    </style>
+
+    <style name="EstiloTabEmbajador" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorCanalEmbajador</item>
+        <item name="android:background">@drawable/toogle_embajador_selector_tab</item>
+        <item name="android:fontFamily">@font/telefonica_regular</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <!--<item name="tabMaxWidth">@dimen/tab_max_width</item>-->
+        <item name="tabIndicatorColor">@android:color/white</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">@color/colorPrimary</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextCanalEmbajador</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+    <style name="MyCustomTabDescuentos" parent="Widget.Design.TabLayout">
+        <!--<item name="tabMaxWidth">@dimen/tab_max_width</item>-->
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabRippleColor">#00FFFFFF</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="MyCustomTabBeneficiosEspeciales" parent="Widget.Design.TabLayout">
+        <!--<item name="tabMaxWidth">@dimen/tab_max_width</item>-->
+        <item name="tabIndicatorColor">@color/colorBeneficiosEspeciales</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabRippleColor">#00FFFFFF</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/colorBeneficiosEspeciales</item>
+    </style>
+
+    <style name="MyCustomTabTextCanalEmbajador" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#86888C</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="StyleProgressBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="NavigationBottomStyle" parent="AppTheme">
+        <item name="colorPrimary">#169300</item>
+        <item name="colorPrimaryDark">#006400</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>

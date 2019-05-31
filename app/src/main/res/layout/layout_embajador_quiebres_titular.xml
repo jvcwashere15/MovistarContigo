@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorCanalEmbajador"
+        android:text="Completa el siguiente formulario"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#50535A"
+        android:layout_marginBottom="8dp"
+        android:text="¿Quien es el titular de la averia?"/>
+    <RadioGroup
+        android:id="@+id/embajador_quiebres_rgTitular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/embajador_quiebres_rbYo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yo"
+            android:buttonTint="@color/colorCanalEmbajador"
+            android:textSize="14sp"
+            android:textColor="#50535A"
+            android:layout_marginRight="16dp"/>
+        <RadioButton
+            android:id="@+id/embajador_quiebres_rbOtro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#50535A"
+            android:textSize="14sp"
+            android:buttonTint="@color/colorCanalEmbajador"
+            android:text="Otra persona"/>
+    </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,336 @@
+<resources>
+    <string name="app_name">Movistar \nContigo</string>
+    <string name="boton_texto_ingresar">Ingresar</string>
+    <string name="texto_input_dni">Número de DNI/C.E.</string>
+    <string name="login_hint_input">Ingresa tu número de DNI/C.E.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_texto_bienvenido">Bienvenido a</string>
+    <string name="verificacion_boton_texto">Aceptar y continuar</string>
+    <string name="verificacion_texto_titulo">Código\n de verificación</string>
+    <string name="verificacion_descripcion">Se envío un mensaje de confirmación\n a tu correo electrónico</string>
+    <string name="verificacion_desc_codigo">Ingresa el código de 5 dígitos</string>
+    <string name="texto_splash_bienvenido">¡Bienvenido</string>
+    <string name="splash_texto_descubre">¡Vive una experiencia digital única con Movistar!</string>
+    <string name="splash_opciones_descuentos">Descuentos, novedades,\n trámites y más.</string>
+    <string name="splash_texto_comenzar">Comenzar</string>
+    <string name="texto_splash_usuario">Juan Peréz!</string>
+    <string name="dashboard_noticias_titulo">Horario de verano</string>
+    <string name="dashboard_noticias_descripcion">Comienza tu verano en la playa,\n en la playa. Oh sí!</string>
+    <string name="dashboard_noticias_boton">Ver más</string>
+    <string name="dashboard_beneficios_usuario">!Hola Juan!</string>
+    <string name="dashboard_beneficios_descripcion">Las novedades que tenemos para ti</string>
+    <string name="dash_title_descuentos">Descuentos</string>
+    <string name="dash_title_estudios">Estudios</string>
+    <string name="dash_title_open_learning">Open\nLearning</string>
+
+    <string name="dash_title_embajador">Canal\nembajador</string>
+    <string name="dash_title_salud">Salud</string>
+    <string name="dash_title_beneficios_especiales">Beneficios\nespeciales</string>
+    <string name="dashboard_descuentos_titulo">Descuentos exclusivos</string>
+    <string name="noticia_titulo_1">¡Comienza tu verano en la playa!</string>
+    <string name="noticia_titulo_2">¡Última hora!</string>
+    <string name="noticia_titulo_3">¡Vence al morro en la carrera de noche Movistar Run Night 2018!</string>
+    <string name="noticia_titulo_4">¡Tu canasta navideña viene con todo este 2018!</string>
+    <string name="noticia_titulo_5">¡Tu entrada al cine a solo S/3.00!</string>
+
+
+    <string name="noticia_descripcion_1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+        \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="noticia_descripcion_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+    \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="noticia_descripcion_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+    \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="noticia_descripcion_4">La cual contiene:
+        \n* Caja de panetón Chocotón Dnodrio, 500 grs.
+        \n* Botella de espumeante Omnium, 750 ml
+        \n* Frasco deTapenade de Pimiento Casa Verde, 180 grs.
+        \n* Frasco de Mermelada Gourmet de Arándano y Mango Casa Verde, 220 grs.
+        \n* Estuche de Crocantinis tABLA gourmet, Sabores Surtidos, 40 grs.
+        \n* Lata de Paté Español Coren, 18 grs.
+        \n* Lata de Papitas Pringles Sabor Original, 37 grs.
+        \n* Mini Refri Termoeéctrica 10 LT</string>
+
+    <string name="noticia_descripcion_5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+    \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+
+
+    <string name="fecha_noticia">Viernes 18 de enero 2019</string>
+
+    <string name="descripcion_maternidad_paternidad">Buscamos el bienestar de los colaboradores en los momentos más importantes de su vida, por ello, queremos acompañarte en el proceso. Si tienes un niño recién nacido, tienes:</string>
+    <string name="descripcion_maternidad_paternidad_footer">Para acceder a estos beneficios, ingresa a la base de conocimiento y entérate qué debes gestionar previamente.</string>
+    <string name="descripcion_defuncion">Ante el fallecimiento de un familiar directo o colaborador, Movistar otorga un apoyo para ti o tus beneficiarios.</string>
+    <string name="defuncion_footer">Para acceder a estos beneficios, ingresa a la base de conocimiento y entérate qué debes gestionar previamente aquí.</string>
+    <string name="descripcion_seguros">Movistar pone a tu disposición a AON, broker que te asesorará para la obtención de seguros particulares como SOAT, seguro vehicular, entre otros. Además, contarás con:</string>
+    <string name="seguros_footer">Para mayor información, contacta a Marily Cervantes al 2030100 anexo 1178, al 989055873, o a marily.cervantes1@aon.com</string>
+
+    <string name="seguros_bullet_1">Precios competitivos en el mercado.</string>
+    <string name="seguros_bullet_2">Asesoramiento contínuo con un ejecutivo.</string>
+    <string name="seguros_bullet_3">Posibilidad de descuentos por planilla.</string>
+
+
+    <string name="defuncion_titular_1">Asignación por defunción de S/ 5,000.00.</string>
+    <string name="defuncion_titular_2">Reembolso de capilla ardiente de hasta S/ 1,100.00.</string>
+    <string name="defuncion_titular_3">Seguro Vida Ley de 20 sueldos por muerte natural para tus beneficiarios y 40 sueldos por muerte accidental.</string>
+    <string name="defuncion_titular_4">En caso queden hijos menores de edad o esposa sin hijos, 12 sueldos adicionales.</string>
+
+    <string name="defuncion_dependiente_descripcion">Se consideran dependientes cónyuge o conviviente, hijos y padres debidamente inscritos en los sistemas de Recursos Humanos. Por fallecimiento de alguno de ellos, Movistar te otorga:</string>
+    <string name="defuncion_dependiente_1">Licencia por duelo de 5 días calendario si el evento ocurrió en la misma ciudad en la que laboras y 7 días calendario si ocurrió en una ciudad diferente.</string>
+    <string name="defuncion_dependiente_2">Asignación por defunción de S/ 5,000.00.</string>
+    <string name="defuncion_dependiente_3">Reembolso de capilla ardiente de hasta S/ 1,100.00.</string>
+    <string name="titulo_tasas">Tasas preferenciales</string>
+    <string name="titulo_maternidad">Maternidad</string>
+    <string name="titulo_paternidad">Paternidad</string>
+    <string name="titulo_seguros">Broker de seguros</string>
+    <string name="titulo_defuncion">Defunción</string>
+    <string name="maternidad_corporativos_1">Regalo de parte de la compañía.</string>
+    <string name="paternidad_corporativos_1">Regalo de parte de la compañía.</string>
+    <string name="maternidad_corporativos_2">Padres E-time: si eres ejecutivo, tienes la posibilidad de trabajar fuera de la oficina hasta por 2 días completos o su equivalente en medios días hasta el primer año de edad de tu hijo.</string>
+    <string name="paternidad_corporativos_2">Padres E-time: si eres ejecutivo tienes la posibilidad de trabajar fuera de la oficina hasta por 2 días completos o su equivalente en medios días hasta que tu hijo cumpla un año.</string>
+    <string name="maternidad_ley_1">Licencia remunerada por maternidad pre y post natal de 120 días hábiles.</string>
+    <string name="maternidad_ley_2">Bono de lactancia otorgado por EsSalud de S/820.</string>
+    <string name="maternidad_ley_3">Uso de lactarios a nivel nacional.</string>
+    <string name="maternidad_ley_4">Hora de lactancia al término de tu periodo postnatal hasta que tu hijo cumpla un año.</string>
+    <string name="maternidad_ley_5">Asignación familiar de S/85.</string>
+    <string name="paternidad_ley_1">Licencia remunerada por paternidad de 10 días calendario consecutivos.</string>
+    <string name="paternidad_ley_2">Asignación familiar de S/85.</string>
+    <string name="descripcion_tasas">Te invitamos a conocer los beneficios exclusivos que tenemos en <b>Scotiabank</b>:</string>
+    <string name="tasas_bullet_1">Traslada tu CTS y obtén una TREA de hasta 6%.</string>
+    <string name="tasas_bullet_2">Accede a un préstamo personal y recibe hasta 12 veces tu sueldo.</string>
+    <string name="tasas_bullet_3">Obtén tu préstamo vehicular con una TCEA desde 23.63% y muchos beneficios más.</string>
+    <string name="tasas_footer">Para mayor información, contacta a Leandra Yasmín Anton Solís al anexo 28425, al 964221157, o a leandra.anton@scotiabank.com.pe</string>
+
+
+    <string-array name="array_seguros">
+        <item>Precios competitivos en el mercado.</item>
+        <item>Asesoramiento contínuo con un ejecutivo.</item>
+        <item>Posibilidad de descuentos por planilla.</item>
+    </string-array>
+
+    <!--Textos fragment herramientas-->
+    <string name="succesfactor_descripcion">Ingresa a Sucess Factors y podrás:</string>
+    <string name="succesfactor_ball_1">Completar tu perfil profesional y buscar oportunidades de desarrollo.</string>
+    <string name="succesfactor_ball_2">Encontrar el organigrama de Movistar Perú y de otros países.</string>
+    <string name="succesfactor_ball_3">Buscar teléfonos y anexos de tus compañeros.</string>
+    <string name="succesfactor_ball_4">Pedir tiempo libre.</string>
+    <string name="succesfactor_ball_5">Dar un reconocimiento  a tus compañeros.</string>
+    <string name="succesfactor_informacion_adicional">Podrás acceder a los 3 días de tu ingreso a la compañía. Tu usuario y contraseña son los mismos de tu correo corporativo.</string>
+    <string name="succesfactor_texto_boton">Ir a Success Factors</string>
+
+    <string name="cae_descripcion">Movistar pone a tu servicio el Centro de Atención al Empleado (CAE) para que puedas absolver dudas relacionadas a Recursos Humanos. Puedes contactarte con el CAE por los siguientes canales:</string>
+    <string name="cae_ball_1">Base de conocimiento, en donde encontrarás artículos de interés, un chat y opción de envío de consultas a través de un formulario web.</string>
+    <string name="cae_ball_2">Enviando desde tu correo corporativo tu consulta a: centrodeatencionalempleado@telefonicahelprh.zendesk.com, puedes ubicarlo como “CAE RH” en tu directorio de office 365.</string>
+    <string name="cae_texto_boton">Ir a la base de conocimiento</string>
+
+    <string name="remedy_descripcion">Utiliza Remedy para gestionar los siguientes requerimientos:</string>
+    <string name="remedy_ball_1">Accesos al sistema de negocio.</string>
+    <string name="remedy_ball_2">Instalaciones de aplicaciones en los equipos corporativos.</string>
+    <string name="remedy_ball_3">Traslado de equipos, entre otros.</string>
+    <string name="remedy_informacion_adicional">Puedes acceder a Remedy desde la intranet corporativa.</string>
+
+
+    <string name="doit_descripcion">Utiliza Doit para gestionar incidencias relacionadas a:</string>
+    <string name="doit_ball_1">Inconvenientes en las aplicaciones del negocio.</string>
+    <string name="doit_ball_2">Problemas con el equipo corporativo o impresoras.</string>
+    <string name="doit_texto_boton">Ir a Doit</string>
+
+    <string name="sistemas_click_descripcion">Utiliza Sistema en un click para consultar sobre:</string>
+    <string name="sistemas_click_ball_1">Servicios que ofrece la Dirección de Sistemas.</string>
+    <string name="sistemas_click_ball_2">Consultar el estado de un ticket de requerimiento o incidencia.</string>
+    <string name="sistemas_click_ball_3">Consultar la fecha de cambio de tu laptop o computadora</string>
+    <string name="sistemas_click_informacion_adicional">Puedes acceder a Sistemas en un Click desde la intranet corporativa.</string>
+
+    <string name="edi_descripcion">Utiliza el EDI para gestionar:</string>
+    <string name="edi_ball_1">Solicitar tu celular corporativo y cambiar de equipo.</string>
+    <string name="edi_ball_2">Reportar incidencias en tu edificio como el mal funcionamiento del aire acondicionado, daño en instalaciones, mobiliario, entre otros.</string>
+    <string name="edi_texto_boton">Ir a EDI</string>
+
+    <string name="workplace_descripcion">Nuestra red social corporativa, entérate de lo que pasa en la compañía y comunícate, colabora y conéctate a través de la computadora y el celular mediante funciones conocidas, como grupos, chat y videollamadas. ¡Porque todo es posible cuando las personas trabajan juntas!</string>
+    <string name="workplace_texto_boton">Ir a Workplace</string>
+
+    <string name="descripcion_salud">Con el objetivo de proporcionarte más opciones de atención de salud, Movistar pone a tu disposición la opción de afiliarte (y a tus dependientes) a una póliza particular.</string>
+
+
+    <string name="salud_eps_footer_1">Para mayor información, contacta a Lourdes Adco:</string>
+    <string name="salud_eps_footer_2">Si quieres afiliarte o desafiliarte de la EPS, contacta al CAE desde tu correo corporativo:</string>
+    <string name="salud_eps_lineamientos_bullet_1">En el siguiente documento podrás revisar todas las coberturas de la EPS y la red de clínicas donde podrás atenderte:</string>
+    <string name="salud_eps_beneficios_bullet_1">1 Chequeo preventivo anual al cual puedes acceder \rdesde tu primer día en la EPS.</string>
+    <string name="salud_eps_beneficios_bullet_2">Préstamo hospitalario, el cual te permite pagar parte de algunas atenciones hospitalarias como descuento en tu boleta.</string>
+    <string name="salud_eps_beneficios_bullet_3">Programa Cuídate: 100% de cobertura en consultas, exámenes auxiliares, pruebas de laboratorio y medicamentos en enfermedades crónicas como Asma, Hipertensión arterial, Dislipidemia y Diabetes.</string>
+    <string name="salud_eps_beneficios_bullet_4">Ferias de Salud, campañas de vacunación, exámenes virtuales de salud entre otros beneficios.</string>
+    <string name="salud_eps_link_1"><u>Plan EPS 2019</u></string>
+
+    <string name="salud_eps_aportes_bullet_1">De afiliarte a una póliza de salud, tu aporte a la misma será descontado mensualmente en tu boleta y variará de acuerdo al número de dependientes que tengas inscritos.</string>
+    <string name="salud_eps_aportes_descripcion_1">Aportes para ti y tus dependientes: hijos menores a 18 años, cónyuge o conviviente:</string>
+    <string name="salud_eps_aportes_descripcion_2">Movistar también te da la opción de afiliar a tus padres e hijos mayores de 18 años con los siguientes aportes por dependiente:</string>
+
+    <string name="salud_oncologico_footer_1">Para mayor información sobre el plan Oncológico y activación de póliza contactar a Andrea Soto al 5137900 Anexo 4284, 940 498 956 o al correo asoto@auna.pe</string>
+    <string name="salud_oncologico_footer_2">Si quieres afiliarte o desafiliarte del plan oncológico, contacta al CAE desde tu correo corporativo: centrodeatencionalempleado@telefonicahelprh.zendesk.com, ubícalo como “CAE RH” en tu directorio de office 365.</string>
+    <string name="salud_oncologico_lineamientos_bullet_1">En el siguiente documento podrás revisar los principales lineamientos del plan de salud oncológico:</string>
+    <string name="salud_oncologico_beneficios_bullet_1">Te ofrecemos cobertura oncológica al 100% a ti y tus dependientes  inscritos en la EPS, lo que te da la oportunidad de prevenir, detectar, diagnosticar y tratar.</string>
+    <string name="salud_oncologico_beneficios_bullet_2">1 Chequeo preventivo anual al cual puedes acceder a partir del año de vigencia de la EPS.</string>
+    <string name="salud_oncologico_beneficios_bullet_3">Consulta inicial con un coaseguro de S/ 70.00 y consultas de seguimiento de S/ 50.00.</string>
+    <string name="salud_oncologico_aportes_bullet_1">Si estás afiliado a la EPS, automáticamente cuentas con cobertura oncológica, por lo que tus aportes no variarán.</string>
+    <string name="salud_oncologico_link_1"><u>Beneficios del programa de protección  oncológica telefónica</u></string>
+
+    <string name="salud_lgbtq_footer_1">Para mayor información, contacta a Lourdes Adco al 988 051 585 o a lourdes.adco@marsh.com</string>
+    <string name="salud_lgbtq_footer_2">Si quieres afiliarte o desafiliarte del plan LGBTIQ+, contacta al CAE desde tu correo corporativo: centrodeatencionalempleado@telefonicahelprh.zendesk.com, ubícalo como “CAE RH” en tu directorio de office 365.</string>
+    <string name="salud_lgbtq_lineamientos_bullet_1"><u>Póliza LGBTQ+</u></string>
+
+    <string name="salud_lgbtq_aportes_bullet_1">De afiliarte a una póliza de salud, tu aporte a la misma será descontado mensualmente en tu boleta y variará de acuerdo al número de dependientes que tengas inscritos.</string>
+
+    <string name="embajador_preguntas_hogar_1">¿Cómo puedo afiliarme a este beneficio?</string>
+    <string name="embajador_preguntas_hogar_2">¿Cómo puedo hacer una migración de plan?</string>
+    <string name="embajador_preguntas_hogar_3">Si cuento con un Plan Embajador antiguo, ¿pierdo mis beneficios o descuento?</string>
+    <string name="embajador_preguntas_hogar_4">¿Cuándo se activa el descuento?</string>
+    <string name="embajador_preguntas_hogar_5">¿Cuántos servicios puedo tener?</string>
+    <string name="embajador_preguntas_hogar_6">¿Cuándo pierdo estos beneficios?</string>
+
+    <string name="embajador_preguntas_movil_1">¿Cómo puedo afiliarme a este beneficio?</string>
+    <string name="embajador_preguntas_movil_2">¿Cómo puedo cambiar mi plan? o ¿realizar una portabilidad?</string>
+    <string name="embajador_preguntas_movil_3">¿Cuándo se activa el descuento del 30%?</string>
+    <string name="embajador_preguntas_movil_4">Tengo una línea Caribú ¿cómo hago?</string>
+    <string name="embajador_preguntas_movil_5">Quiero pasar de una línea prepago a postpago ¿qué hago?</string>
+    <string name="embajador_preguntas_movil_6">Tengo una línea antigua o dificultades al realizar mi cambio ¿qué hago?</string>
+    <string name="embajador_preguntas_movil_7">¿Cuántas líneas puedo tener?</string>
+    <string name="embajador_preguntas_movil_8">¿Cuándo pierdo estos beneficios?</string>
+    <string name="embajador_preguntas_movil_9">Tengo un contrato vigente ¿puedo realizar una migración?</string>
+
+    <string name="embajador_preguntas_hogar_1_ball_1">No tienes que hacer ninguna afiliación. Haz tu pedido con el precio regular y automáticamente se te hará el descuento de S/70 en tu factura.</string>
+    <string name="embajador_preguntas_hogar_1_ball_2">Solo asegúrate de contratar un trío de la Oferta Fija actual, de S/169.90 o más, que la línea esté a tu nombre y que no cuentes con deudas pendientes.</string>
+    <string name="embajador_preguntas_hogar_2_ball_1">Una migración supone un cambio en las características de tu plan y una variación en la renta.</string>
+    <string name="embajador_preguntas_hogar_2_ball_2">Al hacer una migración de un Plan Embajador antiguo a uno de la Oferta Vigente (especificada en la parte superior), migrarás con todos los servicios adicionales (Bloques HBO/Fox, Deco Smart, Repetidor Wifi, etc) que hayas tenido contratados o que sean parte de un Plan Embajador antiguo. Estos migran con sus respectivos costos vigentes detallados en tu recibo.</string>
+    <string name="embajador_preguntas_hogar_2_ball_3">En caso desees quitar estos adicionales de tu plan, debes indicarlo en el momento de hacer la migración o llamando al 104.</string>
+    <string name="embajador_preguntas_hogar_2_ball_4">Recuerda que puedes realizar la migración haciendo click en “Lo quiero” en la web embajador o a través de nuestros canales regulares (tienda o call center 104).</string>
+    <string name="embajador_preguntas_hogar_3_ball_1">No. Si ya cuentas con un Plan Embajador antiguo puedes optar por mantenerlo, y no existirá ningún cambio en tus beneficios o facturación.</string>
+    <string name="embajador_preguntas_hogar_4_ball_1">El descuento se activará automáticamente en cada ciclo de facturación en el plan que elijas.</string>
+    <string name="embajador_preguntas_hogar_5_ball_1">Podrás contratar los servicios que el sistema de evaluación crediticio te permita, sin embargo, el descuento sólo se aplicará en dos (2) de dichas líneas como máximo.</string>
+    <string name="embajador_preguntas_hogar_6_ball_1">Si dejas de ser empleado pierdes los beneficios embajador, en todas las líneas que se encuentren a tu nombre.</string>
+
+    <string name="embajador_preguntas_movil_1_ball_1">No tienes que hacer ninguna afiliación, solo asegúrate que tu línea postpago tenga un plan Elige Más a partir de S/79 o más, que la línea esté a tu nombre y no cuentes con deudas pendientes.</string>
+    <string name="embajador_preguntas_movil_2_ball_1">Recuerda que puedes realizar la migración a través de nuestros canales digitales (Mi Movistar y nuestro canal online).</string>
+    <string name="embajador_preguntas_movil_2_ball_2">Para altas nuevas o portabilidad haz clic <u>aquí</u></string>
+    <string name="embajador_preguntas_movil_2_ball_3">Para realizar una migración up, migración down o cambio de plan haz clic <u>aquí</u>.</string>
+    <string name="embajador_preguntas_movil_2_ball_4">Para realizar una migración down llamar al 104.</string>
+    <string name="embajador_preguntas_movil_3_ball_1">El descuento del 30% se activará automáticamente en cada ciclo de facturación en el plan que elijas. Nosotros nos encargaremos de verificar todas las líneas de los empleados que estarán aptas para este beneficio.</string>
+    <string name="embajador_preguntas_movil_3_ball_2">De acuerdo a tu ciclo, puede ser que en la primera factura se pague el monto completo.</string>
+    <string name="embajador_preguntas_movil_4_ball_1">En el caso tengas una línea Caribú, la migración deberá ser gestionada en Tienda, no es posible realizar el cambio de plan o migración a través de Mi Movistar.</string>
+    <string name="embajador_preguntas_movil_5_ball_1">En el caso quieras migrar de una línea prepago a una postpago, deberás gestionarla en Tienda, no es posible realizar el cambio de plan o migración a través de Mi Movistar.</string>
+    <string name="embajador_preguntas_movil_6_ball_1">En el caso tengas dificultades en mi movistar, deberás gestionar tu cambio en Tienda, no es posible realizar el cambio de plan o migración a través de Mi Movistar.</string>
+    <string name="embajador_preguntas_movil_7_ball_1">Podrás contratar las líneas que el sistema de evaluación crediticio te permita.</string>
+    <string name="embajador_preguntas_movil_8_ball_1">Si dejas de ser empleado pierdes los beneficios embajador, en todas las líneas que se encuentren a tu nombre.</string>
+    <string name="embajador_preguntas_movil_9_ball_1">Si tienes un contrato vigente, solo puedes realizar migraciones up, no puedes realizar una migración down.</string>
+    <string name="embajador_quiebres_seleccione_texto">Selecciona las opciones correspondientes a tu consulta:</string>
+    <string name="correo_lourdes_adco"><u>lourdes.adco@marsh.com</u></string>
+    <string name="telefono_lourdes_adco"><u>988 051 585</u></string>
+    <string name="salud_eps_correo_corporativo"><u>centrodeatencionalempleado@telefonicahelprh.zendesk.com</u></string>
+    <string name="canal_embajador_movil_tab1">Paquetes</string>
+    <string name="canal_embajador_movil_tab2">¿Qué debo hacer?</string>
+    <string name="canal_embajador_hogar_tab1">Paquetes</string>
+    <string name="canal_embajador_hogar_tab2">Adicionales</string>
+    <string name="canal_embajador_hogar_tab3">Facturación</string>
+    <string name="canal_embajador_hogar_tab4">¿Qué debo hacer?</string>
+
+    <string name="embajador_hogar_importante_pregunta_1">Reclamos por descuentos</string>
+    <string name="embajador_hogar_importante_pregunta_2">¡Llévate a casa servicios adicionales!</string>
+    <string name="embajador_hogar_importante_pregunta_3">¡Mantén tus servicios adicionales!</string>
+    <string name="embajador_hogar_importante_pregunta_4">Dar de baja</string>
+    <string name="embajador_hogar_importante_pregunta_5">Descuento Embajador</string>
+    <string name="embajador_hogar_importante_pregunta_6">Empleados Nuevos</string>
+
+    <string name="embajador_hogar_importante_respuesta_1">Si tienes alguna queja o reclamo por tu Descuento Empleado, entra aquí.</string>
+    <string name="embajador_hogar_importante_respuesta_2">Los costos de los Tríos Movistar no incluyen el Repetidor Smart Wifi, Deco Smart, Bloques HBO/FOX.</string>
+    <string name="embajador_hogar_importante_respuesta_3">Si migras a uno de los Tríos Movistar y tenías servicios adicionales, el costo de ellos irán detallados en tu factura.</string>
+    <string name="embajador_hogar_importante_respuesta_4">En el caso deseas realizar una baja de tus adicionales, puedes realizarlo a través de la web embajador o llamando al 104.</string>
+    <string name="embajador_hogar_importante_respuesta_5">El Descuento Embajador no es acumulable con otros descuentos promocionales.</string>
+    <string name="embajador_hogar_importante_respuesta_6">Para empleados nuevos, debes esperar 35 días desde tu contratación para realizar el alta nueva o migración para que el descuento se pueda aplicar.</string>
+    <string name="embajador_paquete_movil_footer">Adquiere tu plan en cualquiera de nuestros puntos de venta  con tu <font color='#FF0064'><b>DNI</b></font>.</string>
+    <string name="embajador_paquete_hogar_footer_1">Pídelo como <font color='#FF0064'><b>trío regular</b></font>, no como un trío Embajador.</string>
+    <string name="embajador_paquete_hogar_footer_2">¿Quieres migrar tu trío?</string>
+    <string name="embajador_paquete_hogar_footer_aqui"><font color='#00A9E0'><u>Pídelo aquí</u></font></string>
+    <string name="hint_nombre_apellido"><i>Nombre y apellido (*)</i></string>
+    <string name="hint_dni"><i>DNI/CEX(*)</i></string>
+    <string name="hint_telefono_contacto"><i>Teléfono de contacto (*)</i></string>
+    <string name="hint_correo"><i>Correo electrónico</i></string>
+    <string name="hint_telefono_consulta"><i>Teléfono en consulta</i></string>
+
+    <string name="hint_correo_embajador"><i>Correo electrónico (*)</i></string>
+    <string name="hint_celular"><i>Celular(*)</i></string>
+    <string name="hint_descripcion"><i>Breve descripción del caso (*)</i></string>
+    <string name="embajador_quiebres_descripcion_problema">Explícanos cuál es el problema. Para agilizar la atención, te recomendamos incluir información como: número de pedido y fecha en que se hizo el pedido.</string>
+    <string name="movistar_total_facturacion_ciclo18_1">Si te migras en este periodo el descuento se refleja en tu <b>1era factura con fecha de emisión 28/03</b></string>
+    <string name="movistar_total_facturacion_ciclo18_2">Si te migras después de tu fecha fin de facturación, el descuento se refleja en tu <b>2da factura con fecha de emision 28/04</b></string>
+
+    <string name="movistar_total_facturacion_ciclo1_1">Si te migras en este periodo el descuento se refleja en tu <b>1era factura con fecha de emisión 10/03</b></string>
+    <string name="movistar_total_facturacion_ciclo1_2">Si te migras después de tu fecha fin de facturación, el descuento se refleja en tu <b>2da factura con fecha de emisión 10/04</b></string>
+
+    <string name="movistar_total_facturacion_alta_nueva_1">Si te migras en este periodo el descuento se refleja en tu <b>2da factura con fecha de emisión 10/04</b></string>
+
+    <string name="movistar_total_facturacion_alta_nueva">Si te migras en este periodo el descuento se refleja en tu <b>1era factura con fecha de emisión 10/04</b></string>
+    <string name="beneficios_total_requisitos_1">Personal activo de Telefónica del Perú</string>
+    <string name="beneficios_total_requisitos_2">Los servicios a nombre del colaborador</string>
+    <string name="beneficios_total_requisitos_3">Afiliación a recibo digital</string>
+    <string name="precio_empleado_f0"><b>X2 equipos (74.90 c/u)</b> \nS/148.26</string>
+    <string name="precio_empleado_f1"><b>(-25%)</b> \nS/199</string>
+    <string name="precio_empleado_f2"><b>(-15%)</b> \nS/199</string>
+    <string name="dialog_quiebre_hacer_otro_reclamo"><u>Hacer otro reclamo</u></string>
+    <string name="verificacion_reenviar_codigo"><u>Volver a enviar el código</u></string>
+    <string name="login_terminos_condiciones"><u>términos y condiciones</u></string>
+    <string name="login_terminos_texto">
+        “Movistar Contigo” es una aplicación móvil creada en beneficio de toda persona natural que figure como parte de la planilla activa de Telefónica del Perú S.A.A, (en adelante, el “COLABORADOR” o los “COLABORADORES”) con el fin de entregar una experiencia digital personalizada donde los COLABORADORES puedan auto-gestionarse. Por ejemplo, comunicar beneficios que tienen por ser parte de Telefónica del Perú, las noticias de la empresa e ingresar a otras herramientas internas.
+        \n\n
+        Al ingresar a la aplicación “Movistar Contigo” en el aplicativo móvil, el COLABORADOR reconoce haber leído, comprendido y aceptado los “Términos y Condiciones” que a continuación se listan.
+\n\n
+        Los “Términos y Condiciones” se aplican para acceder en línea desde la aplicación o el aplicativo a: (i) la información relacionada a servicios contratados; (ii) realizar transacciones relacionadas a sus servicios contratados; y/o, (iii) comprar productos o contratar servicios (los “Servicios”).
+\n\n
+        Los “Términos y Condiciones” aplican para Telefónica del Perú S.A.A. (en adelante, “Telefónica”).
+\n
+        \n<b>I.<u>Condiciones Generales de Uso para Colaboradores</u></b>
+\n
+\n-	El registro otorgará un código de verificación único e intransferible que será recibido por email, el mismo que será utilizado por el Colaborador para completar su registro en el equipo donde realizará la autenticación. El código será requerido cada vez que un Colaborador desee autenticarse en un equipo diferente.
+\n-	El acceso a Movistar Contigo de Telefónica desde cualquier dispositivo implica el consumo de datos, los mismos que serán consumidos de tu plan de datos contratado, salvo que te encuentres en una conexión WIFI.
+\n-	Si te encuentras en el extranjero y utilizas el APP “Movistar Contigo” de Telefónica  desde una aplicación móvil, estarás realizando consumo de datos de tu plan de datos contratado por lo que se te aplicarán costos de transmisión de datos en Roaming de acuerdo a las tarifas vigentes, te recomendamos utilizar una conexión WIFI para evitar costos adicionales.
+\n
+        \n<b>II.<u>Consideraciones según dispositivo</u></b>
+\n
+\n-	Los Colaboradores se registrarán con su D.N.I. (Documento Nacional de Identidad) o C.E. (Carné de extranjería) y podrán acceder a la aplicación “Movistar Contigo” a través de su dispositivo móvil.
+\n-	Los Colaboradores podrán ingresar a la aplicación y visualizar el home con las noticias y beneficios.
+\n-	Los Colaboradores podrán ingresar a la opción “Beneficios”, donde se encuentra un sub-menú con las opciones: “Descuentos”, “Salud”, “Estudios”, “Canal Embajador” y “Beneficios Especiales”.
+\n-	Los Colaboradores podrán ingresar a la opción herramientas donde podrán acceder a los sistemas: “Success Factors”, “Centro de Atención al Empleado (CAE)”, “Remedy”, “Doit”, “Sistemas en un click”, “Workplace”, “Sistemas de edificaciones y mantenimiento (EDI)”.
+\n-	Los Colaboradores podrán ingresar a la opción noticias y visualizar las actualizaciones del contenido diariamente.
+\n-	 Los Colaboradores podrán ingresar a Canal Embajador y visualizar el sub-menú con las opciones: “Movistar Total”, “Móvil”, “Hogar”, “Quiebres/Reclamos” y “Preguntas Frecuentes”.
+        \n
+        \n<b>III.<u>Términos y Condiciones Legales de Seguridad y Confidencialidad</u></b>
+\n
+\n-	Telefónica garantiza la seguridad y confidencialidad en el tratamiento de los datos de carácter personal facilitados por sus Colaboradores, de conformidad con la legislación peruana. En ningún caso, Telefónica proporciona información que identifique a sus colaboradores, sin previa autorización de éstos, salvo para el estricto y único fin de atenderlos de la mejor forma.
+\n-	Telefónica garantiza que los datos ingresados y las transacciones realizadas son seguras y permanecen confidenciales e inalterables gracias al Protocolo de Seguridad SSL.
+\n-	El correo electrónico registrado debe ser válido y es de exclusiva responsabilidad del Colaborador, Movistar se reserva los derechos de eliminación de cuentas en caso identifique que el correo electrónico registrado es inválido.
+\n
+        \n<b>IV.<u>Términos y Condiciones Legales del Aplicativo</u></b>
+\n
+\n-	Las transacciones que realicen los Colaboradores implican la aceptación plena y sin reservas de éste de todos los términos y condiciones incluidos este Aviso Legal de Telefónica según se encuentren vigentes en el momento mismo en que el colaborador acceda a la aplicación “Movistar Contigo”.
+\n-	La solicitud y uso del código de verificación para ingresar a la aplicación “Movistar Contigo” es exclusiva responsabilidad del Colaborador. Telefónica queda excluida de cualquier responsabilidad por el uso indebido o cualquier acto que pueda perjudicar al Colaborador o a un tercero que se vea afectado directa o indirectamente.
+\n-	El Colaborador acepta ingresar al aplicativo mediante su D.N.I. o C.E.
+\n-	El Colaborador acepta ingresar a la aplicación y visualizar el home con las noticias y beneficios.
+\n-	El Colaborador acepta ingresar a la opción “Beneficios”, en donde se encuentra un sub-menú con las opciones de “Descuentos”, “Salud”, “Estudios”, “Canal Embajador” y “Beneficios Especiales”.
+\n-	El Colaborador acepta ingresar a la opción herramientas donde podrán acceder a los sistemas: “Success Factors”, “Centro de Atención al Empleado (CAE)”, “Remedy”, “Doit”, “Sistemas en un click”, “Workplace”, “Sistemas de edificaciones y mantenimiento (EDI)”.
+\n-	El Colaborador acepta ingresar a la opción noticias y visualizar las actualizaciones del contenido diariamente.
+\n-	El Colaborador acepta ingresar a la opción Canal Embajador y visualizar el sub-menú con las opciones: “Movistar Total”, “Móvil”, “Hogar”, “Quiebres/Reclamos”, “Preguntas Frecuentes”.
+\n
+        \n<b>V.<u>Información relacionada a servicios contratados por el Colaborador a los que podrá acceder a través de la aplicación Movistar Contigo</u></b>
+\n
+\n-	El uso de la aplicación está disponible para los COLABORADORES debidamente registrados y activos con su D.N.I. o C.E.
+\n-	La aplicación cuenta con un sistema de autenticación a través del correo electrónico, para brindarle mayor seguridad y de esta manera garantizar la correcta autenticación a los datos del Colaborador.
+\n-	A través de esta aplicación, el Colaborador podrá acceder para visualizar las noticias, beneficios corporativos, beneficios especiales, beneficios del Canal Embajador, notificaciones, descuentos corporativos, descuentos Prix, en donde se mostrará la información actualizada.
+    </string>
+    <string name="sin_internet">Sin acceso a internet.\nRevisa tu conexión.</string>
+    <string name="version_name">v1.0</string>
+    <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de contar con el código de avería y éste debe de tener más de 72 horas de haberse generado para considerarlo como un quiebre. \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso, revísalo haciendo</string>
+    <string name="lint_text"><u>Click Aquí</u></string>
+
+
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#F4F4F4"
+    tools:context=".embajador.hogar.fragments.HogarPasosFragment">
+
+    <TextView
+        android:id="@+id/movil_pasos_tvNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/colorCanalEmbajador"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        tools:text="1."/>
+    <TextView
+        android:id="@+id/movil_pasos_tvDescripcion"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#86888C"
+        android:fontFamily="@font/telefonica_regular"
+        android:textStyle="bold"
+        tools:text="El descuento se hará efectivo sólo en los planes de la parrilla Elige Más desde S/ 79.90 y puedes acceder a ellos a través del canal online y/o canal regular (tienda o call center 104)."/>
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="padding_input_login">32dp</dimen>
+    <dimen name="margin_top_boton_ingresar">32dp</dimen>
+    <dimen name="login_altura_input">32dp</dimen>
+    <dimen name="login_margin_top_input">8dp</dimen>
+    <dimen name="padding_layout_verificacion">16dp</dimen>
+    <dimen name="verificacion_ancho_input">48dp</dimen>
+    <dimen name="altura_toolbar">60dp</dimen>
+    <dimen name="altura_item_beneficio">64dp</dimen>
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
+    <dimen name="lado_item_beneficios_dash">88dp</dimen>
+    <dimen name="altura_item_noticia">112dp</dimen>
+    <dimen name="titulo_item_notitica">20sp</dimen>
+    <dimen name="fecha_item_noticia">12sp</dimen>
+    <dimen name="altura_viewpager_fragment_beenficio">240dp</dimen>
+    <dimen name="item_offset">8dp</dimen>
+    <dimen name="size_texto_bullet">18sp</dimen>
+    <dimen name="item_dashboard_text_size">14sp</dimen>
+    <dimen name="dashboard_item_icon_size">40dp</dimen>
+</resources>

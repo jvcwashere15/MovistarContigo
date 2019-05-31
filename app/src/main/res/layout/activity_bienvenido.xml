@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".autenticacion.BienvenidoActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:tint="@color/colorCanalEmbajador"
+        app:srcCompat="@drawable/ic_cabecera_contigo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_bold"
+            android:text="@string/texto_splash_bienvenido"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/bienvenido_tvNombreUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_bold"
+            android:gravity="top|center"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            tools:text="DENIS" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center"
+            android:text="@string/splash_texto_descubre"
+            android:textColor="@color/splashDescubreBeneficios"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_bienvenido" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center"
+            android:text="@string/splash_opciones_descuentos"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bienvenido_btComenzar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/boton_verde"
+            android:fontFamily="@font/telefonica_bold"
+            android:text="@string/splash_texto_comenzar"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

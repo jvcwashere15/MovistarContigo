@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00A9E0</color>
+    <color name="colorPrimaryDark">#007aae</color>
+    <color name="colorAccent">#868686</color>
+    <color name="loginBoton">#5BC500</color>
+    <color name="loginBordeInput">#D6D6D6</color>
+    <color name="loginHintInput">#868686</color>
+    <color name="loginTextoBoton">#FFFFFF</color>
+    <color name="loginTextoDNI">#000000</color>
+    <color name="splashDescubreBeneficios">#979797</color>
+    <color name="dashTitlesBeneficios">#979797</color>
+    <color name="colorInfoAdicionalHerramientas">#EEEEEE</color>
+    <color name="colorDescuentos">#5BC500</color>
+    <color name="colorSalud">#E9426D</color>
+    <color name="colorEstudios">#F59C00</color>
+    <color name="colorOpenLearning">#F59C00</color>
+    <color name="colorCanalEmbajador">#00A9E0</color>
+    <color name="colorBeneficiosEspeciales">#EC6839</color>
+    <color name="colorHerramientas">#0078ED</color>
+    <color name="colorTextoDescripcionHerramienta">#86888C</color>
+    <color name="colorTextoCanalEmbajador">#86888C</color>
+    <color name="colorTextoPaqueteMovil">#86888C</color>
+
+    <color name="colorCombo1">#00A9E0</color>
+    <color name="colorCombo2">#5BC500</color>
+    <color name="colorCombo3">#954B97</color>
+
+    <color name="notificacionLeida">#E8F7FC</color>
+    <color name="colorPlaceHolder">#dddddd</color>
+
+</resources>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <include layout="@layout/my_toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <ImageView
+                    android:id="@+id/detalle_descuento_ivImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="24dp"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic[7]" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/detalle_descuento_ivLogo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center|bottom"
+                    android:background="@drawable/circulo_blanco"
+                    tools:src="@drawable/logo_estudio_descuento"/>
+                <ImageView
+                    android:id="@+id/detalle_descuento_ivTipoDescuento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_solapa_movistar"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/detalle_descuento_layout_movistar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#EEEEEE"
+                            android:layout_gravity="bottom"/>
+                        <android.support.design.widget.TabLayout
+                            android:id="@+id/detalle_descuento_tabLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            style="@style/MyCustomTabDescuentos"
+                            app:tabGravity="fill"
+                            app:tabMode="fixed">
+                            <android.support.design.widget.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Infórmate" />
+                            <android.support.design.widget.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Canjéalo"/>
+                        </android.support.design.widget.TabLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/detalle_descuento_movistar_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    android:id="@+id/detalle_descuento_layout_single"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/detalle_descuento_tvTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¡Saca tu diplomado!"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:fontFamily="@font/telefonica_bold"
+                        android:textColor="@color/colorSalud"/>
+                    <TextView
+                        android:id="@+id/detalle_descuento_tvDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="¡Ven con tus amigos y disfruta de esta increíble promoción!"
+                        android:textColor="#3A3A3A"
+                        android:gravity="center"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:textSize="15sp"/>
+                    <ImageView
+                        android:id="@+id/detalle_descuento_logo_prix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="24dp"
+                        app:srcCompat="@drawable/ic_descuento_prix"/>
+                    <TextView
+                        android:id="@+id/detalle_descuento_tvDescuento"
+                        android:layout_width="match_parent"
+                        android:text="5% de Dscto"
+                        android:gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/telefonica_bold"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorCanalEmbajador"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/detalle_descuento_vLine"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorSalud"/>
+                    <TextView
+                        android:id="@+id/detalle_descuento_tvDescuentoDetalle"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:textSize="15sp"
+                        android:textColor="#3A3A3A"
+                        android:gravity="center"
+                        android:layout_marginBottom="24dp"
+                        android:layout_height="wrap_content"
+                        android:text="01 Caja de donuts + 01 Bebida mediana a S/ 13.50"/>
+                    <TextView
+                        android:id="@+id/detalle_descuento_tvHowToUse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:textSize="13sp"
+                        android:background="#EEEEEE"
+                        android:padding="8dp"
+                        android:textColor="#86888C"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:text="Como usar"/>
+                    <TextView
+                        android:id="@+id/detalle_descuento_tvZona"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:text="* Descuento válido sólo para Lima."/>
+                    <Button
+                        android:id="@+id/detalle_descuento_btUsaloAhora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:background="@drawable/boton_verde"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/telefonica_bold"
+                        android:text="Úsalo ahora"/>
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:background="@color/colorSalud"
+        android:fontFamily="@font/telefonica_regular"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:text="APORTES EPS"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="#86888C"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="@drawable/marco_detalle"
+        android:text="@string/salud_eps_aportes_descripcion_1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Titular solo"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S/75"
+            android:gravity="right"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Titular +1"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S/110"
+            android:gravity="right"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Titular +2"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S/155"
+            android:gravity="right"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Titular +3"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S/180"
+            android:gravity="right"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Titular +4"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S/200"
+            android:gravity="right"
+            android:padding="16dp"
+            android:background="@drawable/marco_detalle"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:background="@drawable/marco_detalle_gris"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Titular +5"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S/220"
+            android:gravity="right"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#86888C"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="#86888C"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="@drawable/marco_detalle"
+        android:text="@string/salud_eps_aportes_descripcion_2"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="#86888C"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/marco_detalle_cabecera"
+        android:text="HIJOS"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle_gris"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Mayores a 18 años y menores a 25 años"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="right|center_vertical"
+            android:padding="16dp"
+            android:text="S/110"
+            android:background="@drawable/marco_detalle"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="#86888C"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="@drawable/marco_detalle_cabecera"
+        android:text="PADRES"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle_gris"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Menores a 65 años"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="right|center_vertical"
+            android:padding="16dp"
+            android:text="S/260"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle_gris"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Mayores a 65 años y menores a 75 años"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="right|center_vertical"
+            android:padding="16dp"
+            android:text="S/270"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle_gris"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Mayores a 75 años y menores a 85 años"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="right|center_vertical"
+            android:padding="16dp"
+            android:text="S/320"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/marco_detalle_gris"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Mayores a 85 años"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="right|center_vertical"
+            android:padding="16dp"
+            android:text="S/345"
+            android:background="@drawable/marco_detalle"
+            android:textColor="#86888C"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

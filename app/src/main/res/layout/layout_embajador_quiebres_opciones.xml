@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:textColor="@color/colorTextoCanalEmbajador"
+        android:text="@string/embajador_quiebres_seleccione_texto"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#50535A"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"
+        android:text="Tipo de red"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/embajador_quiebres_spinner">
+        <Spinner
+            android:id="@+id/embajador_quiebres_sp1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawSelectorOnTop="true"
+            app:backgroundTint="@color/colorCanalEmbajador"/>
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#50535A"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Tipo de consulta"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/embajador_quiebres_spinner">
+        <Spinner
+            android:id="@+id/embajador_quiebres_sp2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawSelectorOnTop="true"
+            app:backgroundTint="@color/colorCanalEmbajador"/>
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#50535A"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Tipo de producto"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/embajador_quiebres_spinner">
+        <Spinner
+            android:id="@+id/embajador_quiebres_sp3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawSelectorOnTop="true"
+            app:backgroundTint="@color/colorCanalEmbajador"/>
+    </FrameLayout>
+
+    <include
+        layout="@layout/layout_embajador_quiebres_averias"
+        android:id="@+id/quiebres_lytAveriasHogar"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/embajador_quiebres_btnContinuar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/boton_verde"/>
+
+</LinearLayout>

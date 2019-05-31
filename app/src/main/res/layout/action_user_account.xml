@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingRight="8dp">
+    <TextView
+        android:clickable="true"
+        android:id="@+id/menu_tvIniciales"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        tools:text="DR"
+        android:fontFamily="@font/telefonica_regular"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:background="@drawable/boton_verde"/>
+</RelativeLayout>

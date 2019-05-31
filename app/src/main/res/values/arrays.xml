@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_spinner_tipo_red">
+        <item>Seleccione una opción</item>
+        <item>Fija</item>
+        <item>Móvil</item>
+    </string-array>
+    <string-array name="array_spinner_tipo_consulta">
+        <item>Seleccione una opción</item>
+        <item>Pedidos</item>
+        <item>Averías</item>
+        <item>Reclamos</item>
+    </string-array>
+    <string-array name="array_spinner_tipo_producto">
+        <item>Seleccione una opción</item>
+        <item>Alta nueva</item>
+        <item>Migración</item>
+        <item>Traslados</item>
+        <item>Decos, modém, Ultra Wifi</item>
+    </string-array>
+</resources>

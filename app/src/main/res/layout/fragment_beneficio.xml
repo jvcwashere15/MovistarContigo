@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".beneficioespeciales.fragments.BeneficioFragment">
+    <TextView
+        android:id="@+id/detalle_beneficio_especial_tvDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        tools:text="@string/descripcion_maternidad_paternidad"
+        android:fontFamily="@font/telefonica_regular"
+        android:layout_marginBottom="16dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/detalle_beneficio_especial_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
