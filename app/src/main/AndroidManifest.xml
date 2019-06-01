@@ -6,17 +6,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
         android:icon="@drawable/contigo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".notificacion.NotificacionesActivity"
             android:parentActivityName=".principal.MainActivity"/>
 

@@ -37,7 +37,7 @@ public class DescuentoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
     public interface ClickDescuento{
-        public void onClick(View view, int position);
+        void onClick(View view, int position);
     }
 
     public DescuentoAdapter(RecyclerView recyclerView, Activity activity, List<Discount> discounts, Context context, final int visibleTreshold, ClickDescuento clickDescuento) {

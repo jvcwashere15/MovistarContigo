@@ -191,7 +191,7 @@ public class DescuentosActivity extends TranquiParentActivity {
                     discounts.remove(discounts.size()-1);
                     descuentoAdapter.notifyItemRemoved(discounts.size()-1);
                     List<Discount> nuevosDescuentos = response.body().getDiscounts();
-                    discounts.addAll(nuevosDescuentos);
+                    if (!nuevosDescuentos.isEmpty())discounts.addAll(nuevosDescuentos);
                     currentFiltro = categoria;
                     currentPagina = numeroPagina;
                 }else{
@@ -213,10 +213,6 @@ public class DescuentosActivity extends TranquiParentActivity {
         });
     }
 
-    private void invalidarToolbar() {
-        invalidateOptionsMenu();
-    }
-
     private void cargarDescuentos() {
         if (discounts.isEmpty()) {
             rvDescuentos.setVisibility(View.GONE);
@@ -233,16 +229,17 @@ public class DescuentosActivity extends TranquiParentActivity {
                     configurarClickDescuento(position);
                 }
             });
-            rvDescuentos.setAdapter(descuentoAdapter);
             descuentoAdapter.setLoadMore(new LoadMore() {
                 @Override
                 public void onLoadMore() {
-                    if (!isLoadingMoreDiscounts && discounts.size() <= totalItems){
+                    if (!isLoadingMoreDiscounts && discounts.size() < totalItems){
                         isLoadingMoreDiscounts = true;
                         onLoadMoreDescuentos(currentFiltro);
                     }
                 }
             });
+            rvDescuentos.setAdapter(descuentoAdapter);
+
         }
     }
 
