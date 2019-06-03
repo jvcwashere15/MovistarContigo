@@ -37,7 +37,6 @@ public class BeneficiosEspecialesActivity extends TranquiParentActivity {
     private RecyclerView rvPlanes;
     private List<SpecialBenefit> specialBenefits;
     private String mDni;
-    private ProgressDialog progressDialog;
     private boolean isLoading = true;
     private ShimmerFrameLayout mShimmerViewContainer;
 
@@ -102,7 +101,6 @@ public class BeneficiosEspecialesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<BeneficiosEspeciales> call, Throwable t) {
-                progressDialog.dismiss();
                 mostrarMensaje("Se produjo un error al cargar los beneficios especiales");
                 finish();
             }
