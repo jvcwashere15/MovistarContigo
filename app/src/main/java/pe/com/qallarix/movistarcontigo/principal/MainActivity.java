@@ -191,6 +191,7 @@ public class MainActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_notificaciones:
+                Analitycs.logEventoClickCampanaNotificaciones(MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, NotificacionesActivity.class);
                 startActivity(intent);
                 return true;

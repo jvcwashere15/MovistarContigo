@@ -18,7 +18,7 @@ public class Analitycs {
     public static void logEventoClickDashboard(Context context, String dashboardTitle){
         Bundle params = new Bundle();
         params.putString(ParamsAnalitycs.DASHBOARD_TITLE,dashboardTitle);
-        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_DASHBOARD,null);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_DASHBOARD,params);
     }
 
 
@@ -36,9 +36,9 @@ public class Analitycs {
     }
 
 
-    public static void logEventoClickBottomNav(Context context, String bottomNavTitle){
+    public static void logEventoClickBottomNav(Context context, String title){
         Bundle params = new Bundle();
-        params.putString(ParamsAnalitycs.BOTTOM_NAV_TITLE,bottomNavTitle);
+        params.putString(ParamsAnalitycs.BOTTOM_NAV_TITLE,title);
         FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_BOTTOM_NAV,null);
     }
 
@@ -46,14 +46,14 @@ public class Analitycs {
     public static void logEventoClickHerramientas(Context context, String toolTitle){
         Bundle params = new Bundle();
         params.putString(ParamsAnalitycs.TOOL_TITLE,toolTitle);
-        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_TOOL,null);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_TOOL,params);
     }
 
 
     public static void logEventoClickHerramientaLink(Context context,String toolLinkTitle){
         Bundle params = new Bundle();
         params.putString(ParamsAnalitycs.TOOL_LINK_TITLE,toolLinkTitle);
-        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_TOOL_LINK,null);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_TOOL_LINK,params);
     }
 
 
@@ -67,13 +67,22 @@ public class Analitycs {
 
     public static void logEventoClickPlanSalud(Context context, Plan plan){
         Bundle params = new Bundle();
-        params.putInt(ParamsAnalitycs.HEALTH_PLAN_ID,(int)plan.getID());
         params.putString(ParamsAnalitycs.HEALTH_PLAN_TITLE, plan.getTitle());
-        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_HEALTH_PLAN,null);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_HEALTH_PLAN,params);
+    }
+
+    public static void logEventoClickBotonPrix(Context context){
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_PRIX_CLICKED,null);
+    }
+
+    public static void logEventoClickCampanaNotificaciones(Context context){
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_NOTIFICATION_BELL,null);
     }
 
     public static void setUserPropertyClaseYCategoria(Context context, String clase, String category) {
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_AREA",clase);
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_PROFILE",category);
     }
+
+
 }

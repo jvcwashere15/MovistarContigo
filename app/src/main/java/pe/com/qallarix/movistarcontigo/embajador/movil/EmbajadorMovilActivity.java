@@ -114,7 +114,10 @@ public class EmbajadorMovilActivity extends TranquiParentActivity {
         }else if(currentTab == 1){
             fragment = EmbajadorMovilQueHacerFragment.newInstance(benefit.getSelfhelpList());
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.embajador_movil_content,fragment,"fragment_movil").commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.embajador_movil_content,fragment,"fragment_movil")
+                .commitAllowingStateLoss();
     }
 
     private void configurarToolbar(){

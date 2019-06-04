@@ -125,7 +125,10 @@ public class EmbajadorHogarActivity extends TranquiParentActivity {
         }else if(currentTab == 3){
             fragment = EmbajadorHogarQueHacerFragment.newInstance(benefit.getSelfhelpList(),benefit.getSelfhelpList2());
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.embajador_hogar_content,fragment,"fragment_hogar").commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.embajador_hogar_content,fragment,"fragment_hogar")
+                .commitAllowingStateLoss();
     }
 
     private void configurarToolbar(){

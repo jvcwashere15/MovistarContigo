@@ -81,7 +81,9 @@ public class DetalleSaludActivity extends TranquiParentActivity {
     private void displayFragmentDetalle(HealthPlan healthPlan) {
         fragmentManager = getSupportFragmentManager();
         layoutManager = new LinearLayoutManager(this);
-        fragmentManager.beginTransaction().replace(R.id.detalle_beneficio_salud_fragment,DetalleSaludFragment.newInstance(healthPlan)).commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.detalle_beneficio_salud_fragment,DetalleSaludFragment.newInstance(healthPlan))
+                .commitAllowingStateLoss();
     }
 
 

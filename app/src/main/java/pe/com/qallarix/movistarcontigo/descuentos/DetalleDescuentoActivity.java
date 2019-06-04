@@ -27,11 +27,13 @@ import com.squareup.picasso.Transformation;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.fragments.DescripcionFragment;
 import pe.com.qallarix.movistarcontigo.descuentos.fragments.UsaloFragment;
 import pe.com.qallarix.movistarcontigo.descuentos.pojos.DetalleDescuento;
 import pe.com.qallarix.movistarcontigo.descuentos.pojos.Discount;
+import pe.com.qallarix.movistarcontigo.openlearning.DetalleEstudioActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService;
 import retrofit2.Call;
@@ -197,6 +199,7 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
 //                Intent i = new Intent(Intent.ACTION_VIEW);
 //                i.setData(Uri.parse(mDiscount.getDeepLink()));
 //                startActivity(i);
+                Analitycs.logEventoClickBotonPrix(DetalleDescuentoActivity.this);
                 if (isPackageExisted("pe.beyond.movistar.prioritymoments")) {
                     Intent intent = new Intent (Intent.ACTION_VIEW);
 //                    intent.setData (Uri.parse("pe.beyond.movistar.priority://prix?promo=a0t1r000008sV6fAAE"));
