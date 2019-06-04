@@ -317,7 +317,10 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
                             mDiscount.getContact().getPhoneAnexo(),mDiscount.getContact().getPhoneWhatsapp(),
                             mDiscount.getContact().getEmail());
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.detalle_descuento_movistar_content,fragment,"fragment_descuento").commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.detalle_descuento_movistar_content,fragment,"fragment_descuento")
+                .commitAllowingStateLoss();
     }
 
     private void goToParentActivity() {

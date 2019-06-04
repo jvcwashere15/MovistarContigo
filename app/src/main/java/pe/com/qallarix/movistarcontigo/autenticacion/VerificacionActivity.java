@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goodiebag.pinview.Pinview;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -31,26 +32,31 @@ import retrofit2.Response;
 
 public class VerificacionActivity extends TranquiParentActivity {
 
-    private TextView tvDni;
-    private TextView tvVolverEnviarCodigo;
+    private View
+            vProgressVerificacion,
+            vProgressVolverAEnviar;
+    private TextView
+            tvDni,
+            tvVolverEnviarCodigo;
     private Button btValidar;
-    private String documentNumber;
-    private String tokenAccess;
-
-    private String documentType;
+    private String
+            documentNumber,
+            tokenAccess,
+            documentType;
     private Pinview mPinview;
     private ImageView btAtras;
-    private final String TOPIC_PRODUCCION = "produccion_android";
-    private final String TOPIC_DESARROLLO = "develop_android";
-    private ProgressDialog progressDialog;
+    private final String
+            TOPIC_PRODUCCION = "produccion_android",
+            TOPIC_DESARROLLO = "develop_android";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verificacion);
+        getDataIntent();
+        bindearVistas();
 
-        documentNumber = getIntent().getExtras().getString("documentNumber","");
-        documentType = getIntent().getExtras().getString("documentType","");
 
         btAtras = findViewById(R.id.verificacion_btAtras);
         btAtras.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +72,21 @@ public class VerificacionActivity extends TranquiParentActivity {
 
     }
 
-    private void configurarPinview() {
+    private void bindearVistas() {
+        vProgressVerificacion = findViewById(R.id.verificacion_lytValidarCodigo);
+        vProgressVolverAEnviar = findViewById(R.id.verificacion_lytEnviarCodigo);
         mPinview = findViewById(R.id.verificacion_pinview);
+        tvVolverEnviarCodigo = findViewById(R.id.verificacion_tvVolverEnviarCodigo);
+        tvDni = findViewById(R.id.verificacion_tvDni);
+        btValidar = findViewById(R.id.verificacion_btAceptar);
+    }
+
+    private void getDataIntent() {
+        documentNumber = getIntent().getExtras().getString("documentNumber","");
+        documentType = getIntent().getExtras().getString("documentType","");
+    }
+
+    private void configurarPinview() {
         mPinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
             @Override
             public void onDataEntered(Pinview pinview, boolean b) {
@@ -79,7 +98,6 @@ public class VerificacionActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonValidarToken(){
-        btValidar = findViewById(R.id.verificacion_btAceptar);
         btValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +114,6 @@ public class VerificacionActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonVolverEnviarcodigo(final String tipoDoc, final String numeroDoc) {
-        tvVolverEnviarCodigo = findViewById(R.id.verificacion_tvVolverEnviarCodigo);
         tvVolverEnviarCodigo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,12 +126,11 @@ public class VerificacionActivity extends TranquiParentActivity {
         Call<ResponseToken> call = WebService.getInstance(documentNumber)
                 .createService(ServiceEmployeeApi.class)
                 .getGenerateToken(documentType,documentNumber);
-        progressDialog = ProgressDialog.show(VerificacionActivity.this, "Autenticación",
-                "Enviando nuevo código...", true);
+        vProgressVolverAEnviar.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<ResponseToken>() {
             @Override
             public void onResponse(Call<ResponseToken> call, Response<ResponseToken> response) {
-                progressDialog.dismiss();
+                vProgressVolverAEnviar.setVisibility(View.GONE);
                 if (response.code() == 200){
                     mostrarMensaje("Se envío un nuevo código a tu correo corporativo");
                 }else if (response.code() == 401){
@@ -127,7 +143,7 @@ public class VerificacionActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseToken> call, Throwable t) {
-                progressDialog.dismiss();
+                vProgressVolverAEnviar.setVisibility(View.GONE);
                 mostrarMensaje("Se produjo un error al intentar enviar un nuevo código");
             }
         });
@@ -138,12 +154,11 @@ public class VerificacionActivity extends TranquiParentActivity {
         Call<ValidacionToken> call = WebService.getInstance(documentNumber)
                 .createService(ServiceEmployeeApi.class)
                 .validarToken(tipoDoc,numeroDoc,tokenIngresado);
-        progressDialog = ProgressDialog.show(VerificacionActivity.this, "Autenticación",
-                "Verificando código...", true);
+        vProgressVerificacion.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<ValidacionToken>() {
             @Override
             public void onResponse(Call<ValidacionToken> call, Response<ValidacionToken> response) {
-                progressDialog.dismiss();
+                vProgressVerificacion.setVisibility(View.GONE);
                 if (response.code() == 200){
                     Employee employee = response.body().getEmployee();
                     guardarEmpleadoSharedPreferences(employee);
@@ -158,7 +173,8 @@ public class VerificacionActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ValidacionToken> call, Throwable t) {
-                progressDialog.dismiss();
+                Toast.makeText(VerificacionActivity.this, "Se produjo un error al intentar validar el token", Toast.LENGTH_SHORT).show();
+                vProgressVerificacion.setVisibility(View.GONE);
             }
         });
     }
@@ -207,7 +223,7 @@ public class VerificacionActivity extends TranquiParentActivity {
     }
 
     private void setearDni() {
-        tvDni = findViewById(R.id.verificacion_tvDni);
+
         if (documentNumber.length() == 8){
             tvDni.setText("Número de DNI: " + documentNumber);
         }else{
@@ -218,5 +234,9 @@ public class VerificacionActivity extends TranquiParentActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    public void clickNull(View view) {
+        Toast.makeText(this, "Espere...", Toast.LENGTH_SHORT).show();
     }
 }

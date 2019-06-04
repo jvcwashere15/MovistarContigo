@@ -328,7 +328,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 \n-	A través de esta aplicación, el Colaborador podrá acceder para visualizar las noticias, beneficios corporativos, beneficios especiales, beneficios del Canal Embajador, notificaciones, descuentos corporativos, descuentos Prix, en donde se mostrará la información actualizada.
     </string>
     <string name="sin_internet">Sin acceso a internet.\nRevisa tu conexión.</string>
-    <string name="version_name">v1.0</string>
+    <string name="version_name">v1.0.1</string>
     <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de contar con el código de avería y éste debe de tener más de 72 horas de haberse generado para considerarlo como un quiebre. \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso, revísalo haciendo</string>
     <string name="lint_text"><u>Click Aquí</u></string>
 

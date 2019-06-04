@@ -135,7 +135,10 @@ public class DetalleBeneficioEspecialActivity extends TranquiParentActivity {
             fragment = ContactoFragment.newInstance(currentSpecialBenefits.getHowToUse(),currentSpecialBenefits.getContactPhone(),
                     currentSpecialBenefits.getContactPhoneAnexo(),currentSpecialBenefits.getContactMobile(),currentSpecialBenefits.getContactEmail());
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.detalle_beneficio_especial_content,fragment,"fragment_beneficio_especial").commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.detalle_beneficio_especial_content,fragment,"fragment_beneficio_especial")
+                .commitAllowingStateLoss();
     }
 
     private boolean existeContacto(SpecialBenefits currentSpecialBenefits) {

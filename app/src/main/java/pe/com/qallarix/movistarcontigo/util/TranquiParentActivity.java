@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
@@ -18,9 +19,15 @@ import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 
 public class TranquiParentActivity extends AppCompatActivity {
 
+
+
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+        View mViewWithFocus = activity.getCurrentFocus();
+        if (mViewWithFocus != null){
+            inputMethodManager.hideSoftInputFromWindow(mViewWithFocus.getWindowToken(), 0);
+        }
+
     }
 
     public void mostrarMensaje(String m){

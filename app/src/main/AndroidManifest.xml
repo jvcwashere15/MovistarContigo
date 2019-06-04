@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".notificacion.NotificacionesActivity"
-            android:parentActivityName=".principal.MainActivity"/>
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait"/>
 
         <service android:name=".notificacion.MyFirebaseMessagingService">
             <intent-filter>
@@ -39,6 +40,7 @@
 
         <activity
             android:name=".autenticacion.LoginActivity"
+            android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".autenticacion.TerminosActivity"
             android:screenOrientation="portrait"/>

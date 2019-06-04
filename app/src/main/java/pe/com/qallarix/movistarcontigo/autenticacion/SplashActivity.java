@@ -1,5 +1,6 @@
 package pe.com.qallarix.movistarcontigo.autenticacion;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -124,6 +127,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void mostrarMensaje(String m){
+        Toast mToast = Toast.makeText(this, m, Toast.LENGTH_SHORT);
         final AlertDialog.Builder builder = new AlertDialog.Builder(SplashActivity.this);
         builder.setMessage(m);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -133,7 +137,13 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
         final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        if(!isFinishing())
+        {
+            alertDialog.show();
+        }else{
+            mToast.show();
+            finishAffinity();
+        }
     }
 
 

@@ -34,21 +34,29 @@ public class LoginActivity extends TranquiParentActivity {
     private EditText etDni;
     private Button btIngresar;
     private String documentType = "1";
-    private ProgressDialog progressDialog;
     private TextView tvTerminos;
     private CheckBox cbTerminos;
+    private View viewProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        bindearVistas();
         configurarInputDni();
         configurarBotonIniciarSesion();
         configurarTerminos();
     }
 
-    private void configurarTerminos() {
+    private void bindearVistas() {
+        viewProgress = findViewById(R.id.login_viewProgress);
         tvTerminos = findViewById(R.id.login_tvTerminosCondiciones);
+        etDni = findViewById(R.id.login_etDni);
+        btIngresar = findViewById(R.id.login_btIngresar);
+        cbTerminos = findViewById(R.id.login_cbTerminos);
+    }
+
+    private void configurarTerminos() {
         tvTerminos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,19 +67,16 @@ public class LoginActivity extends TranquiParentActivity {
     }
 
     private void configurarInputDni() {
-        etDni = findViewById(R.id.login_etDni);
         etDni.setTransformationMethod(new NumericKeyBoardTransformationMethod());
     }
 
     private void configurarBotonIniciarSesion(){
-        btIngresar = findViewById(R.id.login_btIngresar);
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 iniciarSesion();
             }
         });
-
     }
 
     private void iniciarSesion() {
@@ -92,7 +97,6 @@ public class LoginActivity extends TranquiParentActivity {
     }
 
     private boolean terminosAceptados() {
-        cbTerminos = findViewById(R.id.login_cbTerminos);
         if (cbTerminos.isChecked())
             return true;
         else
@@ -116,19 +120,17 @@ public class LoginActivity extends TranquiParentActivity {
         Call<ResponseToken> call = WebService.getInstance(numeroDoc)
                 .createService(ServiceEmployeeApi.class)
                 .getGenerateToken(tipoDoc,numeroDoc);
-        progressDialog = ProgressDialog.show(LoginActivity.this, "Autenticación",
-                "Validando documento...", true);
+        viewProgress.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<ResponseToken>() {
             @Override
             public void onResponse(Call<ResponseToken> call, Response<ResponseToken> response) {
-                progressDialog.dismiss();
+                viewProgress.setVisibility(View.GONE);
                 if (response.code() == 200){
                     Intent intent = new Intent(LoginActivity.this,VerificacionActivity.class);
                     intent.putExtra("token",response.body().getToken().getCode());
                     intent.putExtra("documentType",tipoDoc);
                     intent.putExtra("documentNumber",numeroDoc);
                     etDni.setText("");
-
                     startActivity(intent);
                 }else if (response.code() == 401){
                     mostrarMensaje("Número de DNI o C.E. incorrecto");
@@ -139,9 +141,13 @@ public class LoginActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseToken> call, Throwable t) {
-                progressDialog.dismiss();
-                Snackbar.make(findViewById(R.id.login_view_parent),"Se produjo un error al intentar iniciar sesión", 3000).show();
+                viewProgress.setVisibility(View.GONE);
+                Toast.makeText(LoginActivity.this, "Se produjo un error al intentar iniciar sesión", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void clickNull(View view) {
+        Toast.makeText(this, "Espere...", Toast.LENGTH_SHORT).show();
     }
 }

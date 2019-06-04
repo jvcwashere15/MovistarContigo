@@ -216,7 +216,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void mostrarDatosUsuario() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = parentActivity.getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
         if (sharedPreferences != null && sharedPreferences.contains("firstName")){
             String firstName = sharedPreferences.getString("firstName","");
             if (!firstName.equals("")){
