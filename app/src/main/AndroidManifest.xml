@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pe.com.qallarix.movistarcontigo">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,38 +13,39 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".notificacion.NotificacionesActivity"
+        <activity android:name=".vacaciones.VacacionesActivity"></activity>
+        <activity
+            android:name=".notificacion.NotificacionesActivity"
             android:parentActivityName=".principal.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <service android:name=".notificacion.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
+
             <meta-data
                 android:name="com.google.firebase.messaging.default_notification_icon"
                 android:resource="@drawable/ic_contigo" />
         </service>
 
-        <activity android:name=".util.TranquiParentActivity" />
-
-        <!-- - - - - - - - Módulo Autenticación - - - - - - -->
+        <activity android:name=".util.TranquiParentActivity" /> <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
             android:name=".autenticacion.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".autenticacion.LoginActivity"
             android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
-        <activity android:name=".autenticacion.TerminosActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".autenticacion.TerminosActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".autenticacion.VerificacionActivity"
             android:configChanges="keyboardHidden"
@@ -53,66 +55,53 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".autenticacion.AccountActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - Main Activity - Dashboard - - - - -->
         <activity
             android:name=".principal.MainActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"/>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - Módulo Descuentos - - - - - - - -->
         <activity
             android:name=".descuentos.DescuentosActivity"
-            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
             android:parentActivityName=".principal.MainActivity"
-            android:launchMode="singleTop"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".descuentos.DetalleDescuentoActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".descuentos.DescuentosActivity"/>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:parentActivityName=".descuentos.DescuentosActivity"
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - Módulo Salud - - - - - - - - - -->
         <activity
             android:name=".salud.SaludActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"/>
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".salud.DetalleSaludActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".salud.SaludActivity"/>
-
-        <activity android:name=".salud.PdfActivity"/>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:parentActivityName=".salud.SaludActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".salud.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
         <activity
             android:name=".beneficioespeciales.BeneficiosEspecialesActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"/>
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".beneficioespeciales.DetalleBeneficioEspecialActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"/>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
         <activity
             android:name=".embajador.CanalEmbajadorActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".embajador.quiebres.EmbajadorQuiebresActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".embajador.preguntas.EmbajadorPreguntasActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".embajador.movil.EmbajadorMovilActivity"
             android:screenOrientation="portrait" />
@@ -121,18 +110,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".embajador.total.EmbajadorMovistarTotalActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Noticia - - - - - - - -->
         <activity
             android:name=".noticias.DetalleNoticiaActivity"
             android:parentActivityName=".principal.MainActivity"
-            android:screenOrientation="portrait"/>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
-
-
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <activity
             android:name=".openlearning.CategoriasActivity"
             android:screenOrientation="portrait" />
@@ -142,7 +125,6 @@
         <activity
             android:name=".openlearning.OpenLearningActivity"
             android:screenOrientation="portrait" />
-
     </application>
 
 </manifest>

@@ -35,6 +35,7 @@ import pe.com.qallarix.movistarcontigo.principal.NoticiasDashboardAdapter;
 import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,12 +46,10 @@ import retrofit2.Response;
  */
 public class HomeFragment extends Fragment {
     private TextView tvHolaUsuario;
-    private CardView cvDescuentos, cvSalud, cvCanalEmbajador,
-            cvEstudios, cvBeneficiosEspeciales;
-
     private ImageView ivAtras,ivAdelante;
     private ViewPager vpNoticias;
     private NoticiasDashboardAdapter noticiasDashboardAdapter;
+    private View btVacaciones;
 
     private List<News> noticias;
     private DotIndicator dotIndicator;
@@ -94,7 +93,7 @@ public class HomeFragment extends Fragment {
         tvHolaUsuario = rootView.findViewById(R.id.home_tvHolaUsuario);
         vpNoticias = rootView.findViewById(R.id.home_vpNoticias);
         dotIndicator = rootView.findViewById(R.id.dotIndicator);
-        bindearVistas(rootView);
+        btVacaciones = rootView.findViewById(R.id.dashboard_btVacaciones);
         return rootView;
     }
 
@@ -182,7 +181,17 @@ public class HomeFragment extends Fragment {
     private void cargarDashBoardFromCache() {
         configurarViewPagerNoticiasDestacadas();
         mostrarDatosUsuario();
-        configurarBotonesBeneficios();
+        configurarBotonVacaciones();
+    }
+
+    private void configurarBotonVacaciones() {
+        btVacaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), VacacionesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void configurarViewPagerNoticiasDestacadas() {
@@ -223,54 +232,6 @@ public class HomeFragment extends Fragment {
             }
         }
     }
-    private void configurarBotonesBeneficios() {
-        setearMetodoClick(cvDescuentos,DescuentosActivity.class);
-        setearMetodoClick(cvEstudios, OpenLearningActivity.class);
-        setearMetodoClick(cvSalud,SaludActivity.class);
-        setearMetodoClick(cvCanalEmbajador,CanalEmbajadorActivity.class);
-        setearMetodoClick(cvBeneficiosEspeciales,BeneficiosEspecialesActivity.class);
-    }
 
-
-    /**
-     * metodo para dar al funcionalidad click al cardview del beneficio
-     * @param cardView vista cardview clickeable del beneficio
-     * @param activityClass activity.class a donde se dirigira al dar click
-     */
-    private void setearMetodoClick(final CardView cardView, final Class<?> activityClass) {
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cardView.equals(cvBeneficiosEspeciales)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_SPECIALS);
-                else if (cardView.equals(cvCanalEmbajador)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_AMBASSADOR);
-                else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
-                else if (cardView.equals(cvEstudios)) Analitycs.logEventoClickDashboard(getActivity(), TITLE_OPEN_LEARNING);
-                else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
-                irAlBeneficio(activityClass);
-            }
-        });
-    }
-
-
-    /**
-     * metodo para ir a la actividad de un beneficio específico
-     * @param activityClass la activity.class que se abrirá
-     */
-    public void irAlBeneficio(Class<?> activityClass){
-        Intent intent =  new Intent(getActivity(),activityClass);
-        startActivity(intent);
-    }
-
-    /**
-     * metodo para conectar las vistas con sus referencias
-     * @param vistaRaiz referencia a la vista inflada para el fragment
-     */
-    public void bindearVistas(View vistaRaiz){
-        cvDescuentos = vistaRaiz.findViewById(R.id.dash_cvDescuentos);
-        cvSalud = vistaRaiz.findViewById(R.id.dash_cvSalud);
-        cvEstudios = vistaRaiz.findViewById(R.id.dash_cvOpenLearning);
-        cvCanalEmbajador = vistaRaiz.findViewById(R.id.dash_cvCanalEmbajador);
-        cvBeneficiosEspeciales = vistaRaiz.findViewById(R.id.dash_cvBeneficiosEspeciales);
-    }
 
 }
