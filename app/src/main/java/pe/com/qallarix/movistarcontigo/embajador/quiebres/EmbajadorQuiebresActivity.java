@@ -28,6 +28,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.dynamic.IFragmentWrapper;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -78,6 +80,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
     private TextView tvAveriaHogarDescripcion;
     private TextView tvAveriaHogarLink;
 
+    private boolean altaNueva = false;
 
 
     private List<String> opcionesCombo1 = new ArrayList<>();
@@ -114,6 +117,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
         configurarBotonContinuar();
         configurarBotonRegistrarQuiebre();
     }
+
 
     private void configurarBotonRegistrarQuiebre() {
         btnRegistrarCaso = findViewById(R.id.embajador_quiebres_btnRegistrarCaso);
@@ -168,6 +172,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
         });
     }
 
+
     private boolean formularioEsValido() {
         if (TextUtils.isEmpty(etNombre.getText().toString().trim())){
             mostrarMensaje("Datos del titular del servicio: debe indicar el nombre");
@@ -192,14 +197,16 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
             etTelefonoContacto.requestFocus();
             return false;
         }
-        if (TextUtils.isEmpty(etTelefonoConsulta.getText().toString().trim())){
-            mostrarMensaje("Datos del titular del servicio: debe indicar el teléfono en consulta");
-            etTelefonoConsulta.requestFocus();
-            return false;
-        }else if (etTelefonoConsulta.getText().toString().trim().length() < 7){
-            mostrarMensaje("Datos del titular del servicio: el teléfono de consulta debe tener 7(fijo) ó 9(celular) dígitos");
-            etTelefonoConsulta.requestFocus();
-            return false;
+        if (!altaNueva){
+            if (TextUtils.isEmpty(etTelefonoConsulta.getText().toString().trim())){
+                mostrarMensaje("Datos del titular del servicio: debe indicar el teléfono en consulta");
+                etTelefonoConsulta.requestFocus();
+                return false;
+            }else if (etTelefonoConsulta.getText().toString().trim().length() < 7){
+                mostrarMensaje("Datos del titular del servicio: el teléfono de consulta debe tener 7(fijo) ó 9(celular) dígitos");
+                etTelefonoConsulta.requestFocus();
+                return false;
+            }
         }
 
         if (TextUtils.isEmpty(etEmail.getText().toString().trim())){
@@ -427,7 +434,9 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
                                         btnContinuar.setEnabled(true);
                                     }
                                 });
-                    }else btnContinuar.setEnabled(true);
+                    }else
+                        btnContinuar.setEnabled(true);
+
                 }else vAveriasHogar.setVisibility(View.GONE);
                 vPregunta.setVisibility(View.GONE);
                 vFormulario.setVisibility(View.GONE);
@@ -496,6 +505,14 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
                         }
                     }else{
                         String codigoProducto = productTypeLists.get(spProduct.getSelectedItemPosition()-1).getCode();
+                        if (codigoProducto.equals("MOVIL-PEDIDOS-ALTA") || codigoProducto.equals("FIJA" +
+                                "-PEDIDOS-ALTA")){
+                            altaNueva = true;
+                            etTelefonoConsulta.setVisibility(View.GONE);
+                        }else{
+                            altaNueva = false;
+                            etTelefonoConsulta.setVisibility(View.VISIBLE);
+                        }
                         questionList.clear();
                         Call<QuiebrePregunta> call = WebService.getInstance(mDni)
                                 .createService(ServiceAmbassadorApi.class)
