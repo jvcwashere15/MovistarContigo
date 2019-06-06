@@ -1,6 +1,5 @@
 package pe.com.qallarix.movistarcontigo.vacaciones;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +9,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
+
 public class VacacionesActivity extends AppCompatActivity {
     private View
             vRegistro,
@@ -39,7 +39,7 @@ public class VacacionesActivity extends AppCompatActivity {
         vRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this,RegistroVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, RegistroVacacionesActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,19 +1,18 @@
-package pe.com.qallarix.movistarcontigo.vacaciones;
+package pe.com.qallarix.movistarcontigo.vacaciones.registro;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-
-import java.util.Calendar;
 
 import pe.com.qallarix.movistarcontigo.R;
 
@@ -25,8 +24,13 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
     private TextView
             tvFechaInicio,
             tvFechaFin;
+    private Button btRegistar;
+
+
     private final int INICIO = 1;
     private final int FIN = 2;
+
+    private int mDia = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,34 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
         bindearVistas();
         configurarBotonCalendarioInicio();
         configurarBotonCalendarioFin();
+        configurarBotonRegistrar();
+    }
+
+    private void configurarBotonRegistrar() {
+        btRegistar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
+                builder.setTitle("¿Deseas continuar?");
+                builder.setMessage(getString(R.string.texto_dialog_registrar_vacaciones));
+                builder.setCancelable(false);
+                builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(RegistroVacacionesActivity.this,FinalizarRegistroActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Ahora no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                final AlertDialog alertDialog = builder.create();
+                if (!isFinishing()) alertDialog.show();
+            }
+        });
     }
 
 
@@ -90,7 +122,7 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
     }
 
     private void obtenerFecha(final int flag){
-        DatePickerDialog recogerFecha = new DatePickerDialog(this,R.style.DatePickerTheme, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 //Esta variable lo que realiza es aumentar en uno el mes ya que comienza desde 0 = enero
@@ -112,7 +144,6 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
         }, 2019, 6, 6);
         //Muestro el widget
         recogerFecha.show();
-
     }
 
     private void bindearVistas() {
@@ -120,6 +151,6 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
         vCalendarioFin = findViewById(R.id.vacaciones_vCalendarioFin);
         tvFechaInicio= findViewById(R.id.registro_vacaciones_tvFechaInicio);
         tvFechaFin = findViewById(R.id.registro_vacaciones_tvFechaFin);
-
+        btRegistar = findViewById(R.id.registrar_vacaciones_btRegistrar);
     }
 }

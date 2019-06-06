@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".vacaciones.RegistroVacacionesActivity">
+    tools:context=".vacaciones.registro.RegistroVacacionesActivity">
     <include layout="@layout/my_toolbar"/>
     <TextView
         android:layout_width="match_parent"
@@ -101,10 +101,65 @@
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""/>
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:textColor="#2A2A3C"
+            android:textSize="16sp"
+            android:fontFamily="@font/telefonica_bold"
+            android:text="Días solicitados"/>
+        <TextView
+            android:id="@+id/registrar_vacaciones_tvDiasSolicitados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:textSize="22sp"
+            android:textColor="#2A2A3C"
+            android:fontFamily="@font/telefonica_bold"
+            android:text="14 días"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/registrar_vacaciones_tvLiderAprobacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="14sp"
+        android:fontFamily="@font/telefonica_regular"
+        android:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta."/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/registrar_vacaciones_tvQuedanVacaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/registrar_vacaciones_btRegistrar"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:text="Te quedan 11 días calendarios pendientes por usar hasta el 24/11/2019." />
+        <Button
+            android:id="@+id/registrar_vacaciones_btRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Registrar"
+            android:layout_margin="16dp"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/telefonica_bold"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/boton_verde"/>
     </RelativeLayout>
 </LinearLayout>

@@ -17,7 +17,7 @@ public class WebService {
 
     private final String BASE_URL_QA = "https://qallarix-ws-qa.azurewebsites.net/";
     private final String BASE_URL_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
-    private final String BASE_URL = BASE_URL_QA;
+    private final String BASE_URL = BASE_URL_PRODUCCION;
 
     private static WebService instance;
     private Retrofit retrofit;

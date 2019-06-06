@@ -13,21 +13,25 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".vacaciones.RegistroVacacionesActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".vacaciones.VacacionesActivity"/>
-
-        <activity android:name=".vacaciones.EstadoVacacionesActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".vacaciones.VacacionesActivity"/>
-
-        <activity android:name=".vacaciones.AprobacionVacacionesActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".vacaciones.VacacionesActivity"/>
+        <activity android:name=".vacaciones.registro.FinalizarRegistroActivity"
+            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".vacaciones.registro.RegistroVacacionesActivity"
+            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".vacaciones.EstadoVacacionesActivity"
+            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".vacaciones.AprobacionVacacionesActivity"
+            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".vacaciones.VacacionesActivity"
-            android:parentActivityName=".principal.MainActivity"
             android:launchMode="singleTop"
+            android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".notificacion.NotificacionesActivity"

@@ -331,6 +331,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <string name="version_name">v1.0.1</string>
     <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de contar con el código de avería y éste debe de tener más de 72 horas de haberse generado para considerarlo como un quiebre. \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso, revísalo haciendo</string>
     <string name="lint_text"><u>Click Aquí</u></string>
+    <string name="texto_dialog_registrar_vacaciones">La fecha máxima para que se apruebe la solicitud y el pago de la nómina sea considerado es hasta el 12/04/2019, caso contrario se hará una reprogramación en la siguiente nómina.</string>
 
 
 </resources>

@@ -14,6 +14,7 @@ import android.text.Spanned;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 
@@ -40,7 +41,8 @@ public class TranquiParentActivity extends AppCompatActivity {
             }
         });
         final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        if (!isFinishing()) alertDialog.show();
+        else Toast.makeText(this, m, Toast.LENGTH_SHORT).show();
     }
 
 
