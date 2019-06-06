@@ -128,7 +128,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:background="@drawable/fondo_redondeado_celeste"
+                android:background="@drawable/fondo_vacaciones"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
@@ -137,39 +137,56 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13">
 
-                <TextView
+                <LinearLayout
                     android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/telefonica_bold"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical"
                     android:gravity="center"
                     android:text="¡Gestiona tus vacaciones \ndesde el app!"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/dashboard_btVacaciones"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/dashboard_btVacaciones"
-                    app:layout_constraintTop_toTopOf="@+id/dashboard_btVacaciones" />
+                    app:layout_constraintTop_toTopOf="@+id/dashboard_btVacaciones"
+                    app:layout_constraintWidth_percent="0.5">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¡Gestiona tus"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="vacaciones"
+                        android:textSize="25sp"
+                        android:includeFontPadding="false"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/telefonica_hand"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:textColor="@android:color/white"
+                        android:text="desde el app!"/>
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/imageView12"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitEnd"
                     app:layout_constraintBottom_toBottomOf="@+id/dashboard_btVacaciones"
                     app:layout_constraintEnd_toEndOf="@+id/dashboard_btVacaciones"
-                    app:layout_constraintStart_toStartOf="@+id/dashboard_btVacaciones"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintWidth_percent="0.5"
                     app:srcCompat="@drawable/vacaciones" />
-
             </android.support.constraint.ConstraintLayout>
-
-
-
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
     <include

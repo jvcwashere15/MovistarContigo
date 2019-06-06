@@ -102,4 +102,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DatePickerTheme" parent="AppTheme">
+        <item name="colorAccent">#169300</item>
+    </style>
 </resources>
