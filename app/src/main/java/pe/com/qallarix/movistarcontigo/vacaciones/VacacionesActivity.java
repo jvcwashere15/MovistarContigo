@@ -19,9 +19,7 @@ public class VacacionesActivity extends AppCompatActivity {
     private View
             vRegistro,
             vEstado,
-            vAprobacion,
-            vCalendarioInicio,
-            vCalendarioFin;
+            vAprobacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
