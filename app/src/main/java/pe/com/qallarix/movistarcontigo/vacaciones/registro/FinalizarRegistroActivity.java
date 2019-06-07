@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.vacaciones.EstadoVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 
 public class FinalizarRegistroActivity extends AppCompatActivity {
 

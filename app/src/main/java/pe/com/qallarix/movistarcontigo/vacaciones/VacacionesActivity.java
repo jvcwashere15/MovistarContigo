@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
 
 public class VacacionesActivity extends AppCompatActivity {
@@ -48,7 +50,7 @@ public class VacacionesActivity extends AppCompatActivity {
         vEstado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this,EstadoVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, EstadoVacacionesActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +59,7 @@ public class VacacionesActivity extends AppCompatActivity {
         vAprobacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this,AprobacionVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, AprobacionVacacionesActivity.class);
                 startActivity(intent);
             }
         });

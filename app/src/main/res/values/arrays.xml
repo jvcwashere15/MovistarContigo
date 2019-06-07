@@ -18,4 +18,11 @@
         <item>Traslados</item>
         <item>Decos, modém, Ultra Wifi</item>
     </string-array>
+
+
+    <string-array name="array_anios_vacaciones">
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+    </string-array>
 </resources>
