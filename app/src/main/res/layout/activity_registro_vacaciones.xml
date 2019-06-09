@@ -148,10 +148,10 @@
             android:textSize="14sp"
             android:fontFamily="@font/telefonica_regular"
             android:text="Te quedan 11 días calendarios pendientes por usar hasta el 24/11/2019." />
-        <Button
+        <TextView
             android:id="@+id/registrar_vacaciones_btRegistrar"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="40dp"
             android:text="Registrar"
             android:layout_margin="16dp"
             android:textSize="16sp"
@@ -160,6 +160,6 @@
             android:textColor="@android:color/white"
             android:gravity="center"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/boton_verde"/>
+            android:background="@drawable/boton_vacaciones_verde"/>
     </RelativeLayout>
 </LinearLayout>

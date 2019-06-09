@@ -24,7 +24,7 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
     private TextView
             tvFechaInicio,
             tvFechaFin;
-    private Button btRegistar;
+    private TextView tvButtonRegistar;
 
 
     private final int INICIO = 1;
@@ -44,7 +44,7 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
     }
 
     private void configurarBotonRegistrar() {
-        btRegistar.setOnClickListener(new View.OnClickListener() {
+        tvButtonRegistar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
@@ -151,6 +151,6 @@ public class RegistroVacacionesActivity extends AppCompatActivity {
         vCalendarioFin = findViewById(R.id.vacaciones_vCalendarioFin);
         tvFechaInicio= findViewById(R.id.registro_vacaciones_tvFechaInicio);
         tvFechaFin = findViewById(R.id.registro_vacaciones_tvFechaFin);
-        btRegistar = findViewById(R.id.registrar_vacaciones_btRegistrar);
+        tvButtonRegistar = findViewById(R.id.registrar_vacaciones_btRegistrar);
     }
 }

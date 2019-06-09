@@ -91,7 +91,8 @@ public class VacacionesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_informacion:
-                //visualizar informacion
+                Intent intent = new Intent(this,AcercaActivity.class);
+                startActivity(intent);
                 return true;
             case android.R.id.home:
                 goToParentActivity();

@@ -332,6 +332,56 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de contar con el código de avería y éste debe de tener más de 72 horas de haberse generado para considerarlo como un quiebre. \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso, revísalo haciendo</string>
     <string name="lint_text"><u>Click Aquí</u></string>
     <string name="texto_dialog_registrar_vacaciones">La fecha máxima para que se apruebe la solicitud y el pago de la nómina sea considerado es hasta el 12/04/2019, caso contrario se hará una reprogramación en la siguiente nómina.</string>
+    <string name="texto_acerca_vacaciones">
+        Todos los colaboradores tienen 30 días calendario de descanso vacacional por cada año de servicio, los cuales debes programar dentro de los 3 primeros meses de cada año, de enero a marzo, en coordinación con tu jefe directo.
+
+
+\n\nPuedes registrar tus días de vacaciones en el Sistema de Gestión Vacacional (SGV) o desde el app Movistar Contigo éstas serán aprobadas por tu jefe directo, al cual le llegará una notificación a su correo corporativo.
+
+
+\n\nEn caso de no programar tus vacaciones anticipadamente, la compañía, realiza la programación automática de los días que están próximos a vencer, hasta dos meses antes de ganar tu nueva fecha de derecho.
+
+
+\n\nEsta programación automática generará para todos los trabajadores: bloqueo de cuenta de red, de accesos a locales y/o de marcación de biométrico, al personal fiscalizable.
+
+\n\n¿Recibo comunicación por la programación de vacaciones automáticas?
+
+
+\n\nA ti y a tu líder directo les llega 3 comunicados por vacaciones automáticas:
+
+
+\n\nAlerta de vacaciones automáticas: Desde el buzón de Recursos Humanos, 2 meses antes de que se venza el período, donde te damos fechas propuestas y un plazo para programar de manera regular.
+
+\n\nNotificación de programación automática: Desde el buzón genérico del SGV gestionvacacional@tgestiona.com.pe , 1 mes antes, donde te indicamos que se generó la programación.
+
+\n\nRecordatorio de vacaciones automáticas: Desde el buzón de Recursos Humanos, la última semana del mes anterior al inicio del goce.
+
+
+\n\n¿Cómo se aplica la nueva ley de vacaciones? En revisión el orden de los enunciados.
+
+
+\n\nConsiderando la modiﬁcación del DL Nº 713 sobre las vacaciones, donde se mantiene el derecho a 30 días calendario de descanso vacacional por cada año completo de servicios; hemos procedido a adecuar el SGV considerando:
+
+
+\n\nLos 15 primeros días de inicio de una nueva fecha de derecho, podrás programar tus días en fracciones de 7 u 8 días ininterrumpidos.
+
+\n\nA partir del día 16 podrás programar tus días en fracciones de hasta un día (1).
+
+\n\nCuando te corresponda programar el 5to día, este sólo podrá ser por los días lunes o viernes; siendo así, la programación obligatoria será en rango de 3 días que serán de viernes a domingo o de sábado a lunes, el sistema te alertará de no cumplir con esta pauta.
+
+
+\n\nInformación importante para programar en fracciones de hasta 1 día:
+
+
+\n\nCuando programes tus vacaciones en fracciones menores a 7 días, debes de ingresar al SGV una programación por cada día.
+
+\n\nEl sistema aceptará sólo programar rangos por 3 días cuando llegues al 5to día de programación, y este rango debe de programarse de sábado a lunes o de viernes a domingo.
+
+\n\nRecuerda que sólo podrás programar fracciones menores a 7 días a partir del día 16 de vacaciones, los 15 primeros días deben estar ya programados.
+
+
+\n\nCualquier consulta adicional, por favor contáctate con el CAE RH  centrodeatencionalempleado@tele
+    </string>
 
 
 </resources>

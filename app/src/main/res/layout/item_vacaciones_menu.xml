@@ -7,39 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:foreground="?android:attr/selectableItemBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="0dp"
-        android:layout_height="16dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_weight="1"
-        android:tint="@color/colorSalud"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_next_arrow" />
-
-    <TextView
-        android:id="@+id/item_menu_salud_tvNombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="6"
-        android:fontFamily="@font/telefonica_regular"
-        android:text="Plan EPS"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
-        app:layout_constraintStart_toEndOf="@+id/item_menu_salud_ivImagen"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/item_menu_salud_ivImagen"
         android:layout_width="0dp"
@@ -52,7 +19,40 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_eps" />
+        app:srcCompat="@drawable/ic_aprobacion_vacaciones" />
+
+
+
+    <TextView
+        android:id="@+id/item_menu_salud_tvNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="6"
+        android:fontFamily="@font/telefonica_regular"
+        android:text="Aprobación vacaciones"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintStart_toEndOf="@+id/item_menu_salud_ivImagen"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:tint="@color/colorCanalEmbajador"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_next_arrow" />
 
     <View
         android:layout_width="match_parent"

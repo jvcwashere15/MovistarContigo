@@ -32,7 +32,7 @@ public class EstadoVacacionesAdapter extends RecyclerView.Adapter<EstadoVacacion
     @NonNull
     @Override
     public EstadoVacacionesHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_estado_vacaciones,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_vacaciones_estado,viewGroup,false);
         return new EstadoVacacionesHolder(view);
     }
 

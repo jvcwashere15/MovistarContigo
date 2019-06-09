@@ -13,9 +13,20 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".vacaciones.estado.DetalleEstadoVacacionesActivity"
-            android:parentActivityName=".vacaciones.estado.EstadoVacacionesActivity"
+        <activity android:name=".vacaciones.AcercaActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".vacaciones.VacacionesActivity"/>
+        <activity android:name=".vacaciones.aprobacion.FinalizarAprobacionActivity"
+            android:parentActivityName=".vacaciones.aprobacion.AprobacionVacacionesActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".vacaciones.aprobacion.DetalleAprobacionVacacionesActivity"
+            android:parentActivityName=".vacaciones.aprobacion.AprobacionVacacionesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".vacaciones.estado.DetalleEstadoVacacionesActivity"
+            android:parentActivityName=".vacaciones.estado.EstadoVacacionesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".vacaciones.registro.FinalizarRegistroActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"

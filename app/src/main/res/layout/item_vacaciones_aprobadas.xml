@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_aprobada_vAprobada"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/altura_item_beneficio"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:foreground="?android:attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/view23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/item_aprobada_tvColaborador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:textColor="#757575"
+            android:textSize="16sp"
+            tools:text="Denis Ricardo Morales Retamozo" />
+
+        <TextView
+            android:id="@+id/item_aprobada_tvFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_light"
+            android:textColor="#757575"
+            android:textSize="16sp"
+            tools:text="20/10/2019" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view23"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/item_aprobada_tvEstado"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/etiqueta_verde"
+        android:fontFamily="@font/telefonica_bold"
+        android:gravity="center"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="APROBADAS" />
+
+</android.support.constraint.ConstraintLayout>
