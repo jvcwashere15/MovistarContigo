@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment {
         tvHolaUsuario = rootView.findViewById(R.id.home_tvHolaUsuario);
         vpNoticias = rootView.findViewById(R.id.home_vpNoticias);
         dotIndicator = rootView.findViewById(R.id.dotIndicator);
-        btVacaciones = rootView.findViewById(R.id.dashboard_btVacaciones);
+        btVacaciones = rootView.findViewById(R.id.dash_cvVacaciones);
         return rootView;
     }
 
