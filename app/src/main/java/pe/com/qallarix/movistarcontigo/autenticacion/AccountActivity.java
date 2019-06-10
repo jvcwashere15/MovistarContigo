@@ -53,7 +53,7 @@ public class AccountActivity extends TranquiParentActivity {
     private LinearLayout lytProgress;
     public final String BASE_URL_QA = "https://qallarix-ws-qa.azurewebsites.net/";
     public final String BASE_URL_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
-    public final String CERRAR_BASIC_REQUEST_URL = BASE_URL_PRODUCCION +"employee/closeSession/close";
+    public final String CERRAR_BASIC_REQUEST_URL = BASE_URL_QA +"employee/closeSession/close";
     public static int SESION_LOADER_ID = 3;
 
     private LoaderManager.LoaderCallbacks<Integer> cerrarSesionLoaderCallbacks = new LoaderManager.LoaderCallbacks<Integer>() {
@@ -80,7 +80,7 @@ public class AccountActivity extends TranquiParentActivity {
                     editor.remove("documentNumber");
                     editor.remove("tokenAccess");
                     editor.commit();
-                    FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_PRODUCCION);
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_DESARROLLO);
                     Intent mainIntent = new Intent(AccountActivity.this, LoginActivity.class);
                     mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(mainIntent);

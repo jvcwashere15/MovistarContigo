@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context=".vacaciones.estado.DetalleEstadoVacacionesActivity">
     <include layout="@layout/my_toolbar"/>
     <android.support.constraint.ConstraintLayout
@@ -44,7 +45,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:background="#DDDDDD"
+            android:background="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detalle_estado_tvDescLider"
             app:layout_constraintVertical_bias="0.0"/>
@@ -68,10 +69,10 @@
             android:background="@drawable/etiqueta_verde"
             android:fontFamily="@font/telefonica_bold"
             android:gravity="center"
-            android:padding="8dp"
-            android:text="APROBADAS"
+            android:padding="4dp"
             android:textColor="@android:color/white"
-            android:textSize="10sp"
+            android:textSize="12sp"
+            android:text="APROBADAS"
             app:layout_constraintBottom_toTopOf="@+id/view1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view0" />

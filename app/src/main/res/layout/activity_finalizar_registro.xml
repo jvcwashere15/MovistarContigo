@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".vacaciones.registro.FinalizarRegistroActivity">
     <include layout="@layout/my_toolbar"/>
@@ -27,19 +28,7 @@
             android:layout_marginBottom="8dp"
             android:layout_centerInParent="true"
             app:srcCompat="@drawable/ic_check_ok" />
-        <Button
-            android:id="@+id/registrar_vacaciones_btVerEstadoVacaciones"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:textAllCaps="false"
-            android:layout_margin="16dp"
-            android:textSize="16sp"
-            android:fontFamily="@font/telefonica_bold"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/boton_verde"
-            android:textColor="@android:color/white"
-            android:text="Ver estado de vacaciones"
-            android:onClick="verEstadoVacaciones"/>
+
 
         <TextView
             android:id="@+id/registrar_vacaciones_tvMensajeDescripcion"
@@ -52,5 +41,19 @@
             android:layout_below="@+id/registrar_vacaciones_tvMensajeRespuesta"
             android:layout_marginTop="8dp"
             android:text="Has solicitado tus vacaciones. Recibirás una notificación al momento de la aprobación." />
+        <TextView
+            android:id="@+id/registrar_vacaciones_btVerEstadoVacaciones"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:layout_margin="16dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:fontFamily="@font/telefonica_bold"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/boton_vacaciones_verde"
+            android:textColor="@android:color/white"
+            android:text="Ver estado de vacaciones"
+            android:onClick="verEstadoVacaciones"/>
     </RelativeLayout>
 </LinearLayout>

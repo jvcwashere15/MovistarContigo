@@ -5,19 +5,29 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import pe.com.qallarix.movistarcontigo.R;
 
 public class AcercaActivity extends AppCompatActivity {
+
+    private TextView tvAcerca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acerca);
         configurarToolbar();
+        configurarTextViewAcerca();
+    }
+
+    private void configurarTextViewAcerca() {
+        tvAcerca = findViewById(R.id.vacaciones_tvAcerca);
+        tvAcerca.setMovementMethod(new ScrollingMovementMethod());
     }
 
     public void configurarToolbar(){

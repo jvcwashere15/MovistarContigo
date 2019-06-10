@@ -91,6 +91,44 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:layout_constraintVertical_bias="1.0">
 
+        <View
+            android:id="@+id/dash_cvDescuentos"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPlaceHolder"
+            app:layout_constraintBottom_toTopOf="@+id/textView16"
+            app:layout_constraintEnd_toStartOf="@+id/dash_cvSalud"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"/>
+
+        <View
+            android:id="@+id/dash_cvSalud"
+            android:layout_width="@dimen/lado_item_beneficios_dash"
+            android:layout_height="@dimen/lado_item_beneficios_dash"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorPlaceHolder"
+            app:layout_constraintBottom_toTopOf="@+id/textView16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:id="@+id/dash_cvCanalEmbajador"
+            android:layout_width="@dimen/lado_item_beneficios_dash"
+            android:layout_height="@dimen/lado_item_beneficios_dash"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPlaceHolder"
+            app:layout_constraintBottom_toBottomOf="@+id/dash_cvSalud"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dash_cvSalud"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"/>
 
         <View
             android:id="@+id/textView16"
@@ -110,78 +148,40 @@
             android:layout_width="@dimen/lado_item_beneficios_dash"
             android:layout_height="@dimen/lado_item_beneficios_dash"
             android:layout_margin="8dp"
-            android:background="@color/colorPlaceHolder"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
+            android:background="@color/colorPlaceHolder"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/dash_cvSalud"
-            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dash_cvDescuentos"
-            app:layout_constraintVertical_bias="0.0">
-        </View>
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            app:layout_constraintVertical_bias="0.0" />
 
         <View
             android:id="@+id/dash_cvEstudios"
             android:layout_width="87dp"
             android:layout_height="@dimen/lado_item_beneficios_dash"
             android:layout_margin="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="40dp"
+            android:background="@color/colorPlaceHolder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dash_cvBeneficiosEspeciales"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/dash_cvVacaciones"
+            android:layout_width="87dp"
+            android:layout_height="@dimen/lado_item_beneficios_dash"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
             android:background="@color/colorPlaceHolder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.35"
-            app:layout_constraintStart_toStartOf="@+id/dash_cvSalud"
-            app:layout_constraintTop_toBottomOf="@+id/dash_cvCanalEmbajador"
-            app:layout_constraintVertical_bias="0.0">
-        </View>
-
-        <View
-            android:id="@+id/dash_cvSalud"
-            android:layout_width="@dimen/lado_item_beneficios_dash"
-            android:layout_height="@dimen/lado_item_beneficios_dash"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/colorPlaceHolder"
-            app:layout_constraintBottom_toTopOf="@+id/textView16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
-        </View>
-
-        <View
-            android:id="@+id/dash_cvCanalEmbajador"
-            android:layout_width="@dimen/lado_item_beneficios_dash"
-            android:layout_height="@dimen/lado_item_beneficios_dash"
-            android:layout_marginTop="8dp"
-            android:background="@color/colorPlaceHolder"
-            app:layout_constraintBottom_toBottomOf="@+id/dash_cvSalud"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dash_cvSalud"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
-        </View>
-
-        <View
-            android:id="@+id/dash_cvDescuentos"
-            android:layout_width="88dp"
-            android:layout_height="88dp"
-            android:layout_margin="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorPlaceHolder"
-            app:layout_constraintBottom_toTopOf="@+id/textView16"
-            app:layout_constraintEnd_toStartOf="@+id/dash_cvSalud"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
-        </View>
+            app:layout_constraintStart_toEndOf="@+id/dash_cvBeneficiosEspeciales"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            app:layout_constraintVertical_bias="0.0" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
