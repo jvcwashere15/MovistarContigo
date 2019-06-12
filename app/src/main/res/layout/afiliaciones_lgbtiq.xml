@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="En caso querer afiliarte a esta póliza, sigue los siguientes pasos:"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_lgbtiq_pt1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Ficha de afiliación LGBTIQ+"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_lgbtiq_pt2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="Carta del Plan de Salud LGBTIQ+"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="Declaración jurada de domicilio"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_lgbtiq_pt3"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_lgbtiq_pt4"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_lgbtiq_pt5"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Carta de desafiliación"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+</LinearLayout>

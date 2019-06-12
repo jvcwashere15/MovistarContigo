@@ -65,14 +65,20 @@ public class DetalleSaludFragment extends Fragment {
     private CardView cvLineamientos;
     private CardView cvBeneficios;
     private CardView cvAportes;
+    private CardView cvAfiliaciones;
+
 
     private ImageView ivLineamientos;
     private ImageView ivBeneficios;
     private ImageView ivAportes;
+    private ImageView ivAfiliaciones;
+
 
     private View vDescripcionLineamientos;
     private View vDescripcionBeneficios;
     private View vDescripcionAportes;
+    private View vDescripcionAfiliaciones;
+
 
     AlertDialog alertDialog;
 
@@ -98,6 +104,8 @@ public class DetalleSaludFragment extends Fragment {
     private View tableEPS;
     private View tableLGTB;
 
+    private View vAfiliacionEPS,vAfiliacionOncologico, vAfiliacionLGBTIQ;
+
     private static final String TAG = "TEST";
     private static final String ARGUMENT_HEALTHPLAN = "healthplan";
 
@@ -122,14 +130,19 @@ public class DetalleSaludFragment extends Fragment {
         cvLineamientos = rootView.findViewById(R.id.detalle_salud_cvLineamientos);
         cvBeneficios = rootView.findViewById(R.id.detalle_salud_cvBeneficios);
         cvAportes = rootView.findViewById(R.id.detalle_salud_cvAportes);
+        cvAfiliaciones = rootView.findViewById(R.id.detalle_salud_cvAfiliaciones);
 
         ivLineamientos = rootView.findViewById(R.id.salud_eps_iv1);
         ivBeneficios = rootView.findViewById(R.id.salud_eps_iv2);
         ivAportes = rootView.findViewById(R.id.salud_eps_iv3);
+        ivAfiliaciones = rootView.findViewById(R.id.salud_eps_iv4);
+
 
         vDescripcionLineamientos = rootView.findViewById(R.id.detalle_salud_lineamientos_descripcion);
         vDescripcionBeneficios = rootView.findViewById(R.id.detalle_salud_beneficios_descripcion);
         vDescripcionAportes = rootView.findViewById(R.id.detalle_salud_aportes_descripcion);
+        vDescripcionAfiliaciones = rootView.findViewById(R.id.detalle_salud_afiliaciones_descripcion);
+
 
         rvBeneficios = rootView.findViewById(R.id.detalle_salud_rvBeneficios);
 
@@ -141,6 +154,10 @@ public class DetalleSaludFragment extends Fragment {
         tvDescripcionAportes = rootView.findViewById(R.id.detalle_salud_tvDescripcionAportes);
         tableEPS = rootView.findViewById(R.id.table_eps);
         tableLGTB = rootView.findViewById(R.id.table_lgbtq);
+
+        vAfiliacionEPS = rootView.findViewById(R.id.afiliaciones_eps);
+        vAfiliacionOncologico = rootView.findViewById(R.id.afiliaciones_oncologico);
+        vAfiliacionLGBTIQ = rootView.findViewById(R.id.afiliaciones_lgbtiq);
         return rootView;
     }
 
@@ -152,6 +169,7 @@ public class DetalleSaludFragment extends Fragment {
         configurarCVLineamientos();
         configurarCVBeneficios();
         configurarCVAportes();
+        configurarCVAfiliaciones();
 
         String cadena  = healthPlan.getAdditionalInformation();
 
@@ -218,10 +236,36 @@ public class DetalleSaludFragment extends Fragment {
         tvInformacionAdicional.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+    private void configurarCVAfiliaciones() {
+        if (mDetail.getContributionTable().equals(TABLE_NONE)) vAfiliacionOncologico.setVisibility(View.VISIBLE);
+        else if (mDetail.getContributionTable().equals(TABLE_LGTB)) vAfiliacionLGBTIQ.setVisibility(View.VISIBLE);
+        else if (mDetail.getContributionTable().equals(TABLE_EPS)) vAfiliacionEPS.setVisibility(View.VISIBLE);
+        cvAfiliaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vDescripcionLineamientos.getVisibility() == View.VISIBLE)cvLineamientos.callOnClick();
+                if (vDescripcionAportes.getVisibility() == View.VISIBLE)cvAportes.callOnClick();
+                if (vDescripcionBeneficios.getVisibility() == View.VISIBLE)cvBeneficios.callOnClick();
+
+                if (vDescripcionAfiliaciones.getVisibility() == View.VISIBLE){
+                    vDescripcionAfiliaciones.setVisibility(View.GONE);
+                    ivAfiliaciones.setRotation(90);
+                    return;
+                }
+                vDescripcionAfiliaciones.setVisibility(View.VISIBLE);
+                ivAfiliaciones.setRotation(270);
+            }
+        });
+    }
+
     private void configurarCVLineamientos() {
         cvLineamientos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (vDescripcionAfiliaciones.getVisibility() == View.VISIBLE)cvAfiliaciones.callOnClick();
+                if (vDescripcionAportes.getVisibility() == View.VISIBLE)cvAportes.callOnClick();
+                if (vDescripcionBeneficios.getVisibility() == View.VISIBLE)cvBeneficios.callOnClick();
+
                 if (vDescripcionLineamientos.getVisibility() == View.VISIBLE){
                     vDescripcionLineamientos.setVisibility(View.GONE);
                     ivLineamientos.setRotation(90);
@@ -262,6 +306,9 @@ public class DetalleSaludFragment extends Fragment {
             cvBeneficios.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (vDescripcionLineamientos.getVisibility() == View.VISIBLE)cvLineamientos.callOnClick();
+                    if (vDescripcionAportes.getVisibility() == View.VISIBLE)cvAportes.callOnClick();
+                    if (vDescripcionAfiliaciones.getVisibility() == View.VISIBLE)cvAfiliaciones.callOnClick();
 
                     if (vDescripcionBeneficios.getVisibility() == View.VISIBLE){
                         vDescripcionBeneficios.setVisibility(View.GONE);
@@ -285,6 +332,10 @@ public class DetalleSaludFragment extends Fragment {
         cvAportes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (vDescripcionLineamientos.getVisibility() == View.VISIBLE)cvLineamientos.callOnClick();
+                if (vDescripcionAfiliaciones.getVisibility() == View.VISIBLE)cvAfiliaciones.callOnClick();
+                if (vDescripcionBeneficios.getVisibility() == View.VISIBLE)cvBeneficios.callOnClick();
+
                 if (vDescripcionAportes.getVisibility() == View.VISIBLE){
                     vDescripcionAportes.setVisibility(View.GONE);
                     ivAportes.setRotation(90);

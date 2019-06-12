@@ -9,10 +9,12 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/view23"
+        app:layout_constraintEnd_toStartOf="@+id/item_aprobada_tvEstado"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,6 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/telefonica_regular"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="#757575"
             android:textSize="16sp"
             tools:text="Denis Ricardo Morales Retamozo" />
@@ -32,7 +36,7 @@
             android:fontFamily="@font/telefonica_light"
             android:textColor="#757575"
             android:textSize="16sp"
-            tools:text="20/10/2019" />
+            tools:text="20/10/2019"/>
 
     </LinearLayout>
 

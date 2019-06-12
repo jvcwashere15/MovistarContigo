@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="Para afiliarte o afiliar a alguien al Plan Oncológico, deberás estar afiliado a la EPS para que esto ocurra automáticamente. Para ello debes:"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Ficha de afiliación Oncológico"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="Carta del Plan de Salud Oncológico"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="Requisitos según afiliado"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt3"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt4"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Requisitos según afiliado"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:fontFamily="@font/telefonica_regular"-->
+        <!--android:textSize="15sp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:text="@string/salud_afiliaciones_eps_pt5"/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:fontFamily="@font/telefonica_regular"-->
+        <!--android:textSize="15sp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:text="@string/salud_afiliaciones_eps_pt6"/>-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Lista de gestores zonales"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt7"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Carta de desafiliación"
+        android:textSize="16sp"
+        android:background="@drawable/boton_afiliaciones_salud"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+</LinearLayout>
