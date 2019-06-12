@@ -203,7 +203,7 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
                 if (isPackageExisted("pe.beyond.movistar.prioritymoments")) {
                     Intent intent = new Intent (Intent.ACTION_VIEW);
 //                    intent.setData (Uri.parse("pe.beyond.movistar.priority://prix?promo=a0t1r000008sV6fAAE"));
-                    intent.setData(Uri.parse(mDiscount.getDeepLink()));
+                    intent.setData(Uri.parse("https://movistarprix.page.link/Prix"));
                     try{
                         startActivity(intent);
                     }catch (Exception e){
