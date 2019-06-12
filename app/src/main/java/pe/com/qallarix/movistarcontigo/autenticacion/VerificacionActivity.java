@@ -48,9 +48,7 @@ public class VerificacionActivity extends TranquiParentActivity {
     private final String
             TOPIC_PRODUCCION = "produccion_android",
             TOPIC_DESARROLLO = "develop_android",
-            TOPIC_NOTIFICATIONS = TOPIC_DESARROLLO;
-
-
+            TOPIC_NOTIFICATIONS = TOPIC_PRODUCCION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +69,6 @@ public class VerificacionActivity extends TranquiParentActivity {
         setearDni();
         configurarBotonValidarToken();
         configurarBotonVolverEnviarcodigo(documentType,documentNumber);
-
     }
 
     private void bindearVistas() {

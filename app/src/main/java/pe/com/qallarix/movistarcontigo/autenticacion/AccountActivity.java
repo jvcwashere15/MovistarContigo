@@ -50,13 +50,13 @@ public class AccountActivity extends TranquiParentActivity {
     private final String TOPIC_PRODUCCION = "produccion_android";
     private final String TOPIC_DESARROLLO = "develop_android";
 
-    private final String TOPIC_NOTIFICATIONS = TOPIC_DESARROLLO;
+    private final String TOPIC_NOTIFICATIONS = TOPIC_PRODUCCION;
 
 
     private LinearLayout lytProgress;
     public final String BASE_URL_QA = "https://qallarix-ws-qa.azurewebsites.net/";
     public final String BASE_URL_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
-    public final String CERRAR_BASIC_REQUEST_URL = BASE_URL_QA +"employee/closeSession/close";
+    public final String CERRAR_BASIC_REQUEST_URL = BASE_URL_PRODUCCION +"employee/closeSession/close";
     public static int SESION_LOADER_ID = 3;
 
     private LoaderManager.LoaderCallbacks<Integer> cerrarSesionLoaderCallbacks = new LoaderManager.LoaderCallbacks<Integer>() {
