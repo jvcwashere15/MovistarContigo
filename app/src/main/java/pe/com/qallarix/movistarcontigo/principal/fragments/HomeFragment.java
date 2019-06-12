@@ -35,6 +35,7 @@ import pe.com.qallarix.movistarcontigo.principal.NoticiasDashboardAdapter;
 import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,7 +47,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     private TextView tvHolaUsuario;
     private CardView cvDescuentos, cvSalud, cvCanalEmbajador,
-            cvEstudios, cvBeneficiosEspeciales;
+            cvEstudios, cvBeneficiosEspeciales, cvVacaciones;
 
     private ImageView ivAtras,ivAdelante;
     private ViewPager vpNoticias;
@@ -157,7 +158,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadNewsFromNetWork() {
-       Call<DataNoticias> call = WebService.getInstance(mDni)
+        Call<DataNoticias> call = WebService.getInstance(mDni)
                 .createService(ServiceNewsApi.class)
                 .getNoticias();
         call.enqueue(new Callback<DataNoticias>() {
@@ -229,6 +230,7 @@ public class HomeFragment extends Fragment {
         setearMetodoClick(cvSalud,SaludActivity.class);
         setearMetodoClick(cvCanalEmbajador,CanalEmbajadorActivity.class);
         setearMetodoClick(cvBeneficiosEspeciales,BeneficiosEspecialesActivity.class);
+        setearMetodoClick(cvVacaciones,VacacionesActivity.class);
     }
 
 
@@ -271,6 +273,6 @@ public class HomeFragment extends Fragment {
         cvEstudios = vistaRaiz.findViewById(R.id.dash_cvOpenLearning);
         cvCanalEmbajador = vistaRaiz.findViewById(R.id.dash_cvCanalEmbajador);
         cvBeneficiosEspeciales = vistaRaiz.findViewById(R.id.dash_cvBeneficiosEspeciales);
+        cvVacaciones = vistaRaiz.findViewById(R.id.dash_cvVacaciones);
     }
-
 }

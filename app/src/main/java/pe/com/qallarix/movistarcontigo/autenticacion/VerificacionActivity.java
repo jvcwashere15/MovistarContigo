@@ -162,7 +162,7 @@ public class VerificacionActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     Employee employee = response.body().getEmployee();
                     guardarEmpleadoSharedPreferences(employee);
-                    FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_PRODUCCION);
+                    FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_DESARROLLO);
                     Analitycs.logEventoLogin(VerificacionActivity.this);
                     Analitycs.setUserPropertyClaseYCategoria(VerificacionActivity.this,employee.getClase(),employee.getCategory());
                     irAPantallaBienvenida();

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+    <include layout="@layout/afiliaciones_eps"
+        android:id="@+id/afiliaciones_eps"
+        android:visibility="gone"/>
+    <include layout="@layout/afiliaciones_oncologico"
+        android:id="@+id/afiliaciones_oncologico"
+        android:visibility="gone"/>
+    <include layout="@layout/afiliaciones_lgbtiq"
+        android:id="@+id/afiliaciones_lgbtiq"
+        android:visibility="gone"/>
+</LinearLayout>
