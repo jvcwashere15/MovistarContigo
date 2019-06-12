@@ -47,7 +47,9 @@ public class VerificacionActivity extends TranquiParentActivity {
     private ImageView btAtras;
     private final String
             TOPIC_PRODUCCION = "produccion_android",
-            TOPIC_DESARROLLO = "develop_android";
+            TOPIC_DESARROLLO = "develop_android",
+            TOPIC_NOTIFICATIONS = TOPIC_DESARROLLO;
+
 
 
     @Override
@@ -162,7 +164,7 @@ public class VerificacionActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     Employee employee = response.body().getEmployee();
                     guardarEmpleadoSharedPreferences(employee);
-                    FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_DESARROLLO);
+                    FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NOTIFICATIONS);
                     Analitycs.logEventoLogin(VerificacionActivity.this);
                     Analitycs.setUserPropertyClaseYCategoria(VerificacionActivity.this,employee.getClase(),employee.getCategory());
                     irAPantallaBienvenida();

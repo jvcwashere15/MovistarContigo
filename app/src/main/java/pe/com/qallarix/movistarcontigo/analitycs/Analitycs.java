@@ -39,7 +39,7 @@ public class Analitycs {
     public static void logEventoClickBottomNav(Context context, String title){
         Bundle params = new Bundle();
         params.putString(ParamsAnalitycs.BOTTOM_NAV_TITLE,title);
-        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_BOTTOM_NAV,null);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_BOTTOM_NAV,params);
     }
 
 

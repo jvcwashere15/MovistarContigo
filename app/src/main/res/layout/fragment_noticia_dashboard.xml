@@ -31,9 +31,8 @@
         android:id="@+id/noticia_dash_tvTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/telefonica_bold"
         android:gravity="center"
         android:textColor="@android:color/white"
@@ -44,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintVertical_bias="0.4"
-        tools:text="¡Vence al morro en la carrera de noche Movistar Run Night 2018!" />
+        tools:text="¡Vive una experiencia digital única con la app Movistar Contigo! ¡Vive una experiencia digital!" />
 
     <TextView
         android:id="@+id/textView14"

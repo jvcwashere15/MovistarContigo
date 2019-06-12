@@ -135,7 +135,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="8dp"
             android:fontFamily="@font/telefonica_regular"
-            android:text="25 - 11 - 2019"
+            android:text="25/11/2019"
             android:textColor="#2A2A3C"
             android:textSize="16sp"
             android:textStyle="bold" />

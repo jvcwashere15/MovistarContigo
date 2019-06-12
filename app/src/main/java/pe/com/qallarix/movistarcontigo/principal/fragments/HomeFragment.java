@@ -65,7 +65,9 @@ public class HomeFragment extends Fragment {
             TITLE_HEALTH = "HEALTH",
             TITLE_AMBASSADOR = "AMBASSADOR",
             TITLE_OPEN_LEARNING = "OPEN_LEARNING",
-            TITLE_SPECIALS = "SPECIALS";
+            TITLE_SPECIALS = "SPECIALS",
+            TITLE_VACACIONES = "VACATION";
+
 
     private static final String ARGUMENT_NOTICIAS = "noticias";
 
@@ -248,6 +250,11 @@ public class HomeFragment extends Fragment {
                 else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
                 else if (cardView.equals(cvEstudios)) Analitycs.logEventoClickDashboard(getActivity(), TITLE_OPEN_LEARNING);
                 else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
+                else if (cardView.equals(cvVacaciones)){
+                    parentActivity.mostrarMensaje("Próximamente habilitaremos esta opción, estate atento a futuras actualizaciones.");
+                    Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);
+                    return;
+                }
                 irAlBeneficio(activityClass);
             }
         });

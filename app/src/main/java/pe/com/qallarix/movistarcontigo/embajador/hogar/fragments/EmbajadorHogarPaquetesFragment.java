@@ -94,7 +94,7 @@ public class EmbajadorHogarPaquetesFragment extends FragmentParentEmbajador {
                     case 5:
                         paqueteHogar.setPrecio1(characteristicGroupList.getCharacteristicList().get(0).getCharacteristicValue());
                         paqueteHogar.setPrecio2(characteristicGroupList.getCharacteristicList().get(2).getCharacteristicValue());
-                        paqueteHogar.setPrecio3("Precio regular: S/ " + characteristicGroupList.getCharacteristicList().get(1).getCharacteristicValue());
+                        paqueteHogar.setPrecio3(characteristicGroupList.getCharacteristicList().get(1).getCharacteristicValue());
                         break;
                 }
             }

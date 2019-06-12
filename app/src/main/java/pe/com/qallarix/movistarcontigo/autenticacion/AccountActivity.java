@@ -50,6 +50,9 @@ public class AccountActivity extends TranquiParentActivity {
     private final String TOPIC_PRODUCCION = "produccion_android";
     private final String TOPIC_DESARROLLO = "develop_android";
 
+    private final String TOPIC_NOTIFICATIONS = TOPIC_DESARROLLO;
+
+
     private LinearLayout lytProgress;
     public final String BASE_URL_QA = "https://qallarix-ws-qa.azurewebsites.net/";
     public final String BASE_URL_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
@@ -80,7 +83,7 @@ public class AccountActivity extends TranquiParentActivity {
                     editor.remove("documentNumber");
                     editor.remove("tokenAccess");
                     editor.commit();
-                    FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_DESARROLLO);
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_NOTIFICATIONS);
                     Intent mainIntent = new Intent(AccountActivity.this, LoginActivity.class);
                     mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(mainIntent);
