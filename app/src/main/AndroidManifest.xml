@@ -118,6 +118,7 @@
         <activity
             android:name=".salud.DetalleSaludActivity"
             android:parentActivityName=".salud.SaludActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity android:name=".salud.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->

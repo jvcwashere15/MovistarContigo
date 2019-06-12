@@ -10,11 +10,12 @@
         android:fontFamily="@font/telefonica_regular"
         android:textSize="15sp"
         android:layout_marginBottom="16dp"
-        android:text="Para afiliarte o afiliar a alguien al Plan Oncológico, deberás estar afiliado a la EPS para que esto ocurra automáticamente. Para ello debes:"/>
+        android:text="@string/salud_afiliaciones_eps_pt1"/>
     <TextView
+        android:id="@+id/afiliaciones_oncologico_tvFichaAfiliacion"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Ficha de afiliación Oncológico"
+        android:text="Ficha de afiliación EPS"
         android:textSize="16sp"
         android:background="@drawable/boton_afiliaciones_salud"
         android:gravity="center"
@@ -22,16 +23,18 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/telefonica_bold"/>
     <TextView
+        android:id="@+id/afiliaciones_oncologico_tvCartaPlan"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="16dp"
-        android:text="Carta del Plan de Salud Oncológico"
+        android:text="Carta del Plan de Salud EPS"
         android:textSize="16sp"
         android:background="@drawable/boton_afiliaciones_salud"
         android:gravity="center"
         android:textColor="@android:color/white"
         android:fontFamily="@font/telefonica_bold"/>
     <TextView
+        android:id="@+id/afiliaciones_oncologico_tvRequisitos"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="16dp"
@@ -66,9 +69,10 @@
         android:text="@string/salud_afiliaciones_eps_pt4"/>
 
     <TextView
+        android:id="@+id/afiliaciones_oncologico_tvActualizacion"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Requisitos según afiliado"
+        android:text="Actualización de dependientes"
         android:textSize="16sp"
         android:background="@drawable/boton_afiliaciones_salud"
         android:gravity="center"
@@ -76,23 +80,24 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/telefonica_bold"/>
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:fontFamily="@font/telefonica_regular"-->
-        <!--android:textSize="15sp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:text="@string/salud_afiliaciones_eps_pt5"/>-->
-
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:fontFamily="@font/telefonica_regular"-->
-        <!--android:textSize="15sp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:text="@string/salud_afiliaciones_eps_pt6"/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt5"/>
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt6"/>
+
+    <TextView
+        android:id="@+id/afiliaciones_oncologico_tvListaGestores"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Lista de gestores zonales"
@@ -110,6 +115,7 @@
         android:layout_marginBottom="16dp"
         android:text="@string/salud_afiliaciones_eps_pt7"/>
     <TextView
+        android:id="@+id/afiliaciones_oncologico_tvCartaDesafiliacion"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Carta de desafiliación"

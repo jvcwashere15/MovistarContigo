@@ -79,6 +79,28 @@ public class DetalleSaludFragment extends Fragment {
     private View vDescripcionAportes;
     private View vDescripcionAfiliaciones;
 
+    private TextView
+            tvPdfEpsFichaAfiliacion,
+            tvPdfEpsCartaPlan,
+            tvPdfEpsRequisitos,
+            tvPdfEpsActualizacion,
+            tvPdfEpsListaGestores,
+            tvPdfEpsCartaDesafiliacion;
+
+    private TextView
+            tvPdfOncologicoFichaAfiliacion,
+            tvPdfOncologicoCartaPlan,
+            tvPdfOncologicoRequisitos,
+            tvPdfOncologicoActualizacion,
+            tvPdfOncologicoListaGestores,
+            tvPdfOncologicoCartaDesafiliacion;
+
+    private TextView
+            tvPdfLgbtiqFichaAfiliacion,
+            tvPdfLgbtiqCartaPlan,
+            tvPdfLgbtiqDeclaracionJurada,
+            tvPdfLgbtiqCartaDesafiliacion;
+
 
     AlertDialog alertDialog;
 
@@ -158,6 +180,25 @@ public class DetalleSaludFragment extends Fragment {
         vAfiliacionEPS = rootView.findViewById(R.id.afiliaciones_eps);
         vAfiliacionOncologico = rootView.findViewById(R.id.afiliaciones_oncologico);
         vAfiliacionLGBTIQ = rootView.findViewById(R.id.afiliaciones_lgbtiq);
+
+        tvPdfEpsFichaAfiliacion = rootView.findViewById(R.id.afiliacion_eps_tvFichaAfiliacion);
+        tvPdfEpsActualizacion = rootView.findViewById(R.id.afiliacion_eps_tvActualizacion);
+        tvPdfEpsCartaDesafiliacion = rootView.findViewById(R.id.afiliacion_eps_tvCartaDesafiliacion);
+        tvPdfEpsCartaPlan = rootView.findViewById(R.id.afiliacion_eps_tvCartaPlan);
+        tvPdfEpsListaGestores = rootView.findViewById(R.id.afiliacion_eps_tvListaGestores);
+        tvPdfEpsRequisitos = rootView.findViewById(R.id.afiliacion_eps_tvRequisitos);
+
+        tvPdfOncologicoFichaAfiliacion = rootView.findViewById(R.id.afiliaciones_oncologico_tvFichaAfiliacion);
+        tvPdfOncologicoActualizacion = rootView.findViewById(R.id.afiliaciones_oncologico_tvActualizacion);
+        tvPdfOncologicoCartaDesafiliacion = rootView.findViewById(R.id.afiliaciones_oncologico_tvCartaDesafiliacion);
+        tvPdfOncologicoCartaPlan = rootView.findViewById(R.id.afiliaciones_oncologico_tvCartaPlan);
+        tvPdfOncologicoListaGestores = rootView.findViewById(R.id.afiliaciones_oncologico_tvListaGestores);
+        tvPdfOncologicoRequisitos = rootView.findViewById(R.id.afiliaciones_oncologico_tvRequisitos);
+
+        tvPdfLgbtiqFichaAfiliacion = rootView.findViewById(R.id.afiliaciones_lgbtiq_tvFichaAfiliacion);
+        tvPdfLgbtiqCartaDesafiliacion = rootView.findViewById(R.id.afiliaciones_lgbtiq_tvCartaDesafiliacion);
+        tvPdfLgbtiqCartaPlan = rootView.findViewById(R.id.afiliaciones_lgbtiq_tvCartaPlan);
+        tvPdfLgbtiqDeclaracionJurada = rootView.findViewById(R.id.afiliaciones_lgbtiq_tvDeclaracionJurada);
         return rootView;
     }
 
@@ -256,6 +297,42 @@ public class DetalleSaludFragment extends Fragment {
                 ivAfiliaciones.setRotation(270);
             }
         });
+
+        configurarBotonOpenPdf(tvPdfEpsFichaAfiliacion,"Ficha de afiliación EPS",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/1-Ficha%20de%20afiliaci%C3%B3n%20EPS.pdf");
+        configurarBotonOpenPdf(tvPdfEpsCartaPlan,"Carta del Plan de Salud EPS",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/2-Carta%20de%20afiliaci%C3%B3n%20a%20Plan%20de%20Salud.pdf");
+        configurarBotonOpenPdf(tvPdfEpsRequisitos,"Requisitos según afiliado",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/3-Requisitos%20seg%C3%BAn%20afiliado.pdf");
+        configurarBotonOpenPdf(tvPdfEpsActualizacion,"Actualización de dependientes",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/4-Gu%C3%ADa%20de%20actualizaci%C3%B3n%20de%20dependientes.pdf");
+        configurarBotonOpenPdf(tvPdfEpsListaGestores,"Lista de gestores zonales",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/5-Lista%20de%20Gestores%20Zonales.pdf");
+        configurarBotonOpenPdf(tvPdfEpsCartaDesafiliacion,"Carta de desafiliación",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/6-Carta%20de%20desafiliaci%C3%B3n%20EPS.pdf");
+
+
+        configurarBotonOpenPdf(tvPdfOncologicoFichaAfiliacion,"Ficha de afiliación EPS",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/1-Ficha%20de%20afiliaci%C3%B3n%20EPS.pdf");
+        configurarBotonOpenPdf(tvPdfOncologicoCartaPlan,"Carta del Plan de Salud EPS",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/2-Carta%20de%20afiliaci%C3%B3n%20a%20Plan%20de%20Salud.pdf");
+        configurarBotonOpenPdf(tvPdfOncologicoRequisitos,"Requisitos según afiliado",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/3-Requisitos%20seg%C3%BAn%20afiliado.pdf");
+        configurarBotonOpenPdf(tvPdfOncologicoActualizacion,"Actualización de dependientes",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/4-Gu%C3%ADa%20de%20actualizaci%C3%B3n%20de%20dependientes.pdf");
+        configurarBotonOpenPdf(tvPdfOncologicoListaGestores,"Lista de gestores zonales",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/5-Lista%20de%20Gestores%20Zonales.pdf");
+        configurarBotonOpenPdf(tvPdfOncologicoCartaDesafiliacion,"Carta de desafiliación",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/6-Carta%20de%20desafiliaci%C3%B3n%20EPS.pdf");
+
+        configurarBotonOpenPdf(tvPdfLgbtiqFichaAfiliacion,"Ficha de afiliación LGBTIQ+",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/LGBTIQ/1-Ficha%20de%20afiliaci%C3%B3n%20LGTBIQ.pdf");
+        configurarBotonOpenPdf(tvPdfLgbtiqCartaPlan,"Carta de Plan de Salud LGBTIQ+",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/LGBTIQ/2-Carta%20de%20afilaci%C3%B3n%20a%20Plan%20de%20Salud.pdf");
+        configurarBotonOpenPdf(tvPdfLgbtiqDeclaracionJurada,"Declaración jurada de domicilio",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/LGBTIQ/3-Declaraci%C3%B3n%20jurada%20de%20domicilio.pdf");
+        configurarBotonOpenPdf(tvPdfLgbtiqCartaDesafiliacion,"Carta de desafiliación",
+                "https://storageqallarix.blob.core.windows.net/wpqallarixblob/Salud/LGBTIQ/4-Carta%20de%20desafiliaci%C3%B3n%20LGTBIQ.pdf");
     }
 
     private void configurarCVLineamientos() {
@@ -276,8 +353,12 @@ public class DetalleSaludFragment extends Fragment {
             }
         });
         tvDescripcionLineamientos.setText(mDetail.getPlanAlignment());
-        tvPdfLink.setText(Html.fromHtml("<u>"+mDetail.getPlanAlignmentNameFile()+"</u>"));
-        tvPdfLink.setOnClickListener(new View.OnClickListener() {
+        tvPdfLink.setText(mDetail.getPlanAlignmentNameFile());
+        configurarBotonOpenPdf(tvPdfLink,healthPlan.getTitle(),mDetail.getPlanAlignmentFile());
+    }
+
+    private void configurarBotonOpenPdf(TextView textView, final String title, final String file) {
+        textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -290,8 +371,8 @@ public class DetalleSaludFragment extends Fragment {
                     }
                 }else{
                     Intent intent = new Intent(getActivity(),PdfActivity.class);
-                    intent.putExtra(KEY_PDF_TITLE_ACTIVITY,healthPlan.getTitle());
-                    intent.putExtra(KEY_URI_PDF,mDetail.getPlanAlignmentFile());
+                    intent.putExtra(KEY_PDF_TITLE_ACTIVITY,title);
+                    intent.putExtra(KEY_URI_PDF,file);
                     startActivity(intent);
                 }
 
@@ -350,7 +431,7 @@ public class DetalleSaludFragment extends Fragment {
 
     public void mostrarDialogNecesitamosPermisos(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Para visualizar el archivo de los lineamientos del plan, permite que Tranqui pueda acceder al almacenamiento");
+        builder.setMessage("Para visualizar el archivo de los lineamientos del plan, permite que Movistar Contigo pueda acceder al almacenamiento");
         builder.setCancelable(false);
         builder.setPositiveButton("CONTINUAR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {

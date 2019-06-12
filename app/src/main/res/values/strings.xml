@@ -346,16 +346,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </string>
     <string name="dash_title_vacaciones">Gestión de vacaciones</string>
 
-    <string name="salud_afiliaciones_eps_pt1">Completar la ficha de afiliación a la EPS, el formato carta Plan de Salud EPS y los requisitos especificados de acuerdo al tipo de afiliado.</string>
-    <string name="salud_afiliaciones_eps_pt2">En la ficha de afiliación deberás llenar las secciones de: Entidad Empleadora, Datos de Titular, Dependientes (en caso de requerir), Declaración de Salud y responder a todas las preguntas. La ficha se debe enviar debidamente firmada.</string>
-    <string name="salud_afiliaciones_eps_pt3">Si vienes de otra EPS, debes adjuntar la constancia de tu anterior seguro, indicando la fecha de inicio y fin de cobertura, así como la relación de diagnósticos que fueron cubiertos con tu póliza anterior. No es indispensable, pero si es importante para la afiliación.</string>
-    <string name="salud_afiliaciones_eps_pt4">Registrar a tu dependientes correctamente en Success Factors.</string>
-    <string name="salud_afiliaciones_eps_pt5">Antes de solicitar tu afiliación deberás tener en cuenta las fechas de corte de envío de la información a la compañía de seguros. Las fichas recibidas con la información se activarán según las siguientes fechas:
+    <string name="salud_afiliaciones_eps_pt1">1.Completar la ficha de afiliación a la EPS, el formato carta Plan de Salud EPS y los requisitos especificados de acuerdo al tipo de afiliado.</string>
+    <string name="salud_afiliaciones_eps_pt2">2.En la ficha de afiliación deberás llenar las secciones de: Entidad Empleadora, Datos de Titular, Dependientes (en caso de requerir), Declaración de Salud y responder a todas las preguntas. La ficha se debe enviar debidamente firmada.</string>
+    <string name="salud_afiliaciones_eps_pt3">3.Si vienes de otra EPS, debes adjuntar la constancia de tu anterior seguro, indicando la fecha de inicio y fin de cobertura, así como la relación de diagnósticos que fueron cubiertos con tu póliza anterior. No es indispensable, pero si es importante para la afiliación.</string>
+    <string name="salud_afiliaciones_eps_pt4">4.Registrar a tu dependientes correctamente en Success Factors.</string>
+    <string name="salud_afiliaciones_eps_pt5">5.Antes de solicitar tu afiliación deberás tener en cuenta las fechas de corte de envío de la información a la compañía de seguros. Las fichas recibidas con la información se activarán según las siguientes fechas:
  1)Si envías tu ficha hasta el 22 del mes, tendrás cobertura desde el día 1 del mes en curso. 2)
 Si envías tu ficha a partir del 23 hasta fin de mes, tendrás cobertura a partir del mes siguiente.
 Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes e ingresos nuevos en la empresa.
 </string>
-    <string name="salud_afiliaciones_eps_pt6">Entregar todos estos documentos en las siguientes direcciones: \n- Dean Valdivia 148 Torre A Piso 14, San Isidro. \n- Av. San Felipe 1144 Bloque C Piso 2, Surquillo. \n- En caso de estar en provincia, la entrega es a tu Gestor Zonal.</string>
+    <string name="salud_afiliaciones_eps_pt6">6.Entregar todos estos documentos en las siguientes direcciones: \n- Dean Valdivia 148 Torre A Piso 14, San Isidro. \n- Av. San Felipe 1144 Bloque C Piso 2, Surquillo. \n- En caso de estar en provincia, la entrega es a tu Gestor Zonal.</string>
     <string name="salud_afiliaciones_eps_pt7">En caso de querer excluirte o excluir a uno de tus dependientes de la póliza, como titular, deberás enviar la carta de desafiliación adjunto por correo al CAE y en físico a Dean Valdivia 148 Torre A Piso 14, San Isidro o a tu zonal. Con tu desafiliación quedan excluidos tus dependientes afiliados a la EPS y al Plan Oncológico.</string>
 
     <string name="salud_afiliaciones_lgbtiq_pt1">1.Debes completar la siguiente ficha de afiliación.</string>

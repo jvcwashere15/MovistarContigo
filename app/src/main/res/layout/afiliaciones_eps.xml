@@ -12,6 +12,7 @@
         android:layout_marginBottom="16dp"
         android:text="@string/salud_afiliaciones_eps_pt1"/>
     <TextView
+        android:id="@+id/afiliacion_eps_tvFichaAfiliacion"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Ficha de afiliación EPS"
@@ -22,6 +23,7 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/telefonica_bold"/>
     <TextView
+        android:id="@+id/afiliacion_eps_tvCartaPlan"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="16dp"
@@ -32,6 +34,7 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/telefonica_bold"/>
     <TextView
+        android:id="@+id/afiliacion_eps_tvRequisitos"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="16dp"
@@ -66,9 +69,10 @@
         android:text="@string/salud_afiliaciones_eps_pt4"/>
 
     <TextView
+        android:id="@+id/afiliacion_eps_tvActualizacion"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Requisitos según afiliado"
+        android:text="Actualización de dependientes"
         android:textSize="16sp"
         android:background="@drawable/boton_afiliaciones_salud"
         android:gravity="center"
@@ -76,23 +80,24 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/telefonica_bold"/>
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:fontFamily="@font/telefonica_regular"-->
-        <!--android:textSize="15sp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:text="@string/salud_afiliaciones_eps_pt5"/>-->
-
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:fontFamily="@font/telefonica_regular"-->
-        <!--android:textSize="15sp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:text="@string/salud_afiliaciones_eps_pt6"/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt5"/>
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/telefonica_regular"
+        android:textSize="15sp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salud_afiliaciones_eps_pt6"/>
+
+    <TextView
+        android:id="@+id/afiliacion_eps_tvListaGestores"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Lista de gestores zonales"
@@ -110,6 +115,7 @@
         android:layout_marginBottom="16dp"
         android:text="@string/salud_afiliaciones_eps_pt7"/>
     <TextView
+        android:id="@+id/afiliacion_eps_tvCartaDesafiliacion"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Carta de desafiliación"
