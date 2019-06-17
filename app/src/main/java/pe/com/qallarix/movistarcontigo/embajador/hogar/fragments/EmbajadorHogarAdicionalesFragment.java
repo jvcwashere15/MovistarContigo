@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +31,9 @@ public class EmbajadorHogarAdicionalesFragment extends FragmentParentEmbajador {
     private ViewPager vpComplementos;
     private ViewPager vpCombos;
     private List<Combo> combos;
+    private DotIndicator dotIndicatorCombos, dotIndicatorAdicionales;
     private List<ComplementList> complementLists;
     private static final String ARGUMENT_COMPLEMENT_LISTS = "complementLists";
-    private ImageView ivAdicionalAtras, ivAdicionalAdelante,
-            ivCombosAtras,ivCombosAdelante;
 
 
     public EmbajadorHogarAdicionalesFragment() {
@@ -55,10 +56,9 @@ public class EmbajadorHogarAdicionalesFragment extends FragmentParentEmbajador {
         View rootView = inflater.inflate(R.layout.fragment_embajador_hogar_adicionales, container, false);
         vpComplementos = rootView.findViewById(R.id.hogar_vpComplementos);
         vpCombos = rootView.findViewById(R.id.hogar_vpCombos);
-        ivAdicionalAtras = rootView.findViewById(R.id.hogar_adicionales_ivAtras);
-        ivAdicionalAdelante = rootView.findViewById(R.id.hogar_adicionales_ivAdelante);
-        ivCombosAtras = rootView.findViewById(R.id.hogar_combos_ivAtras);
-        ivCombosAdelante = rootView.findViewById(R.id.hogar_combos_ivAdelante);
+        dotIndicatorAdicionales = rootView.findViewById(R.id.hogar_complementos_dot);
+        dotIndicatorCombos = rootView.findViewById(R.id.hogar_combos_dot);
+
         return rootView;
     }
 
@@ -66,10 +66,43 @@ public class EmbajadorHogarAdicionalesFragment extends FragmentParentEmbajador {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         cargaDataCombos();
-        configurarFlechasViewPager(vpComplementos,ivAdicionalAtras,ivAdicionalAdelante,complementLists.size()-1);
-        ComplementoPaqueteAdapter complementoPaqueteAdapter = new ComplementoPaqueteAdapter(getChildFragmentManager(),complementLists);
+
+        if (complementLists.size() > 1)
+            dotIndicatorAdicionales.setNumberOfItems(complementLists.size());
+        else
+            dotIndicatorAdicionales.setVisibility(View.GONE);
+
+        vpComplementos.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotIndicatorAdicionales.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+        ComplementoPaqueteAdapter complementoPaqueteAdapter =
+                new ComplementoPaqueteAdapter(getChildFragmentManager(),complementLists);
         vpComplementos.setAdapter(complementoPaqueteAdapter);
-        configurarFlechasViewPager(vpCombos,ivCombosAtras,ivCombosAdelante,combos.size()-1);
+
+        if (combos.size() > 1)
+            dotIndicatorCombos.setNumberOfItems(combos.size());
+        else
+            dotIndicatorCombos.setVisibility(View.GONE);
+
+        vpCombos.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotIndicatorCombos.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
         ComboPaqueteAdapter comboPaqueteAdapter = new ComboPaqueteAdapter(getChildFragmentManager(),combos);
         vpCombos.setAdapter(comboPaqueteAdapter);
     }

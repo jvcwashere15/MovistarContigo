@@ -48,8 +48,6 @@ public class HomeFragment extends Fragment {
     private TextView tvHolaUsuario;
     private CardView cvDescuentos, cvSalud, cvCanalEmbajador,
             cvEstudios, cvBeneficiosEspeciales, cvVacaciones;
-
-    private ImageView ivAtras,ivAdelante;
     private ViewPager vpNoticias;
     private NoticiasDashboardAdapter noticiasDashboardAdapter;
 
@@ -92,8 +90,6 @@ public class HomeFragment extends Fragment {
         mShimmerViewContainer = rootView.findViewById(R.id.dashboard_shimerFrameLayout);
         viewSinConexion = rootView.findViewById(R.id.view_sin_conexion);
         viewDashBoard = rootView.findViewById(R.id.view_dashboard);
-        ivAtras = rootView.findViewById(R.id.btnImagenAtras);
-        ivAdelante = rootView.findViewById(R.id.btnImagenAdelante);
         tvHolaUsuario = rootView.findViewById(R.id.home_tvHolaUsuario);
         vpNoticias = rootView.findViewById(R.id.home_vpNoticias);
         dotIndicator = rootView.findViewById(R.id.dotIndicator);

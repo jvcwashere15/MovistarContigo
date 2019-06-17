@@ -248,8 +248,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <string name="embajador_hogar_importante_respuesta_4">En el caso deseas realizar una baja de tus adicionales, puedes realizarlo a través de la web embajador o llamando al 104.</string>
     <string name="embajador_hogar_importante_respuesta_5">El Descuento Embajador no es acumulable con otros descuentos promocionales.</string>
     <string name="embajador_hogar_importante_respuesta_6">Para empleados nuevos, debes esperar 35 días desde tu contratación para realizar el alta nueva o migración para que el descuento se pueda aplicar.</string>
-    <string name="embajador_paquete_movil_footer">Adquiere tu plan en cualquiera de nuestros puntos de venta  con tu <font color='#FF0064'><b>DNI</b></font>.</string>
-    <string name="embajador_paquete_hogar_footer_1">Pídelo como <font color='#FF0064'><b>trío regular</b></font>, no como un trío Embajador.</string>
+    <string name="embajador_paquete_movil_footer">Adquiere tu plan en cualquiera de nuestros puntos de venta  con tu <font color='#5BC500'><b>DNI</b></font>.</string>
+    <string name="embajador_paquete_hogar_footer_1">Pídelo como <font color='#5BC500'><b>trío regular</b></font>, no como un trío Embajador.</string>
     <string name="embajador_paquete_hogar_footer_2">¿Quieres migrar tu trío?</string>
     <string name="embajador_paquete_hogar_footer_aqui"><font color='#00A9E0'><u>Pídelo aquí</u></font></string>
     <string name="hint_nombre_apellido"><i>Nombre y apellido (*)</i></string>

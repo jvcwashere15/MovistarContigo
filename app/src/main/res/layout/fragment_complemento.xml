@@ -12,32 +12,38 @@
         android:id="@+id/complemento_ivImagen"
         android:layout_width="160dp"
         android:layout_height="160dp"/>
-    <TextView
-        android:id="@+id/complemento_tvNombre"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/telefonica_regular"
+        android:layout_height="96dp"
         android:gravity="center"
-        android:textColor="#86888C"
-        android:textSize="18sp"
-        android:text="Repetidor Smart WiFi"/>
-    <TextView
-        android:id="@+id/complemento_tvPrecio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/telefonica_regular"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:textColor="@color/colorCanalEmbajador"
-        android:text="S/ 12.90 al mes"/>
-    <TextView
-        android:id="@+id/complemento_tvDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/telefonica_regular"
-        android:gravity="center"
-        android:textColor="#86888C"
-        android:textSize="14sp"
-        android:text="Incluye cableado + configuración"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/complemento_tvNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center"
+            android:textColor="#86888C"
+            android:textSize="16sp"
+            android:text="Repetidor Smart WiFi"/>
+        <TextView
+            android:id="@+id/complemento_tvPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/colorCanalEmbajador"
+            android:text="S/ 12.90 al mes"/>
+        <TextView
+            android:id="@+id/complemento_tvDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_regular"
+            android:gravity="center"
+            android:textColor="#86888C"
+            android:textSize="14sp"
+            android:text="Incluye cableado + configuración"/>
+    </LinearLayout>
 </LinearLayout>

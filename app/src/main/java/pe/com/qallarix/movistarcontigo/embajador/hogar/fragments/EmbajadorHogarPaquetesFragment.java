@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class EmbajadorHogarPaquetesFragment extends FragmentParentEmbajador {
 
     private List<OfferList> offerLists;
     private List<PaqueteHogar> paquetesHogares;
-    private ImageView ivAtras,ivAdelante;
+    private DotIndicator dotIndicator;
 
     private ViewPager viewPager;
     private static final String ARGUMENT_OFFERLISTS = "offerlists";
@@ -54,9 +56,7 @@ public class EmbajadorHogarPaquetesFragment extends FragmentParentEmbajador {
                              Bundle savedInstanceState) {
         offerLists = (List<OfferList>) getArguments().getSerializable(ARGUMENT_OFFERLISTS);
         View rootView = inflater.inflate(R.layout.fragment_embajador_hogar_paquetes, container, false);
-        ivAtras = rootView.findViewById(R.id.hogar_paquetes_ivAtras);
-        ivAdelante = rootView.findViewById(R.id.hogar_paquetes_ivAdelante);
-
+        dotIndicator = rootView.findViewById(R.id.hogar_dotIndicator);
         viewPager = rootView.findViewById(R.id.hogar_vpPaquetes);
         return rootView;
     }
@@ -65,7 +65,23 @@ public class EmbajadorHogarPaquetesFragment extends FragmentParentEmbajador {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         cargaData();
-        configurarFlechasViewPager(viewPager,ivAtras,ivAdelante,paquetesHogares.size()-1);
+        if (paquetesHogares.size() > 1)
+            dotIndicator.setNumberOfItems(paquetesHogares.size());
+        else
+            dotIndicator.setVisibility(View.GONE);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotIndicator.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
         HogarPaqueteAdapter hogarPaqueteAdapter = new HogarPaqueteAdapter(getChildFragmentManager(), paquetesHogares);
         viewPager.setAdapter(hogarPaqueteAdapter);
     }

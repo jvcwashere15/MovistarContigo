@@ -91,6 +91,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onResponse(Call<ValidacionToken> call, Response<ValidacionToken> response) {
                 if (response.code() == 200){
                     Employee currentEmployee = response.body().getEmployee();
+
                     guardarNuevasPreferencias(currentEmployee);
                     Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(mainIntent);

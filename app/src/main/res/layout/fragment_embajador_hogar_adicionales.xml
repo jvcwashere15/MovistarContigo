@@ -21,31 +21,17 @@
                 android:padding="8dp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Puedes complementar tu experiencia de Internet y Tv"/>
-            <FrameLayout
+            <android.support.v4.view.ViewPager
+                android:id="@+id/hogar_vpComplementos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/hogar_vpComplementos"
-                    android:layout_width="match_parent"
-                    android:layout_height="280dp"/>
-                <ImageView
-                    android:id="@+id/hogar_adicionales_ivAtras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_gravity="center|left"
-                    android:layout_marginLeft="8dp"
-                    android:tint="@color/colorTextoCanalEmbajador"
-                    app:srcCompat="@drawable/ic_back_arrow"/>
-                <ImageView
-                    android:id="@+id/hogar_adicionales_ivAdelante"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|right"
-                    android:layout_marginRight="8dp"
-                    android:tint="@color/colorTextoCanalEmbajador"
-                    app:srcCompat="@drawable/ic_next_arrow"/>
-            </FrameLayout>
+                android:layout_height="264dp"/>
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator
+                android:id="@+id/hogar_complementos_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:selectedDotColor="#DADADA"
+                app:unselectedDotColor="#DADADA"
+                android:layout_gravity="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,34 +39,22 @@
                 android:gravity="center"
                 android:textSize="28sp"
                 android:padding="8dp"
+                android:layout_marginTop="16dp"
                 android:textColor="#979797"
                 android:fontFamily="@font/telefonica_regular"
                 android:textStyle="bold"/>
-            <FrameLayout
+            <android.support.v4.view.ViewPager
+                android:id="@+id/hogar_vpCombos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/hogar_vpCombos"
-                    android:layout_width="match_parent"
-                    android:layout_height="480dp"/>
-                <ImageView
-                    android:id="@+id/hogar_combos_ivAtras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_marginLeft="8dp"
-                    android:layout_gravity="center|left"
-                    android:tint="@color/colorTextoCanalEmbajador"
-                    app:srcCompat="@drawable/ic_back_arrow"/>
-                <ImageView
-                    android:id="@+id/hogar_combos_ivAdelante"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|right"
-                    android:layout_marginRight="8dp"
-                    android:tint="@color/colorTextoCanalEmbajador"
-                    app:srcCompat="@drawable/ic_next_arrow"/>
-            </FrameLayout>
+                android:layout_height="408dp"/>
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator
+                android:id="@+id/hogar_combos_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:selectedDotColor="#DADADA"
+                app:unselectedDotColor="#DADADA"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>
 
