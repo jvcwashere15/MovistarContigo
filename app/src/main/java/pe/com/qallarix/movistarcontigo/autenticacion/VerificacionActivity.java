@@ -1,6 +1,5 @@
 package pe.com.qallarix.movistarcontigo.autenticacion;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -161,7 +160,10 @@ public class VerificacionActivity extends TranquiParentActivity {
                     guardarEmpleadoSharedPreferences(employee);
                     FirebaseMessaging.getInstance().subscribeToTopic(TopicosNotificacion.TOPIC_NOTIFICATIONS);
                     Analitycs.logEventoLogin(VerificacionActivity.this);
-                    Analitycs.setUserPropertyClaseYCategoria(VerificacionActivity.this,employee.getClase(),employee.getCategory());
+                    Analitycs.setUserProperties(VerificacionActivity.this,
+                            employee.getClase(),employee.getCategory(),
+                            employee.getVicePresidency(),employee.getManagement(),
+                            employee.getCip());
                     irAPantallaBienvenida();
                 }else{
                     mostrarMensaje("El código ingresado es incorrecto.");

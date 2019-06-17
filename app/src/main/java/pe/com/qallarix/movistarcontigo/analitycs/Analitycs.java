@@ -79,10 +79,12 @@ public class Analitycs {
         FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_NOTIFICATION_BELL,null);
     }
 
-    public static void setUserPropertyClaseYCategoria(Context context, String clase, String category) {
+    public static void setUserProperties(Context context, String clase, String category,
+                                         String vicePresidency, String management, String cip ) {
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_AREA",clase);
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_PROFILE",category);
+        FirebaseAnalytics.getInstance(context).setUserProperty("FOR_VP",vicePresidency);
+        FirebaseAnalytics.getInstance(context).setUserProperty("FOR_MANAGEMENT",management);
+        FirebaseAnalytics.getInstance(context).setUserProperty("FOR_CIP",cip);
     }
-
-
 }

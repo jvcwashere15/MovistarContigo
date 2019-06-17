@@ -10,6 +10,11 @@ public class Employee {
     private String sex;
     private String clase;
     private String category;
+    private String profile;
+    private String cip;
+    private String vicePresidency;
+    private String direction;
+    private String management;
 
     public String getDocumentNumber() { return documentNumber; }
     public void setDocumentNumber(String value) { this.documentNumber = value; }
@@ -37,4 +42,44 @@ public class Employee {
 
     public String getCategory() { return category; }
     public void setCategory(String value) { this.category = value; }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+
+    public String getCip() {
+        return cip;
+    }
+
+    public void setCip(String cip) {
+        this.cip = cip;
+    }
+
+    public String getVicePresidency() {
+        return vicePresidency;
+    }
+
+    public void setVicePresidency(String vicePresidency) {
+        this.vicePresidency = vicePresidency;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+    public String getManagement() {
+        return management;
+    }
+
+    public void setManagement(String management) {
+        this.management = management;
+    }
 }

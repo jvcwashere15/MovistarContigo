@@ -16,6 +16,8 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.Timer;
 import java.util.TimerTask;
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
+import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.descuentos.DescuentosActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
@@ -88,24 +90,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ValidacionToken> call, Response<ValidacionToken> response) {
                 if (response.code() == 200){
-                    if (getIntent().getExtras()!= null && getIntent().getExtras().containsKey("pantalla")){
-                        String pantalla = getIntent().getExtras().getString("pantalla","");
-                        if (pantalla.equals("noticia")){
-                            Intent i = new Intent(SplashActivity.this, DetalleNoticiaActivity.class);
-                            String idNoticia = getIntent().getExtras().getString("id","");
-                            i.putExtra("id",Long.parseLong(idNoticia));
-                            startActivity(i);
-                            finish();
-                        }else if (pantalla.equals("descuento")){
-                            Intent i = new Intent(SplashActivity.this, DescuentosActivity.class);
-                            startActivity(i);
-                            finish();
-                        }
-                    }else{
-                        Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
-                        startActivity(mainIntent);
-                        finish();
-                    }
+                    Employee currentEmployee = response.body().getEmployee();
+                    guardarNuevasPreferencias(currentEmployee);
+                    Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(mainIntent);
+                    finish();
                 }else{
                     Intent intentLogin = new Intent(SplashActivity.this,LoginActivity.class);
                     startActivity(intentLogin);
@@ -118,6 +107,21 @@ public class SplashActivity extends AppCompatActivity {
                 mostrarMensaje("Se produjo un problema al obtener los datos de sesión, reintentar.");
             }
         });
+    }
+
+    private void guardarNuevasPreferencias(Employee employee) {
+        SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
+        if (sharedPreferences != null && !sharedPreferences.contains("cip")){
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("cip", employee.getCip());
+            editor.putString("vicePresidency", employee.getVicePresidency());
+            editor.putString("management", employee.getManagement());
+            editor.commit();
+            Analitycs.setUserProperties(SplashActivity.this,
+                    employee.getClase(),employee.getCategory(),
+                    employee.getVicePresidency(),employee.getManagement(),
+                    employee.getCip());
+        }
     }
 
     private boolean existConnectionInternet(){
