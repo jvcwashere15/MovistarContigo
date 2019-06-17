@@ -1,5 +1,6 @@
 package pe.com.qallarix.movistarcontigo.autenticacion;
 
+import pe.com.qallarix.movistarcontigo.autenticacion.pojos.CerrarSesionToken;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import retrofit2.Call;
@@ -13,4 +14,7 @@ public interface ServiceEmployeeApi {
     Call<ValidacionToken> validarToken(@Query("documentType") String documentType, @Query("documentNumber") String documentNumber, @Query("tokenAccess") String tokenAccess);
     @GET("employee/validateSession/validate")
     Call<ValidacionToken> validarSesion(@Query("documentType") String documentType, @Query("documentNumber") String documentNumber, @Query("tokenAccess") String tokenAccess);
+    @GET("employee/closeSession/close")
+    Call<CerrarSesionToken> cerrarSesion(@Query("documentType") String documentType, @Query("documentNumber") String documentNumber, @Query("tokenAccess") String tokenAccess);
+
 }

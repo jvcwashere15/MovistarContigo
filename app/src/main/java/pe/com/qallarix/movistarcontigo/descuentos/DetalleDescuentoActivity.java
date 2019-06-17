@@ -203,8 +203,15 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
                 if (isPackageExisted("pe.beyond.movistar.prioritymoments")) {
                     Intent intent = new Intent (Intent.ACTION_VIEW);
 //                    intent.setData (Uri.parse("pe.beyond.movistar.priority://prix?promo=a0t1r000008sV6fAAE"));
-                    intent.setData(Uri.parse("https://movistarprix.page.link/Prix"));
+//                    intent.setData(Uri.parse("https://movistarprix.page.link/Prix"));
                     try{
+                        intent.setData(Uri.parse(mDiscount.getDeepLink()));
+                        startActivity(intent);
+                        return;
+                    }catch (Exception e){ }
+
+                    try{
+                        intent.setData(Uri.parse("https://movistarprix.page.link/Prix"));
                         startActivity(intent);
                     }catch (Exception e){
                         Toast.makeText(DetalleDescuentoActivity.this, "Se produjo un error al intentar a ingresar a prix", Toast.LENGTH_SHORT).show();

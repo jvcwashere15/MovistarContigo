@@ -23,6 +23,7 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
+import pe.com.qallarix.movistarcontigo.util.TopicosNotificacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService;
 import retrofit2.Call;
@@ -45,10 +46,7 @@ public class VerificacionActivity extends TranquiParentActivity {
             documentType;
     private Pinview mPinview;
     private ImageView btAtras;
-    private final String
-            TOPIC_PRODUCCION = "produccion_android",
-            TOPIC_DESARROLLO = "develop_android",
-            TOPIC_NOTIFICATIONS = TOPIC_PRODUCCION;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +159,7 @@ public class VerificacionActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     Employee employee = response.body().getEmployee();
                     guardarEmpleadoSharedPreferences(employee);
-                    FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NOTIFICATIONS);
+                    FirebaseMessaging.getInstance().subscribeToTopic(TopicosNotificacion.TOPIC_NOTIFICATIONS);
                     Analitycs.logEventoLogin(VerificacionActivity.this);
                     Analitycs.setUserPropertyClaseYCategoria(VerificacionActivity.this,employee.getClase(),employee.getCategory());
                     irAPantallaBienvenida();
