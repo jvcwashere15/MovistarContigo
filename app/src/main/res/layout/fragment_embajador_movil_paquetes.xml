@@ -22,32 +22,19 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Todos nuestros planes tienen minutos y SMS ilimitados"/>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/movil_vpPaquetes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="560dp"/>
-                <ImageView
-                    android:id="@+id/embajador_paquete_movil_ivAtras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:scaleType="fitCenter"
-                    android:visibility="gone"
-                    android:layout_gravity="center|left"
-                    android:tint="@color/colorTextoCanalEmbajador"
-                    app:srcCompat="@drawable/ic_back_arrow"/>
-                <ImageView
-                    android:id="@+id/embajador_paquete_movil_ivAdelante"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:layout_gravity="center|right"
-                    android:tint="@color/colorTextoCanalEmbajador"
-                    app:srcCompat="@drawable/ic_next_arrow"/>
-            </FrameLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/movil_vpPaquetes"
+                android:layout_width="wrap_content"
+                android:layout_height="472dp"/>
+           <com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator
+               android:id="@+id/movil_paquetes_dotIndicator"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               app:selectedDotColor="#DADADA"
+               app:unselectedDotColor="#DADADA"
+               android:layout_margin="8dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

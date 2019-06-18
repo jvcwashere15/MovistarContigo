@@ -5,18 +5,18 @@
     android:layout_height="match_parent"
     android:paddingLeft="32dp"
     android:paddingRight="32dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".embajador.movil.fragments.MovilPaqueteFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#5BC500"
+        android:layout_height="104dp"
+        android:background="@drawable/header_paquete_verde"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/paquete_movil_tvInternet1"
@@ -49,11 +49,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="112dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/borde_paquete"
-        android:padding="8dp">
+        android:background="@drawable/borde_paquete">
         <TextView
             android:id="@+id/paquete_movil_tvAplicaciones1"
             android:textSize="16sp"
@@ -81,11 +80,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/borde_paquete"
-        android:padding="8dp">
+        android:background="@drawable/borde_paquete">
         <TextView
             android:id="@+id/paquete_movil_tvVozSMS1"
             android:textSize="18sp"
@@ -108,11 +106,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/borde_paquete"
-        android:padding="8dp">
+        android:background="@drawable/borde_paquete">
         <TextView
             android:id="@+id/paquete_movil_tvMegasRoaming1"
             android:textSize="18sp"
@@ -135,11 +132,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="#F4F4F4"
-        android:padding="8dp">
+        android:background="@drawable/footer_paquete_hogar">
         <TextView
             android:id="@+id/paquete_movil_tvPrecio1"
             android:textSize="14sp"

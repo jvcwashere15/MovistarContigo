@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <ScrollView
@@ -46,11 +47,12 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/hogar_vpCombos"
                 android:layout_width="match_parent"
-                android:layout_height="408dp"/>
+                android:layout_height="456dp"/>
             <com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator
                 android:id="@+id/hogar_combos_dot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 app:selectedDotColor="#DADADA"
                 app:unselectedDotColor="#DADADA"

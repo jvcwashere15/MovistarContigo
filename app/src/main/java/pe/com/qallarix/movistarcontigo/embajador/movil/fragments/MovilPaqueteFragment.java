@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -45,6 +46,8 @@ public class MovilPaqueteFragment extends Fragment {
     private TextView tvPrecios1;
     private TextView tvPrecios2;
     private TextView tvPrecios3;
+
+
 
     private static final String ARGUMENT_PAQUETE_MOVIL = "paqueteMovil";
 
@@ -82,6 +85,7 @@ public class MovilPaqueteFragment extends Fragment {
         tvPrecios1 = rootView.findViewById(R.id.paquete_movil_tvPrecio1);
         tvPrecios2 = rootView.findViewById(R.id.paquete_movil_tvPrecio2);
         tvPrecios3 = rootView.findViewById(R.id.paquete_movil_tvPrecio3);
+
 
         return rootView;
     }

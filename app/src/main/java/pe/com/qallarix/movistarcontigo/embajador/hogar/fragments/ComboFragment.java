@@ -55,7 +55,7 @@ public class ComboFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tvDescripcion.setText(combo.getDescripcion());
-        tvDescripcion.setBackgroundResource(combo.getColor());
+        tvDescripcion.setBackgroundResource(combo.getHeaderColor());
         tvMegas.setText(combo.getMegas());
         tvPrecioEmbajador.setText(combo.getPrecio_embajador());
         tvPrecioEmbajador.setTextColor(getResources().getColor(combo.getColor()));

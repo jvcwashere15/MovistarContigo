@@ -163,7 +163,7 @@ public class VerificacionActivity extends TranquiParentActivity {
                     Analitycs.setUserProperties(VerificacionActivity.this,
                             employee.getClase(),employee.getCategory(),
                             employee.getVicePresidency(),employee.getManagement(),
-                            employee.getCip());
+                            employee.getCip(),employee.getDirection());
                     irAPantallaBienvenida();
                 }else{
                     mostrarMensaje("El código ingresado es incorrecto.");
@@ -199,6 +199,10 @@ public class VerificacionActivity extends TranquiParentActivity {
         editor.putString("fullName", employee.getFullName());
         editor.putString("sex", employee.getSex());
         editor.putString("shortName", employee.getShortName());
+        editor.putString("cip", employee.getCip());
+        editor.putString("vicePresidency", employee.getVicePresidency());
+        editor.putString("management", employee.getManagement());
+        editor.putString("direction", employee.getDirection());
         editor.commit();
     }
 

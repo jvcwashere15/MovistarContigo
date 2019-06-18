@@ -56,6 +56,8 @@
             android:fontFamily="@font/telefonica_bold"
             android:textColor="@android:color/black"
             android:textSize="@dimen/titulo_item_notitica"
+            android:maxLines="4"
+            android:ellipsize="end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.981"

@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class EmbajadorHogarQueHacerFragment extends FragmentParentEmbajador {
     private List<SelfhelpList> selfhelpLists2;
     private ViewPager viewPager;
     private RecyclerView recyclerView;
-    private ImageView ivAtras,ivAdelante;
+    private DotIndicator dotIndicatorPasos;
     private static final String ARGUMENT_SELFHELPLIST_1 = "selfhelpLists1";
     private static final String ARGUMENT_SELFHELPLIST_2 = "selfhelpLists2";
 
@@ -57,9 +59,8 @@ public class EmbajadorHogarQueHacerFragment extends FragmentParentEmbajador {
         selfhelpLists1 = (List<SelfhelpList>) getArguments().getSerializable(ARGUMENT_SELFHELPLIST_1);
         selfhelpLists2 = (List<SelfhelpList>) getArguments().getSerializable(ARGUMENT_SELFHELPLIST_2);
         View rootView = inflater.inflate(R.layout.fragment_embajador_hogar_que_hacer, container, false);
+        dotIndicatorPasos = rootView.findViewById(R.id.hogar_pasos_dotIndicator);
         viewPager = rootView.findViewById(R.id.hogar_vpPasos);
-        ivAtras = rootView.findViewById(R.id.hogar_que_hacer_ivAtras);
-        ivAdelante = rootView.findViewById(R.id.hogar_que_hacer_ivAdelante);
         recyclerView = rootView.findViewById(R.id.hogar_rvImportante);
         return rootView;
     }
@@ -67,7 +68,24 @@ public class EmbajadorHogarQueHacerFragment extends FragmentParentEmbajador {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        configurarFlechasViewPager(viewPager,ivAtras,ivAdelante,selfhelpLists1.size()-1);
+
+        if (selfhelpLists1.size() > 1)
+            dotIndicatorPasos.setNumberOfItems(selfhelpLists1.size());
+        else
+            dotIndicatorPasos.setVisibility(View.GONE);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotIndicatorPasos.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
         HogarPasosAdapter hogarPasosAdapter = new HogarPasosAdapter(getChildFragmentManager(),selfhelpLists1);
         viewPager.setAdapter(hogarPasosAdapter);
         recyclerView.setHasFixedSize(true);

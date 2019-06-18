@@ -80,11 +80,13 @@ public class Analitycs {
     }
 
     public static void setUserProperties(Context context, String clase, String category,
-                                         String vicePresidency, String management, String cip ) {
+                                         String vicePresidency, String management, String cip, String direction ) {
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_AREA",clase);
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_PROFILE",category);
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_VP",vicePresidency);
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_MANAGEMENT",management);
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_CIP",cip);
+        FirebaseAnalytics.getInstance(context).setUserProperty("FOR_DIRECTION",direction);
+
     }
 }

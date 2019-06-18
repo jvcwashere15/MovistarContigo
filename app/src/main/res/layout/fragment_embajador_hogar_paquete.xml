@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/header_paquete_hogar"
+        android:background="@drawable/header_paquete_celeste"
         android:gravity="center"
         android:orientation="vertical">
 

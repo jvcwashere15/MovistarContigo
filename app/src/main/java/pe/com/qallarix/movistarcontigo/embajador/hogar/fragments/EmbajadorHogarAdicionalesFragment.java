@@ -109,17 +109,17 @@ public class EmbajadorHogarAdicionalesFragment extends FragmentParentEmbajador {
 
     private void cargaDataCombos() {
         combos = new ArrayList<>();
-        combos.add(new Combo(R.color.colorCombo1,
+        combos.add(new Combo(R.drawable.header_paquete_celeste,R.color.colorCombo1,
                 "Si hoy tienes lo siguiente:",
                 "60 Mbps",
                 "S/ 238.70",
                 "Precio regular: S/ 338.70"));
-        combos.add(new Combo(R.color.colorCombo2,
+        combos.add(new Combo(R.drawable.header_paquete_verde,R.color.colorCombo2,
                 "Y decides migrar a una velocidad mayor *",
                 "120 Mbps",
                 "S/ 268.70",
                 "Precio regular: S/ 338.70"));
-        combos.add(new Combo(R.color.colorCombo3,
+        combos.add(new Combo(R.drawable.header_paquete_morado,R.color.colorCombo3,
                 "O decides reducir la velocidad de tu plan *",
                 "40 Mbps",
                 "S/ 198.70",

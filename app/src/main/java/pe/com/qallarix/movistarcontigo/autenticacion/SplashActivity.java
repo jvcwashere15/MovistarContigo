@@ -1,6 +1,5 @@
 package pe.com.qallarix.movistarcontigo.autenticacion;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,16 +10,12 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
-import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.Timer;
 import java.util.TimerTask;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
-import pe.com.qallarix.movistarcontigo.descuentos.DescuentosActivity;
-import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService;
 import retrofit2.Call;
@@ -112,16 +107,17 @@ public class SplashActivity extends AppCompatActivity {
 
     private void guardarNuevasPreferencias(Employee employee) {
         SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        if (sharedPreferences != null && !sharedPreferences.contains("cip")){
+        if (sharedPreferences != null && !sharedPreferences.contains("direction")){
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("cip", employee.getCip());
             editor.putString("vicePresidency", employee.getVicePresidency());
             editor.putString("management", employee.getManagement());
+            editor.putString("direction", employee.getDirection());
             editor.commit();
             Analitycs.setUserProperties(SplashActivity.this,
                     employee.getClase(),employee.getCategory(),
                     employee.getVicePresidency(),employee.getManagement(),
-                    employee.getCip());
+                    employee.getCip(),employee.getDirection());
         }
     }
 

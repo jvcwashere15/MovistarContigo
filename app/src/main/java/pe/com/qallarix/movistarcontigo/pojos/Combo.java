@@ -3,13 +3,15 @@ package pe.com.qallarix.movistarcontigo.pojos;
 import java.io.Serializable;
 
 public class Combo implements Serializable {
+    private int headerColor;
     private int color;
     private String descripcion;
     private String megas;
     private String precio_embajador;
     private String precio;
 
-    public Combo(int color, String descripcion, String megas, String precio_embajador, String precio) {
+    public Combo(int headerColor, int color, String descripcion, String megas, String precio_embajador, String precio) {
+        this.headerColor = headerColor;
         this.color = color;
         this.descripcion = descripcion;
         this.megas = megas;
@@ -55,5 +57,13 @@ public class Combo implements Serializable {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+    public int getHeaderColor() {
+        return headerColor;
+    }
+
+    public void setHeaderColor(int headerColor) {
+        this.headerColor = headerColor;
     }
 }

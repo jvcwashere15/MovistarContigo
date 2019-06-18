@@ -20,7 +20,4 @@ public class EventsAnalitycs {
     public static final String EVENT_BUTTON_NOTIFICATION_BELL = "BUTTON_NOTIFICATION_BELL";
 
     public static final String EVENT_BUTTON_PRIX_CLICKED = "BUTTON_PRIX_CLICKED";
-
-
-
 }
