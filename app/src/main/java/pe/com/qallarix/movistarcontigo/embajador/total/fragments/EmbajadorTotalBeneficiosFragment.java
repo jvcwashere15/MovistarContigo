@@ -12,18 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.adapters.BeneficioAdapter;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.pojos.Beneficio;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorTotalBeneficiosFragment extends FragmentParentEmbajador {
+public class EmbajadorTotalBeneficiosFragment extends Fragment {
 
 
     private ViewPager vpBeneficios;
@@ -36,10 +37,8 @@ public class EmbajadorTotalBeneficiosFragment extends FragmentParentEmbajador {
     private List<Beneficio> consideraciones;
     private List<Beneficio> restricciones;
 
-    private ImageView ivBeneficiosAtras,ivBeneficiosAdelante,
-            ivTodosAtras,ivTodosAdelante,
-            ivConsideracionesAtras,ivConsideracionesAdelante,
-            ivRestriccionesAtras,ivRestriccionesAdelante;
+    private DotIndicator dotBeneficios,dotTodosPuedenSer,dotConsideraciones, dotRestricciones;
+
 
     public EmbajadorTotalBeneficiosFragment() {
         // Required empty public constructor
@@ -54,14 +53,10 @@ public class EmbajadorTotalBeneficiosFragment extends FragmentParentEmbajador {
         vpTodos = rootView.findViewById(R.id.embajador_movistar_total_vpTodosPueden);
         vpConsideraciones = rootView.findViewById(R.id.embajador_movistar_total_vpConsideraciones);
         vpRestricciones = rootView.findViewById(R.id.embajador_movistar_total_vpRestricciones);
-        ivBeneficiosAtras = rootView.findViewById(R.id.total_beneficios_ivAtras);
-        ivBeneficiosAdelante = rootView.findViewById(R.id.total_beneficios_ivAdelante);
-        ivTodosAtras = rootView.findViewById(R.id.total_todos_ivAtras);
-        ivTodosAdelante = rootView.findViewById(R.id.total_todos_ivAdelante);
-        ivConsideracionesAtras = rootView.findViewById(R.id.total_consideraciones_ivAtras);
-        ivConsideracionesAdelante = rootView.findViewById(R.id.total_consideraciones_ivAdelante);
-        ivRestriccionesAtras = rootView.findViewById(R.id.total_restricciones_ivAtras);
-        ivRestriccionesAdelante = rootView.findViewById(R.id.total_restricciones_ivAdelante);
+        dotBeneficios = rootView.findViewById(R.id.movistar_total_beneficios_dotIndicator);
+        dotTodosPuedenSer = rootView.findViewById(R.id.movistar_total_todos_pueden_dotIndicator);
+        dotConsideraciones = rootView.findViewById(R.id.movistar_total_consideraciones_dotIndicator);
+        dotRestricciones = rootView.findViewById(R.id.movistar_total_restricciones_dotIndicator);
         return rootView;
     }
 
@@ -73,16 +68,81 @@ public class EmbajadorTotalBeneficiosFragment extends FragmentParentEmbajador {
         cargaDataConsideraciones();
         cargaDataRestricciones();
 
-        configurarFlechasViewPager(vpBeneficios,ivBeneficiosAtras,ivBeneficiosAdelante,beneficios.size()-1);
-        configurarFlechasViewPager(vpTodos,ivTodosAtras,ivTodosAdelante,todos.size()-1);
-        configurarFlechasViewPager(vpConsideraciones,ivConsideracionesAtras,ivConsideracionesAdelante,consideraciones.size()-1);
-        configurarFlechasViewPager(vpRestricciones,ivRestriccionesAtras,ivRestriccionesAdelante,restricciones.size()-1);
+        if (beneficios.size() > 1)
+            dotBeneficios.setNumberOfItems(beneficios.size());
+        else
+            dotBeneficios.setVisibility(View.GONE);
 
+        vpBeneficios.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotBeneficios.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
+        if (todos.size() > 1)
+            dotTodosPuedenSer.setNumberOfItems(todos.size());
+        else
+            dotTodosPuedenSer.setVisibility(View.GONE);
+
+        vpTodos.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotTodosPuedenSer.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
+        if (consideraciones.size() > 1)
+            dotConsideraciones.setNumberOfItems(consideraciones.size());
+        else
+            dotConsideraciones.setVisibility(View.GONE);
+
+        vpConsideraciones.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotConsideraciones.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
+        if (restricciones.size() > 1)
+            dotRestricciones.setNumberOfItems(restricciones.size());
+        else
+            dotRestricciones.setVisibility(View.GONE);
+
+        vpRestricciones.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotRestricciones.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
 
         BeneficioAdapter beneficioAdapter = new BeneficioAdapter(getChildFragmentManager(),beneficios
                 ,getResources().getColor(R.color.colorTextoCanalEmbajador));
+
         BeneficioAdapter todosAdapter = new BeneficioAdapter(getChildFragmentManager(),todos
                 ,getResources().getColor(R.color.colorTextoCanalEmbajador));
+
+
         BeneficioAdapter consideracionesAdapter = new BeneficioAdapter(getChildFragmentManager(),consideraciones
                 ,getResources().getColor(R.color.colorTextoCanalEmbajador));
         BeneficioAdapter restriccionesAdapter = new BeneficioAdapter(getChildFragmentManager(),restricciones

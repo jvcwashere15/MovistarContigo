@@ -247,9 +247,9 @@ public class HomeFragment extends Fragment {
                 else if (cardView.equals(cvEstudios)) Analitycs.logEventoClickDashboard(getActivity(), TITLE_OPEN_LEARNING);
                 else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
                 else if (cardView.equals(cvVacaciones)){
-                    parentActivity.mostrarMensaje("Próximamente habilitaremos esta opción, estate atento a futuras actualizaciones.");
+//                    parentActivity.mostrarMensaje("Próximamente habilitaremos esta opción, estate atento a futuras actualizaciones.");
                     Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);
-                    return;
+//                    return;
                 }
                 irAlBeneficio(activityClass);
             }

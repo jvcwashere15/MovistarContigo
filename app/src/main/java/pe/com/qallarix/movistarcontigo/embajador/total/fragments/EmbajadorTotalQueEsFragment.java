@@ -11,24 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.adapters.RequisitosAdapter;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.pojos.Requisito;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorTotalQueEsFragment extends FragmentParentEmbajador {
+public class EmbajadorTotalQueEsFragment extends Fragment {
 
 
     private List<Requisito> requisitos;
     private ViewPager viewPager;
-    private ImageView ivAtras;
-    private ImageView ivAdelante;
+    private DotIndicator dotIndicator;
+
 
     public EmbajadorTotalQueEsFragment() {
         // Required empty public constructor
@@ -40,8 +41,7 @@ public class EmbajadorTotalQueEsFragment extends FragmentParentEmbajador {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_embajador_total_que_es, container, false);
         viewPager = rootView.findViewById(R.id.movistar_total_vpRequisitos);
-        ivAtras = rootView.findViewById(R.id.embajador_ivAtras);
-        ivAdelante = rootView.findViewById(R.id.embajador_ivAdelante);
+        dotIndicator = rootView.findViewById(R.id.movistar_total_requisitos_dotIndicator);
         return rootView;
     }
 
@@ -49,8 +49,25 @@ public class EmbajadorTotalQueEsFragment extends FragmentParentEmbajador {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         cargaData();
+
+        if (requisitos.size() > 1)
+            dotIndicator.setNumberOfItems(requisitos.size());
+        else
+            dotIndicator.setVisibility(View.GONE);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotIndicator.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
         RequisitosAdapter requisitosAdapter = new RequisitosAdapter(getChildFragmentManager(),requisitos);
-        configurarFlechasViewPager(viewPager,ivAtras,ivAdelante,requisitos.size()-1);
         viewPager.setAdapter(requisitosAdapter);
     }
 

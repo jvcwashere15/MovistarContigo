@@ -5,10 +5,10 @@
         android:title="usuario"
         android:icon="@drawable/ic_filter_list"
         app:showAsAction="always"/>
-    <item android:id="@+id/action_account"
-        android:title="usuario"
-        app:actionLayout="@layout/action_user_account"
-        app:showAsAction="always"/>
+    <!--<item android:id="@+id/action_account"-->
+        <!--android:title="usuario"-->
+        <!--app:actionLayout="@layout/action_user_account"-->
+        <!--app:showAsAction="always"/>-->
 </menu>
 
     <!--app:actionLayout="@layout/action_user_account"-->

@@ -242,22 +242,22 @@ public class DetalleNoticiaActivity extends TranquiParentActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_just_account, menu);
-        View view = menu.findItem(R.id.action_account).getActionView();
-        TextView tvIniciales = view.findViewById(R.id.menu_tvIniciales);
-        tvIniciales.setText(obtenerIniciales());
-        tvIniciales.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetalleNoticiaActivity.this, AccountActivity.class);
-                startActivity(intent);
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_just_account, menu);
+//        View view = menu.findItem(R.id.action_account).getActionView();
+//        TextView tvIniciales = view.findViewById(R.id.menu_tvIniciales);
+//        tvIniciales.setText(obtenerIniciales());
+//        tvIniciales.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(DetalleNoticiaActivity.this, AccountActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
 
 

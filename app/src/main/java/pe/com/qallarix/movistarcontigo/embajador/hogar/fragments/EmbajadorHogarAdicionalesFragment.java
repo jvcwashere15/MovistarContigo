@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
@@ -19,14 +18,13 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.adapters.ComboPaqueteAdapter;
 import pe.com.qallarix.movistarcontigo.adapters.ComplementoPaqueteAdapter;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.ComplementList;
 import pe.com.qallarix.movistarcontigo.pojos.Combo;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorHogarAdicionalesFragment extends FragmentParentEmbajador {
+public class EmbajadorHogarAdicionalesFragment extends Fragment {
 
     private ViewPager vpComplementos;
     private ViewPager vpCombos;

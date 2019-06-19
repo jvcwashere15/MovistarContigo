@@ -282,16 +282,16 @@ public class DescuentosActivity extends TranquiParentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_descuentos, menu);
-        View view = menu.findItem(R.id.action_account).getActionView();
-        TextView tvIniciales = view.findViewById(R.id.menu_tvIniciales);
-        tvIniciales.setText(obtenerIniciales());
-        tvIniciales.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DescuentosActivity.this,AccountActivity.class);
-                startActivity(intent);
-            }
-        });
+//        View view = menu.findItem(R.id.action_account).getActionView();
+//        TextView tvIniciales = view.findViewById(R.id.menu_tvIniciales);
+//        tvIniciales.setText(obtenerIniciales());
+//        tvIniciales.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(DescuentosActivity.this,AccountActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -299,10 +299,10 @@ public class DescuentosActivity extends TranquiParentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_account:
-                Intent intent = new Intent(DescuentosActivity.this,AccountActivity.class);
-                startActivity(intent);
-                return true;
+//            case R.id.action_account:
+//                Intent intent = new Intent(DescuentosActivity.this,AccountActivity.class);
+//                startActivity(intent);
+//                return true;
             case R.id.action_search:
                 irAFiltrarPorCategoria();
                 return true;

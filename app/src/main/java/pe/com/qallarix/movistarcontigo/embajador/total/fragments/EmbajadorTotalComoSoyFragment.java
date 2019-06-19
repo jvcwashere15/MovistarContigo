@@ -13,20 +13,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.adapters.PlanMovistarTotalAdapter;
 import pe.com.qallarix.movistarcontigo.adapters.TipoFacturacionAdapter;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.pojos.PlanMovistarTotal;
 import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorTotalComoSoyFragment extends FragmentParentEmbajador {
+public class EmbajadorTotalComoSoyFragment extends Fragment {
 
     LinearLayout lytCicloFacturacion1,lytCicloFacturacion2,
             lytCicloFacturacion3;
@@ -37,13 +38,17 @@ public class EmbajadorTotalComoSoyFragment extends FragmentParentEmbajador {
     LinearLayout lytDescripcion1,lytDescripcion2,
             lytDescripcion3;
 
-    ImageView iv1, iv2, iv3, ivAtras, ivAdelante,ivPlanesAtras,ivPlanesAdelante;
+    ImageView iv1, iv2, iv3;
 
     List<TipoFacturacion> tipoFacturacions;
     private ViewPager vpTipoFacturacion;
 
     List<PlanMovistarTotal> planMovistarTotals;
     private ViewPager vpPlanMovistarTotal;
+
+    private DotIndicator dotPlanes;
+    private DotIndicator dotFacturacion;
+
 
     public EmbajadorTotalComoSoyFragment() {
         // Required empty public constructor
@@ -70,11 +75,9 @@ public class EmbajadorTotalComoSoyFragment extends FragmentParentEmbajador {
         iv1 = rootView.findViewById(R.id.embajador_total_facturacion_iv1);
         iv2 = rootView.findViewById(R.id.embajador_total_facturacion_iv2);
         iv3 = rootView.findViewById(R.id.embajador_total_facturacion_iv3);
-        ivAtras = rootView.findViewById(R.id.embajador_ivAtras);
-        ivAdelante = rootView.findViewById(R.id.embajador_ivAdelante);
-        ivPlanesAtras = rootView.findViewById(R.id.planes_movistar_total_ivAtras);
-        ivPlanesAdelante = rootView.findViewById(R.id.planes_movistar_total_ivAdelante);
 
+        dotFacturacion = rootView.findViewById(R.id.movistar_total_facturacion_dotIndicator);
+        dotPlanes = rootView.findViewById(R.id.movistar_total_planes_dotIndicator);
 
         vpTipoFacturacion = rootView.findViewById(R.id.embajador_movistar_total_vpTipoFacturacion);
         vpPlanMovistarTotal = rootView.findViewById(R.id.embajador_movistar_total_vpPlanes);
@@ -92,12 +95,43 @@ public class EmbajadorTotalComoSoyFragment extends FragmentParentEmbajador {
         configurarBotonDetalleImportante(lytCicloFacturacion2,lytDescripcion2,tvCicloFacturacion2,iv2);
         configurarBotonDetalleImportante(lytCicloFacturacion3,lytDescripcion3,tvCicloFacturacion3,iv3);
 
+        if (planMovistarTotals.size() > 1)
+            dotPlanes.setNumberOfItems(planMovistarTotals.size());
+        else
+            dotPlanes.setVisibility(View.GONE);
 
-        configurarFlechasViewPager(vpPlanMovistarTotal,ivPlanesAtras,ivPlanesAdelante,planMovistarTotals.size()-1);
+        vpPlanMovistarTotal.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotPlanes.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
         PlanMovistarTotalAdapter planMovistarTotalAdapter = new PlanMovistarTotalAdapter(getChildFragmentManager(),planMovistarTotals);
         vpPlanMovistarTotal.setAdapter(planMovistarTotalAdapter);
 
-        configurarFlechasViewPager(vpTipoFacturacion,ivAtras,ivAdelante,tipoFacturacions.size()-1);
+        if (tipoFacturacions.size() > 1)
+            dotFacturacion.setNumberOfItems(tipoFacturacions.size());
+        else
+            dotFacturacion.setVisibility(View.GONE);
+
+        vpTipoFacturacion.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int position) {
+                dotFacturacion.setSelectedItem(position,true);
+            }
+            @Override
+            public void onPageScrollStateChanged(int i) { }
+        });
+
         TipoFacturacionAdapter tipoFacturacionAdapter = new TipoFacturacionAdapter(getChildFragmentManager(),tipoFacturacions);
         vpTipoFacturacion.setAdapter(tipoFacturacionAdapter);
     }

@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".embajador.total.fragments.RequisitoFragment">
+
     <TextView
         android:id="@+id/requisito_tvNumero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="200sp"
-        android:textColor="#2286888C"
-        android:includeFontPadding="false"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/telefonica_regular"
-        tools:text="1"/>
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="#2286888C"
+        android:textSize="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
     <TextView
         android:id="@+id/requisito_tvDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="#86888C"
-        android:paddingRight="24dp"
-        android:paddingLeft="24dp"
         android:fontFamily="@font/telefonica_regular"
+        android:gravity="center"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:textColor="#86888C"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Ser trabajador activo de Telefónica del Perú S.A.A." />
-</FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -431,7 +431,7 @@ public class DetalleSaludFragment extends Fragment {
 
     public void mostrarDialogNecesitamosPermisos(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Para visualizar el archivo de los lineamientos del plan, permite que Movistar Contigo pueda acceder al almacenamiento");
+        builder.setMessage("Para visualizar el archivo PDF, permite que Movistar Contigo pueda acceder al almacenamiento");
         builder.setCancelable(false);
         builder.setPositiveButton("CONTINUAR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -469,7 +469,7 @@ public class DetalleSaludFragment extends Fragment {
     private void displayNeverAskAgainDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Para visualizar el documento pdf sobre los lineamientos del plan, permite que podamos acceder al almacenamiento"+
+        builder.setMessage("Para visualizar el documento PDF, permite que podamos acceder al almacenamiento"+
                 "\nToca Ajustes > Permisos, y activa Almacenamiento");
         builder.setCancelable(false);
         builder.setPositiveButton("AJUSTES", new DialogInterface.OnClickListener() {

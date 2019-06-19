@@ -1,7 +1,6 @@
 package pe.com.qallarix.movistarcontigo.embajador.hogar.fragments;
 
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
@@ -20,7 +18,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.adapters.HogarPasosAdapter;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.adapters.ImportanteAdapter;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.SelfhelpList;
@@ -28,7 +25,7 @@ import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.SelfhelpList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorHogarQueHacerFragment extends FragmentParentEmbajador {
+public class EmbajadorHogarQueHacerFragment extends Fragment {
 
     private List<SelfhelpList> selfhelpLists1;
     private List<SelfhelpList> selfhelpLists2;

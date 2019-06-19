@@ -14,14 +14,13 @@ import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 import java.io.Serializable;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.embajador.movil.adapters.MovilPasosAdapter;
 import pe.com.qallarix.movistarcontigo.embajador.movil.pojos.SelfhelpList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorMovilQueHacerFragment extends FragmentParentEmbajador {
+public class EmbajadorMovilQueHacerFragment extends Fragment {
     private List<SelfhelpList> pasos;
     private ViewPager viewPager;
     private static final String ARGUMENT_PASOS = "pasos";

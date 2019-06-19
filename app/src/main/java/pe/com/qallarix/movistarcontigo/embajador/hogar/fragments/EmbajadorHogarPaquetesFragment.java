@@ -1,7 +1,6 @@
 package pe.com.qallarix.movistarcontigo.embajador.hogar.fragments;
 
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
@@ -19,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.embajador.FragmentParentEmbajador;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.adapters.HogarPaqueteAdapter;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.CharacteristicGroupList;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.OfferList;
@@ -28,7 +25,7 @@ import pe.com.qallarix.movistarcontigo.pojos.PaqueteHogar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorHogarPaquetesFragment extends FragmentParentEmbajador {
+public class EmbajadorHogarPaquetesFragment extends Fragment {
 
 
     private List<OfferList> offerLists;

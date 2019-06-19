@@ -38,8 +38,8 @@ public class PdfActivity extends TranquiParentActivity {
 
     PDFView pdfView;
     Toolbar toolbar;
-    private final String KEY_PDF_TITLE_ACTIVITY = "titulo_pdf_activity";
-    private final String KEY_URI_PDF = "uri_pdf";
+    public static final String KEY_PDF_TITLE_ACTIVITY = "titulo_pdf_activity";
+    public static final String KEY_URI_PDF = "uri_pdf";
     private ProgressBar progressBar;
     private String urlPdf;
 
