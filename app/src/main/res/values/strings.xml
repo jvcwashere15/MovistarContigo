@@ -329,20 +329,58 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </string>
     <string name="sin_internet">Sin acceso a internet.\nRevisa tu conexión.</string>
     <string name="version_name">v1.0.4</string>
-    <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de contar con el código de avería y éste debe de tener más de 72 horas de haberse generado para considerarlo como un quiebre. \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso, revísalo haciendo</string>
+    <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de
+        contar con el código de avería y éste debe de tener más de 72 horas de haberse generado
+        para considerarlo como un quiebre.
+        \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso,
+        revísalo haciendo</string>
     <string name="lint_text"><u>Click Aquí</u></string>
-    <string name="texto_dialog_registrar_vacaciones">La fecha máxima para que se apruebe tu solicitud es hasta el 07/04/2019</string>
-    <string name="texto_acerca_vacaciones">
-        Como colaborador de Telefónica tienes 30 días calendario de descanso vacacional por cada año de servicio, los cuales debes programar dentro de los 3 primeros meses de cada año, de enero a marzo, en coordinación con tu jefe directo.
+    <string name="texto_dialog_registrar_vacaciones">La fecha máxima para que se apruebe tu
+        solicitud es hasta el 07/04/2019</string>
+    <string name="texto_acerca_vacaciones_bullet1_1">Los 15 primeros días de inicio de una nueva
+        fecha de derecho, podrás programar tus días en fracciones mínimas de 7 u 8
+        días ininterrumpidos.</string>
+    <string name="texto_acerca_vacaciones_bullet1_2">A partir del día 16, podrás programar tus días
+        en fracciones de hasta un día (1). </string>
+    <string name="texto_acerca_vacaciones_bullet1_3">Recuerda que son 30 días calendario, es por
+        ello que dentro del rango de días comprendidos entre el 16 y 30 deberás considerar 2 fines
+        de semana de manera obligatoria, los cuales podrán ser únicamente de viernes a domingo o
+        sábado a lunes; el sistema está parametrizado para dicha programación; el cual te alertará
+        de no cumplir con esta pauta.</string>
 
-\n\nPuedes registrar tus días de vacaciones en el Sistema de Gestión Vacacional (SGV) o desde el app Movistar Contigo, éstas serán aprobadas por tu jefe directo, al cual le llegará una notificación a su correo corporativo.
+    <string name="texto_acerca_vacaciones_bullet2_1"><b>Fecha de derecho:</b> es la fecha en la que ganas 30 días de descanso vacacional por cada año de servicio.</string>
+    <string name="texto_acerca_vacaciones_bullet2_2"><b>Vacaciones pendientes:</b> son los días pendientes por gozar correspondiente a la fecha de derecho actual.</string>
+    <string name="texto_acerca_vacaciones_bullet2_3"><b>Vacaciones para adelanto:</b> son los días que acumulas mes a mes, antes de completar el año de servicio.</string>
 
-\n\nPuedes programar a partir de tus días pendientes o para adelanto, que ganas a partir de tu fecha de derecho actual.
-        \n\n-Fecha de derecho: es la fecha en la que ganas 30 días de descanso vacacional por cada año de servicio.
-\n-Vacaciones pendientes: son los días pendientes por gozar correspondiente a la fecha de derecho actual.
-\n-Vacaciones para adelanto: son los días que acumulas mes a mes, antes de completar el año de servicio.
+    <string name="texto_acerca_vacaciones_vineta_1">Si tus vacaciones inician en la primera quincena del
+        mes (entre el día 1 y 15) y ha sido registrado y aprobado como máximo hasta el día 2 del
+        mes anterior; el pago del adelanto vacacional se abonará a fines del mes anterior.
+        Ejemplo: Si tus vacaciones inician el 01 de octubre y fueron registradas y aprobadas
+        el 01 de septiembre, el pago se realizará a finales de septiembre.</string>
+    <string name="texto_acerca_vacaciones_vineta_2">Si tus vacaciones inician en la segunda quincena del
+        mes (entre el día 16 en adelante) y ha sido registrado y aprobado como máximo hasta el día
+        2 del mismo mes; el pago del adelanto vacacional se abonará en la primera quincena del
+        mismo mes. Ejemplo: Si tus vacaciones inician el 16 de octubre y fueron registradas y
+        aprobadas el 02 de octubre, el pago se realizará en la quincena de octubre.</string>
 
-\n\nAl momento de registrar tus vacaciones, deberás  programar los 15 primeros días de inicio de una nueva fecha de derecho en fracciones de 7 u 8 días ininterrumpidos, contando sábados y domingos. A partir del día 16 podrás programarlos en fracciones de hasta un día. Sin embargo, cuando te corresponda programar el 5to día, de tu segunda fracción de días a tomar, sólo podrás elegir los lunes o viernes; contando obligatoriamente un rango de 3 días, incluyendo sábados y domingos.
+    <string name="texto_acerca_vacaciones_1">
+        Como colaborador, tienes 30 días calendario de descanso vacacional por cada año de servicio,
+        los cuales debes programar dentro de los 3 primeros meses de cada año, de enero a marzo,
+        en coordinación con tu jefe directo.
+        \n\nPuedes registrar tus días de vacaciones en el Sistema de Gestión Vacacional (SGV) o
+        desde el app Movistar Contigo, éstas serán aprobadas por tu jefe directo, al cual le
+        llegará una notificación a su correo corporativo.
+        \n\nEl pago de tu adelanto vacacional se realiza tomando en cuenta la fecha en que
+        registres la solicitud y la fecha de aprobación de tu jefe directo, ten en cuenta:
+    </string>
+    <string name="texto_acerca_vacaciones_2">
+        \nEs importante que tu jefe directo haya aprobado oportunamente las vacaciones que registraste,
+        de lo contrario, afecta el pago a realizarse oportunamente y no podrás salir de vacaciones.
+        \n\nPuedes programar a partir de tus días pendientes o para adelanto, que ganas a partir de
+        tu fecha de derecho actual; todo coordinándolo previamente con tu jefe directo.
+        \n\nConsidera que el número de días para adelanto se encontrará en función de los días truncos
+        que hayas acumulado en el respectivo periodo.
+        \n\nPara el registro de los 30 días calendario de vacaciones ganadas recuerda que:
     </string>
     <string name="dash_title_vacaciones">Gestión de vacaciones</string>
 
