@@ -1,20 +1,13 @@
 package pe.com.qallarix.movistarcontigo.noticias;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -23,11 +16,8 @@ import android.widget.Toast;
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
-import pe.com.qallarix.movistarcontigo.principal.MainActivity;
-import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,7 +50,7 @@ public class DetalleNoticiaActivity extends TranquiParentActivity {
 
 
     private void cargarNoticia() {
-        Call<DataNews> call = WebService.getInstance(getDocumentNumber())
+        Call<DataNews> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceNewsApi.class)
                 .getNoticia(mId);
         call.enqueue(new Callback<DataNews>() {
@@ -88,7 +78,7 @@ public class DetalleNoticiaActivity extends TranquiParentActivity {
     }
 
     private void cargarOtrasNoticias() {
-        Call<DataNoticias> call = WebService.getInstance(getDocumentNumber())
+        Call<DataNoticias> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceNewsApi.class)
                 .getNoticiasExcepto(mId);
         progressBar.setVisibility(View.VISIBLE);

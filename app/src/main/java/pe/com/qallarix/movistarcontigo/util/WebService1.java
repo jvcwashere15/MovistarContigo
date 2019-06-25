@@ -13,20 +13,20 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WebService {
+public class WebService1 {
 
-    private final String BASE_URL_QA = "https://qallarix-ws-qa.azurewebsites.net/";
-    private final String BASE_URL_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
-    private final String BASE_URL = BASE_URL_QA;
+    private final String BASE_URL_WS1_QA = "https://qallarix-ws-qa.azurewebsites.net/";
+    private final String BASE_URL_WS1_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
+    private final String BASE_URL_W1 = BASE_URL_WS1_QA;
 
-    private static WebService instance;
+    private static WebService1 instance;
     private Retrofit retrofit;
     private HttpLoggingInterceptor httpLoggingInterceptor;
     private OkHttpClient.Builder okHttpClientBuilder;
     private static final String BASIC_AUTH = "Basic " + Base64.encodeToString("qallarix:cWFsbGFyaXgqbW92aXN0YXI=".getBytes(), Base64.NO_WRAP);
     private String mDni;
 
-    public WebService(String dni){
+    public WebService1(String dni){
         mDni = dni;
         httpLoggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
         okHttpClientBuilder = new OkHttpClient.Builder()
@@ -48,15 +48,15 @@ public class WebService {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL_W1)
                 .client(okHttpClientBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    public static synchronized WebService getInstance(String dni){
+    public static synchronized WebService1 getInstance(String dni){
         if (instance == null)
-            instance = new WebService(dni);
+            instance = new WebService1(dni);
         return instance;
     }
 

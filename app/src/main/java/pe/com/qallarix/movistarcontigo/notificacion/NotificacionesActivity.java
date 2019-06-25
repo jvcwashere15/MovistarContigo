@@ -5,22 +5,17 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
-import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +36,7 @@ public class NotificacionesActivity extends TranquiParentActivity {
     }
 
     private void cargarListaNotificaciones() {
-        Call<Notificaciones> call = WebService.getInstance(getDocumentNumber())
+        Call<Notificaciones> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceNotificationApi.class)
                 .getListaNotificaciones(getDocumentNumber());
         call.enqueue(new Callback<Notificaciones>() {

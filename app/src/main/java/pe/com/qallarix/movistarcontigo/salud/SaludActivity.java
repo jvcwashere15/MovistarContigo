@@ -7,21 +7,17 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.salud.pojos.DataSalud;
 import pe.com.qallarix.movistarcontigo.salud.pojos.Plan;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,7 +41,7 @@ public class SaludActivity extends TranquiParentActivity {
     }
 
     private void cargarPlanes() {
-        Call<DataSalud> call = WebService.getInstance(mDni)
+        Call<DataSalud> call = WebService1.getInstance(mDni)
                 .createService(ServiceSaludApi.class)
                 .getListaPlanesSalud();
         progressDialog = ProgressDialog.show(this, "Salud", "Cargando planes de salud...", true);

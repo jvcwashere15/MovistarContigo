@@ -17,7 +17,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -77,7 +77,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void validarSesion(String tipoDoc, String numeroDoc, String tokenIngresado) {
-        Call<ValidacionToken> call = WebService.getInstance(mDni)
+        Call<ValidacionToken> call = WebService1.getInstance(mDni)
             .createService(ServiceEmployeeApi.class)
             .validarSesion(tipoDoc,numeroDoc,tokenIngresado);
 

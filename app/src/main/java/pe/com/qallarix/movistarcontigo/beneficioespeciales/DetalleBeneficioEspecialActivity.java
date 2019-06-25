@@ -10,8 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +19,6 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.adapters.TipoBeneficioAdapter;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.fragments.BeneficioFragment;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.fragments.ContactoFragment;
@@ -29,7 +26,7 @@ import pe.com.qallarix.movistarcontigo.beneficioespeciales.pojos.BenefitDetail;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.pojos.ItemList;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.pojos.SpecialBenefits;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -66,7 +63,7 @@ public class DetalleBeneficioEspecialActivity extends TranquiParentActivity {
     }
 
     private void cargarBeneficioEspecial() {
-        Call<BenefitDetail> call = WebService.getInstance(getDocumentNumber())
+        Call<BenefitDetail> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceBeneficiosEspecialesApi.class)
                 .getBeneficioEspecial(idBeneficio);
         call.enqueue(new Callback<BenefitDetail>() {

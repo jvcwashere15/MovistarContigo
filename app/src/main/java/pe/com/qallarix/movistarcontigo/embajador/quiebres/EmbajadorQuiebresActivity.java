@@ -13,8 +13,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -28,15 +26,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.dynamic.IFragmentWrapper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.embajador.ServiceAmbassadorApi;
 import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.NetworkTypeList;
 import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.ProductTypeList;
@@ -49,7 +44,7 @@ import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.QuiebreProducto;
 import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.QuiebreRed;
 import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.QuiebreRegistrado;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -147,7 +142,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
                             etNombre.getText().toString(),
                             etTelefonoConsulta.getText().toString()
                     );
-                    Call<QuiebreRegistrado> call = WebService.getInstance(mDni)
+                    Call<QuiebreRegistrado> call = WebService1.getInstance(mDni)
                             .createService(ServiceAmbassadorApi.class)
                             .setQuiebre(mQuiebre);
                     call.enqueue(new Callback<QuiebreRegistrado>() {
@@ -269,7 +264,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
     }
 
     private void configurarComboNetwork() {
-        final Call<QuiebreRed> call = WebService.getInstance(mDni)
+        final Call<QuiebreRed> call = WebService1.getInstance(mDni)
                 .createService(ServiceAmbassadorApi.class)
                 .getDataComboRed();
         progressDialog = ProgressDialog.show(EmbajadorQuiebresActivity.this, "Embajador #YoteAyudo",
@@ -321,7 +316,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
                     NetworkTypeList itemRed = networkTypeLists.get(position-1);
                     String codigoNetwork = itemRed.getCode();
                     opcionesCombo2.clear();
-                    Call<QuiebreConsulta> call1 = WebService.getInstance(mDni)
+                    Call<QuiebreConsulta> call1 = WebService1.getInstance(mDni)
                             .createService(ServiceAmbassadorApi.class)
                             .getDataComboConsulta(codigoNetwork);
                     call1.enqueue(new Callback<QuiebreConsulta>() {
@@ -375,7 +370,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
                     String codigoQuery = queryTypeList.getCode();
                     String codeNetwork = networkTypeLists.get(spNetwork.getSelectedItemPosition()-1).getCode();
                     opcionesCombo3.clear();
-                    Call<QuiebreProducto> call = WebService.getInstance(mDni)
+                    Call<QuiebreProducto> call = WebService1.getInstance(mDni)
                             .createService(ServiceAmbassadorApi.class)
                             .getDataComboProducto(codeNetwork,codigoQuery);
 
@@ -514,7 +509,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
                             etTelefonoConsulta.setVisibility(View.VISIBLE);
                         }
                         questionList.clear();
-                        Call<QuiebrePregunta> call = WebService.getInstance(mDni)
+                        Call<QuiebrePregunta> call = WebService1.getInstance(mDni)
                                 .createService(ServiceAmbassadorApi.class)
                                 .getDataPreguntas(codigoProducto);
                         progressDialog = ProgressDialog.show(EmbajadorQuiebresActivity.this, "Embajador #YoteAyudo",

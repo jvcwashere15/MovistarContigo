@@ -1,7 +1,6 @@
 package pe.com.qallarix.movistarcontigo.autenticacion;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,7 +16,7 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.CerrarSesionToken;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.util.TopicosNotificacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -122,7 +121,7 @@ public class AccountActivity extends TranquiParentActivity {
     }
 
     private void ejecutarCierreSesion() {
-        Call<CerrarSesionToken> call = WebService
+        Call<CerrarSesionToken> call = WebService1
                 .getInstance(getDocumentNumber())
                 .createService(ServiceEmployeeApi.class)
                 .cerrarSesion(mDocumentType,mDni,mToken);

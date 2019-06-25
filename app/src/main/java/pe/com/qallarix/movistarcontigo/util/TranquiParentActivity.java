@@ -59,6 +59,11 @@ public class TranquiParentActivity extends AppCompatActivity {
         return sharedPreferences.getString("documentNumber","");
     }
 
+    public String getCIP(){
+        SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
+        return sharedPreferences.getString("cip","");
+    }
+
     public String obtenerIniciales() {
 
         SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);

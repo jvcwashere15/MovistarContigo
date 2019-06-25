@@ -1,6 +1,5 @@
 package pe.com.qallarix.movistarcontigo.principal;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,26 +9,19 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
-import pe.com.qallarix.movistarcontigo.noticias.DataNoticias;
 import pe.com.qallarix.movistarcontigo.noticias.News;
-import pe.com.qallarix.movistarcontigo.noticias.ServiceNewsApi;
 import pe.com.qallarix.movistarcontigo.notificacion.NotificacionesActivity;
 import pe.com.qallarix.movistarcontigo.principal.fragments.BeneficiosFragment;
 import pe.com.qallarix.movistarcontigo.principal.fragments.HerramientasFragment;
@@ -37,10 +29,6 @@ import pe.com.qallarix.movistarcontigo.principal.fragments.HomeFragment;
 import pe.com.qallarix.movistarcontigo.principal.fragments.NoticiasFragment;
 import pe.com.qallarix.movistarcontigo.util.TipoFragment;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends TranquiParentActivity {
 

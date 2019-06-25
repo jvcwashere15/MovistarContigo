@@ -11,8 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,14 +26,12 @@ import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.fragments.DescripcionFragment;
 import pe.com.qallarix.movistarcontigo.descuentos.fragments.UsaloFragment;
 import pe.com.qallarix.movistarcontigo.descuentos.pojos.DetalleDescuento;
 import pe.com.qallarix.movistarcontigo.descuentos.pojos.Discount;
-import pe.com.qallarix.movistarcontigo.openlearning.DetalleEstudioActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -105,7 +101,7 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
     }
 
     private void cargarBeneficio() {
-        Call<DetalleDescuento> call = WebService.getInstance(getDocumentNumber())
+        Call<DetalleDescuento> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceDescuentoApi.class)
                 .getDescuento(mId,mOrigin);
         call.enqueue(new Callback<DetalleDescuento>() {

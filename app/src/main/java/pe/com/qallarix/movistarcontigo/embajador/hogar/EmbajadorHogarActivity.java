@@ -4,29 +4,16 @@ package pe.com.qallarix.movistarcontigo.embajador.hogar;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
-import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.embajador.ServiceAmbassadorApi;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.fragments.EmbajadorHogarAdicionalesFragment;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.fragments.EmbajadorHogarFacturacionFragment;
@@ -35,7 +22,7 @@ import pe.com.qallarix.movistarcontigo.embajador.hogar.fragments.EmbajadorHogarQ
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.Benefit;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.EmbajadorHogar;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,7 +44,7 @@ public class EmbajadorHogarActivity extends TranquiParentActivity {
         configurarToolbar();
         configurarTabs();
         if (existConnectionInternet()){
-            final Call<EmbajadorHogar> call = WebService.getInstance(mDni)
+            final Call<EmbajadorHogar> call = WebService1.getInstance(mDni)
                     .createService(ServiceAmbassadorApi.class)
                     .getDataEmbajadorHogar();
             progressDialog = ProgressDialog.show(EmbajadorHogarActivity.this, "Embajador Hogar",

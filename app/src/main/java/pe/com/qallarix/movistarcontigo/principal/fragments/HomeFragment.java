@@ -12,7 +12,6 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -34,7 +33,7 @@ import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.principal.NoticiasDashboardAdapter;
 import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -156,7 +155,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadNewsFromNetWork() {
-        Call<DataNoticias> call = WebService.getInstance(mDni)
+        Call<DataNoticias> call = WebService1.getInstance(mDni)
                 .createService(ServiceNewsApi.class)
                 .getNoticias();
         call.enqueue(new Callback<DataNoticias>() {

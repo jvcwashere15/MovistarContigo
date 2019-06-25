@@ -29,13 +29,12 @@ import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 
 import pe.com.qallarix.movistarcontigo.descuentos.pojos.Descuentos;
 import pe.com.qallarix.movistarcontigo.descuentos.pojos.Discount;
 import pe.com.qallarix.movistarcontigo.openlearning.CategoriasActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -253,10 +252,10 @@ public class DescuentosActivity extends TranquiParentActivity {
     }
 
     public Call<Descuentos> construirRequest(long filtro,int numeroPagina){
-        if (filtro == NO_FILTRAR) return WebService.getInstance(mDni)
+        if (filtro == NO_FILTRAR) return WebService1.getInstance(mDni)
                 .createService(ServiceDescuentoApi.class)
                 .getListaDescuentos(numeroPagina);
-        return WebService.getInstance(mDni)
+        return WebService1.getInstance(mDni)
                 .createService(ServiceDescuentoApi.class)
                 .getListaDescuentos(numeroPagina,filtro);
     }

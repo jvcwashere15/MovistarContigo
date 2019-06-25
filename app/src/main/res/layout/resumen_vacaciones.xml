@@ -17,8 +17,7 @@
             android:id="@+id/dashboard_btVacaciones"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:background="@drawable/fondo_vacaciones"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@color/colorCanalEmbajador"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +128,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/vacaciones_tvFechaDerecho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dashboard_btVacaciones"

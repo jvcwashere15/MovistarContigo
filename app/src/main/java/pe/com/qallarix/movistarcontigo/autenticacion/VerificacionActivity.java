@@ -24,7 +24,7 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TopicosNotificacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -119,7 +119,7 @@ public class VerificacionActivity extends TranquiParentActivity {
     }
 
     private void reenviarCodigoAutorizacion(String documentType, String documentNumber) {
-        Call<ResponseToken> call = WebService.getInstance(documentNumber)
+        Call<ResponseToken> call = WebService1.getInstance(documentNumber)
                 .createService(ServiceEmployeeApi.class)
                 .getGenerateToken(documentType,documentNumber);
         vProgressVolverAEnviar.setVisibility(View.VISIBLE);
@@ -147,7 +147,7 @@ public class VerificacionActivity extends TranquiParentActivity {
 
 
     private void validarTokenConServicio(String tipoDoc, String numeroDoc, String tokenIngresado) {
-        Call<ValidacionToken> call = WebService.getInstance(documentNumber)
+        Call<ValidacionToken> call = WebService1.getInstance(documentNumber)
                 .createService(ServiceEmployeeApi.class)
                 .validarToken(tipoDoc,numeroDoc,tokenIngresado);
         vProgressVerificacion.setVisibility(View.VISIBLE);

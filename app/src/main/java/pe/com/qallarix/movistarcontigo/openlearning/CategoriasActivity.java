@@ -19,7 +19,7 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.descuentos.ServiceDescuentoApi;
 import pe.com.qallarix.movistarcontigo.openlearning.pojos.Categorias;
 import pe.com.qallarix.movistarcontigo.openlearning.pojos.Category;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -83,10 +83,10 @@ public class CategoriasActivity extends AppCompatActivity {
 
     private Call<Categorias> getRequestCategoria() {
         if (tipoFiltro == 2)
-            return WebService.getInstance(mDni)
+            return WebService1.getInstance(mDni)
                 .createService(ServiceEstudioApi.class)
                 .getCategorias();
-        return WebService.getInstance(mDni)
+        return WebService1.getInstance(mDni)
                 .createService(ServiceDescuentoApi.class)
                 .getCategorias();
     }

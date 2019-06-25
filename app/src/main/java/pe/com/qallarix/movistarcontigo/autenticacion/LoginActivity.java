@@ -13,7 +13,7 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -107,7 +107,7 @@ public class LoginActivity extends TranquiParentActivity {
 
     private void pedirTokenAlServicio(final String tipoDoc, final String numeroDoc){
         hideSoftKeyboard(this);
-        Call<ResponseToken> call = WebService.getInstance(numeroDoc)
+        Call<ResponseToken> call = WebService1.getInstance(numeroDoc)
                 .createService(ServiceEmployeeApi.class)
                 .getGenerateToken(tipoDoc,numeroDoc);
         viewProgress.setVisibility(View.VISIBLE);

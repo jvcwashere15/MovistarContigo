@@ -1,11 +1,8 @@
 package pe.com.qallarix.movistarcontigo.principal.fragments;
 
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -30,7 +26,7 @@ import pe.com.qallarix.movistarcontigo.noticias.News;
 import pe.com.qallarix.movistarcontigo.noticias.NoticiasAdapter;
 import pe.com.qallarix.movistarcontigo.noticias.ServiceNewsApi;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -126,7 +122,7 @@ public class NoticiasFragment extends Fragment {
 
 
     private void onLoadNoticiasFromNetwork() {
-        Call<DataNoticias> call = WebService.getInstance(mDni)
+        Call<DataNoticias> call = WebService1.getInstance(mDni)
                 .createService(ServiceNewsApi.class)
                 .getNoticias();
         call.enqueue(new Callback<DataNoticias>() {

@@ -9,17 +9,37 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
+import pe.com.qallarix.movistarcontigo.util.WebService2;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.pojos.FutureJoy;
+import pe.com.qallarix.movistarcontigo.vacaciones.pojos.ServiceVacacionesApi;
+import pe.com.qallarix.movistarcontigo.vacaciones.pojos.VacacionesDashboard;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class VacacionesActivity extends AppCompatActivity {
+public class VacacionesActivity extends TranquiParentActivity {
     private View
             vRegistro,
             vEstado,
             vAprobacion;
+    private TextView
+            tvPendientes,
+            tvAdelanto,
+            tvFechaDerecho;
+
+    private boolean isLoading = true;
+
+    private ShimmerFrameLayout mShimmerViewContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +50,50 @@ public class VacacionesActivity extends AppCompatActivity {
         configurarBotonRegistroVacaciones();
         configurarBotonEstadoVacaciones();
         configurarBotonAprobacionVacaciones();
-
+        cargarDatosVacaciones();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isLoading)
+            mShimmerViewContainer.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        mShimmerViewContainer.stopShimmer();
+        super.onPause();
+    }
+
+    private void cargarDatosVacaciones() {
+        mShimmerViewContainer.setVisibility(View.VISIBLE);
+        if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
+        Call<VacacionesDashboard> call = WebService2
+                .getInstance(getDocumentNumber())
+                .createService(ServiceVacacionesApi.class)
+                .getInfoDashboardVacaciones(getCIP());
+        call.enqueue(new Callback<VacacionesDashboard>() {
+            @Override
+            public void onResponse(Call<VacacionesDashboard> call, Response<VacacionesDashboard> response) {
+                if (response.code() == 200){
+                    FutureJoy futureJoy = response.body().getFutureJoy();
+                    tvPendientes.setText(String.valueOf(futureJoy.getPlannedDaysPending()));
+                    tvAdelanto.setText(String.valueOf(futureJoy.getPlannedDaysExpired()));
+                    tvFechaDerecho.setText(futureJoy.getDateOfRight());
+                }
+                isLoading = false;
+                mShimmerViewContainer.setVisibility(View.GONE);
+                mShimmerViewContainer.stopShimmer();
+            }
+
+            @Override
+            public void onFailure(Call<VacacionesDashboard> call, Throwable t) {
+                Toast.makeText(VacacionesActivity.this, "error en el servidor", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+    }
 
 
     private void configurarBotonRegistroVacaciones() {
@@ -69,6 +130,10 @@ public class VacacionesActivity extends AppCompatActivity {
         vRegistro = findViewById(R.id.vacaciones_vRegistro);
         vEstado = findViewById(R.id.vacaciones_vEstado);
         vAprobacion = findViewById(R.id.vacaciones_vAprobacion);
+        tvPendientes = findViewById(R.id.vacaciones_tvPendientes);
+        tvAdelanto = findViewById(R.id.vacaciones_tvAdelanto);
+        tvFechaDerecho = findViewById(R.id.vacaciones_tvFechaDerecho);
+        mShimmerViewContainer = findViewById(R.id.dashboard_vacaciones_shimerFrameLayout);
     }
 
     public void configurarToolbar(){

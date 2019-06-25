@@ -8,27 +8,35 @@
     android:orientation="vertical"
     tools:context=".vacaciones.estado.EstadoVacacionesActivity">
     <include layout="@layout/my_toolbar"/>
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Has solicitado las siguientes fechas para el goce de tus vacaciones:"/>
-    <Spinner
-        android:id="@+id/estado_vacaciones_spAnios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:drawSelectorOnTop="true"
-        android:entries="@array/array_anios_vacaciones"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DDDDDD"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"/>
-
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#EEEEEE"
+            android:layout_gravity="bottom"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/detalle_beneficio_especial_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MyCustomTabVacaciones"
+            app:tabGravity="fill"
+            app:tabMode="fixed">
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pendientes" />
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aprobadas"/>
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rechazadas"/>
+        </android.support.design.widget.TabLayout>
+    </FrameLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/estado_vacaciones_rvListaVacaciones"
         android:layout_width="match_parent"
