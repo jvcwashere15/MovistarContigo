@@ -5,28 +5,37 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
+import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.DetalleVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
+import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseDetalleSolicitud;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class DetalleEstadoVacacionesActivity extends AppCompatActivity {
+public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
     private List<EstadoVacaciones> estadoVacaciones;
-    private int id;
     private TextView
             tvLider,
             tvEstado,
-            tvFechaSolicitud,
             tvFechaInicio,
             tvFechaFin,
             tvDiasSolicitados,
             tvDescripcion,tvDescLider;
+    private ShimmerFrameLayout mShimmerViewContainer;
+    private String requestCode;
+    private boolean isLoading;
 
 
     @Override
@@ -34,10 +43,22 @@ public class DetalleEstadoVacacionesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_estado_vacaciones);
         configurarToolbar();
-        cargarData();
-        id = getIntent().getExtras().getInt("position");
+        requestCode = getIntent().getExtras().getString("requestCode");
         bindearVistas();
-        displayDetalleEstado(id);
+        displayDetalleEstado();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isLoading)
+            mShimmerViewContainer.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        mShimmerViewContainer.stopShimmer();
+        super.onPause();
     }
 
     private void bindearVistas() {
@@ -46,42 +67,61 @@ public class DetalleEstadoVacacionesActivity extends AppCompatActivity {
         tvDescripcion = findViewById(R.id.detalle_estado_tvDescripcion);
         tvDescLider = findViewById(R.id.detalle_estado_tvDescLider);
         tvDiasSolicitados = findViewById(R.id.detalle_estado_tvDiasSolicitados);
-        tvFechaSolicitud = findViewById(R.id.detalle_estado_tvFechaSolicitud);
         tvFechaFin = findViewById(R.id.detalle_estado_tvFechaFin);
         tvFechaInicio = findViewById(R.id.detalle_estado_tvFechaInicio);
+        mShimmerViewContainer = findViewById(R.id.detalle_vacaciones_shimerFrameLayout);
     }
 
-    private void displayDetalleEstado(int position) {
-        EstadoVacaciones currentEstadoVacaciones = estadoVacaciones.get(position);
-        tvLider.setText(currentEstadoVacaciones.getLider());
-        tvFechaSolicitud.setText(currentEstadoVacaciones.getFechaSolicitud());
-        tvFechaInicio.setText(currentEstadoVacaciones.getFechaInicio());
-        tvFechaFin.setText(currentEstadoVacaciones.getFechaFin());
-        tvDescLider.setText(currentEstadoVacaciones.getDescLider());
-        tvDiasSolicitados.setText(currentEstadoVacaciones.getDiasSolicitados() + " días");
-        tvDescripcion.setText(currentEstadoVacaciones.getDescripcionEstado());
-        String strEstado = "";
-        int colorEstado = 0;
-        switch (currentEstadoVacaciones.getEstado()){
-            case EstadoVacaciones.ESTADO_PENDIENTES: strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;break;
-            case EstadoVacaciones.ESTADO_APROBADAS: strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;break;
-            case EstadoVacaciones.ESTADO_GOZADAS: strEstado = "GOZADAS";colorEstado = R.drawable.etiqueta_gris;break;
-            case EstadoVacaciones.ESTADO_RECHAZADAS: strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;break;
-        }
-        tvEstado.setText(strEstado);
-        tvEstado.setBackgroundResource(colorEstado);
-    }
+    private void displayDetalleEstado() {
+        mShimmerViewContainer.setVisibility(View.VISIBLE);
+        if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
+        Call<ResponseDetalleSolicitud> call = WebService2
+                .getInstance(getDocumentNumber())
+                .createService(ServiceEstadoVacacionesApi.class)
+                .obtenerDetalleVacaciones(getCIP(),requestCode);
+        call.enqueue(new Callback<ResponseDetalleSolicitud>() {
+            @Override
+            public void onResponse(Call<ResponseDetalleSolicitud> call, Response<ResponseDetalleSolicitud> response) {
+                if (response.code() == 200){
+                    DetalleVacaciones currentDetalle = response.body().getRequest();
+                    String descripcionLider = "";
+                    tvLider.setText(currentDetalle.getBossFirstName());
+                    tvFechaInicio.setText(currentDetalle.getRequestDateStart());
+                    tvFechaFin.setText(currentDetalle.getRequestDateEnd());
+                    tvDiasSolicitados.setText(currentDetalle.getRequestDaysDifference() + " días");
+                    String strEstado = "";
+                    int colorEstado = 0;
+                    if (currentDetalle.getRequestStateCode()
+                            .equals(ServiceEstadoVacacionesApi.APROBADAS)){
+                        descripcionLider = "Aprobó las siguientes fechas de vacaciones";
+                        strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;
+                    }else if (currentDetalle.getRequestStateCode()
+                            .equals(ServiceEstadoVacacionesApi.PENDIENTES)){
+                        descripcionLider = "Esta por aprobar las siguientes fechas de vacaciones";
+                        strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;
+                    }else if (currentDetalle.getRequestStateCode()
+                            .equals(ServiceEstadoVacacionesApi.RECHAZADAS)){
+                        tvDescripcion.setText("Tus vacaciones fueron rechazadas por necesidad operativa.");
+                        descripcionLider = "Rechazó las siguientes fechas de vacaciones";
+                        strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;
+                    }
+                    tvDescLider.setText(descripcionLider);
+                    tvEstado.setText(strEstado);
+                    tvEstado.setBackgroundResource(colorEstado);
+                }
+                isLoading = false;
+                mShimmerViewContainer.setVisibility(View.GONE);
+                mShimmerViewContainer.stopShimmer();
+            }
 
-    private void cargarData(){
-        estadoVacaciones = new ArrayList<>();
-        estadoVacaciones.add(new EstadoVacaciones("José Eduardo Mendoza Zavaleta","11 de dic - 20 de dic","02/09/2018","11/12/2018",
-                "20/12/2018","Está por aprobar las siguiente fechas de vacaciones:","",10,EstadoVacaciones.ESTADO_PENDIENTES));
-        estadoVacaciones.add(new EstadoVacaciones("José Eduardo Mendoza Zavaleta","01 de oct - 05 de oct","10/07/2018","01/10/2018",
-                "05/10/2018","Aprobó las siguiente fechas de vacaciones:","Tus vacaciones fueron aprobadas el 12/07/2018.",5,EstadoVacaciones.ESTADO_APROBADAS));
-        estadoVacaciones.add(new EstadoVacaciones("José Eduardo Mendoza Zavaleta","26 de jul - 30 de jul","01/06/2018","26/07/2018",
-                "30/07/2018","Rechazó las siguiente fechas de vacaciones:","Tus vacaciones fueron rechazadas por necesidad operativa.",5,EstadoVacaciones.ESTADO_RECHAZADAS));
-        estadoVacaciones.add(new EstadoVacaciones("José Eduardo Mendoza Zavaleta","01 de abr - 15 de abr","01/03/2018","01/04/2018",
-                "15/04/2018","Aprobó las siguiente fechas de vacaciones:","Tus vacaciones fueron aprobadas el 05/03/2018.",15,EstadoVacaciones.ESTADO_GOZADAS));
+            @Override
+            public void onFailure(Call<ResponseDetalleSolicitud> call, Throwable t) {
+                Toast.makeText(DetalleEstadoVacacionesActivity.this, "Error servidor", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+
     }
 
     public void configurarToolbar(){

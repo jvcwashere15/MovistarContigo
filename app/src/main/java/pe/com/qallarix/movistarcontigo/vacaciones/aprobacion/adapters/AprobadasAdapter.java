@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.Aprobada;
 
 public class AprobadasAdapter extends RecyclerView.Adapter<AprobadasAdapter.AprobadaHolder> {
@@ -83,12 +82,12 @@ public class AprobadasAdapter extends RecyclerView.Adapter<AprobadasAdapter.Apro
         public void setEstado(int estado){
             String strEstado = "";
             int colorEstado = 0;
-            switch (estado){
-                case EstadoVacaciones.ESTADO_PENDIENTES: strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;break;
-                case EstadoVacaciones.ESTADO_APROBADAS: strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;break;
-                case EstadoVacaciones.ESTADO_GOZADAS: strEstado = "GOZADAS";colorEstado = R.drawable.etiqueta_gris;break;
-                case EstadoVacaciones.ESTADO_RECHAZADAS: strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;break;
-            }
+//            switch (estado){
+//                case EstadoVacaciones.ESTADO_PENDIENTES: strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;break;
+//                case EstadoVacaciones.ESTADO_APROBADAS: strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;break;
+//                case EstadoVacaciones.ESTADO_GOZADAS: strEstado = "GOZADAS";colorEstado = R.drawable.etiqueta_gris;break;
+//                case EstadoVacaciones.ESTADO_RECHAZADAS: strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;break;
+//            }
             tvEstado.setText(strEstado);
             tvEstado.setBackgroundResource(colorEstado);
         }

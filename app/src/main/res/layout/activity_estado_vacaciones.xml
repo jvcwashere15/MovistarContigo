@@ -1,47 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
     tools:context=".vacaciones.estado.EstadoVacacionesActivity">
-    <include layout="@layout/my_toolbar"/>
-    <FrameLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <View
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        tools:context=".vacaciones.estado.EstadoVacacionesActivity">
+        <include layout="@layout/my_toolbar"/>
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#EEEEEE"
-            android:layout_gravity="bottom"/>
-        <android.support.design.widget.TabLayout
-            android:id="@+id/detalle_beneficio_especial_tabLayout"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#EEEEEE"
+                android:layout_gravity="bottom"/>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/estado_vacaciones_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MyCustomTabVacaciones"
+                app:tabGravity="fill"
+                app:tabMode="fixed">
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pendientes" />
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aprobadas"/>
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rechazadas"/>
+            </android.support.design.widget.TabLayout>
+        </FrameLayout>
+        <FrameLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/estado_vacaciones_rvListaVacaciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <include
+                android:id="@+id/view_error"
+                android:visibility="gone"
+                layout="@layout/view_error_layout"/>
+            <include
+                android:id="@+id/empty_view_lista_vacaciones"
+                android:visibility="gone"
+                layout="@layout/view_empty_layout"/>
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#55000000"
+        android:visibility="gone"
+        android:id="@+id/lista_vacaciones_viewProgress"
+        android:gravity="center"
+        android:onClick="clickNull">
+        <ProgressBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MyCustomTabVacaciones"
-            app:tabGravity="fill"
-            app:tabMode="fixed">
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pendientes" />
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aprobadas"/>
-            <android.support.design.widget.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rechazadas"/>
-        </android.support.design.widget.TabLayout>
-    </FrameLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/estado_vacaciones_rvListaVacaciones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"/>
-</LinearLayout>
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:id="@+id/viewLoad_tvMensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text=""/>
+    </LinearLayout>
+
+</FrameLayout>

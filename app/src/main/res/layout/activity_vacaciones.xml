@@ -28,5 +28,4 @@
             <include layout="@layout/menu_vacaciones"/>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

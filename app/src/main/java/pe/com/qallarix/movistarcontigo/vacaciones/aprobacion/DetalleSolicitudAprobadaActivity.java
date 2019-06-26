@@ -1,7 +1,5 @@
 package pe.com.qallarix.movistarcontigo.vacaciones.aprobacion;
 
-import android.content.Intent;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.Aprobada;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
 
 public class DetalleSolicitudAprobadaActivity extends AppCompatActivity {
@@ -52,40 +49,40 @@ public class DetalleSolicitudAprobadaActivity extends AppCompatActivity {
     }
 
     private void displayDetalleEstado(int position) {
-        EstadoVacaciones currentEstadoVacaciones = aprobadas.get(position);
-        tvLider.setText(currentEstadoVacaciones.getLider());
-        tvFechaSolicitud.setText(currentEstadoVacaciones.getFechaSolicitud());
-        tvFechaInicio.setText(currentEstadoVacaciones.getFechaInicio());
-        tvFechaFin.setText(currentEstadoVacaciones.getFechaFin());
-        tvDescLider.setText(currentEstadoVacaciones.getDescLider());
-        tvDiasSolicitados.setText(currentEstadoVacaciones.getDiasSolicitados() + " días");
-        tvDescripcion.setText(currentEstadoVacaciones.getDescripcionEstado());
-        String strEstado = "";
-        int colorEstado = 0;
-        switch (currentEstadoVacaciones.getEstado()){
-            case EstadoVacaciones.ESTADO_PENDIENTES: strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;break;
-            case EstadoVacaciones.ESTADO_APROBADAS: strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;break;
-            case EstadoVacaciones.ESTADO_GOZADAS: strEstado = "GOZADAS";colorEstado = R.drawable.etiqueta_gris;break;
-            case EstadoVacaciones.ESTADO_RECHAZADAS: strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;break;
-        }
-        tvEstado.setText(strEstado);
-        tvEstado.setBackgroundResource(colorEstado);
+//        EstadoVacaciones currentEstadoVacaciones = aprobadas.get(position);
+//        tvLider.setText(currentEstadoVacaciones.getLider());
+//        tvFechaSolicitud.setText(currentEstadoVacaciones.getFechaSolicitud());
+//        tvFechaInicio.setText(currentEstadoVacaciones.getFechaInicio());
+//        tvFechaFin.setText(currentEstadoVacaciones.getFechaFin());
+//        tvDescLider.setText(currentEstadoVacaciones.getDescLider());
+//        tvDiasSolicitados.setText(currentEstadoVacaciones.getDiasSolicitados() + " días");
+//        tvDescripcion.setText(currentEstadoVacaciones.getDescripcionEstado());
+//        String strEstado = "";
+//        int colorEstado = 0;
+//        switch (currentEstadoVacaciones.getEstado()){
+//            case EstadoVacaciones.ESTADO_PENDIENTES: strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;break;
+//            case EstadoVacaciones.ESTADO_APROBADAS: strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;break;
+//            case EstadoVacaciones.ESTADO_GOZADAS: strEstado = "GOZADAS";colorEstado = R.drawable.etiqueta_gris;break;
+//            case EstadoVacaciones.ESTADO_RECHAZADAS: strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;break;
+//        }
+//        tvEstado.setText(strEstado);
+//        tvEstado.setBackgroundResource(colorEstado);
     }
 
     private void cargaData() {
         aprobadas = new ArrayList<>();
 
-        aprobadas.add(new EstadoVacaciones("Diego Armando Pachioni Retamozo","11 de dic - 20 de dic","20/05/2019","11/12/2019",
-                "20/12/2019","Aprobaste las siguientes fechas a:" ,"Esta solicitud la aprobaste el 09/01/2019.",10,EstadoVacaciones.ESTADO_APROBADAS));
-
-        aprobadas.add(new EstadoVacaciones("Maria Elena Retamozo Arrieta","01 de oct - 05 de oct","10/05/2019","01/10/2019",
-                "05/10/2019","Aprobaste las siguientes fechas a:","Esta solicitud la aprobaste el 09/01/2019.",5,EstadoVacaciones.ESTADO_APROBADAS));
-
-        aprobadas.add(new EstadoVacaciones("Carlos Franco Vilchez Roque","26 de jul - 30 de jul","11/02/2019","26/07/2019",
-                "30/07/2019","Aprobaste las siguientes fechas a:","Esta solicitud la aprobaste el 09/01/2019.",5,EstadoVacaciones.ESTADO_GOZADAS));
-
-        aprobadas.add(new EstadoVacaciones("Jorge Juan Benavides Gomez","01 de abr - 15 de abr","20/01/2019","01/04/2019",
-                "15/04/2019","Aprobaste las siguientes fechas a:","Esta solicitud la aprobaste el 09/01/2019.",15,EstadoVacaciones.ESTADO_GOZADAS));
+//        aprobadas.add(new EstadoVacaciones("Diego Armando Pachioni Retamozo","11 de dic - 20 de dic","20/05/2019","11/12/2019",
+//                "20/12/2019","Aprobaste las siguientes fechas a:" ,"Esta solicitud la aprobaste el 09/01/2019.",10,EstadoVacaciones.ESTADO_APROBADAS));
+//
+//        aprobadas.add(new EstadoVacaciones("Maria Elena Retamozo Arrieta","01 de oct - 05 de oct","10/05/2019","01/10/2019",
+//                "05/10/2019","Aprobaste las siguientes fechas a:","Esta solicitud la aprobaste el 09/01/2019.",5,EstadoVacaciones.ESTADO_APROBADAS));
+//
+//        aprobadas.add(new EstadoVacaciones("Carlos Franco Vilchez Roque","26 de jul - 30 de jul","11/02/2019","26/07/2019",
+//                "30/07/2019","Aprobaste las siguientes fechas a:","Esta solicitud la aprobaste el 09/01/2019.",5,EstadoVacaciones.ESTADO_GOZADAS));
+//
+//        aprobadas.add(new EstadoVacaciones("Jorge Juan Benavides Gomez","01 de abr - 15 de abr","20/01/2019","01/04/2019",
+//                "15/04/2019","Aprobaste las siguientes fechas a:","Esta solicitud la aprobaste el 09/01/2019.",15,EstadoVacaciones.ESTADO_GOZADAS));
 
     }
 

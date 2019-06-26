@@ -1,170 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:backgroundTint="@android:color/white"
-    android:background="@android:color/white"
-    tools:context=".vacaciones.registro.RegistroVacacionesActivity">
-    <include layout="@layout/my_toolbar"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Elige las fechas que deseas tomar de vacaciones:"
-        android:textSize="16sp"
-        android:fontFamily="@font/telefonica_regular"
-        android:layout_margin="16dp"/>
+    android:layout_width="match_parent">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:backgroundTint="@android:color/white"
+        android:background="@android:color/white"
+        tools:context=".vacaciones.registro.RegistroVacacionesActivity">
+        <include layout="@layout/my_toolbar"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:text="Elige las fechas que deseas tomar de vacaciones:"
             android:textSize="16sp"
             android:fontFamily="@font/telefonica_regular"
-            android:text="Fecha de inicio:"/>
-        <android.support.constraint.ConstraintLayout
+            android:layout_margin="16dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
             android:layout_width="match_parent"
-            android:layout_height="48dp">
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/registro_vacaciones_tvFechaInicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="dd/mm/aaaa"
-                android:textSize="16sp"
-                android:fontFamily="@font/telefonica_regular"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/registro_vacaciones_ivFechaInicio"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                app:srcCompat="@drawable/ic_calendar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <View
-                android:id="@+id/vacaciones_vCalendarioInicio"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/borde_seleccion_calendario"/>
-        </android.support.constraint.ConstraintLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
-            android:fontFamily="@font/telefonica_regular"
-            android:text="Fecha de fin:"/>
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp">
-            <TextView
-                android:id="@+id/registro_vacaciones_tvFechaFin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="dd/mm/aaaa"
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <ImageView
-                android:id="@+id/registro_vacaciones_ivFechaFin"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginEnd="8dp"
-                app:srcCompat="@drawable/ic_calendar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <View
-                android:id="@+id/vacaciones_vCalendarioFin"
+                android:text="Fecha de inicio:"/>
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/borde_seleccion_calendario"/>
-        </android.support.constraint.ConstraintLayout>
+                android:layout_height="48dp">
+                <TextView
+                    android:id="@+id/registro_vacaciones_tvFechaInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="dd/mm/aaaa"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-        <TextView
-            android:id="@+id/registrar_vacaciones_tvMensaje"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:textColor="#2A2A3C"
-            android:textSize="16sp"
-            android:fontFamily="@font/telefonica_bold"
-            android:text=""/>
-        <TextView
-            android:id="@+id/registrar_vacaciones_tvDiasSolicitados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:textSize="22sp"
-            android:textColor="#2A2A3C"
-            android:fontFamily="@font/telefonica_bold"
-            android:text=""/>
-    </RelativeLayout>
-    <TextView
-        android:id="@+id/registrar_vacaciones_tvLiderAprobacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:textSize="14sp"
-        android:visibility="gone"
-        android:fontFamily="@font/telefonica_regular"
-        android:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta."/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/registro_vacaciones_ivFechaInicio"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:srcCompat="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/vacaciones_vCalendarioInicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/borde_seleccion_calendario"/>
+            </android.support.constraint.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/registrar_vacaciones_tvQuedanVacaciones"
-            android:visibility="gone"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Fecha de fin:"/>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+                <TextView
+                    android:id="@+id/registro_vacaciones_tvFechaFin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="dd/mm/aaaa"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/registro_vacaciones_ivFechaFin"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/vacaciones_vCalendarioFin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/borde_seleccion_calendario"/>
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/registrar_vacaciones_btRegistrar"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:fontFamily="@font/telefonica_regular"
-            android:text="Te quedan 11 días calendarios pendientes por usar hasta el 24/11/2019." />
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:id="@+id/registrar_vacaciones_tvMensaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:textColor="#2A2A3C"
+                android:textSize="16sp"
+                android:fontFamily="@font/telefonica_bold"
+                android:text=""/>
+            <TextView
+                android:id="@+id/registrar_vacaciones_tvDiasSolicitados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:textSize="22sp"
+                android:textColor="#2A2A3C"
+                android:fontFamily="@font/telefonica_bold"
+                android:text=""/>
+        </RelativeLayout>
         <TextView
-            android:id="@+id/registrar_vacaciones_btRegistrar"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Registrar"
+            android:id="@+id/registrar_vacaciones_tvLiderAprobacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/telefonica_bold"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:fontFamily="@font/telefonica_regular"
+            android:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta."/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/registrar_vacaciones_tvQuedanVacaciones"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/registrar_vacaciones_btRegistrar"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Te quedan 11 días calendarios pendientes por usar hasta el 24/11/2019." />
+            <TextView
+                android:id="@+id/registrar_vacaciones_btRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Registrar"
+                android:layout_margin="16dp"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/telefonica_bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:visibility="invisible"
+                android:background="@drawable/boton_vacaciones_verde"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#55000000"
+        android:visibility="gone"
+        android:id="@+id/validar_fechas_viewProgress"
+        android:gravity="center"
+        android:onClick="clickNull">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:gravity="center"
-            android:layout_alignParentBottom="true"
-            android:visibility="invisible"
-            android:background="@drawable/boton_vacaciones_verde"/>
-    </RelativeLayout>
-</LinearLayout>
+            android:text="Validando solicitud..."/>
+    </LinearLayout>
+</FrameLayout>

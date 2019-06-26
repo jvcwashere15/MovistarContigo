@@ -42,7 +42,8 @@
         <activity
             android:name=".vacaciones.estado.EstadoVacacionesActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".vacaciones.aprobacion.AprobacionVacacionesActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"

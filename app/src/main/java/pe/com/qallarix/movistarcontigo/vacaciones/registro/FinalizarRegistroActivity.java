@@ -12,12 +12,27 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 
 public class FinalizarRegistroActivity extends AppCompatActivity {
+    private String fechaInicio = "", fechaFin = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar_registro);
         configurarToolbar();
+        getDataFromExtras();
+        registrarVacaciones();
+    }
+
+    private void registrarVacaciones() {
+        
+    }
+
+    private void getDataFromExtras() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null){
+            fechaInicio = extras.getString("fecha_inicio");
+            fechaFin = extras.getString("fecha_fin");
+        }
     }
 
     public void configurarToolbar(){

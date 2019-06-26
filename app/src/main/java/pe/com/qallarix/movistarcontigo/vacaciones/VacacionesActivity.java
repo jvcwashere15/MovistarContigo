@@ -2,7 +2,6 @@ package pe.com.qallarix.movistarcontigo.vacaciones;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -20,7 +19,6 @@ import pe.com.qallarix.movistarcontigo.util.WebService2;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.FutureJoy;
-import pe.com.qallarix.movistarcontigo.vacaciones.pojos.ServiceVacacionesApi;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.VacacionesDashboard;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
 import retrofit2.Call;

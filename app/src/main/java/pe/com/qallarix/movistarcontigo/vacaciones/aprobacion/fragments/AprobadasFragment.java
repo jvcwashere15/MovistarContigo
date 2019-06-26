@@ -16,11 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.DetalleAprobacionVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.DetalleSolicitudAprobadaActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.adapters.AprobadasAdapter;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.Aprobada;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,9 +63,9 @@ public class AprobadasFragment extends Fragment {
 
     private void cargaData() {
         aprobadas = new ArrayList<>();
-        aprobadas.add(new Aprobada("Diego Armando Pachioni Retamozo","20/05/2019", EstadoVacaciones.ESTADO_APROBADAS));
-        aprobadas.add(new Aprobada("Maria Elena Retamozo Arrieta","10/05/2019", EstadoVacaciones.ESTADO_APROBADAS));
-        aprobadas.add(new Aprobada("Carlos Franco Vilchez Roque","11/02/2019", EstadoVacaciones.ESTADO_GOZADAS));
-        aprobadas.add(new Aprobada("Jorge Juan Benavides Gomez","20/01/2019", EstadoVacaciones.ESTADO_GOZADAS));
+//        aprobadas.add(new Aprobada("Diego Armando Pachioni Retamozo","20/05/2019", EstadoVacaciones.ESTADO_APROBADAS));
+//        aprobadas.add(new Aprobada("Maria Elena Retamozo Arrieta","10/05/2019", EstadoVacaciones.ESTADO_APROBADAS));
+//        aprobadas.add(new Aprobada("Carlos Franco Vilchez Roque","11/02/2019", EstadoVacaciones.ESTADO_GOZADAS));
+//        aprobadas.add(new Aprobada("Jorge Juan Benavides Gomez","20/01/2019", EstadoVacaciones.ESTADO_GOZADAS));
     }
 }

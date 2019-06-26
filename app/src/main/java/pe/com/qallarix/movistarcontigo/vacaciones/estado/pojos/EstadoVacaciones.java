@@ -1,102 +1,103 @@
 package pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos;
 
 public class EstadoVacaciones {
-    private String lider;
-    private String fecha;
-    private String fechaSolicitud;
-    private String fechaInicio;
-    private String fechaFin;
-    private String descLider;
-    private String descripcionEstado;
-    private int diasSolicitados;
-    private int estado;
-    public static final int ESTADO_PENDIENTES = 1;
-    public static final int ESTADO_APROBADAS = 2;
-    public static final int ESTADO_GOZADAS = 3;
-    public static final int ESTADO_RECHAZADAS = 4;
+    private String bossCode;
+    private String employeeCode;
+    private String requestCode;
+    private String requestStateCode;
+    private String requestStateName;
+    private String requestTypeName;
+    private String requestDateStart;
+    private String requestDateEnd;
+    private String requestAdvancementVacation;
+    private long requestDifferenceDays;
+    private long total;
 
-
-    public EstadoVacaciones(String lider, String fecha, String fechaSolicitud, String fechaInicio, String fechaFin, String descLider, String descripcionEstado, int diasSolicitados, int estado) {
-        this.lider = lider;
-        this.fecha = fecha;
-        this.fechaSolicitud = fechaSolicitud;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.descLider = descLider;
-        this.descripcionEstado = descripcionEstado;
-        this.diasSolicitados = diasSolicitados;
-        this.estado = estado;
+    public String getBossCode() {
+        return bossCode;
     }
 
-    public String getFecha() {
-        return fecha;
+    public void setBossCode(String bossCode) {
+        this.bossCode = bossCode;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public String getEmployeeCode() {
+        return employeeCode;
     }
 
-    public int getEstado() {
-        return estado;
+    public void setEmployeeCode(String employeeCode) {
+        this.employeeCode = employeeCode;
     }
 
-    public void setEstado(int estado) {
-        this.estado = estado;
+    public String getRequestCode() {
+        return requestCode;
     }
 
-    public String getLider() {
-        return lider;
+    public void setRequestCode(String requestCode) {
+        this.requestCode = requestCode;
     }
 
-    public void setLider(String lider) {
-        this.lider = lider;
+    public String getRequestStateCode() {
+        return requestStateCode;
     }
 
-    public String getFechaSolicitud() {
-        return fechaSolicitud;
+    public void setRequestStateCode(String requestStateCode) {
+        this.requestStateCode = requestStateCode;
     }
 
-    public void setFechaSolicitud(String fechaSolicitud) {
-        this.fechaSolicitud = fechaSolicitud;
+    public String getRequestStateName() {
+        return requestStateName;
     }
 
-    public String getFechaInicio() {
-        return fechaInicio;
+    public void setRequestStateName(String requestStateName) {
+        this.requestStateName = requestStateName;
     }
 
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public String getRequestTypeName() {
+        return requestTypeName;
     }
 
-    public String getFechaFin() {
-        return fechaFin;
+    public void setRequestTypeName(String requestTypeName) {
+        this.requestTypeName = requestTypeName;
     }
 
-    public void setFechaFin(String fechaFin) {
-        this.fechaFin = fechaFin;
+    public String getRequestDateStart() {
+        return requestDateStart;
     }
 
-    public String getDescripcionEstado() {
-        return descripcionEstado;
+    public void setRequestDateStart(String requestDateStart) {
+        this.requestDateStart = requestDateStart;
     }
 
-    public void setDescripcionEstado(String descripcionEstado) {
-        this.descripcionEstado = descripcionEstado;
+    public String getRequestDateEnd() {
+        return requestDateEnd;
     }
 
-    public int getDiasSolicitados() {
-        return diasSolicitados;
+    public void setRequestDateEnd(String requestDateEnd) {
+        this.requestDateEnd = requestDateEnd;
     }
 
-    public void setDiasSolicitados(int diasSolicitados) {
-        this.diasSolicitados = diasSolicitados;
+    public String getRequestAdvancementVacation() {
+        return requestAdvancementVacation;
     }
 
-    public String getDescLider() {
-        return descLider;
+    public void setRequestAdvancementVacation(String requestAdvancementVacation) {
+        this.requestAdvancementVacation = requestAdvancementVacation;
     }
 
-    public void setDescLider(String descLider) {
-        this.descLider = descLider;
+    public long getRequestDifferenceDays() {
+        return requestDifferenceDays;
+    }
+
+    public void setRequestDifferenceDays(long requestDifferenceDays) {
+        this.requestDifferenceDays = requestDifferenceDays;
+    }
+
+    public long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
     }
 }

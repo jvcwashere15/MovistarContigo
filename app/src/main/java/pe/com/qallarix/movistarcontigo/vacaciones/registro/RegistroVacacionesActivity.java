@@ -6,31 +6,24 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ServiceRegistrarVacacionesApi;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.Validation;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,9 +40,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
             tvNumeroDias,
             tvMensaje;
     private TextView tvButtonRegistar;
-
+    private View viewValidarFechas;
     private String fechaInicio = "", fechaFin = "";
-
 
     private final int INICIO = 1;
     private final int FIN = 2;
@@ -76,17 +68,21 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
                         .getInstance(getDocumentNumber())
                         .createService(ServiceRegistrarVacacionesApi.class)
                         .validarEntreFechas(getCIP(),fechaInicio,fechaFin);
+                viewValidarFechas.setVisibility(View.VISIBLE);
                 call.enqueue(new Callback<ResponseValidarFechas>() {
                     @Override
                     public void onResponse(Call<ResponseValidarFechas> call, Response<ResponseValidarFechas> response) {
                         if (response.code() == 200){
                             Validation validation = response.body().getValidation();
+                            viewValidarFechas.setVisibility(View.GONE);
                             mostrarDialogAprobacionFechas(validation.getObservation(),"");
-                        }
+                        }else viewValidarFechas.setVisibility(View.GONE);
+
                     }
 
                     @Override
                     public void onFailure(Call<ResponseValidarFechas> call, Throwable t) {
+                        viewValidarFechas.setVisibility(View.GONE);
                         Toast.makeText(RegistroVacacionesActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -102,6 +98,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Intent intent = new Intent(RegistroVacacionesActivity.this,FinalizarRegistroActivity.class);
+                intent.putExtra("fecha_inicio",fechaInicio);
+                intent.putExtra("fecha_fin",fechaFin);
                 startActivity(intent);
                 finish();
             }
@@ -245,6 +243,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
         tvNumeroDias = findViewById(R.id.registrar_vacaciones_tvDiasSolicitados);
         tvMensaje = findViewById(R.id.registrar_vacaciones_tvMensaje);
         tvButtonRegistar = findViewById(R.id.registrar_vacaciones_btRegistrar);
+        viewValidarFechas = findViewById(R.id.validar_fechas_viewProgress);
     }
 
 
