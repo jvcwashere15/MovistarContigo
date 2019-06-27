@@ -13,8 +13,6 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".vacaciones.aprobacion.DetalleSolicitudAprobadaActivity"
-            android:screenOrientation="portrait"/>
         <activity
             android:name=".vacaciones.AcercaActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"
@@ -24,7 +22,7 @@
             android:parentActivityName=".vacaciones.aprobacion.AprobacionVacacionesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.DetalleAprobacionVacacionesActivity"
+            android:name=".vacaciones.aprobacion.DetalleAprobacionActivity"
             android:parentActivityName=".vacaciones.aprobacion.AprobacionVacacionesActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -47,7 +45,8 @@
         <activity
             android:name=".vacaciones.aprobacion.AprobacionVacacionesActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".vacaciones.VacacionesActivity"
             android:launchMode="singleTop"

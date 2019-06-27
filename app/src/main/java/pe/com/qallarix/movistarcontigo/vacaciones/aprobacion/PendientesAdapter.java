@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.adapters;
+package pe.com.qallarix.movistarcontigo.vacaciones.aprobacion;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,25 +8,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.Pendiente;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.SolicitudAprobacion;
 
 public class PendientesAdapter extends RecyclerView.Adapter<PendientesAdapter.PendienteHolder> {
 
-    private List<Pendiente> pendientes;
+    private List<SolicitudAprobacion> solicitudes;
     private OnClickPendiente onClickPendiente;
     private Context context;
 
-    public PendientesAdapter(List<Pendiente> pendientes, Context context, OnClickPendiente onClickPendiente) {
-        this.pendientes = pendientes;
+    public PendientesAdapter(Context context, OnClickPendiente onClickPendiente) {
+        this.solicitudes = new ArrayList<SolicitudAprobacion>();
         this.onClickPendiente = onClickPendiente;
         this.context = context;
     }
 
     public interface OnClickPendiente{
         void onClick(int position);
+    }
+
+    public void setSolicitudes(List<SolicitudAprobacion> solicitudes) {
+        this.solicitudes = solicitudes;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -38,9 +44,9 @@ public class PendientesAdapter extends RecyclerView.Adapter<PendientesAdapter.Pe
 
     @Override
     public void onBindViewHolder(@NonNull PendienteHolder pendienteHolder, final int position) {
-        Pendiente currentPendiente = pendientes.get(position);
-        pendienteHolder.setColaborador(currentPendiente.getColaborador());
-        pendienteHolder.setFecha(currentPendiente.getFecha());
+        SolicitudAprobacion currentPendiente = solicitudes.get(position);
+        pendienteHolder.setColaborador(currentPendiente.getEmployeeName());
+        pendienteHolder.setFecha(currentPendiente.getRequestDay());
         pendienteHolder.vItemPendiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +57,7 @@ public class PendientesAdapter extends RecyclerView.Adapter<PendientesAdapter.Pe
 
     @Override
     public int getItemCount() {
-        return pendientes.size();
+        return solicitudes.size();
     }
 
     public static class PendienteHolder extends RecyclerView.ViewHolder{

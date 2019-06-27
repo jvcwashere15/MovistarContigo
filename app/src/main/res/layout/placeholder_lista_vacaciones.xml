@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+    <include layout="@layout/item_lista_vacaciones_placeholder"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+</LinearLayout>

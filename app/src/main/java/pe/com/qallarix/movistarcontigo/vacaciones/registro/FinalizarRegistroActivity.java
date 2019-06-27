@@ -36,6 +36,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
         bindearVistas();
         getDataFromExtras();
         registrarVacaciones();
+        configurarToolbar();
     }
 
     private void bindearVistas() {
@@ -60,6 +61,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
             public void onResponse(Call<ResponseRegistrarVacaciones> call, Response<ResponseRegistrarVacaciones> response) {
                 if (response.code() == 200){
                     tvRespuesta.setText("Registro exitoso");
+                    tvButtonEstado.setVisibility(View.VISIBLE);
                     tvButtonVolverMenu.setVisibility(View.VISIBLE);
                     ivRespuesta.setImageResource(R.drawable.ic_check_ok);
                     tvRespuestaDescripcion.setText("Has solicitado tus vacaciones. Recibirás una " +
@@ -77,13 +79,13 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                 }else if (response.code() == 500){
                     tvButtonCargarNuevamente.setVisibility(View.VISIBLE);
+                    tvButtonVolverMenu.setVisibility(View.VISIBLE);
                     tvRespuesta.setText("¡Ups!");
                     ivRespuesta.setImageResource(R.drawable.img_error_servidor);
-                    Toast.makeText(FinalizarRegistroActivity.this, "Error servidor", Toast.LENGTH_SHORT).show();
-                    //TODO mensaje error servidor
+                    tvRespuestaDescripcion.setText("Hubo un problema con el servidor. " +
+                            "Estamos trabajando para solucionarlo.");
                 }
                 viewProgress.setVisibility(View.GONE);
             }
@@ -106,11 +108,8 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
 
     public void configurarToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Registro de vacaciones");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
 
 
@@ -159,4 +158,6 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
 
     public void clickNull(View view) {
     }
+
+
 }
