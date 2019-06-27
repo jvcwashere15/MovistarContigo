@@ -8,6 +8,7 @@ public class Validation {
     private String userRegister;
     private String userModified;
     private String employeeCode;
+    private String requestDateMax;
     private String employeeProfileCode;
     private String requestDateStart;
     private String requestDateEnd;
@@ -22,6 +23,14 @@ public class Validation {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getRequestDateMax() {
+        return requestDateMax;
+    }
+
+    public void setRequestDateMax(String requestDateMax) {
+        this.requestDateMax = requestDateMax;
     }
 
     public long getType() {

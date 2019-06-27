@@ -75,7 +75,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
                         if (response.code() == 200){
                             Validation validation = response.body().getValidation();
                             viewValidarFechas.setVisibility(View.GONE);
-                            mostrarDialogAprobacionFechas(validation.getObservation(),"");
+                            mostrarDialogAprobacionFechas(validation.getObservation(),validation.getRequestDateMax());
                         }else viewValidarFechas.setVisibility(View.GONE);
 
                     }

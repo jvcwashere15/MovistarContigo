@@ -1,9 +1,11 @@
 package pe.com.qallarix.movistarcontigo.vacaciones.registro;
 
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.VacacionesDashboard;
+import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseRegistrarVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ServiceRegistrarVacacionesApi {
@@ -11,4 +13,9 @@ public interface ServiceRegistrarVacacionesApi {
     Call<ResponseValidarFechas> validarEntreFechas(@Query("employeeCip") String employeeCip,
                                                    @Query("dateStart") String dateStart,
                                                    @Query("dateEnd") String dateEnd);
+
+    @POST("vacation/employee/request/register")
+    Call<ResponseRegistrarVacaciones> registrarVacaciones(@Query("employeeCip") String employeeCip,
+                                                          @Query("dateStart") String dateStart,
+                                                          @Query("dateEnd") String dateEnd);
 }
