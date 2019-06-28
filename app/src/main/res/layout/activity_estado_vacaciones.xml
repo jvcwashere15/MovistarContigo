@@ -52,13 +52,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <include
-                android:id="@+id/view_error"
+                android:id="@+id/view_message"
                 android:visibility="gone"
-                layout="@layout/view_error_layout"/>
-            <include
-                android:id="@+id/empty_view_lista_vacaciones"
-                android:visibility="gone"
-                layout="@layout/view_empty_layout"/>
+                layout="@layout/view_message_response_vacaciones"/>
         </FrameLayout>
     </LinearLayout>
     <LinearLayout

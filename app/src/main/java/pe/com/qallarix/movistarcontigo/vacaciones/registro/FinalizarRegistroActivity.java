@@ -27,7 +27,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
     private ImageView ivRespuesta;
     private View viewProgress;
     private TextView tvRespuesta, tvRespuestaDescripcion, tvButtonEstado, tvButtonVolverMenu,
-            tvButtonNormativa, tvButtonCargarNuevamente;
+            tvButtonNormativa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,6 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
         ivRespuesta = findViewById(R.id.registrar_vacaciones_ivRespuesta);
         tvRespuesta = findViewById(R.id.registrar_vacaciones_tvMensajeRespuesta);
         tvRespuestaDescripcion = findViewById(R.id.registrar_vacaciones_tvMensajeDescripcion);
-        tvButtonCargarNuevamente = findViewById(R.id.registro_vacaciones_btCargarNuevamente);
         tvButtonEstado = findViewById(R.id.registro_vacaciones_btVerEstadoVacaciones);
         tvButtonNormativa = findViewById(R.id.registro_vacaciones_btVerNormativa);
         tvButtonVolverMenu = findViewById(R.id.registro_vacaciones_btVolverAlMenu);
@@ -80,12 +79,13 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
                         e.printStackTrace();
                     }
                 }else if (response.code() == 500){
-                    tvButtonCargarNuevamente.setVisibility(View.VISIBLE);
+                    tvButtonEstado.setVisibility(View.VISIBLE);
                     tvButtonVolverMenu.setVisibility(View.VISIBLE);
                     tvRespuesta.setText("¡Ups!");
                     ivRespuesta.setImageResource(R.drawable.img_error_servidor);
                     tvRespuestaDescripcion.setText("Hubo un problema con el servidor. " +
-                            "Estamos trabajando para solucionarlo.");
+                            "Estamos trabajando para solucionarlo." +
+                            "\nPor favor, verifica el estado de tus vacaciones.");
                 }
                 viewProgress.setVisibility(View.GONE);
             }

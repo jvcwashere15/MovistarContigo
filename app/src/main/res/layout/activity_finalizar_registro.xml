@@ -55,22 +55,6 @@
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/registro_vacaciones_btCargarNuevamente"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:gravity="center"
-                    android:onClick="cargarNuevamente"
-                    android:text="Cargar nuevamente"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
-                <TextView
                     android:id="@+id/registro_vacaciones_btVerNormativa"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"

@@ -30,7 +30,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
     ImageView ivResultado;
     private View viewRespuestaAprobacionRechazo;
     //datos reenviados
-    private int dias;
+    private long dias;
     private String colaborador;
     //data extraIntent
     private String employeeCode, requestCode;
@@ -95,16 +95,15 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
     private void displayResultadoError() {
         tvResultado.setText("¡Ups!");
         ivResultado.setImageResource(R.drawable.img_error_servidor);
-        tvDescripcion.setText("Hubo un problema con el servidor. " +
-                "Estamos trabajando para solucionarlo.");
+        tvDescripcion.setText("Hubo un problema con el servidor. Estamos trabajando para solucionarlo." +
+                "\nPor favor, verifica tus solicitudes pendientes por aprobar.");
     }
 
     private void getDataExtraFromIntent() {
-        approver = getIntent().getExtras().getBoolean("aprobado");
+        approver = getIntent().getExtras().getBoolean("approver");
         employeeCode = getIntent().getExtras().getString("employeeCode");
         requestCode = getIntent().getExtras().getString("requestCode");
-
-        dias = getIntent().getExtras().getInt("dias");
+        dias = getIntent().getExtras().getLong("dias");
         colaborador = getIntent().getExtras().getString("colaborador");
     }
 
@@ -137,7 +136,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Aprobación de vacaciones");
+        getSupportActionBar().setTitle("Detalle de solicitud");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }

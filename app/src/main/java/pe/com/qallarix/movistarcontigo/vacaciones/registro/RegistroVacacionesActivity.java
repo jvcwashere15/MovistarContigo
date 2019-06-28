@@ -93,7 +93,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
     public void mostrarDialogAprobacionFechas(String title,String fechaMaxAprobacion){
         final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
         builder.setTitle(title);
-        builder.setMessage("La fecha máxima para que se apruebe tu solicitud es hasta el " + fechaMaxAprobacion);
+        builder.setMessage("Tu solicitud será aprobada en un plazo no mayor a 3 días hábiles");
         builder.setCancelable(false);
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {

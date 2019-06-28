@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,10 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
     private String requestCode;
     private boolean isLoading;
 
+    //view message
+    private View viewMessage;
+    private TextView tvMessageTitle, tvMessageMensaje,tvMessageBoton;
+    private ImageView ivMessageImagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +75,11 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
         tvFechaFin = findViewById(R.id.detalle_estado_tvFechaFin);
         tvFechaInicio = findViewById(R.id.detalle_estado_tvFechaInicio);
         mShimmerViewContainer = findViewById(R.id.detalle_vacaciones_shimerFrameLayout);
+        viewMessage = findViewById(R.id.view_message);
+        tvMessageTitle = findViewById(R.id.view_message_tvTitle);
+        tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
+        ivMessageImagen = findViewById(R.id.view_message_ivImagen);
+        tvMessageBoton = findViewById(R.id.view_message_tvBoton);
     }
 
     private void displayDetalleEstado() {
@@ -108,6 +118,9 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                     tvDescLider.setText(descripcionLider);
                     tvEstado.setText(strEstado);
                     tvEstado.setBackgroundResource(colorEstado);
+
+                }else{
+                    mostrarMensaje500();
                 }
                 isLoading = false;
                 mShimmerViewContainer.setVisibility(View.GONE);
@@ -133,6 +146,21 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
 
+    private void mostrarMensaje500() {
+        viewMessage.setVisibility(View.VISIBLE);
+        ivMessageImagen.setImageResource(R.drawable.img_error_servidor);
+        tvMessageTitle.setText("¡Ups!");
+        tvMessageMensaje.setText("Hubo un problema con el servidor. " +
+                "Estamos trabajando para solucionarlo.");
+        tvMessageBoton.setVisibility(View.VISIBLE);
+        tvMessageBoton.setText("Cargar nuevamente");
+        tvMessageBoton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayDetalleEstado();
+            }
+        });
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

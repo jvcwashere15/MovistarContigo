@@ -42,7 +42,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
 
     //view message
     private View viewMessage;
-    private TextView tvMessageTitle, tvMessageMensaje;
+    private TextView tvMessageTitle, tvMessageMensaje,tvMessageBoton;
     private ImageView ivMessageImagen;
 
     private DetalleSolicitud detalleSolicitud;
@@ -80,6 +80,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         tvMessageTitle = findViewById(R.id.view_message_tvTitle);
         tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
         ivMessageImagen = findViewById(R.id.view_message_ivImagen);
+        tvMessageBoton = findViewById(R.id.view_message_tvBoton);
     }
 
     @Override
@@ -111,9 +112,8 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
                     displayDetalleSolicitud();
                     configurarBotonAprobar(detalleSolicitud.getEmployeeName());
                     configurarBotonRechazar(detalleSolicitud.getEmployeeName());
-                }else if (response.code() == 400){
-                    mostrarMensaje400(response.errorBody());
-                } else if (response.code() == 500){
+
+                }else {
                     mostrarMensaje500();
                 }
                 isLoading = false;
@@ -136,8 +136,8 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         tvFechaInicio.setText(detalleSolicitud.getRequestDateStart());
         tvFechaFin.setText(detalleSolicitud.getRequestDateEnd());
         tvDiasSolicitados.setText(detalleSolicitud.getRequestDaysDifference() + " días");
-        tvDescripcion.setText("Tienes plazo para responder a esta solicitud hasta el " +
-                "07/04/2019" + ", de lo contrario se aprobarán automáticamente.");
+        tvDescripcion.setText("Tienes un plazo de 3 días hábiles para responder a esta solicitud, " +
+                "de lo contrario se aprobarán automáticamente.");
     }
 
 
@@ -145,7 +145,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Aprobación vacaciones");
+        getSupportActionBar().setTitle("Detalle de solicitud");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
@@ -177,7 +177,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         tvButtonAprobar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarDialogAprobacionRechazo("aprobar",colaborador);
+                mostrarDialogAprobacionRechazo("aprobar",colaborador,true);
             }
         });
     }
@@ -186,12 +186,12 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         tvButtonRechazar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarDialogAprobacionRechazo("rechazar",colaborador);
+                mostrarDialogAprobacionRechazo("rechazar",colaborador,false);
             }
         });
     }
 
-    private void mostrarDialogAprobacionRechazo(String mensaje, String nombre) {
+    private void mostrarDialogAprobacionRechazo(String mensaje, final String nombre, final boolean approver) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(DetalleAprobacionActivity.this);
         builder.setTitle("¿Deseas continuar?");
         builder.setMessage("Vas a " + mensaje + " la solicitud de vacaciones de " + nombre);
@@ -199,9 +199,13 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(DetalleAprobacionActivity.this,FinalizarAprobacionActivity.class);
+                //Datos para aprobar o rechazar vacaciones
                 intent.putExtra("employeeCode",getCIP());
                 intent.putExtra("requestCode",detalleSolicitud.getRequestCode());
-                intent.putExtra("approver",true);
+                intent.putExtra("approver",approver);
+                //Datos para mostrar
+                intent.putExtra("colaborador",nombre);
+                intent.putExtra("dias",detalleSolicitud.getRequestDaysDifference());
                 startActivity(intent);
                 finish();
             }
@@ -223,28 +227,17 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         tvMessageTitle.setText("¡Ups!");
         tvMessageMensaje.setText("Hubo un problema con el servidor. " +
                 "Estamos trabajando para solucionarlo.");
+        tvMessageBoton.setVisibility(View.VISIBLE);
+        tvMessageBoton.setText("Cargar nuevamente");
+        tvMessageBoton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDetalleSolicitudFromNetwork();
+            }
+        });
     }
 
-    private void mostrarMensaje400(ResponseBody responseBody) {
-        viewMessage.setVisibility(View.VISIBLE);
-        ivMessageImagen.setImageResource(R.drawable.ic_check_error);
-        tvMessageTitle.setText("Registro inválido");
-        try {
-            JSONObject jsonObject = new JSONObject(responseBody.string());
-            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
-            String m = jsonObject1.getString("exceptionMessage");
-            tvMessageMensaje.setText(m);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    private void mostrarEmptyView() {
-        viewMessage.setVisibility(View.VISIBLE);
-        ivMessageImagen.setImageResource(R.drawable.ic_empty_view_lista_vacaciones);
-        tvMessageTitle.setText("¡Genial!");
-        tvMessageMensaje.setText("Todas tus solicitudes de vacaciones han sido atendidas.");
-    }
 
 
 

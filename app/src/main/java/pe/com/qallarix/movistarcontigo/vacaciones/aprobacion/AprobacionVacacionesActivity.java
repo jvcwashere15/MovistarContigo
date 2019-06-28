@@ -39,7 +39,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
     private List<SolicitudAprobacion> solicitudAprobacions;
     //view message
     private View viewMessage;
-    private TextView tvMessageTitle, tvMessageMensaje;
+    private TextView tvMessageTitle, tvMessageMensaje, tvMessageBoton;
     private ImageView ivMessageImagen;
 
     private boolean isLoading = true;
@@ -89,9 +89,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
                     }else{
                         mostrarEmptyView();
                     }
-                } else if (response.code() == 400){
-                        mostrarMensaje400(response.errorBody());
-                } else if (response.code() == 500){
+                } else {
                         mostrarMensaje500();
                 }
                 isLoading = false;
@@ -113,27 +111,24 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
         tvMessageTitle.setText("¡Ups!");
         tvMessageMensaje.setText("Hubo un problema con el servidor. " +
                 "Estamos trabajando para solucionarlo.");
-    }
-
-    private void mostrarMensaje400(ResponseBody responseBody) {
-        viewMessage.setVisibility(View.VISIBLE);
-        ivMessageImagen.setImageResource(R.drawable.ic_check_error);
-        tvMessageTitle.setText("Registro inválido");
-        try {
-            JSONObject jsonObject = new JSONObject(responseBody.string());
-            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
-            String m = jsonObject1.getString("exceptionMessage");
-            tvMessageMensaje.setText(m);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        tvMessageBoton.setVisibility(View.VISIBLE);
+        tvMessageBoton.setText("Cargar nuevamente");
+        tvMessageBoton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarListaSolicitudesPendientes();
+            }
+        });
     }
 
     private void mostrarEmptyView() {
         viewMessage.setVisibility(View.VISIBLE);
         ivMessageImagen.setImageResource(R.drawable.ic_empty_view_lista_vacaciones);
-        tvMessageTitle.setText("¡Genial!");
-        tvMessageMensaje.setText("Todas tus solicitudes de vacaciones han sido atendidas.");
+        tvMessageTitle.setText("Sin solicitudes pendientes");
+        tvMessageMensaje.setText("Si deseas ver el reporte de tus solicitudes aprobadas o " +
+                "rechazadas puedes hacerlo desde el SGV.");
+        tvMessageBoton.setVisibility(View.GONE);
+
     }
 
     private void configurarRecycler() {
@@ -160,6 +155,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
         tvMessageTitle = findViewById(R.id.view_message_tvTitle);
         tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
         ivMessageImagen = findViewById(R.id.view_message_ivImagen);
+        tvMessageBoton = findViewById(R.id.view_message_tvBoton);
         mShimmerViewContainer = findViewById(R.id.lista_vacaciones_shimerFrameLayout);
     }
 
@@ -167,7 +163,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Aprobación de vacaciones");
+        getSupportActionBar().setTitle("Vacaciones para aprobar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
