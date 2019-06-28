@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -166,6 +167,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
     }
 
     private void obtenerFecha(final int flag){
+        Calendar cal = Calendar.getInstance();
+        Date currentDate = cal.getTime();
         DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -198,8 +201,10 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
             /**
              *También puede cargar los valores que usted desee
              */
-        }, 2019, 6, 6);
+        }, currentDate.getYear(), currentDate.getMonth(), currentDate.getDay());
         //Muestro el widget
+
+        recogerFecha.getDatePicker().setMinDate(currentDate.getTime());
         recogerFecha.show();
     }
 
