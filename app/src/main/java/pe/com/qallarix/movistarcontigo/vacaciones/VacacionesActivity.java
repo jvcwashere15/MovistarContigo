@@ -77,7 +77,7 @@ public class VacacionesActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     FutureJoy futureJoy = response.body().getFutureJoy();
                     tvPendientes.setText(String.valueOf(futureJoy.getPlannedDaysPending()));
-                    tvAdelanto.setText(String.valueOf(futureJoy.getPlannedDaysExpired()));
+                    tvAdelanto.setText(String.valueOf(futureJoy.getPlannedDaysTruncate()));
                     tvFechaDerecho.setText(futureJoy.getDateOfRight());
                 }
                 isLoading = false;

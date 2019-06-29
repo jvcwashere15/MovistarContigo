@@ -3,6 +3,7 @@ package pe.com.qallarix.movistarcontigo.vacaciones.pojos;
 public class FutureJoy {
     private long plannedDaysPending;
     private long plannedDaysExpired;
+    private long plannedDaysTruncate;
     private String pendingRightDate;
     private String rightDateExpired;
     private String finalDateCalendar;
@@ -63,5 +64,13 @@ public class FutureJoy {
 
     public void setDayValueExpired(String dayValueExpired) {
         this.dayValueExpired = dayValueExpired;
+    }
+
+    public long getPlannedDaysTruncate() {
+        return plannedDaysTruncate;
+    }
+
+    public void setPlannedDaysTruncate(long plannedDaysTruncate) {
+        this.plannedDaysTruncate = plannedDaysTruncate;
     }
 }

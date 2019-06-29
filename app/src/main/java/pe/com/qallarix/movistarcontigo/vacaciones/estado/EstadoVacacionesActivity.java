@@ -192,7 +192,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
                     rechazadas = Arrays.asList(response.body().getVacaciones());
                     if (rechazadas.size() == 0) mostrarEmptyView("¡Genial!",
                             "No tienes solicitudes de vacaciones" +
-                            " rechazadas hasta le momento.");
+                            " rechazadas hasta el momento.");
                     else estadoVacacionesAdapter.setEstadoVacaciones(rechazadas);
                 }else {
                     mostrarMensaje500(RECHAZADAS);
