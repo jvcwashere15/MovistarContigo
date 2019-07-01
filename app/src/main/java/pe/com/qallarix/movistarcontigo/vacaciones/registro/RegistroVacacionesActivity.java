@@ -15,6 +15,8 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,10 +41,11 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
             tvFechaInicio,
             tvFechaFin,
             tvNumeroDias,
+            tvLiderAprobacion,
             tvMensaje;
     private TextView tvButtonRegistar;
     private View viewValidarFechas;
-    private String fechaInicio = "", fechaFin = "";
+    private String fechaInicio = "", fechaFin = "", leaderName = "";
 
     private final int INICIO = 1;
     private final int FIN = 2;
@@ -54,10 +57,15 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_vacaciones);
         configurarToolbar();
+        getDataFromExtras();
         bindearVistas();
         configurarBotonCalendarioInicio();
         configurarBotonCalendarioFin();
         configurarBotonRegistrar();
+    }
+
+    private void getDataFromExtras() {
+        leaderName = getIntent().getExtras().getString("leadershipName","");
     }
 
     private void configurarBotonRegistrar() {
@@ -73,12 +81,14 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
                 call.enqueue(new Callback<ResponseValidarFechas>() {
                     @Override
                     public void onResponse(Call<ResponseValidarFechas> call, Response<ResponseValidarFechas> response) {
-                        if (response.code() == 200){
+                        viewValidarFechas.setVisibility(View.GONE);
+                        int responseCode = response.code();
+                        if ( responseCode == 200){
                             Validation validation = response.body().getValidation();
-                            viewValidarFechas.setVisibility(View.GONE);
-                            mostrarDialogAprobacionFechas(validation.getObservation(),validation.getRequestDateMax());
-                        }else viewValidarFechas.setVisibility(View.GONE);
-
+                            mostrarDialogAprobacionFechas(validation.getObservation());
+                        }else if (responseCode == 500 || responseCode == 404){
+                            mostrarDialogError();
+                        }else mostrarDialog400(response);
                     }
 
                     @Override
@@ -91,10 +101,43 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
         });
     }
 
-    public void mostrarDialogAprobacionFechas(String title,String fechaMaxAprobacion){
+    private void mostrarDialog400(Response<ResponseValidarFechas> response) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
+        builder.setTitle("¡Ups!");
+        builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
+        try {
+            JSONObject jsonObject = new JSONObject(response.errorBody().string());
+            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
+            String m = jsonObject1.getString("exceptionMessage");
+            builder.setMessage(m);
+        } catch (Exception e) {
+            e.printStackTrace();
+            builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
+        }
+        builder.setCancelable(false);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
+    }
+
+    private void mostrarDialogError() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
+        builder.setTitle("¡Ups!");
+        builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
+    }
+
+    public void mostrarDialogAprobacionFechas(String title){
         final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
         builder.setTitle(title);
-        builder.setMessage("Tu solicitud será aprobada en un plazo no mayor a 3 días hábiles");
+        builder.setMessage("Tu solicitud será aprobada en un plazo no mayor a 3 días hábiles.");
         builder.setCancelable(false);
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -213,6 +256,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
             tvButtonRegistar.setVisibility(View.VISIBLE);
             tvMensaje.setTextColor(Color.BLACK);
             tvMensaje.setText("Días solicitados:");
+            tvLiderAprobacion.setText("Tus vacaciones serán aprobadas por " + leaderName);
+            tvLiderAprobacion.setVisibility(View.VISIBLE);
             tvNumeroDias.setVisibility(View.VISIBLE);
             if (mDia > 1) tvNumeroDias.setText(String.valueOf(mDia) + " días");
             else tvNumeroDias.setText(String.valueOf(mDia) + " día");
@@ -249,6 +294,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
         tvMensaje = findViewById(R.id.registrar_vacaciones_tvMensaje);
         tvButtonRegistar = findViewById(R.id.registrar_vacaciones_btRegistrar);
         viewValidarFechas = findViewById(R.id.validar_fechas_viewProgress);
+        tvLiderAprobacion = findViewById(R.id.registrar_vacaciones_tvLiderAprobacion);
     }
 
 

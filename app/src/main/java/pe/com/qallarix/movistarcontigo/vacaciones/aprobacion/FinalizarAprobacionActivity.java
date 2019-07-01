@@ -60,25 +60,23 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
             public void onResponse(Call<ResponseRegistrarAprobacion> call, Response<ResponseRegistrarAprobacion> response) {
                 if (response.code() == 200){
                     displayResultadoRegistroOK();
-                }else if (response.code() == 500){
+                }else if (response.code() == 500 || response.code() == 404){
                     displayResultadoError();
-                }else if (response.code() == 400){
+                }else {
                     displayResultadoException(response.errorBody());
                 }
-                viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
                 viewProgress.setVisibility(View.GONE);
-
             }
 
             @Override
             public void onFailure(Call<ResponseRegistrarAprobacion> call, Throwable t) {
-                Toast.makeText(FinalizarAprobacionActivity.this, "Error servidor", Toast.LENGTH_SHORT).show();
-                finish();
+                displayResultadoError();
             }
         });
     }
 
     private void displayResultadoException(ResponseBody response) {
+        viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
         ivResultado.setImageResource(R.drawable.ic_check_error);
         tvResultado.setText("Registro inválido");
         try {
@@ -88,11 +86,14 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
             tvDescripcion.setText(m);
         } catch (Exception e) {
             e.printStackTrace();
+            tvDescripcion.setText("Hubo un problema con el servidor. Estamos trabajando para solucionarlo." +
+                    "\nPor favor, verifica tus solicitudes pendientes por aprobar.");
         }
 
     }
 
     private void displayResultadoError() {
+        viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
         tvResultado.setText("¡Ups!");
         ivResultado.setImageResource(R.drawable.img_error_servidor);
         tvDescripcion.setText("Hubo un problema con el servidor. Estamos trabajando para solucionarlo." +
@@ -116,6 +117,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
     }
 
     private void displayResultadoRegistroOK() {
+        viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
         if (approver){
             ivResultado.setImageResource(R.drawable.ic_check_ok);
             tvResultado.setText("Aprobación exitosa");

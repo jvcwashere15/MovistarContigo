@@ -72,6 +72,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
 
     private void cargarListaSolicitudesPendientes() {
         mShimmerViewContainer.setVisibility(View.VISIBLE);
+        viewMessage.setVisibility(View.GONE);
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
         solicitudAprobacions = new ArrayList<>();
         Call<ResponseListaSolicitudes> call = WebService2
@@ -99,8 +100,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseListaSolicitudes> call, Throwable t) {
-                Toast.makeText(AprobacionVacacionesActivity.this, "Error del servidor", Toast.LENGTH_SHORT).show();
-                finish();
+                mostrarMensaje500();
             }
         });
     }

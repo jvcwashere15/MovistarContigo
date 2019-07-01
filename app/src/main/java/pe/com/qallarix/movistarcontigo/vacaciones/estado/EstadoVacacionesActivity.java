@@ -106,9 +106,8 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
             public void onResponse(Call<ResponseListaEstados> call, Response<ResponseListaEstados> response) {
                 if (response.code() == 200){
                     aprobadas = Arrays.asList(response.body().getVacaciones());
-                    if (aprobadas.size() == 0) mostrarEmptyView("",
-                            "No tienes vacaciones aprobadas " +
-                            "hasta el momento");
+                    if (aprobadas.size() == 0) mostrarEmptyView("", "No tienes " +
+                            "solicitudes de vacaciones aprobadas hasta el momento.");
                     else estadoVacacionesAdapter.setEstadoVacaciones(aprobadas);
                 }else {
                     mostrarMensaje500(APROBADAS);
@@ -118,7 +117,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseListaEstados> call, Throwable t) {
-                Toast.makeText(EstadoVacacionesActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+                mostrarMensaje500(APROBADAS);
             }
         });
     }
@@ -160,8 +159,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseListaEstados> call, Throwable t) {
-                Toast.makeText(EstadoVacacionesActivity.this, "Error en el servidor",
-                        Toast.LENGTH_SHORT).show();
+                mostrarMensaje500(PENDIENTES);
             }
         });
     }
@@ -202,7 +200,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseListaEstados> call, Throwable t) {
-                Toast.makeText(EstadoVacacionesActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+                mostrarMensaje500(RECHAZADAS);
             }
         });
     }

@@ -138,7 +138,7 @@
             android:textSize="14sp"
             android:visibility="gone"
             android:fontFamily="@font/telefonica_regular"
-            android:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta."/>
+            tools:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta."/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

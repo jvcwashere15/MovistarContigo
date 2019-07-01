@@ -16,16 +16,24 @@
         app:shimmer_duration="800">
         <include layout="@layout/vacaciones_dashboard_placeholder"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
-    <ScrollView
-        android:id="@+id/view_dashboard_vacaciones"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
+            android:id="@+id/view_dashboard_vacaciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <include layout="@layout/resumen_vacaciones"/>
-            <include layout="@layout/menu_vacaciones"/>
-        </LinearLayout>
-    </ScrollView>
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include layout="@layout/resumen_vacaciones"/>
+                <include layout="@layout/menu_vacaciones"/>
+            </LinearLayout>
+        </ScrollView>
+        <include
+            android:visibility="gone"
+            layout="@layout/view_message_response_vacaciones"
+            android:id="@+id/view_message"/>
+    </FrameLayout>
 </LinearLayout>

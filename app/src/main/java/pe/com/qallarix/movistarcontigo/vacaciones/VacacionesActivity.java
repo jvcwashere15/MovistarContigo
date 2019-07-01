@@ -8,10 +8,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
+
+import org.json.JSONObject;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
@@ -27,6 +30,7 @@ import retrofit2.Response;
 
 public class VacacionesActivity extends TranquiParentActivity {
     private View
+            vDashboard,
             vRegistro,
             vEstado,
             vAprobacion;
@@ -35,7 +39,13 @@ public class VacacionesActivity extends TranquiParentActivity {
             tvAdelanto,
             tvFechaDerecho;
 
+    //view message
+    private View viewMessage;
+    private TextView tvMessageTitle, tvMessageMensaje,tvMessageBoton;
+    private ImageView ivMessageImagen;
+
     private boolean isLoading = true;
+    private String liderName = "";
 
     private ShimmerFrameLayout mShimmerViewContainer;
 
@@ -76,10 +86,9 @@ public class VacacionesActivity extends TranquiParentActivity {
             public void onResponse(Call<VacacionesDashboard> call, Response<VacacionesDashboard> response) {
                 if (response.code() == 200){
                     FutureJoy futureJoy = response.body().getFutureJoy();
-                    tvPendientes.setText(String.valueOf(futureJoy.getPlannedDaysPending()));
-                    tvAdelanto.setText(String.valueOf(futureJoy.getPlannedDaysTruncate()));
-                    tvFechaDerecho.setText(futureJoy.getDateOfRight());
-                }
+                    displayFutureJoy(futureJoy);
+                }else
+                    mostrarMensajeError();
                 isLoading = false;
                 mShimmerViewContainer.setVisibility(View.GONE);
                 mShimmerViewContainer.stopShimmer();
@@ -87,10 +96,19 @@ public class VacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<VacacionesDashboard> call, Throwable t) {
-                Toast.makeText(VacacionesActivity.this, "error en el servidor", Toast.LENGTH_SHORT).show();
-                finish();
+                mostrarMensajeError();
             }
         });
+    }
+
+    private void displayFutureJoy(FutureJoy futureJoy) {
+        tvPendientes.setText(String.valueOf(futureJoy.getPlannedDaysPending()));
+        tvAdelanto.setText(String.valueOf(futureJoy.getPlannedDaysTruncate()));
+        tvFechaDerecho.setText(futureJoy.getDateOfRight());
+        liderName = futureJoy.getLeadershipName();
+        if (futureJoy.isLeadership()) vAprobacion.setVisibility(View.VISIBLE);
+        vDashboard.setVisibility(View.VISIBLE);
+        viewMessage.setVisibility(View.GONE);
     }
 
 
@@ -99,6 +117,7 @@ public class VacacionesActivity extends TranquiParentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(VacacionesActivity.this, RegistroVacacionesActivity.class);
+                intent.putExtra("leadershipName",liderName);
                 startActivity(intent);
             }
         });
@@ -132,6 +151,12 @@ public class VacacionesActivity extends TranquiParentActivity {
         tvAdelanto = findViewById(R.id.vacaciones_tvAdelanto);
         tvFechaDerecho = findViewById(R.id.vacaciones_tvFechaDerecho);
         mShimmerViewContainer = findViewById(R.id.dashboard_vacaciones_shimerFrameLayout);
+        viewMessage = findViewById(R.id.view_message);
+        tvMessageTitle = findViewById(R.id.view_message_tvTitle);
+        tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
+        ivMessageImagen = findViewById(R.id.view_message_ivImagen);
+        tvMessageBoton = findViewById(R.id.view_message_tvBoton);
+        vDashboard = findViewById(R.id.view_dashboard_vacaciones);
     }
 
     public void configurarToolbar(){
@@ -169,5 +194,22 @@ public class VacacionesActivity extends TranquiParentActivity {
         upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
+    }
+
+    private void mostrarMensajeError() {
+        viewMessage.setVisibility(View.VISIBLE);
+        vDashboard.setVisibility(View.GONE);
+        ivMessageImagen.setImageResource(R.drawable.img_error_servidor);
+        tvMessageTitle.setText("¡Ups!");
+        tvMessageMensaje.setText("Hubo un problema con el servidor. " +
+                "Estamos trabajando para solucionarlo.");
+        tvMessageBoton.setVisibility(View.VISIBLE);
+        tvMessageBoton.setText("Cargar nuevamente");
+        tvMessageBoton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarDatosVacaciones();
+            }
+        });
     }
 }

@@ -98,6 +98,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
 
     private void getDetalleSolicitudFromNetwork() {
         mShimmerViewContainer.setVisibility(View.VISIBLE);
+        viewMessage.setVisibility(View.GONE);
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
         Call<ResponseSolicitudAprobacion> call = WebService2
                 .getInstance(getDocumentNumber())
@@ -123,9 +124,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseSolicitudAprobacion> call, Throwable t) {
-                Toast.makeText(DetalleAprobacionActivity.this,
-                        "Error servidor", Toast.LENGTH_SHORT).show();
-                finish();
+                mostrarMensaje500();
             }
         });
     }

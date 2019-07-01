@@ -103,16 +103,16 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                     int colorEstado = 0;
                     if (currentDetalle.getRequestStateCode()
                             .equals(ServiceEstadoVacacionesApi.APROBADAS)){
-                        descripcionLider = "Aprobó las siguientes fechas de vacaciones";
+                        descripcionLider = "Aprobó las siguientes fechas de vacaciones:";
                         strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;
                     }else if (currentDetalle.getRequestStateCode()
                             .equals(ServiceEstadoVacacionesApi.PENDIENTES)){
-                        descripcionLider = "Esta por aprobar las siguientes fechas de vacaciones";
+                        descripcionLider = "Está por aprobar las siguientes fechas de vacaciones:";
                         strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;
                     }else if (currentDetalle.getRequestStateCode()
                             .equals(ServiceEstadoVacacionesApi.RECHAZADAS)){
                         tvDescripcion.setText("Tus vacaciones fueron rechazadas por necesidad operativa.");
-                        descripcionLider = "Rechazó las siguientes fechas de vacaciones";
+                        descripcionLider = "Rechazó las siguientes fechas de vacaciones:";
                         strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;
                     }
                     tvDescLider.setText(descripcionLider);
@@ -129,8 +129,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseDetalleSolicitud> call, Throwable t) {
-                Toast.makeText(DetalleEstadoVacacionesActivity.this, "Error servidor", Toast.LENGTH_SHORT).show();
-                finish();
+                mostrarMensaje500();
             }
         });
 

@@ -9,6 +9,9 @@ public class FutureJoy {
     private String finalDateCalendar;
     private String dateOfRight;
     private String dayValueExpired;
+    private boolean isLeadership;
+    private String leadershipCip;
+    private String leadershipName;
 
     public long getPlannedDaysPending() {
         return plannedDaysPending;
@@ -72,5 +75,29 @@ public class FutureJoy {
 
     public void setPlannedDaysTruncate(long plannedDaysTruncate) {
         this.plannedDaysTruncate = plannedDaysTruncate;
+    }
+
+    public boolean isLeadership() {
+        return isLeadership;
+    }
+
+    public void setLeadership(boolean leadership) {
+        isLeadership = leadership;
+    }
+
+    public String getLeadershipCip() {
+        return leadershipCip;
+    }
+
+    public void setLeadershipCip(String leadershipCip) {
+        this.leadershipCip = leadershipCip;
+    }
+
+    public String getLeadershipName() {
+        return leadershipName;
+    }
+
+    public void setLeadershipName(String leadershipName) {
+        this.leadershipName = leadershipName;
     }
 }

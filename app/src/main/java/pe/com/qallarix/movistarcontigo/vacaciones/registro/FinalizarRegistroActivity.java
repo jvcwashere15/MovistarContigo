@@ -8,13 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import org.json.JSONObject;
-
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.vacaciones.AcercaActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseRegistrarVacaciones;
@@ -59,43 +57,55 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseRegistrarVacaciones> call, Response<ResponseRegistrarVacaciones> response) {
                 if (response.code() == 200){
-                    tvRespuesta.setText("Registro exitoso");
-                    tvButtonEstado.setVisibility(View.VISIBLE);
-                    tvButtonVolverMenu.setVisibility(View.VISIBLE);
-                    ivRespuesta.setImageResource(R.drawable.ic_check_ok);
-                    tvRespuestaDescripcion.setText("Has solicitado tus vacaciones. Recibirás una " +
-                            "notificación al momento de la aprobación.");
-                }else if (response.code() == 400){
-                    tvButtonNormativa.setVisibility(View.VISIBLE);
-                    tvButtonVolverMenu.setVisibility(View.VISIBLE);
-                    tvRespuesta.setText("Registro inválido");
-                    ivRespuesta.setImageResource(R.drawable.ic_check_error);
-                    try {
-                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
-                        JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
-                        String m = jsonObject1.getString("exceptionMessage");
-                        tvRespuestaDescripcion.setText(m);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }else if (response.code() == 500){
-                    tvButtonEstado.setVisibility(View.VISIBLE);
-                    tvButtonVolverMenu.setVisibility(View.VISIBLE);
-                    tvRespuesta.setText("¡Ups!");
-                    ivRespuesta.setImageResource(R.drawable.img_error_servidor);
-                    tvRespuestaDescripcion.setText("Hubo un problema con el servidor. " +
-                            "Estamos trabajando para solucionarlo." +
-                            "\nPor favor, verifica el estado de tus vacaciones.");
+                    displayMensajeOK();
+                }else if (response.code() == 404 || response.code() == 500){
+                    displayMensajeError();
+                }else {
+                    displayMensaje400(response);
                 }
                 viewProgress.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<ResponseRegistrarVacaciones> call, Throwable t) {
-                Toast.makeText(FinalizarRegistroActivity.this, "Error del servidor", Toast.LENGTH_SHORT).show();
-                finish();
+                displayMensajeError();
             }
         });
+    }
+
+    private void displayMensaje400(Response<ResponseRegistrarVacaciones> response) {
+        tvButtonNormativa.setVisibility(View.VISIBLE);
+        tvButtonVolverMenu.setVisibility(View.VISIBLE);
+        tvRespuesta.setText("Registro inválido");
+        ivRespuesta.setImageResource(R.drawable.ic_check_error);
+        try {
+            JSONObject jsonObject = new JSONObject(response.errorBody().string());
+            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
+            String m = jsonObject1.getString("exceptionMessage");
+            tvRespuestaDescripcion.setText(m);
+        } catch (Exception e) {
+            e.printStackTrace();
+            displayMensajeError();
+        }
+    }
+
+    private void displayMensajeError() {
+        tvButtonEstado.setVisibility(View.VISIBLE);
+        tvButtonVolverMenu.setVisibility(View.VISIBLE);
+        tvRespuesta.setText("¡Ups!");
+        ivRespuesta.setImageResource(R.drawable.img_error_servidor);
+        tvRespuestaDescripcion.setText("Hubo un problema con el servidor. " +
+                "Estamos trabajando para solucionarlo." +
+                "\nPor favor, verifica el estado de tus vacaciones.");
+    }
+
+    private void displayMensajeOK() {
+        tvRespuesta.setText("Registro exitoso");
+        tvButtonEstado.setVisibility(View.VISIBLE);
+        tvButtonVolverMenu.setVisibility(View.VISIBLE);
+        ivRespuesta.setImageResource(R.drawable.ic_check_ok);
+        tvRespuestaDescripcion.setText("Has solicitado tus vacaciones. " +
+                "Recibirás una notificación al momento de la aprobación.");
     }
 
     private void getDataFromExtras() {
@@ -143,17 +153,15 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
     }
 
     public void verNormativa(View view) {
-
+        Intent intent = new Intent(FinalizarRegistroActivity.this, AcercaActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void volverMenu(View view) {
         Intent intent = new Intent(FinalizarRegistroActivity.this, VacacionesActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    public void cargarNuevamente(View view) {
-
     }
 
     public void clickNull(View view) {
