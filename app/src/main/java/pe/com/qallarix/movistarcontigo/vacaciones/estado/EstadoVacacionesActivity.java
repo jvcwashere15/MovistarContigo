@@ -229,13 +229,13 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
                 EstadoVacaciones currentEstadoVacaciones = null;
                 switch (currentTab){
                     case APROBADAS:
-                        if (aprobadas != null) currentEstadoVacaciones = aprobadas.get(position);
+                        if (aprobadas != null && aprobadas.size()> 0) currentEstadoVacaciones = aprobadas.get(position);
                         break;
                     case RECHAZADAS:
-                        if (rechazadas != null) currentEstadoVacaciones = rechazadas.get(position);
+                        if (rechazadas != null && rechazadas.size() > 0) currentEstadoVacaciones = rechazadas.get(position);
                         break;
                     case PENDIENTES:
-                        if (pendientes != null) currentEstadoVacaciones = pendientes.get(position);
+                        if (pendientes != null && pendientes.size()> 0) currentEstadoVacaciones = pendientes.get(position);
                         break;
                 }
                 if (currentEstadoVacaciones != null) {

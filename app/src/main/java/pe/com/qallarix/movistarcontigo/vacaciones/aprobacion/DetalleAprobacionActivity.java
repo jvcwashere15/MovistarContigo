@@ -6,29 +6,16 @@ import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.facebook.shimmer.ShimmerFrameLayout;
-
-import org.json.JSONObject;
-
-import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.DetalleSolicitud;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseSolicitudAprobacion;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class DetalleAprobacionActivity extends TranquiParentActivity {
-    private String requestCode,fechaSolicitud;
+    private String requestCode,requestDay,employeeName,
+            requestDateStart,requestDateEnd;
+    private long requestDaysDifference;
     private TextView
             tvEmpleado,
             tvFechaSolicitud,
@@ -40,16 +27,6 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
             tvButtonAprobar,
             tvButtonRechazar;
 
-    //view message
-    private View viewMessage;
-    private TextView tvMessageTitle, tvMessageMensaje,tvMessageBoton;
-    private ImageView ivMessageImagen;
-
-    private DetalleSolicitud detalleSolicitud;
-
-    private ShimmerFrameLayout mShimmerViewContainer;
-    private boolean isLoading;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +34,18 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         bindearVistas();
         configurarToolbar();
         getExtrasFromIntent();
-
-        if (!TextUtils.isEmpty(requestCode)) getDetalleSolicitudFromNetwork();
+        displayDetalleSolicitud();
+        configurarBotonAprobar(employeeName);
+        configurarBotonRechazar(employeeName);
     }
 
     private void getExtrasFromIntent() {
+        requestDay = getIntent().getExtras().getString("requestDay","");
         requestCode = getIntent().getExtras().getString("requestCode","");
-        fechaSolicitud = getIntent().getExtras().getString("requestDay","");
+        employeeName = getIntent().getExtras().getString("employeeName","");
+        requestDateStart = getIntent().getExtras().getString("requestDateStart","");
+        requestDateEnd = getIntent().getExtras().getString("requestDateEnd","");
+        requestDaysDifference = getIntent().getExtras().getLong("getRequestDaysDifference",0);
     }
 
     private void bindearVistas() {
@@ -75,66 +57,14 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         tvFechaInicio = findViewById(R.id.detalle_aprobacion_tvFechaInicio);
         tvButtonAprobar = findViewById(R.id.detalle_aprobacion_tvButtonAprobar);
         tvButtonRechazar = findViewById(R.id.detalle_aprobacion_tvButtonRechazar);
-        mShimmerViewContainer = findViewById(R.id.detalle_solicitud_shimerFrameLayout);
-        viewMessage = findViewById(R.id.view_message);
-        tvMessageTitle = findViewById(R.id.view_message_tvTitle);
-        tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
-        ivMessageImagen = findViewById(R.id.view_message_ivImagen);
-        tvMessageBoton = findViewById(R.id.view_message_tvBoton);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (isLoading)
-            mShimmerViewContainer.startShimmer();
-    }
-
-    @Override
-    protected void onPause() {
-        mShimmerViewContainer.stopShimmer();
-        super.onPause();
-    }
-
-    private void getDetalleSolicitudFromNetwork() {
-        mShimmerViewContainer.setVisibility(View.VISIBLE);
-        viewMessage.setVisibility(View.GONE);
-        if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
-        Call<ResponseSolicitudAprobacion> call = WebService2
-                .getInstance(getDocumentNumber())
-                .createService(ServiceAprobacionVacacionesApi.class)
-                .obtenerDetalleSolicitudAprobar(getCIP(),requestCode);
-        call.enqueue(new Callback<ResponseSolicitudAprobacion>() {
-            @Override
-            public void onResponse(Call<ResponseSolicitudAprobacion> call,
-                                   Response<ResponseSolicitudAprobacion> response) {
-                if (response.code() == 200){
-                    detalleSolicitud = response.body().getRequest();
-                    displayDetalleSolicitud();
-                    configurarBotonAprobar(detalleSolicitud.getEmployeeName());
-                    configurarBotonRechazar(detalleSolicitud.getEmployeeName());
-
-                }else {
-                    mostrarMensaje500();
-                }
-                isLoading = false;
-                mShimmerViewContainer.setVisibility(View.GONE);
-                mShimmerViewContainer.stopShimmer();
-            }
-
-            @Override
-            public void onFailure(Call<ResponseSolicitudAprobacion> call, Throwable t) {
-                mostrarMensaje500();
-            }
-        });
     }
 
     private void displayDetalleSolicitud() {
-        tvEmpleado.setText(detalleSolicitud.getEmployeeName());
-        tvFechaSolicitud.setText(fechaSolicitud);
-        tvFechaInicio.setText(detalleSolicitud.getRequestDateStart());
-        tvFechaFin.setText(detalleSolicitud.getRequestDateEnd());
-        tvDiasSolicitados.setText(detalleSolicitud.getRequestDaysDifference() + " días");
+        tvEmpleado.setText(employeeName);
+        tvFechaSolicitud.setText(requestDay);
+        tvFechaInicio.setText(requestDateStart);
+        tvFechaFin.setText(requestDateEnd);
+        tvDiasSolicitados.setText(requestDaysDifference + " días");
         tvDescripcion.setText("Tienes un plazo de 3 días hábiles para responder a esta solicitud, " +
                 "de lo contrario se aprobarán automáticamente.");
     }
@@ -200,11 +130,11 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
                 Intent intent = new Intent(DetalleAprobacionActivity.this,FinalizarAprobacionActivity.class);
                 //Datos para aprobar o rechazar vacaciones
                 intent.putExtra("employeeCode",getCIP());
-                intent.putExtra("requestCode",detalleSolicitud.getRequestCode());
+                intent.putExtra("requestCode",requestCode);
                 intent.putExtra("approver",approver);
                 //Datos para mostrar
                 intent.putExtra("colaborador",nombre);
-                intent.putExtra("dias",detalleSolicitud.getRequestDaysDifference());
+                intent.putExtra("dias",requestDaysDifference);
                 startActivity(intent);
                 finish();
             }
@@ -220,21 +150,7 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
     }
 
 
-    private void mostrarMensaje500() {
-        viewMessage.setVisibility(View.VISIBLE);
-        ivMessageImagen.setImageResource(R.drawable.img_error_servidor);
-        tvMessageTitle.setText("¡Ups!");
-        tvMessageMensaje.setText("Hubo un problema con el servidor. " +
-                "Estamos trabajando para solucionarlo.");
-        tvMessageBoton.setVisibility(View.VISIBLE);
-        tvMessageBoton.setText("Cargar nuevamente");
-        tvMessageBoton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getDetalleSolicitudFromNetwork();
-            }
-        });
-    }
+
 
 
 

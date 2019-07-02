@@ -105,7 +105,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         ivRespuesta.setImageResource(R.drawable.ic_check_ok);
         tvRespuestaDescripcion.setText("Has solicitado tus vacaciones. " +
-                "Recibirás una notificación al momento de la aprobación.");
+                "Recibirás una notificación a tu correo corporativo al momento de la aprobación.");
     }
 
     private void getDataFromExtras() {

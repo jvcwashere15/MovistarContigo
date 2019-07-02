@@ -141,8 +141,12 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
                 Intent intent = new Intent(AprobacionVacacionesActivity.this,
                         DetalleAprobacionActivity.class);
                 SolicitudAprobacion currentSolicitud = solicitudAprobacions.get(position);
-                intent.putExtra("requestCode",currentSolicitud.getRequestCode());
+                intent.putExtra("employeeName",currentSolicitud.getEmployeeName());
                 intent.putExtra("requestDay",currentSolicitud.getRequestDay());
+                intent.putExtra("requestDateStart",currentSolicitud.getRequestDateStart());
+                intent.putExtra("requestDateEnd",currentSolicitud.getRequestDateEnd());
+                intent.putExtra("requestCode",currentSolicitud.getRequestCode());
+                intent.putExtra("getRequestDaysDifference",currentSolicitud.getRequestDifferenceDays());
                 startActivity(intent);
             }
         });

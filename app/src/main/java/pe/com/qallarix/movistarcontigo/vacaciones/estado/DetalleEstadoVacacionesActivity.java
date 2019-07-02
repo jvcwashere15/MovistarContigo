@@ -5,6 +5,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -95,7 +96,6 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     DetalleVacaciones currentDetalle = response.body().getRequest();
                     String descripcionLider = "";
-                    tvLider.setText(currentDetalle.getBossFirstName());
                     tvFechaInicio.setText(currentDetalle.getRequestDateStart());
                     tvFechaFin.setText(currentDetalle.getRequestDateEnd());
                     tvDiasSolicitados.setText(currentDetalle.getRequestDaysDifference() + " días");
@@ -103,16 +103,37 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                     int colorEstado = 0;
                     if (currentDetalle.getRequestStateCode()
                             .equals(ServiceEstadoVacacionesApi.APROBADAS)){
-                        descripcionLider = "Aprobó las siguientes fechas de vacaciones:";
+                        if (TextUtils.isEmpty(currentDetalle.getBossFirstName())){
+                            tvLider.setText("TUS VACACIONES FUERON APROBADAS");
+                            descripcionLider = "Comunícate con el CAE para cualquier consulta.";
+
+                        }else{
+                            tvLider.setText(currentDetalle.getBossFirstName());
+                            descripcionLider = "Aprobó las siguientes fechas de vacaciones:";
+                        }
                         strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;
+
                     }else if (currentDetalle.getRequestStateCode()
                             .equals(ServiceEstadoVacacionesApi.PENDIENTES)){
-                        descripcionLider = "Está por aprobar las siguientes fechas de vacaciones:";
+                        if (TextUtils.isEmpty(currentDetalle.getBossFirstName())){
+                            tvLider.setText("TUS VACACIONES FUERON SOLICITADAS");
+                            descripcionLider = "Comunícate con el CAE para cualquier consulta.";
+
+                        }else{
+                            tvLider.setText(currentDetalle.getBossFirstName());
+                            descripcionLider = "Está por aprobar las siguientes fechas de vacaciones:";
+                        }
                         strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;
                     }else if (currentDetalle.getRequestStateCode()
                             .equals(ServiceEstadoVacacionesApi.RECHAZADAS)){
+                        if (TextUtils.isEmpty(currentDetalle.getBossFirstName())){
+                            tvLider.setText("TUS VACACIONES FUERON SOLICITADAS");
+                            descripcionLider = "Comunícate con el CAE para cualquier consulta.";
+                        }else{
+                            tvLider.setText(currentDetalle.getBossFirstName());
+                            descripcionLider = "Rechazó las siguientes fechas de vacaciones:";
+                        }
                         tvDescripcion.setText("Tus vacaciones fueron rechazadas por necesidad operativa.");
-                        descripcionLider = "Rechazó las siguientes fechas de vacaciones:";
                         strEstado = "RECHAZADAS";colorEstado = R.drawable.etiqueta_roja;
                     }
                     tvDescLider.setText(descripcionLider);
