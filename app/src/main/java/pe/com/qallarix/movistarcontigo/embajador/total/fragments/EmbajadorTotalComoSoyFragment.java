@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.adapters.PlanMovistarTotalAdapter;
-import pe.com.qallarix.movistarcontigo.adapters.TipoFacturacionAdapter;
+import pe.com.qallarix.movistarcontigo.embajador.total.adapters.PlanMovistarTotalAdapter;
+import pe.com.qallarix.movistarcontigo.embajador.total.adapters.TipoFacturacionAdapter;
 import pe.com.qallarix.movistarcontigo.pojos.PlanMovistarTotal;
 import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
 

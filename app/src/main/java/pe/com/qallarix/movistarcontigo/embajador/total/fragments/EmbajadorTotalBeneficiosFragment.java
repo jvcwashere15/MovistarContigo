@@ -10,7 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.adapters.BeneficioAdapter;
+import pe.com.qallarix.movistarcontigo.embajador.total.adapters.BeneficioAdapter;
 import pe.com.qallarix.movistarcontigo.pojos.Beneficio;
 
 /**

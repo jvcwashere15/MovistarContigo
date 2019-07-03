@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.adapters;
+package pe.com.qallarix.movistarcontigo.embajador.hogar.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

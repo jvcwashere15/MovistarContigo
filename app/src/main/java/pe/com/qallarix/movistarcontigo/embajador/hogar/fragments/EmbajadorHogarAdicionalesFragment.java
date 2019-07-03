@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.adapters.ComboPaqueteAdapter;
-import pe.com.qallarix.movistarcontigo.adapters.ComplementoPaqueteAdapter;
+import pe.com.qallarix.movistarcontigo.embajador.hogar.adapters.ComboPaqueteAdapter;
+import pe.com.qallarix.movistarcontigo.embajador.hogar.adapters.ComplementoPaqueteAdapter;
 import pe.com.qallarix.movistarcontigo.embajador.hogar.pojos.ComplementList;
 import pe.com.qallarix.movistarcontigo.pojos.Combo;
 
