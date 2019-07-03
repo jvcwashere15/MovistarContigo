@@ -401,4 +401,5 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="salud_afiliaciones_lgbtiq_pt3">3.Entregar todos estos documentos en Dean Valdivia 148 Torre A Piso 14, San Isidro.</string>
     <string name="salud_afiliaciones_lgbtiq_pt4">4.La póliza estaría vigente desde el 1 de cada mes, pero se puede solicitar en cualquier fecha.</string>
     <string name="salud_afiliaciones_lgbtiq_pt5">En caso de querer excluirte de la póliza, como titular, deberás enviar una carta simple solicitando la desafiliación del plan al CAE y en físico a Dean Valdivia 148 Torre A Piso 14, San Isidro o a tu zonal.</string>
+    <string name="dash_title_flexplace">FlexPlace</string>
 </resources>

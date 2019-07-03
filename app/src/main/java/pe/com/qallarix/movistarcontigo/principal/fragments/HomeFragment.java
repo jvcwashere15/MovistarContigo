@@ -25,6 +25,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.BeneficiosEspecialesActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DescuentosActivity;
 import pe.com.qallarix.movistarcontigo.embajador.CanalEmbajadorActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DataNoticias;
 import pe.com.qallarix.movistarcontigo.noticias.News;
 import pe.com.qallarix.movistarcontigo.noticias.ServiceNewsApi;
@@ -46,7 +47,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     private TextView tvHolaUsuario;
     private CardView cvDescuentos, cvSalud, cvCanalEmbajador,
-            cvEstudios, cvBeneficiosEspeciales, cvVacaciones;
+            cvFlexPlace, cvBeneficiosEspeciales, cvVacaciones;
     private ViewPager vpNoticias;
     private NoticiasDashboardAdapter noticiasDashboardAdapter;
 
@@ -223,7 +224,7 @@ public class HomeFragment extends Fragment {
     }
     private void configurarBotonesBeneficios() {
         setearMetodoClick(cvDescuentos,DescuentosActivity.class);
-        setearMetodoClick(cvEstudios, OpenLearningActivity.class);
+        setearMetodoClick(cvFlexPlace, FlexplaceActivity.class);
         setearMetodoClick(cvSalud,SaludActivity.class);
         setearMetodoClick(cvCanalEmbajador,CanalEmbajadorActivity.class);
         setearMetodoClick(cvBeneficiosEspeciales,BeneficiosEspecialesActivity.class);
@@ -243,7 +244,9 @@ public class HomeFragment extends Fragment {
                 if (cardView.equals(cvBeneficiosEspeciales)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_SPECIALS);
                 else if (cardView.equals(cvCanalEmbajador)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_AMBASSADOR);
                 else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
-                else if (cardView.equals(cvEstudios)) Analitycs.logEventoClickDashboard(getActivity(), TITLE_OPEN_LEARNING);
+                else if (cardView.equals(cvFlexPlace)) {
+//                    Analitycs.logEventoClickDashboard(getActivity(), TITLE_OPEN_LEARNING);
+                }
                 else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
                 else if (cardView.equals(cvVacaciones)){
 //                    parentActivity.mostrarMensaje("Próximamente habilitaremos esta opción, estate atento a futuras actualizaciones.");
@@ -272,7 +275,7 @@ public class HomeFragment extends Fragment {
     public void bindearVistas(View vistaRaiz){
         cvDescuentos = vistaRaiz.findViewById(R.id.dash_cvDescuentos);
         cvSalud = vistaRaiz.findViewById(R.id.dash_cvSalud);
-        cvEstudios = vistaRaiz.findViewById(R.id.dash_cvOpenLearning);
+        cvFlexPlace = vistaRaiz.findViewById(R.id.dash_cvFlexplace);
         cvCanalEmbajador = vistaRaiz.findViewById(R.id.dash_cvCanalEmbajador);
         cvBeneficiosEspeciales = vistaRaiz.findViewById(R.id.dash_cvBeneficiosEspeciales);
         cvVacaciones = vistaRaiz.findViewById(R.id.dash_cvVacaciones);

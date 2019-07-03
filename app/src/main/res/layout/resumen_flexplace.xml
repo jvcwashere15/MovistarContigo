@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borde_celeste_vacaciones">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dashboard_btVacaciones"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@color/colorCanalEmbajador"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <LinearLayout
+                android:id="@+id/textView20"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:text="¡Gestiona tus vacaciones \ndesde el app!"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_btVacaciones"
+                app:layout_constraintTop_toTopOf="@+id/dashboard_btVacaciones"
+                app:layout_constraintWidth_percent="0.4">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:text="Tus días Flex"
+                    android:gravity="center"
+                    android:textColor="#B2E5F5"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/flexplace_tvDia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:includeFontPadding="false"
+                    tools:text="Viernes"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/flexplace_tvMeses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/telefonica_regular"
+                    tools:text="Por 3 meses"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/vacaciones_ivLogo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitEnd"
+                app:layout_constraintBottom_toBottomOf="@+id/dashboard_btVacaciones"
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_btVacaciones"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintWidth_percent="0.5"
+                app:srcCompat="@drawable/fondo_flexplace" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dashboard_btVacaciones"
+            android:layout_alignParentLeft="true"
+            android:fontFamily="@font/telefonica_regular"
+            android:text="Fecha fin de FlexPlace"
+            android:textColor="#2A2A3C"
+            android:layout_margin="8dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/flexplace_tvFechaDerecho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dashboard_btVacaciones"
+            android:layout_alignParentRight="true"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/telefonica_regular"
+            tools:text="15/08/2019"
+            android:textColor="#2A2A3C"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</LinearLayout>

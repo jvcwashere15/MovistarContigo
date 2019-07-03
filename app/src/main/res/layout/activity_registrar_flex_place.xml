@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:backgroundTint="@android:color/white"
+        android:background="@android:color/white"
+        tools:context=".vacaciones.registro.RegistroVacacionesActivity">
+        <include layout="@layout/my_toolbar"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elige el rango de tiempo en lo que tomarás tu Flex:"
+            android:textSize="16sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:layout_margin="16dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Fecha de inicio:"/>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+                <TextView
+                    android:id="@+id/registro_flex_tvFechaInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="dd/mm/aaaa"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/registro_flex_ivFechaInicio"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:srcCompat="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/flexplace_vCalendarioInicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/borde_seleccion_calendario"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Fecha de fin:"/>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+                <TextView
+                    android:id="@+id/registro_flex_tvFechaFin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="dd/mm/aaaa"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/registro_flex_ivFechaFin"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/flexplace_vCalendarioFin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/borde_seleccion_calendario"/>
+            </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/registrar_flex_tvAvisoMesesMinimo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp"
+                android:textColor="#00A9E0"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="El rango de tiempo mínimo es por 3 meses."/>
+        </LinearLayout>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Elige el día que utilizarás tu Flex:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView39">
+
+                <TextView
+                    android:id="@+id/registrar_flex_dia1"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde_seleccion_calendario"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:gravity="center"
+                    android:text="Lunes"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/registrar_flex_dia2"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde_seleccion_calendario"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:gravity="center"
+                    android:text="Martes"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/registrar_flex_dia3"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde_seleccion_calendario"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:gravity="center"
+                    android:text="Miércoles"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="0.5" />
+
+                <TextView
+                    android:id="@+id/registrar_flex_dia4"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde_seleccion_calendario"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:gravity="center"
+                    android:text="Jueves"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/registrar_flex_dia5"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde_seleccion_calendario"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:gravity="center"
+                    android:text="Viernes"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="0.5" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/registrar_flex_tvLider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:gravity="center"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/registrar_flex_tvButtonRegistrar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta." />
+
+            <TextView
+                android:id="@+id/registrar_flex_tvButtonRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/boton_vacaciones_verde"
+                android:fontFamily="@font/telefonica_bold"
+                android:gravity="center"
+                android:text="Registrar"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="#55000000"-->
+        <!--android:visibility="gone"-->
+        <!--android:id="@+id/validar_fechas_viewProgress"-->
+        <!--android:gravity="center"-->
+        <!--android:onClick="clickNull">-->
+        <!--<ProgressBar-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:theme="@style/StyleProgressBar"/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="18sp"-->
+            <!--android:fontFamily="@font/telefonica_regular"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:text="Validando solicitud..."/>-->
+    <!--</LinearLayout>-->
+</FrameLayout>

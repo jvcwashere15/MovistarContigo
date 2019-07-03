@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".flexplace.FlexplaceActivity">
+    <include layout="@layout/my_toolbar"/>
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/dashboard_flexplace_shimerFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@android:color/white"
+        app:shimmer_duration="800">
+        <include layout="@layout/vacaciones_dashboard_placeholder"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:id="@+id/view_dashboard_flexplace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include layout="@layout/resumen_flexplace"/>
+                <include layout="@layout/menu_flexplace"/>
+            </LinearLayout>
+        </ScrollView>
+        <include
+            android:visibility="gone"
+            layout="@layout/view_message_response_vacaciones"
+            android:id="@+id/view_message"/>
+    </FrameLayout>
+</LinearLayout>
