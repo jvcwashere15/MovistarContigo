@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 
 public class FinalizarRegistroFlexActivity extends AppCompatActivity {
 
@@ -69,12 +71,16 @@ public class FinalizarRegistroFlexActivity extends AppCompatActivity {
 
 
     private void registrarFlexPlace() {
+
     }
 
     public void verNormativa(View view) {
     }
 
     public void verHistorialFlexPlace(View view) {
+        Intent intent =  new Intent(this, HistorialFlexPlaceActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void volverMenu(View view) {
