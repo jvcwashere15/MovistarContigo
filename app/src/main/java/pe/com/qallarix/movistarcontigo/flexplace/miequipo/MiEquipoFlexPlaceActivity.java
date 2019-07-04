@@ -12,4 +12,5 @@ public class MiEquipoFlexPlaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mi_equipo_flex_place);
     }
+
 }

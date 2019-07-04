@@ -32,6 +32,18 @@
         <item name="android:background">@color/colorInfoAdicionalHerramientas</item>
     </style>
 
+    <style name="dia_unselected" parent="AppTheme">
+        <item name="android:textColor">#757575</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/telefonica_regular</item>
+    </style>
+
+    <style name="dia_selected" parent="AppTheme">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/telefonica_bold</item>
+    </style>
+
     <style name="EstiloTabEmbajador" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>

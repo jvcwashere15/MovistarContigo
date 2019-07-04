@@ -13,24 +13,32 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".flexplace.FlexplaceActivity"/>
-        <activity android:name=".flexplace.historial.HistorialFlexPlaceActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".flexplace.FlexplaceActivity"/>
-        <activity android:name=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".flexplace.FlexplaceActivity"/>
-        <activity android:name=".flexplace.registrar.RegistrarFlexPlaceActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".flexplace.FlexplaceActivity"/>
-        <activity android:name=".flexplace.AcercaFlexPlace"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".flexplace.FlexplaceActivity"/>
-        <activity android:name=".flexplace.FlexplaceActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"/>
+        <activity android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"></activity>
+        <activity
+            android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexplace.historial.HistorialFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexplace.registrar.RegistrarFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexplace.AcercaFlexPlace"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexplace.FlexplaceActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".vacaciones.AcercaActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"

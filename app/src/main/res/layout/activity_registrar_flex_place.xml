@@ -19,22 +19,25 @@
             android:text="Elige el rango de tiempo en lo que tomarás tu Flex:"
             android:textSize="16sp"
             android:fontFamily="@font/telefonica_regular"
-            android:layout_margin="16dp"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"/>
         <LinearLayout
             android:orientation="vertical"
-            android:padding="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Fecha de inicio:"/>
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp">
+                android:layout_height="40dp">
                 <TextView
                     android:id="@+id/registro_flex_tvFechaInicio"
                     android:layout_width="wrap_content"
@@ -68,14 +71,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Fecha de fin:"/>
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp">
+                android:layout_height="40dp">
                 <TextView
                     android:id="@+id/registro_flex_tvFechaFin"
                     android:layout_width="wrap_content"
@@ -106,124 +108,136 @@
                 android:id="@+id/registrar_flex_tvAvisoMesesMinimo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:textSize="14sp"
                 android:textColor="#00A9E0"
+                android:visibility="invisible"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="El rango de tiempo mínimo es por 3 meses."/>
         </LinearLayout>
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView39"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textSize="16sp"
-                android:fontFamily="@font/telefonica_regular"
-                android:text="Elige el día que utilizarás tu Flex:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <LinearLayout
-                android:id="@+id/linearLayout8"
+                android:id="@+id/view_seleccion_dias"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/registrar_flex_tvLider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView39">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
-                    android:id="@+id/registrar_flex_dia1"
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/borde_seleccion_calendario"
+                    android:id="@+id/textView39"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/telefonica_regular"
-                    android:gravity="center"
-                    android:text="Lunes"
+                    android:text="Elige el día que utilizarás tu Flex:"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/registrar_flex_dia2"
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/borde_seleccion_calendario"
-                    android:fontFamily="@font/telefonica_regular"
-                    android:gravity="center"
-                    android:text="Martes"
-                    android:textSize="16sp" />
+                <LinearLayout
+                    android:id="@+id/linearLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/registrar_flex_dia3"
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/borde_seleccion_calendario"
-                    android:fontFamily="@font/telefonica_regular"
-                    android:gravity="center"
-                    android:text="Miércoles"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/registrar_flex_dia1"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/borde_seleccion_calendario"
+                        android:button="@null"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:gravity="center"
+                        android:text="Lunes"
+                        android:textColor="#757575"
+                        android:textSize="15sp" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+                    <RadioButton
+                        android:id="@+id/registrar_flex_dia2"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/borde_seleccion_calendario"
+                        android:button="@null"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:gravity="center"
+                        android:text="Martes"
+                        android:textColor="#757575"
+                        android:textSize="15sp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="4dp"
-                    android:layout_weight="0.5" />
+                    <RadioButton
+                        android:id="@+id/registrar_flex_dia3"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/borde_seleccion_calendario"
+                        android:button="@null"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:gravity="center"
+                        android:text="Miércoles"
+                        android:textColor="#757575"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/registrar_flex_dia4"
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/borde_seleccion_calendario"
-                    android:fontFamily="@font/telefonica_regular"
-                    android:gravity="center"
-                    android:text="Jueves"
-                    android:textSize="16sp" />
+                <LinearLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/registrar_flex_dia5"
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/borde_seleccion_calendario"
-                    android:fontFamily="@font/telefonica_regular"
-                    android:gravity="center"
-                    android:text="Viernes"
-                    android:textSize="16sp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="0.5" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="32dp"
-                    android:layout_margin="4dp"
-                    android:layout_weight="0.5" />
+                    <RadioButton
+                        android:id="@+id/registrar_flex_dia4"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/borde_seleccion_calendario"
+                        android:button="@null"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:gravity="center"
+                        android:text="Jueves"
+                        android:textColor="#757575"
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/registrar_flex_dia5"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/borde_seleccion_calendario"
+                        android:button="@null"
+                        android:fontFamily="@font/telefonica_regular"
+                        android:gravity="center"
+                        android:text="Viernes"
+                        android:textColor="#757575"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="0.5" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -236,10 +250,11 @@
                 android:fontFamily="@font/telefonica_regular"
                 android:gravity="center"
                 android:textSize="14sp"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/registrar_flex_tvButtonRegistrar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta." />
+                android:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta." />
 
             <TextView
                 android:id="@+id/registrar_flex_tvButtonRegistrar"
@@ -253,6 +268,7 @@
                 android:fontFamily="@font/telefonica_bold"
                 android:gravity="center"
                 android:text="Registrar"
+                android:visibility="invisible"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
