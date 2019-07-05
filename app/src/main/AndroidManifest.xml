@@ -13,8 +13,11 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"></activity>
+        <activity android:name=".flexplace.historial.CancelarFlexPlaceActivity"></activity>
+        <activity android:name=".flexplace.historial.DetalleFlexPlaceActivity" />
+        <activity
+            android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity" />
         <activity
             android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"

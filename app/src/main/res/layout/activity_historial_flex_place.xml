@@ -1,9 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".flexplace.historial.HistorialFlexPlaceActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <include layout="@layout/my_toolbar"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#EEEEEE"
+                android:layout_gravity="bottom"/>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/flexplace_historial_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MyCustomTabVacaciones"
+                app:tabGravity="fill"
+                app:tabMode="fixed">
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pendientes" />
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aprobadas"/>
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rechazadas"/>
+            </android.support.design.widget.TabLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#DDDDDD"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/flexplace_historial_rvListaVacaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+            <include
+                android:id="@+id/view_message"
+                android:visibility="gone"
+                layout="@layout/view_message_response_vacaciones"/>
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#55000000"
+        android:visibility="gone"
+        android:id="@+id/lista_vacaciones_viewProgress"
+        android:gravity="center"
+        android:onClick="clickNull">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:id="@+id/viewLoad_tvMensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text=""/>
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

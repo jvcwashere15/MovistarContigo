@@ -402,4 +402,11 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="salud_afiliaciones_lgbtiq_pt4">4.La póliza estaría vigente desde el 1 de cada mes, pero se puede solicitar en cualquier fecha.</string>
     <string name="salud_afiliaciones_lgbtiq_pt5">En caso de querer excluirte de la póliza, como titular, deberás enviar una carta simple solicitando la desafiliación del plan al CAE y en físico a Dean Valdivia 148 Torre A Piso 14, San Isidro o a tu zonal.</string>
     <string name="dash_title_flexplace">FlexPlace</string>
+    <string name="texto_acerca_flexplace_1">Como colaborador de Telefóncia, tienes 1 día a la semana para trabajar desde casa.
+        Para ello deberás comunicarte con tu jefe directo, acordar el día que querrás tomar y registrarlo desde la aplicación
+        Movistar Contigo para que puedas disfrutar de este beneficio.
+    \nLos colaboradores que pueden hacer uso de esto, son:</string>
+    <string name="texto_acerca_flexplace_2">\n-Empleados no fiscalizables que hagan uso de laptop y no digiten huella para su ingreso.
+\n-Empleados no fiscalizables que hagan uso de laptop y no digiten huella para su ingreso.
+\n-Empleados no fiscalizables que hagan uso de laptop y no digiten huella para su ingreso.</string>
 </resources>
