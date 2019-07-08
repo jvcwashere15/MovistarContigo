@@ -133,5 +133,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RadioButtonDia" parent="AppTheme">
+        <item name="android:background">@drawable/borde_seleccion_calendario</item>
+        <item name="android:fontFamily">@font/telefonica_regular</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#757575</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="BotonVerdeFlat" parent="AppTheme">
+        <item name="android:background">@drawable/boton_vacaciones_verde</item>
+        <item name="android:fontFamily">@font/telefonica_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+
 
 </resources>
