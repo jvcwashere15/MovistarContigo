@@ -44,6 +44,7 @@
                 app:layout_constraintWidth_percent="0.4">
 
                 <TextView
+                    android:id="@+id/flexplace_tvMensajeInicial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/telefonica_bold"
@@ -87,14 +88,19 @@
         </android.support.constraint.ConstraintLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/flexplace_tvDescripcionDashEmpty"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dashboard_btVacaciones"
             android:layout_alignParentLeft="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toStartOf="@+id/flexplace_tvFechaDerecho"
             android:fontFamily="@font/telefonica_regular"
             android:text="Fecha fin de FlexPlace"
             android:textColor="#2A2A3C"
-            android:layout_margin="8dp"
             android:textSize="16sp" />
 
         <TextView

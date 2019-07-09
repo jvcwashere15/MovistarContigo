@@ -6,47 +6,44 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".flexplace.registrar.FinalizarRegistroFlexActivity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".vacaciones.registro.FinalizarRegistroActivity">
         <include layout="@layout/my_toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/registrar_vacaciones_tvMensajeRespuesta"
+                android:id="@+id/registrar_flexplace_tvMensajeRespuesta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registro exitoso"
+                tools:text="Registro exitoso"
                 android:textSize="20sp"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/telefonica_bold"
                 android:textColor="#2A2A3C"/>
             <ImageView
-                android:id="@+id/registrar_vacaciones_ivRespuesta"
+                android:id="@+id/registrar_flexplace_ivRespuesta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/registrar_vacaciones_tvMensajeRespuesta"
+                android:layout_above="@+id/registrar_flexplace_tvMensajeRespuesta"
                 android:layout_marginBottom="8dp"
                 android:layout_centerInParent="true"
-                app:srcCompat="@drawable/ic_check_ok" />
-
-
+                tools:srcCompat="@drawable/ic_check_ok" />
             <TextView
-                android:id="@+id/registrar_vacaciones_tvMensajeDescripcion"
+                android:id="@+id/registrar_flexplace_tvMensajeDescripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:fontFamily="@font/telefonica_regular"
                 android:layout_margin="16dp"
                 android:textSize="14sp"
-                android:layout_below="@+id/registrar_vacaciones_tvMensajeRespuesta"
+                android:layout_below="@+id/registrar_flexplace_tvMensajeRespuesta"
                 android:layout_marginTop="8dp"
-                android:text="Has solicitado los días a utilizar tu Flex. Recibirás una notificación al momento de la aprobación." />
+                tools:text="Has solicitado tus vacaciones. Recibirás una notificación al momento de la aprobación." />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +51,7 @@
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/registro_vacaciones_btVerNormativa"
+                    android:id="@+id/registrar_flexplace_btVerNormativa"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
@@ -70,22 +67,23 @@
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
                 <TextView
-                    android:id="@+id/registro_vacaciones_btVerEstadoVacaciones"
+                    android:id="@+id/registrar_flexplace_btVerHistorialFlexplace"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
+                    android:visibility="gone"
                     android:background="@drawable/boton_vacaciones_verde"
                     android:fontFamily="@font/telefonica_bold"
                     android:gravity="center"
                     android:onClick="verHistorialFlexPlace"
-                    android:text="Ver Mi historial FlexPlace"
+                    android:text="Ver Mi Historial FlexPlace"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
                 <TextView
-                    android:id="@+id/registro_vacaciones_btVolverAlMenu"
+                    android:id="@+id/registrar_flexplace_btVolverAlMenu"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:textAllCaps="false"
@@ -109,7 +107,7 @@
         android:orientation="vertical"
         android:background="#55000000"
         android:visibility="gone"
-        android:id="@+id/regitrando_vacaciones_viewProgress"
+        android:id="@+id/registrar_flexplace_viewProgress"
         android:gravity="center"
         android:onClick="clickNull">
         <ProgressBar
@@ -123,6 +121,6 @@
             android:fontFamily="@font/telefonica_regular"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:text="Registrando vacaciones..."/>
+            android:text="Registrando FlexPlace..."/>
     </LinearLayout>
 </FrameLayout>

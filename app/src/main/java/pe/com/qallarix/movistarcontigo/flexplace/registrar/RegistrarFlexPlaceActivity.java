@@ -143,6 +143,7 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
                         configurarBotonCalendarioFin(minimumDate);
                         String strDateFin = dateFormat.format(minimumDate);
                         tvFechaFin.setText(strDateFin);
+                        fechaFin = strDateFin;
                         tvAvisoMeses.setVisibility(View.VISIBLE);
                         cleanSeleccionDias();
                         tvLiderAprobacion.setVisibility(View.INVISIBLE);

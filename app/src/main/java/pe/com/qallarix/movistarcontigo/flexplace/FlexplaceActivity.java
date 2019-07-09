@@ -5,33 +5,31 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.miequipo.MiEquipoFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
+import pe.com.qallarix.movistarcontigo.flexplace.pojos.Dashboard;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.RegistrarFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.SolicitudesFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
-import pe.com.qallarix.movistarcontigo.vacaciones.AcercaActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.ServiceVacacionesApi;
-import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.pojos.FutureJoy;
-import pe.com.qallarix.movistarcontigo.vacaciones.pojos.VacacionesDashboard;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.util.WebService3;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 public class FlexplaceActivity extends TranquiParentActivity {
     private View
@@ -41,8 +39,10 @@ public class FlexplaceActivity extends TranquiParentActivity {
             vSolicitudes,
             vFlexEquipo;
     private TextView
+            tvMensaje,
             tvDia,
             tvMeses,
+            tvDescripcion,
             tvFechaDerecho;
 
     //view message
@@ -113,13 +113,48 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
 
     private void cargarMenuFlexPlace() {
-        displayResumenFlexPlace("Viernes",3,
-                "20/10/2019");
+        Call<DashBoardFlexPlace> call = WebService3
+                .getInstance(getDocumentNumber())
+                .createService(ServiceFlexplaceApi.class)
+                .getInfoDashboardFlexplace(getDocumentNumber());
+
+        call.enqueue(new Callback<DashBoardFlexPlace>() {
+            @Override
+            public void onResponse(Call<DashBoardFlexPlace> call, Response<DashBoardFlexPlace> response) {
+                if ( response.code() == 200){
+                    Dashboard dashboard = response.body().getDashboard();
+//                    if (TextUtils.isEmpty(dashboard.getMonthTaked())){
+                    if (dashboard == null){
+                        displayDashboardVacio();
+                    }else
+                        displayResumenFlexPlace(dashboard.getDayWeek(),
+                                dashboard.getMonthTaked(), dashboard.getDateEnd());
+                }
+                isLoading = false;
+                mShimmerViewContainer.setVisibility(View.GONE);
+                mShimmerViewContainer.stopShimmer();
+            }
+
+            @Override
+            public void onFailure(Call<DashBoardFlexPlace> call, Throwable t) {
+                Toast.makeText(FlexplaceActivity.this, "Error en el servicio", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
-    private void displayResumenFlexPlace(String dia, int meses, String fechaDerecho) {
+    private void displayDashboardVacio() {
+        tvMensaje.setText("Disfruta de tu");
+        tvDia.setText("FlexPlace");
+        tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescripcion.setText("¡Elige un día de la semana para trabajar desde casa!");
+        tvMeses.setText("Regístralo ahora");
+        tvFechaDerecho.setVisibility(View.GONE);
+    }
+
+    private void displayResumenFlexPlace(String dia, String meses, String fechaDerecho) {
         tvDia.setText(dia);
-        tvMeses.setText("Por " + meses + " meses");
+        tvMeses.setText("Por " + meses);
         tvFechaDerecho.setText(fechaDerecho);
     }
 
@@ -185,11 +220,13 @@ public class FlexplaceActivity extends TranquiParentActivity {
         vSolicitudes = findViewById(R.id.flexplace_vSolicitudes);
         vFlexEquipo = findViewById(R.id.flexplace_vFlexEquipo);
         //views info resumen
+        tvMensaje = findViewById(R.id.flexplace_tvMensajeInicial);
         tvDia = findViewById(R.id.flexplace_tvDia);
         tvMeses = findViewById(R.id.flexplace_tvMeses);
+        tvDescripcion = findViewById(R.id.flexplace_tvDescripcionDashEmpty);
         tvFechaDerecho = findViewById(R.id.flexplace_tvFechaDerecho);
         //view shimmer
-        mShimmerViewContainer = findViewById(R.id.dashboard_vacaciones_shimerFrameLayout);
+        mShimmerViewContainer = findViewById(R.id.dashboard_flexplace_shimerFrameLayout);
         //views message
         viewMessage = findViewById(R.id.view_message);
         tvMessageTitle = findViewById(R.id.view_message_tvTitle);
@@ -201,16 +238,16 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (isLoading)
-//            mShimmerViewContainer.startShimmer();
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        mShimmerViewContainer.stopShimmer();
-//        super.onPause();
-//    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isLoading)
+            mShimmerViewContainer.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        mShimmerViewContainer.stopShimmer();
+        super.onPause();
+    }
 }

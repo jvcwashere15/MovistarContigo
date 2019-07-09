@@ -12,7 +12,6 @@
         android:id="@+id/dashboard_flexplace_shimerFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="@android:color/white"
         app:shimmer_duration="800">
         <include layout="@layout/vacaciones_dashboard_placeholder"/>
