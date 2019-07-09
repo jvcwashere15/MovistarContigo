@@ -47,10 +47,23 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/estado_vacaciones_rvListaVacaciones"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/estado_vacaciones_rvListaVacaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Las vacaciones que se gozaron de forma masiva,
+                     p.ej. el 24 de diciembre del 2018, se visualiza sólo en el SGV."/>
+            </LinearLayout>
             <include
                 android:id="@+id/view_message"
                 android:visibility="gone"
