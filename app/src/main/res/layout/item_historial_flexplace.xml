@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_historial_flexplace_vEstadoVacaciones"
+    android:id="@+id/item_historial_flexplace_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="4dp">
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/item_flexplace_estado_icono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,11 +32,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/item_historial_flexplace_tvEstado"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/item_flexplace_estado_icono"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="15 de jul - 28 de jul">
 
         <TextView
+            android:id="@+id/item_historial_flexplace_tvDia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/telefonica_bold"
@@ -45,6 +46,7 @@
             tools:text="Martes Flex" />
 
         <TextView
+            android:id="@+id/item_historial_flexplace_tvRangoFecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/telefonica_regular"
