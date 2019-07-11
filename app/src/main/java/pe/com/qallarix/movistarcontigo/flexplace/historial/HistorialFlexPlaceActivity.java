@@ -10,7 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,23 +46,25 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
     private TextView tvMensajeViewLoader;
     private View viewLoader;
     private TabLayout tabLayout;
-    private int mAnio;
+    private int currentAnio;
+    private int mAnioSelected0,mAnioSelected1,mAnioSelected2,mAnioSelected3;
     private int currentTab;
     private final int PENDIENTES = 0;
     private final int APROBADAS = 1;
     private final int RECHAZADAS = 2;
     private final int CANCELADO = 3;
 
-    private final int STATUS_PENDIENTES = 1;
-    private final int STATUS_APROBADAS = 2;
-    private final int STATUS_RECHAZADAS = 3;
-    private final int STATUS_CANCELADO = 4;
+    private final String STATUS_PENDIENTES = "02";
+    private final String STATUS_APROBADAS = "03";
+    private final String STATUS_RECHAZADAS = "04";
+    private final String STATUS_CANCELADO = "01";
 
     //view message
     private View viewMessage;
     private TextView tvMessageTitle, tvMessageMensaje, tvMessageBoton;
     private ImageView ivMessageImagen;
 
+    private Spinner spAnios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +75,69 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         bindearVistas();
         configurarRecyclerView();
         configurarTabs();
-        cargarPendientes();
+        configurarSpinnerAnios();
+        setCurrentAnio();
+        spAnios.setSelection(Arrays
+                .asList(getResources().getStringArray(R.array.anios_flex))
+                .indexOf(String.valueOf(currentAnio)));
+    }
+
+    private void configurarSpinnerAnios() {
+        spAnios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int mAnioSelected = Integer.parseInt(getResources().getStringArray(R.array.anios_flex)[position]);
+                int index = tabLayout.getSelectedTabPosition();
+                currentTab = index;
+                switch (currentTab){
+                    case APROBADAS:
+                        if (mAnioSelected0 != mAnioSelected){
+                            mAnioSelected0 = mAnioSelected;
+                            aprobadas = null;
+                        }
+                        break;
+                    case PENDIENTES:
+                        if (mAnioSelected1 != mAnioSelected){
+                        mAnioSelected1 = mAnioSelected;
+                        pendientes = null;
+                    }
+                        break;
+                    case RECHAZADAS: if (mAnioSelected2 != mAnioSelected){
+                        mAnioSelected2 = mAnioSelected;
+                        rechazadas = null;
+                    }
+                        break;
+                    case CANCELADO: if (mAnioSelected3 != mAnioSelected){
+                        mAnioSelected3 = mAnioSelected;
+
+                    }
+                        break;
+                }
+                cargarLista(currentTab);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void cargarLista(int tipoLista) {
+        switch (tipoLista){
+            case APROBADAS: cargarAprobadas(mAnioSelected0); break;
+            case PENDIENTES: cargarPendientes(mAnioSelected1); break;
+            case RECHAZADAS: cargarRechazadas(mAnioSelected2); break;
+            case CANCELADO: cargarRechazadas(mAnioSelected3);break;
+        }
     }
 
     private void setCurrentAnio() {
-        mAnio = Calendar.getInstance().get(Calendar.YEAR);
+        currentAnio = Calendar.getInstance().get(Calendar.YEAR);
+        mAnioSelected0 = currentAnio;
+        mAnioSelected1 = currentAnio;
+        mAnioSelected2 = currentAnio;
+        mAnioSelected3 = currentAnio;
     }
 
     private void configurarTabs() {
@@ -85,12 +147,22 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 int index = tab.getPosition();
                 currentTab = index;
-                switch (index){
-                    case APROBADAS: cargarAprobadas();break;
-                    case PENDIENTES: cargarPendientes();break;
-                    case RECHAZADAS: cargarRechazadas();break;
-//                    case CANCELADO: cargarRechazadas();break;
+                switch (currentTab){
+                    case APROBADAS:
+                        spAnios.setSelection(Arrays
+                                .asList(getResources().getStringArray(R.array.anios_flex))
+                                .indexOf(String.valueOf(mAnioSelected0)));break;
+                    case PENDIENTES: spAnios.setSelection(Arrays
+                            .asList(getResources().getStringArray(R.array.anios_flex))
+                            .indexOf(String.valueOf(mAnioSelected1)));break;
+                    case RECHAZADAS: spAnios.setSelection(Arrays
+                            .asList(getResources().getStringArray(R.array.anios_flex))
+                            .indexOf(String.valueOf(mAnioSelected2)));break;
+                    case CANCELADO: spAnios.setSelection(Arrays
+                            .asList(getResources().getStringArray(R.array.anios_flex))
+                            .indexOf(String.valueOf(mAnioSelected3)));break;
                 }
+
             }
 
             @Override
@@ -101,11 +173,11 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
-    private void cargarAprobadas(){
+    private void cargarAprobadas(int mAnio){
         viewMessage.setVisibility(View.GONE);
         if (aprobadas == null){
             historialFlexPlaceAdapter.setHistorialFlexPlace(new ArrayList<FlexPlace>());
-            getAprobadasFromServices();
+            getAprobadasFromServices(mAnio);
         }else{
             if (aprobadas.isEmpty()) mostrarEmptyView("",
                     "No tienes solicitudes FlexPlace aprobadas hasta el momento");
@@ -113,19 +185,19 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         }
     }
 
-    private void getAprobadasFromServices() {
+    private void getAprobadasFromServices(int mAnio) {
         tvMensajeViewLoader.setText("Cargando lista de solicitudes FlexPlace aprobadas...");
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseHistorialFlexPlace> call = WebService3
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceHistorialApi.class)
-                .getHistorialFlexPlace(getDocumentNumber(),STATUS_APROBADAS,mAnio);
+                .getHistorialFlexPlace(STATUS_APROBADAS,mAnio);
 
         call.enqueue(new Callback<ResponseHistorialFlexPlace>() {
             @Override
             public void onResponse(Call<ResponseHistorialFlexPlace> call, Response<ResponseHistorialFlexPlace> response) {
                 if (response.code() == 200){
-                    aprobadas = Arrays.asList(response.body().getHistorialFlexPlace());
+                    aprobadas = response.body().getList();
                     if (aprobadas.size() == 0) mostrarEmptyView("", "No tienes " +
                             "solicitudes de FlexPlace aprobadas hasta el momento.");
                     else historialFlexPlaceAdapter.setHistorialFlexPlace(aprobadas);
@@ -142,11 +214,11 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
-    private void cargarPendientes() {
+    private void cargarPendientes(int mAnio) {
         viewMessage.setVisibility(View.GONE);
         if (pendientes == null){
             historialFlexPlaceAdapter.setHistorialFlexPlace(new ArrayList<FlexPlace>());
-            getPendientesFromServices();
+            getPendientesFromServices(mAnio);
         }else{
             if (pendientes.isEmpty()) mostrarEmptyView("¡Genial!",
                     "Todas tus solicitudes de FlexPlace han sido atendidas.");
@@ -154,20 +226,20 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         }
     }
 
-    private void getPendientesFromServices() {
+    private void getPendientesFromServices(int mAnio) {
 
         tvMensajeViewLoader.setText("Cargando lista de vacaciones pendientes...");
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseHistorialFlexPlace> call = WebService3
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceHistorialApi.class)
-                .getHistorialFlexPlace(getDocumentNumber(),STATUS_PENDIENTES,mAnio);
+                .getHistorialFlexPlace(STATUS_PENDIENTES,mAnio);
 
         call.enqueue(new Callback<ResponseHistorialFlexPlace>() {
             @Override
             public void onResponse(Call<ResponseHistorialFlexPlace> call, Response<ResponseHistorialFlexPlace> response) {
                 if (response.code() == 200){
-                    pendientes = Arrays.asList(response.body().getHistorialFlexPlace());
+                    pendientes = response.body().getList();
                     if (pendientes.size() == 0) mostrarEmptyView("¡Genial!",
                             "Todas tus solicitudes de vacaciones\n" +
                                     "han sido atendidas.");
@@ -185,11 +257,11 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
-    private void cargarRechazadas(){
+    private void cargarRechazadas(int mAnio){
         viewMessage.setVisibility(View.GONE);
         if (rechazadas == null){
             historialFlexPlaceAdapter.setHistorialFlexPlace(new ArrayList<FlexPlace>());
-            getRechazadasFromServices();
+            getRechazadasFromServices(mAnio);
         }else{
             if (rechazadas.isEmpty()) mostrarEmptyView("¡Genial!",
                     "No tienes solicitudes de vacaciones rechazadas hasta el momento.");
@@ -197,19 +269,19 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         }
     }
 
-    private void getRechazadasFromServices() {
+    private void getRechazadasFromServices(int mAnio) {
         tvMensajeViewLoader.setText("Cargando lista de vacaciones rechazadas...");
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseHistorialFlexPlace> call = WebService3
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceHistorialApi.class)
-                .getHistorialFlexPlace(getDocumentNumber(),STATUS_RECHAZADAS,mAnio);
+                .getHistorialFlexPlace(STATUS_RECHAZADAS,mAnio);
 
         call.enqueue(new Callback<ResponseHistorialFlexPlace>() {
             @Override
             public void onResponse(Call<ResponseHistorialFlexPlace> call, Response<ResponseHistorialFlexPlace> response) {
                 if (response.code() == 200){
-                    rechazadas = Arrays.asList(response.body().getHistorialFlexPlace());
+                    rechazadas = response.body().getList();
                     if (rechazadas.size() == 0) mostrarEmptyView("¡Genial!",
                             "No tienes solicitudes de vacaciones" +
                                     " rechazadas hasta el momento.");
@@ -236,6 +308,9 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
         ivMessageImagen = findViewById(R.id.view_message_ivImagen);
         tvMessageBoton = findViewById(R.id.view_message_tvBoton);
+        spAnios = findViewById(R.id.flexplace_historial_spAnios);
+
+
     }
 
     private void configurarRecyclerView() {
@@ -281,14 +356,13 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         tvMessageBoton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (tipoLista){
-                    case APROBADAS: cargarAprobadas(); break;
-                    case PENDIENTES: cargarPendientes(); break;
-                    case RECHAZADAS: cargarRechazadas(); break;
-                }
+                cargarLista(tipoLista);
             }
         });
     }
+
+
+
 
 
     private void mostrarEmptyView(String title, String mensaje) {
@@ -327,4 +401,6 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         startActivity(upIntent);
         finish();
     }
+
+
 }

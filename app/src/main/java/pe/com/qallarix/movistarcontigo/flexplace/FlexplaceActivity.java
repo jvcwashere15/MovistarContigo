@@ -123,8 +123,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             public void onResponse(Call<DashBoardFlexPlace> call, Response<DashBoardFlexPlace> response) {
                 if ( response.code() == 200){
                     Dashboard dashboard = response.body().getDashboard();
-//                    if (TextUtils.isEmpty(dashboard.getMonthTaked())){
-                    if (dashboard == null){
+                    if (TextUtils.isEmpty(dashboard.getMonthTaked())){
                         displayDashboardVacio();
                     }else
                         displayResumenFlexPlace(dashboard.getDayWeek(),

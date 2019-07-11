@@ -1,10 +1,12 @@
 package pe.com.qallarix.movistarcontigo.flexplace.historial.pojos;
 
+import java.util.List;
+
 import pe.com.qallarix.movistarcontigo.pojos.Message;
 
 public class ResponseHistorialFlexPlace {
     private Message message;
-    private FlexPlace[] historialFlexPlace;
+    private List<FlexPlace> list;
 
     public Message getMessage() {
         return message;
@@ -14,11 +16,11 @@ public class ResponseHistorialFlexPlace {
         this.message = message;
     }
 
-    public FlexPlace[] getHistorialFlexPlace() {
-        return historialFlexPlace;
+    public List<FlexPlace> getList() {
+        return list;
     }
 
-    public void setHistorialFlexPlace(FlexPlace[] historialFlexPlace) {
-        this.historialFlexPlace = historialFlexPlace;
+    public void setList(List<FlexPlace> list) {
+        this.list = list;
     }
 }

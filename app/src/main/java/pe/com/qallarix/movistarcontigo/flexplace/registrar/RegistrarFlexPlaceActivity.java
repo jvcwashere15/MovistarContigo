@@ -90,13 +90,8 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
 
 
     private void cargarFechaInicioFromService() {
-        String fecha = "20/10/2019";
-        try {
-            Date dateInicial=new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
-            configurarBotonCalendarioInicio(dateInicial);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        Date dateInicial = Calendar.getInstance().getTime();
+        configurarBotonCalendarioInicio(dateInicial);
     }
 
     public void mostrarDialogAprobacionFechas(String title, String mensaje){

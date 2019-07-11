@@ -9,7 +9,6 @@ import retrofit2.http.Query;
 
 public interface ServiceFlexplaceHistorialApi {
     @GET("flexplace/employee/requests")
-    Call<ResponseHistorialFlexPlace> getHistorialFlexPlace(@Query("documentNumber") String documentNumber,
-                                                           @Query("status") int status,
-                                                           @Query("anio") int anio);
+    Call<ResponseHistorialFlexPlace> getHistorialFlexPlace(@Query("status") String status,
+                                                           @Query("year") int anio);
 }
