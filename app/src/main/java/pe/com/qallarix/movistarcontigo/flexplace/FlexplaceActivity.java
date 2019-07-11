@@ -153,7 +153,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
     private void displayResumenFlexPlace(String dia, String meses, String fechaDerecho) {
         tvDia.setText(dia);
-        tvMeses.setText("Por " + meses);
+        tvMeses.setText(meses);
         tvFechaDerecho.setText(fechaDerecho);
     }
 

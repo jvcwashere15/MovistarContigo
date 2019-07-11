@@ -411,4 +411,12 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="texto_acerca_flexplace_2">\n-Empleados no fiscalizables que hagan uso de laptop y no digiten huella para su ingreso.
 \n-Empleados no fiscalizables que hagan uso de laptop y no digiten huella para su ingreso.
 \n-Empleados no fiscalizables que hagan uso de laptop y no digiten huella para su ingreso.</string>
+    <string name="flexplace_mensaje_carga_aprobadas">Cargando lista de solicitudes FlexPlace aprobadas...</string>
+    <string name="flexplace_mensaje_empty_aprobadas">No tienes solicitudes FlexPlace aprobadas hasta el momento</string>
+    <string name="flexplace_mensaje_empty_pendientes">Todas tus solicitudes de FlexPlace han sido atendidas.</string>
+    <string name="flexplace_mensaje_carga_pendientes">Cargando lista de solicitudes FlexPlace pendientes...</string>
+    <string name="flexplace_mensaje_carga_rechazadas">Cargando solicitudes FlexPlace rechazadas</string>
+    <string name="flexplace_mensaje_empty_rechazadas">No tienes solicitudes FlexPlace rechazadas</string>
+    <string name="flexplace_mensaje_carga_cancelados">Cargando solicitudes flexplace canceladas...</string>
+    <string name="flexplace_mensaje_empty_cancelados">No tienes solicitudes flexplace canceladas.</string>
 </resources>
