@@ -10,10 +10,11 @@
     <include layout="@layout/my_toolbar"/>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:padding="16dp"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
         <TextView
-            android:id="@+id/detalle_flexplace_tvEmpleado"
+            android:id="@+id/detalle_flexplace_tvLider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -35,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detalle_flexplace_tvEmpleado" />
+            app:layout_constraintTop_toBottomOf="@+id/detalle_flexplace_tvLider" />
         <View
             android:id="@+id/view0"
             android:layout_width="match_parent"
@@ -194,7 +195,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view4"
             app:layout_constraintVertical_bias="1.0" />
         <TextView
-            android:id="@+id/detalle_flexplace_tvDiasSolicitados"
+            android:id="@+id/detalle_flexplace_tvDiaSolicitado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -221,12 +222,12 @@
             app:layout_constraintTop_toBottomOf="@+id/view4"
             tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
         <TextView
-            android:id="@+id/detalle_flexplace_tvButtonRechazar"
+            android:id="@+id/detalle_flexplace_tvButtonCancelar"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:gravity="center"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/telefonica_regular"
+            android:gravity="center"
             android:text="Cancelar FlexPlace"
             android:textAllCaps="false"
             android:textColor="#00A9E0"
@@ -235,4 +236,49 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/detalle_flexplace_viewNoticacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/fondo_notification">
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_info_notification" />
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/telefonica_bold"
+                android:text="Motivo de cancelación"
+                android:textColor="#2A2A3C"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView13"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/detalle_flexplace_tvMensajeNotificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="#757575"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView41"
+                app:layout_constraintTop_toBottomOf="@+id/textView41"
+                tools:text="Por cambio de proyecto y sede de Telefónica." />
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 </LinearLayout>

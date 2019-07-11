@@ -179,25 +179,25 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
                 new HistorialFlexPlaceAdapter.EstadoOnClick() {
                     @Override
                     public void onClick(View v, int position) {
-//                        Intent intent = new Intent(HistorialFlexPlaceActivity.this,
-//                                DetalleEstadoVacacionesActivity.class);
-//                        EstadoVacaciones currentEstadoVacaciones = null;
-//                        switch (currentTab){
-//                            case APROBADAS:
-//                                if (aprobadas != null && aprobadas.size()> 0) currentEstadoVacaciones = aprobadas.get(position);
-//                                break;
-//                            case RECHAZADAS:
-//                                if (rechazadas != null && rechazadas.size() > 0) currentEstadoVacaciones = rechazadas.get(position);
-//                                break;
-//                            case PENDIENTES:
-//                                if (pendientes != null && pendientes.size()> 0) currentEstadoVacaciones = pendientes.get(position);
-//                                break;
-//                        }
-//                        if (currentEstadoVacaciones != null) {
-//                            String requestCode = currentEstadoVacaciones.getRequestCode();
-//                            intent.putExtra("requestCode",requestCode);
-//                            startActivity(intent);
-//                        }
+                        Intent intent = new Intent(HistorialFlexPlaceActivity.this,
+                                DetalleFlexPlaceActivity.class);
+                        FlexPlace currentFlexPlace = null;
+                        switch (tabLayout.getSelectedTabPosition()){
+                            case APROBADAS:
+                                if (aprobadas != null && aprobadas.size()> 0) currentFlexPlace = aprobadas.get(position);
+                                break;
+                            case RECHAZADAS:
+                                if (rechazadas != null && rechazadas.size() > 0) currentFlexPlace = rechazadas.get(position);
+                                break;
+                            case PENDIENTES:
+                                if (pendientes != null && pendientes.size()> 0) currentFlexPlace = pendientes.get(position);
+                                break;
+                        }
+                        if (currentFlexPlace != null) {
+                            int requestCode = (int)currentFlexPlace.getId();
+                            intent.putExtra("requestCode",requestCode);
+                            startActivity(intent);
+                        }
                     }
                 });
         rvVacaciones.setAdapter(historialFlexPlaceAdapter);
@@ -256,5 +256,9 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        goToParentActivity();
+    }
 
 }

@@ -11,4 +11,7 @@ public interface ServiceFlexplaceHistorialApi {
     @GET("flexplace/employee/requests")
     Call<ResponseHistorialFlexPlace> getHistorialFlexPlace(@Query("status") String status,
                                                            @Query("year") int anio);
+
+    @GET("flexplace/employee/request/id")
+    Call<ResponseHistorialFlexPlace> getDetalleFlexPlace(@Query("requestCode") int requestCode);
 }
