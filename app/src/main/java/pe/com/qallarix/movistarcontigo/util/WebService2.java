@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WebService2 {
     private final String BASE_URL_WS2_QA = "https://qallarix-vc-qa.azurewebsites.net/";
     private final String BASE_URL_WS2_PRODUCCION = "https://vcqallarix.azurewebsites.net";
-    private final String BASE_URL_W2 = BASE_URL_WS2_QA;
+    private final String BASE_URL_W2 = BASE_URL_WS2_PRODUCCION;
 
 
     private static WebService2 instance;
