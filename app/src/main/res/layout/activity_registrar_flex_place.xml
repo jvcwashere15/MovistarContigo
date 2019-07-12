@@ -272,26 +272,26 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical"-->
-        <!--android:background="#55000000"-->
-        <!--android:visibility="gone"-->
-        <!--android:id="@+id/validar_fechas_viewProgress"-->
-        <!--android:gravity="center"-->
-        <!--android:onClick="clickNull">-->
-        <!--<ProgressBar-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:theme="@style/StyleProgressBar"/>-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="18sp"-->
-            <!--android:fontFamily="@font/telefonica_regular"-->
-            <!--android:textStyle="bold"-->
-            <!--android:textColor="@android:color/white"-->
-            <!--android:text="Validando solicitud..."/>-->
-    <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#55000000"
+        android:visibility="gone"
+        android:id="@+id/validar_fechas_viewProgress"
+        android:gravity="center"
+        android:onClick="clickNull">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="Validando solicitud..."/>
+    </LinearLayout>
 </FrameLayout>

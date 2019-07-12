@@ -3,6 +3,7 @@ package pe.com.qallarix.movistarcontigo.flexplace.pojos;
 public class Dashboard {
     private String dayWeek;
     private String monthTaked;
+    private boolean isLeadership;
     private String dateEnd;
 
     public String getDayWeek() { return dayWeek; }
@@ -13,4 +14,12 @@ public class Dashboard {
 
     public String getDateEnd() { return dateEnd; }
     public void setDateEnd(String value) { this.dateEnd = value; }
+
+    public boolean isLeadership() {
+        return isLeadership;
+    }
+
+    public void setLeadership(boolean leadership) {
+        isLeadership = leadership;
+    }
 }

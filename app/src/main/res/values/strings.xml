@@ -417,6 +417,10 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="flexplace_mensaje_carga_pendientes">Cargando lista de solicitudes FlexPlace pendientes...</string>
     <string name="flexplace_mensaje_carga_rechazadas">Cargando solicitudes FlexPlace rechazadas</string>
     <string name="flexplace_mensaje_empty_rechazadas">No tienes solicitudes FlexPlace rechazadas</string>
-    <string name="flexplace_mensaje_carga_cancelados">Cargando solicitudes flexplace canceladas...</string>
-    <string name="flexplace_mensaje_empty_cancelados">No tienes solicitudes flexplace canceladas.</string>
+    <string name="flexplace_mensaje_carga_cancelados">Cargando solicitudes FlexPlace canceladas...</string>
+    <string name="flexplace_mensaje_empty_cancelados">No tienes solicitudes FlexPlace canceladas.</string>
+    <string name="descripcion_lider_pendiente">Está por aprobar tus días Flex en las siguientes fechas:</string>
+    <string name="descripcion_lider_aprobado">Aprobó tus días Flex en las siguientes fechas:</string>
+    <string name="descripcion_lider_rechazado">Rechazó tus días Flex en las siguientes fechas:</string>
+    <string name="descripcion_lider_cancelado">Cancelaste tu FlexPlace</string>
 </resources>

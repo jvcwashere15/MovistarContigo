@@ -17,6 +17,9 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -25,15 +28,22 @@ import java.util.Calendar;
 import java.util.Date;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.flexplace.registrar.pojos.ResponseValidarFlexPlace;
+import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
+import pe.com.qallarix.movistarcontigo.util.WebService3;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class RegistrarFlexPlaceActivity extends AppCompatActivity {
+public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
     private TextView tvFechaInicio, tvFechaFin;
     private View vCalendarioInicio, vCalendarioFin;
     private TextView tvButtonRegistrar, tvLiderAprobacion, tvAvisoMeses;
     private String fechaInicio , fechaFin;
-    private View viewSeleccionDias;
+    private View viewSeleccionDias,viewValidarFechas;
     private final int INICIO = 0,FIN = 1;
     private int dia;
     private RadioButton rb1,rb2,rb3,rb4,rb5;
@@ -58,10 +68,68 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
         tvButtonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarDialogAprobacionFechas("¿Deseas continuar?",
-                        "La fecha máxima para que se apruebe tu solicitud es hasta el 30/06/2019");
+                Call<ResponseValidarFlexPlace> call = WebService3
+                        .getInstance(getDocumentNumber())
+                        .createService(ServiceFlexplaceRegistrarApi.class)
+                        .validarFlexPlace(fechaInicio,fechaFin,dia);
+                viewValidarFechas.setVisibility(View.VISIBLE);
+                call.enqueue(new Callback<ResponseValidarFlexPlace>() {
+                    @Override
+                    public void onResponse(Call<ResponseValidarFlexPlace> call,
+                                           Response<ResponseValidarFlexPlace> response) {
+                        viewValidarFechas.setVisibility(View.GONE);
+                        if (response.code()==200){
+                            mostrarDialogAprobacionFechas(response.body().getTitle(),
+                                    response.body().getDetail());
+                        }else if (response.code() == 400){
+                            mostrarDialog400(response);
+                        }else mostrarDialogError();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseValidarFlexPlace> call, Throwable t) {
+                        Toast.makeText(RegistrarFlexPlaceActivity.this,
+                                "El servidor no esta disponible en estos momentos",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
         });
+    }
+
+    private void mostrarDialog400(Response<ResponseValidarFlexPlace> response) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this);
+        builder.setTitle("¡Ups!");
+        builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
+        try {
+            JSONObject jsonObject = new JSONObject(response.errorBody().string());
+            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
+            String m = jsonObject1.getString("exceptionMessage");
+            builder.setMessage(m);
+        } catch (Exception e) {
+            e.printStackTrace();
+            builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
+        }
+        builder.setCancelable(false);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
+    }
+
+    private void mostrarDialogError() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this);
+        builder.setTitle("¡Ups!");
+        builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
     }
 
     private void configurarRbDia(RadioButton rb, final int valor,
@@ -119,9 +187,19 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
         if (!isFinishing()) alertDialog.show();
     }
 
-    private void obtenerFecha(final int flag, final Date date){
+    private void obtenerFecha(final String fechaActual, final int flag, final Date dateStart, final Date dateEnd){
+        Date currentDate;
         Calendar cal = Calendar.getInstance();
-        Date currentDate = cal.getTime();
+        currentDate = cal.getTime();
+
+        if (!fechaActual.equals("dd/mm/aaaa")){
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try{
+                Date dateInicial = dateFormat.parse(fechaActual);
+                currentDate = dateInicial;
+            }catch (Exception e){ }
+        }
+
         DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -135,7 +213,8 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
                         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                         Date dateInicial = dateFormat.parse(fechaInicio);
                         Date minimumDate = sumarMesesAFecha(dateInicial);
-                        configurarBotonCalendarioFin(minimumDate);
+                        Date maximumDate = sumarAnioAFecha(dateInicial);
+                        configurarBotonCalendarioFin(minimumDate,maximumDate);
                         String strDateFin = dateFormat.format(minimumDate);
                         tvFechaFin.setText(strDateFin);
                         fechaFin = strDateFin;
@@ -157,7 +236,8 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
                 }
             }
         }, currentDate.getYear(), currentDate.getMonth(), currentDate.getDay());
-        recogerFecha.getDatePicker().setMinDate(date.getTime());
+        recogerFecha.getDatePicker().setMinDate(dateStart.getTime());
+        if (dateEnd != null) recogerFecha.getDatePicker().setMaxDate(dateEnd.getTime());
         recogerFecha.show();
     }
 
@@ -177,6 +257,13 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
         return calendar.getTime();
     }
 
+    public static Date sumarAnioAFecha(Date fecha){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.MONTH, 12);
+        return calendar.getTime();
+    }
+
     private void bindearVistas() {
         vCalendarioInicio = findViewById(R.id.flexplace_vCalendarioInicio);
         vCalendarioFin = findViewById(R.id.flexplace_vCalendarioFin);
@@ -186,6 +273,7 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
         tvLiderAprobacion = findViewById(R.id.registrar_flex_tvLider);
         tvButtonRegistrar = findViewById(R.id.registrar_flex_tvButtonRegistrar);
         viewSeleccionDias = findViewById(R.id.view_seleccion_dias);
+        viewValidarFechas = findViewById(R.id.validar_fechas_viewProgress);
         rb1 = findViewById(R.id.registrar_flex_dia1);
         rb2 = findViewById(R.id.registrar_flex_dia2);
         rb3 = findViewById(R.id.registrar_flex_dia3);
@@ -193,20 +281,22 @@ public class RegistrarFlexPlaceActivity extends AppCompatActivity {
         rb5 = findViewById(R.id.registrar_flex_dia5);
     }
 
-    private void configurarBotonCalendarioFin(final Date date) {
-        vCalendarioFin.setOnClickListener(new View.OnClickListener() {
+
+
+    private void configurarBotonCalendarioInicio(final Date dateStart) {
+        vCalendarioInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerFecha(FIN,date);
+                obtenerFecha(tvFechaInicio.getText().toString(),INICIO, dateStart,null);
             }
         });
     }
 
-    private void configurarBotonCalendarioInicio(final Date date) {
-        vCalendarioInicio.setOnClickListener(new View.OnClickListener() {
+    private void configurarBotonCalendarioFin(final Date dateStart,final Date dateEnd) {
+        vCalendarioFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerFecha(INICIO, date);
+                obtenerFecha(tvFechaFin.getText().toString(),FIN,dateStart,dateEnd);
             }
         });
     }

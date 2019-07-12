@@ -123,6 +123,12 @@ public class FlexplaceActivity extends TranquiParentActivity {
             public void onResponse(Call<DashBoardFlexPlace> call, Response<DashBoardFlexPlace> response) {
                 if ( response.code() == 200){
                     Dashboard dashboard = response.body().getDashboard();
+
+                    if (dashboard.isLeadership()){
+                        vFlexEquipo.setVisibility(View.VISIBLE);
+                        vSolicitudes.setVisibility(View.VISIBLE);
+                    }
+
                     if (TextUtils.isEmpty(dashboard.getMonthTaked())){
                         displayDashboardVacio();
                     }else
