@@ -14,6 +14,10 @@ public class Request {
     private String dateRefuse;
     private String dateCancelled;
     private String reason;
+    private String messageOne;
+    private String messageTwo;
+    private boolean isCancelled;
+
 
     public long getId() {
         return id;
@@ -117,5 +121,29 @@ public class Request {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public String getMessageOne() {
+        return messageOne;
+    }
+
+    public void setMessageOne(String messageOne) {
+        this.messageOne = messageOne;
+    }
+
+    public String getMessageTwo() {
+        return messageTwo;
+    }
+
+    public void setMessageTwo(String messageTwo) {
+        this.messageTwo = messageTwo;
+    }
+
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        isCancelled = cancelled;
     }
 }

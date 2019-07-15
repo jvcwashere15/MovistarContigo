@@ -410,6 +410,7 @@
                     android:textAllCaps="false"
                     android:textColor="#00A9E0"
                     android:textSize="14sp"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

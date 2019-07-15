@@ -105,10 +105,22 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                 if (response.code() ==  200){
                     currentRequest = response.body().getRequest();
                     tvLider.setText(currentRequest.getLeadership());
+                    tvDescripcionLider.setText(currentRequest.getMessageOne());
                     tvFechaSolicitud.setText(currentRequest.getDateRequest());
                     tvFechaInicio.setText(currentRequest.getDateStart());
                     tvFechaFin.setText(currentRequest.getDateEnd());
                     tvDiaElegido.setText(currentRequest.getDayWeek());
+                    if (!TextUtils.isEmpty(currentRequest.getMessageTwo())) {
+                        tvDescripcion.setVisibility(View.VISIBLE);
+                        tvDescripcion.setText(currentRequest.getMessageTwo());
+                    }
+                    if (currentRequest.isCancelled())
+                        tvButtonCancelar.setVisibility(View.VISIBLE);
+
+                    if (!TextUtils.isEmpty(currentRequest.getReason())){
+                        vNotificacion.setVisibility(View.VISIBLE);
+                        tvMensajeNotificacion.setText(currentRequest.getReason());
+                    }
 
                     String strEstado = "";
                     int colorEstado = 0;
