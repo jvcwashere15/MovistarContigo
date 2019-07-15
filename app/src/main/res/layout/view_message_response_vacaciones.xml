@@ -43,7 +43,8 @@
             android:fontFamily="@font/telefonica_regular"
             android:gravity="center"
             android:textSize="14sp"
-            tools:layout_editor_absoluteX="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
             tools:text="Se produjo un error en el servidor, estamos trabajando para solucionarlo" />
     </LinearLayout>
 
