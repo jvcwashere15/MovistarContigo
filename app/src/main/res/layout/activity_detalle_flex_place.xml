@@ -407,7 +407,6 @@
                     android:fontFamily="@font/telefonica_regular"
                     android:gravity="center"
                     android:text="Cancelar FlexPlace"
-                    android:visibility="gone"
                     android:textAllCaps="false"
                     android:textColor="#00A9E0"
                     android:textSize="14sp"

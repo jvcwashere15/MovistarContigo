@@ -1,11 +1,13 @@
 package pe.com.qallarix.movistarcontigo.flexplace.historial;
 
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseDetalleFlexPlace;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseHistorialFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.pojos.ResponseRegistrarFlexPlace;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ServiceFlexplaceHistorialApi {
@@ -20,4 +22,8 @@ public interface ServiceFlexplaceHistorialApi {
 
     @GET("flexplace/employee/request/id")
     Call<ResponseDetalleFlexPlace> getDetalleFlexPlace(@Query("requestCode") int requestCode);
+
+    @PUT("flexplace/employee/request/cancelled")
+    Call<ResponseFinalizarCancelacion> finalizarCancelacionFlexPlace(@Query("observation") String observation,
+                                                           @Query("requestCode") int requestCode);
 }

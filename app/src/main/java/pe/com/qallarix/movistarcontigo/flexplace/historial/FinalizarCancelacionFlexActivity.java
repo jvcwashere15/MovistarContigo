@@ -1,18 +1,21 @@
-package pe.com.qallarix.movistarcontigo.flexplace.registrar;
+package pe.com.qallarix.movistarcontigo.flexplace.historial;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import org.json.JSONObject;
+
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.pojos.ResponseRegistrarFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
@@ -20,10 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
+public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
 
-    private String fechaInicio, fechaFin;
+    private String fechaInicio, fechaFin, observacion;
     private int dia;
+    private long idRequest;
     private ImageView ivRespuesta;
     private View viewProgress;
     private TextView tvRespuesta, tvRespuestaDescripcion, tvButtonEstado, tvButtonVolverMenu,
@@ -32,12 +36,11 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finalizar_registro_flex);
+        setContentView(R.layout.activity_finalizar_cancelacion_flex);
         configurarToolbar();
         bindearVistas();
         getDataFromExtras();
         registrarFlexPlace();
-
     }
 
     private void getDataFromExtras() {
@@ -46,13 +49,15 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
             fechaInicio = extras.getString("fecha_inicio");
             fechaFin = extras.getString("fecha_fin");
             dia = extras.getInt("dia");
+            idRequest = extras.getLong("idRequest");
+            observacion = extras.getString("observacion");
         }
     }
 
     public void configurarToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Registro de FlexPlace");
+        getSupportActionBar().setTitle("Cancelar FlexPlace");
     }
 
 
@@ -92,14 +97,13 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
 
     private void registrarFlexPlace() {
         viewProgress.setVisibility(View.VISIBLE);
-        Call<ResponseRegistrarFlexPlace> call = WebService3
+        Call<ResponseFinalizarCancelacion> call = WebService3
                 .getInstance(getDocumentNumber())
-                .createService(ServiceFlexplaceRegistrarApi.class)
-                .registrarFlexPlace(getDocumentNumber(),
-                        fechaInicio,fechaFin,dia);
-        call.enqueue(new Callback<ResponseRegistrarFlexPlace>() {
+                .createService(ServiceFlexplaceHistorialApi.class)
+                .finalizarCancelacionFlexPlace(observacion,(int)idRequest);
+        call.enqueue(new Callback<ResponseFinalizarCancelacion>() {
             @Override
-            public void onResponse(Call<ResponseRegistrarFlexPlace> call, Response<ResponseRegistrarFlexPlace> response) {
+            public void onResponse(Call<ResponseFinalizarCancelacion> call, Response<ResponseFinalizarCancelacion> response) {
                 if (response.code() == 200){
                     displayMensajeOK();
                 }else if (response.code() == 404 || response.code() == 500){
@@ -111,7 +115,7 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseRegistrarFlexPlace> call, Throwable t) {
+            public void onFailure(Call<ResponseFinalizarCancelacion> call, Throwable t) {
                 displayMensajeError();
             }
         });
@@ -125,13 +129,13 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     }
 
     public void verNormativa(View view) {
-        Intent intent = new Intent(FinalizarRegistroFlexActivity.this, AcercaFlexPlace.class);
+        Intent intent = new Intent(FinalizarCancelacionFlexActivity.this, AcercaFlexPlace.class);
         startActivity(intent);
         finish();
     }
 
     public void volverMenu(View view) {
-        Intent intent = new Intent(FinalizarRegistroFlexActivity.this, FlexplaceActivity.class);
+        Intent intent = new Intent(FinalizarCancelacionFlexActivity.this, FlexplaceActivity.class);
         startActivity(intent);
         finish();
     }
@@ -140,7 +144,7 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     }
 
 
-    private void displayMensaje400(Response<ResponseRegistrarFlexPlace> response) {
+    private void displayMensaje400(Response<ResponseFinalizarCancelacion> response) {
         tvButtonNormativa.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         tvRespuesta.setText("Registro inválido");
@@ -167,11 +171,10 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     }
 
     private void displayMensajeOK() {
-        tvRespuesta.setText("Registro exitoso");
+        tvRespuesta.setText("Cancelación exitosa");
         tvButtonEstado.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         ivRespuesta.setImageResource(R.drawable.ic_check_ok);
-        tvRespuestaDescripcion.setText("Has solicitado los días a utilizar tu Flex. " +
-                "Recibirás una notificación al momento de la aprobación.");
+        tvRespuestaDescripcion.setText("Has cancelado los días a utilizar tu Flex. ");
     }
 }

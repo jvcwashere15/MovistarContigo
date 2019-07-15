@@ -35,6 +35,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                     tvDiaElegido,tvDescripcion,
                     tvMensajeNotificacion,tvButtonCancelar;
     private View vNotificacion;
+    private Request currentRequest;
 
     //view message
     private View viewMessage;
@@ -53,6 +54,22 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         configurarToolbar();
         bindearVistas();
         displayDetalleFlexPlace();
+        configurarBotonCancelar();
+    }
+
+    private void configurarBotonCancelar() {
+        tvButtonCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetalleFlexPlaceActivity.this,CancelarFlexPlaceActivity.class);
+                intent.putExtra("fechaInicio",currentRequest.getDateStart());
+                intent.putExtra("fechaFin",currentRequest.getDateEnd());
+                intent.putExtra("dia",currentRequest.getDayWeek());
+                intent.putExtra("idRequest",currentRequest.getId());
+                intent.putExtra("idState",currentRequest.getStatusId());
+                startActivity(intent);
+            }
+        });
     }
 
     private void bindearVistas() {
@@ -64,6 +81,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         tvFechaFin = findViewById(R.id.detalle_flexplace_tvFechaFin);
         tvDiaElegido = findViewById(R.id.detalle_flexplace_tvDiaSolicitado);
         tvDescripcion = findViewById(R.id.detalle_flexplace_tvDescripcion);
+        tvButtonCancelar = findViewById(R.id.detalle_flexplace_tvButtonCancelar);
         vNotificacion = findViewById(R.id.detalle_flexplace_viewNoticacion);
         tvMensajeNotificacion = findViewById(R.id.detalle_flexplace_tvMensajeNotificacion);
         mShimmerViewContainer = findViewById(R.id.detalle_vacaciones_shimerFrameLayout);
@@ -85,7 +103,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseDetalleFlexPlace> call, Response<ResponseDetalleFlexPlace> response) {
                 if (response.code() ==  200){
-                    Request currentRequest = response.body().getRequest();
+                    currentRequest = response.body().getRequest();
                     tvLider.setText(currentRequest.getLeadership());
                     tvFechaSolicitud.setText(currentRequest.getDateRequest());
                     tvFechaInicio.setText(currentRequest.getDateStart());

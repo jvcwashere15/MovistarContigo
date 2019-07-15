@@ -192,6 +192,9 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
                             case PENDIENTES:
                                 if (pendientes != null && pendientes.size()> 0) currentFlexPlace = pendientes.get(position);
                                 break;
+                            case CANCELADO:
+                                if (cancelados != null && cancelados.size()> 0) currentFlexPlace = cancelados.get(position);
+                                break;
                         }
                         if (currentFlexPlace != null) {
                             int requestCode = (int)currentFlexPlace.getId();
@@ -233,7 +236,7 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Mi historial FlexPlace");
+        getSupportActionBar().setTitle("Mi Historial FlexPlace");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
