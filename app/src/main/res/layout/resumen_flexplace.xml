@@ -52,6 +52,15 @@
                     android:gravity="center"
                     android:textColor="#B2E5F5"
                     android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/flexplace_tvMeses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:text="@string/flex_dashboard_son_los"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/flexplace_tvDia"
@@ -59,19 +68,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/telefonica_bold"
                     android:includeFontPadding="false"
-                    tools:text="Viernes"
+                    tools:text="Viernes!"
                     android:gravity="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/flexplace_tvMeses"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:fontFamily="@font/telefonica_regular"
-                    tools:text="Por 3 meses"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
+
             </LinearLayout>
 
             <ImageView

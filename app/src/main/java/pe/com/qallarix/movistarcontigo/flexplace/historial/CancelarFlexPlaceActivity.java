@@ -25,7 +25,8 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
 
     private String fechaInicio, fechaFin, dia, idState;
     private long idRequest;
-    private TextView tvEstado, tvFechaInicio, tvFechaFin, tvDia, tvBotonContinuar;
+    private TextView tvEstado, tvFechaInicio, tvFechaFin, tvDia, tvBotonContinuar,
+            tvDescripcionLider, tvLider;
     private EditText etDescripcion;
 
 
@@ -44,7 +45,7 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
         tvBotonContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(etDescripcion.getText().toString()))
+                if (etDescripcion.getVisibility()==View.VISIBLE && !TextUtils.isEmpty(etDescripcion.getText().toString()))
                     mostrarDialogCancelacionFlexPlace("¿Deseas continuar?",
                         "Vas a cancelar tu FlexPlace en curso del " +
                                 fechaInicio + " al " + fechaFin + ".");
@@ -75,13 +76,17 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
         int colorEstado = 0;
         if (idState.equals(ServiceFlexplaceHistorialApi.APROBADO)){
             strEstado = "APROBADO";colorEstado = R.drawable.etiqueta_verde;
+            etDescripcion.setVisibility(View.VISIBLE);
         }else if (idState.equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
             strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
-        }else if (idState.equals(ServiceFlexplaceHistorialApi.RECHAZADO)){
-            strEstado = "RECHAZADO";colorEstado = R.drawable.etiqueta_roja;
-        }else if (idState.equals(ServiceFlexplaceHistorialApi.CANCELADO)){
-            strEstado = "CANCELADO";colorEstado = R.drawable.etiqueta_morada;
+            tvLider.setText("FlexPlace por aprobar");
+            tvDescripcionLider.setText("Cancelarás la solicitud de tus días Flex:");
         }
+//        else if (idState.equals(ServiceFlexplaceHistorialApi.RECHAZADO)){
+//            strEstado = "RECHAZADO";colorEstado = R.drawable.etiqueta_roja;
+//        }else if (idState.equals(ServiceFlexplaceHistorialApi.CANCELADO)){
+//            strEstado = "CANCELADO";colorEstado = R.drawable.etiqueta_morada;
+//        }
         tvEstado.setText(strEstado);
         tvEstado.setBackgroundResource(colorEstado);
     }
@@ -91,6 +96,8 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
         tvFechaInicio = findViewById(R.id.cancelar_flexplace_tvFechaInicio);
         tvFechaFin = findViewById(R.id.cancelar_flexplace_tvFechaFin);
         tvDia = findViewById(R.id.cancelar_flexplace_tvDiasSolicitados);
+        tvLider = findViewById(R.id.cancelar_flexplace_tvLider);
+        tvDescripcionLider = findViewById(R.id.cancelar_flexplace_tvDescLider);
         etDescripcion = findViewById(R.id.cancelar_flexplace_etDescripcion);
         tvBotonContinuar = findViewById(R.id.cancelar_flexplace_tvBotonContinuar);
     }

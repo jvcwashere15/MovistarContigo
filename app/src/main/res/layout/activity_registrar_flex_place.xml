@@ -254,7 +254,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/registrar_flex_tvButtonRegistrar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Tus vacaciones serán aprobadas por José Eduardo Mendoza Zavaleta." />
+                android:text="Tus días Flex serán aprobadas por José Eduardo Mendoza Zavaleta." />
 
             <TextView
                 android:id="@+id/registrar_flex_tvButtonRegistrar"

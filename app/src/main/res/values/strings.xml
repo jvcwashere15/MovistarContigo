@@ -422,4 +422,5 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="descripcion_lider_aprobado">Aprobó tus días Flex en las siguientes fechas:</string>
     <string name="descripcion_lider_rechazado">Rechazó tus días Flex en las siguientes fechas:</string>
     <string name="descripcion_lider_cancelado">Cancelaste tu FlexPlace</string>
+    <string name="flex_dashboard_son_los">¡Son los</string>
 </resources>

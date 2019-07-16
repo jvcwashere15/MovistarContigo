@@ -134,6 +134,10 @@ public class FlexplaceActivity extends TranquiParentActivity {
                     }else
                         displayResumenFlexPlace(dashboard.getDayWeek(),
                                 dashboard.getMonthTaked(), dashboard.getDateEnd());
+                }else if (response.code() == 400){
+
+                }else{
+                    mostrarMensajeError();
                 }
                 isLoading = false;
                 mShimmerViewContainer.setVisibility(View.GONE);
@@ -158,8 +162,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void displayResumenFlexPlace(String dia, String meses, String fechaDerecho) {
-        tvDia.setText(dia);
-        tvMeses.setText(meses);
+        tvDia.setText(dia+"!");
         tvFechaDerecho.setText(fechaDerecho);
     }
 

@@ -228,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/telefonica_regular"
-                android:text="Estado de vacaciones"
+                android:text="Estado de FlexPlace"
                 android:textColor="#757575"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/view1"
@@ -328,8 +328,7 @@
                 android:background="#DDDDDD"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view3"
-                app:layout_constraintVertical_bias="0.0"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_constraintVertical_bias="0.0"/>
 
             <TextView
                 android:id="@+id/textView26"
@@ -369,7 +368,8 @@
                 android:textSize="14sp"
                 android:maxLength="100"
                 android:inputType="text"
-                android:hint="Escribe el movito de cancelación de tu FlexPlace"
+                android:visibility="invisible"
+                android:hint="Escribe el motivo de cancelación de tu FlexPlace"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

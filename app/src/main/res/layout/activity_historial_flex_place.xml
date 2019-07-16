@@ -34,15 +34,15 @@
                 <android.support.design.widget.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Aprobadas"/>
+                    android:text="Aprobados"/>
                 <android.support.design.widget.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rechazadas"/>
+                    android:text="Rechazados"/>
                 <android.support.design.widget.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Canceladas"/>
+                    android:text="Cancelados"/>
             </android.support.design.widget.TabLayout>
         </FrameLayout>
         <FrameLayout
