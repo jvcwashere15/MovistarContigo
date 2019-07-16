@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.miequipo.MiEquipoFlexPlaceActivity;
@@ -135,7 +138,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
                         displayResumenFlexPlace(dashboard.getDayWeek(),
                                 dashboard.getMonthTaked(), dashboard.getDateEnd());
                 }else if (response.code() == 400){
-
+                    displayResultadoException(response.errorBody());
                 }else{
                     mostrarMensajeError();
                 }
@@ -149,6 +152,24 @@ public class FlexplaceActivity extends TranquiParentActivity {
                 Toast.makeText(FlexplaceActivity.this, "Error en el servicio", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    private void displayResultadoException(ResponseBody response) {
+        viewMessage.setVisibility(View.VISIBLE);
+        ivMessageImagen.setImageResource(R.drawable.img_error_servidor);
+        tvMessageTitle.setText("¡Ups!");
+        tvMessageBoton.setVisibility(View.GONE);
+        try {
+            JSONObject jsonObject = new JSONObject(response.string());
+            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
+            String m = jsonObject1.getString("exceptionMessage");
+            tvMessageMensaje.setText(m);
+        } catch (Exception e) {
+            e.printStackTrace();
+            tvMessageMensaje.setText("Hubo un problema con el servidor. Estamos trabajando para solucionarlo." +
+                    "\nPor favor, verifica tus solicitudes pendientes por aprobar.");
+        }
 
     }
 
