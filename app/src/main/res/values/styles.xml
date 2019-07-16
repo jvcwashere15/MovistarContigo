@@ -151,6 +151,15 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="BotonVerdeFlatDisabled" parent="AppTheme">
+        <item name="android:background">@drawable/boton_verde_disabled</item>
+        <item name="android:fontFamily">@font/telefonica_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 
 
 

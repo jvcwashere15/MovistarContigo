@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:fontFamily="@font/telefonica_bold"
-                    android:text="@string/flex_dashboard_son_los"
+                    android:text="¡Son los \n Miércoles!"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
@@ -66,7 +66,8 @@
                     android:id="@+id/flexplace_tvDia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/telefonica_bold"
+                    android:visibility="gone"
+                    android:fontFamily="@font/telefonica_regular"
                     android:includeFontPadding="false"
                     tools:text="Viernes!"
                     android:gravity="center"

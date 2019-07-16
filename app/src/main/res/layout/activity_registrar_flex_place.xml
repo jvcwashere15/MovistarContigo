@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Elige el rango de tiempo en lo que tomarás tu Flex:"
+            android:text="Elige el día y periodo en el que tomarás tu Flex:"
             android:textSize="16sp"
             android:fontFamily="@font/telefonica_regular"
             android:layout_marginLeft="16dp"
@@ -28,7 +28,7 @@
             android:paddingRight="16dp"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,215 +62,81 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
                 <View
-                    android:id="@+id/flexplace_vCalendarioInicio"
+                    android:id="@+id/registro_flex_vSeleccionDia"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/borde_seleccion_calendario"/>
             </android.support.constraint.ConstraintLayout>
 
             <TextView
+                android:id="@+id/registro_flex_tvErrorDia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textColor="@android:color/holo_red_light"
+                tools:text="Solo puedes escoger tu FlexPlace de Lunes a Viernes"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
-                android:text="Fecha de fin:"/>
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-                <TextView
-                    android:id="@+id/registro_flex_tvFechaFin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="dd/mm/aaaa"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/telefonica_regular"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <ImageView
-                    android:id="@+id/registro_flex_ivFechaFin"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginEnd="8dp"
-                    app:srcCompat="@drawable/ic_calendar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <View
-                    android:id="@+id/flexplace_vCalendarioFin"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/borde_seleccion_calendario"/>
-            </android.support.constraint.ConstraintLayout>
-            <TextView
-                android:id="@+id/registrar_flex_tvAvisoMesesMinimo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="#00A9E0"
-                android:visibility="invisible"
-                android:fontFamily="@font/telefonica_regular"
-                android:text="El rango de tiempo mínimo es por 3 meses."/>
-        </LinearLayout>
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:id="@+id/view_seleccion_dias"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toTopOf="@+id/registrar_flex_tvLider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
-
-                <TextView
-                    android:id="@+id/textView39"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/telefonica_regular"
-                    android:text="Elige el día que utilizarás tu Flex:"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/registrar_flex_dia1"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/borde_seleccion_calendario"
-                        android:button="@null"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:gravity="center"
-                        android:text="Lunes"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
-
-                    <RadioButton
-                        android:id="@+id/registrar_flex_dia2"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/borde_seleccion_calendario"
-                        android:button="@null"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:gravity="center"
-                        android:text="Martes"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
-
-                    <RadioButton
-                        android:id="@+id/registrar_flex_dia3"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/borde_seleccion_calendario"
-                        android:button="@null"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:gravity="center"
-                        android:text="Miércoles"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="32dp"
-                        android:layout_weight="0.5" />
-
-                    <RadioButton
-                        android:id="@+id/registrar_flex_dia4"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/borde_seleccion_calendario"
-                        android:button="@null"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:gravity="center"
-                        android:text="Jueves"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
-
-                    <RadioButton
-                        android:id="@+id/registrar_flex_dia5"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/borde_seleccion_calendario"
-                        android:button="@null"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:gravity="center"
-                        android:text="Viernes"
-                        android:textColor="#757575"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="32dp"
-                        android:layout_weight="0.5" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/registrar_flex_tvLider"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/telefonica_regular"
-                android:gravity="center"
-                android:textSize="14sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toTopOf="@+id/registrar_flex_tvButtonRegistrar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="Tus días Flex serán aprobadas por José Eduardo Mendoza Zavaleta." />
-
-            <TextView
-                android:id="@+id/registrar_flex_tvButtonRegistrar"
+                android:text="Periodo a tomar:"/>
+            <Spinner
+                android:id="@+id/registro_flex_spPeriodo"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_margin="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Registrar"
-                android:visibility="invisible"
-                style="@style/BotonVerdeFlat"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </android.support.constraint.ConstraintLayout>
+                android:drawSelectorOnTop="true"
+                android:entries="@array/periodos_a_tomar"
+                android:background="@drawable/borde_seleccion_calendario"/>
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:layout_alignParentStart="true"
+                    android:text="Día Flex elegido"/>
+
+                <TextView
+                    android:id="@+id/registro_flex_tvDia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textSize="16sp"
+                    tools:text="Míercoles"/>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/registro_flex_tvDescripcionLider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:textSize="14sp"
+                android:text="Tus Martes Flex serán aprobados por José Eduardo
+                Mendoza Zavaleta y finzalizan el 01/09/2019." />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/registro_flex_tvButtonRegistrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Registrar"
+                    android:layout_alignParentBottom="true"
+                    android:enabled="false"
+                    style="@style/BotonVerdeFlatDisabled"/>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

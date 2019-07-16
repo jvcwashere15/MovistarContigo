@@ -5,6 +5,7 @@ public class Dashboard {
     private String monthTaked;
     private boolean isLeadership;
     private String dateEnd;
+    private long isStatus;
 
     public String getDayWeek() { return dayWeek; }
     public void setDayWeek(String value) { this.dayWeek = value; }
@@ -21,5 +22,13 @@ public class Dashboard {
 
     public void setLeadership(boolean leadership) {
         isLeadership = leadership;
+    }
+
+    public long getIsStatus() {
+        return isStatus;
+    }
+
+    public void setIsStatus(long isStatus) {
+        this.isStatus = isStatus;
     }
 }

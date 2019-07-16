@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,14 +40,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
-    private TextView tvFechaInicio, tvFechaFin;
-    private View vCalendarioInicio, vCalendarioFin;
-    private TextView tvButtonRegistrar, tvLiderAprobacion, tvAvisoMeses;
-    private String fechaInicio , fechaFin;
-    private View viewSeleccionDias,viewValidarFechas;
-    private final int INICIO = 0,FIN = 1;
+
+    private View vSeleccionDia;
+    private TextView tvFechaInicio;
+    private TextView tvErrorDia;
+
+    private Spinner spPeriodo;
+    private TextView tvDia;
+
+    private TextView tvLiderAprobacion;
+    private TextView tvButtonRegistrar;
+
+    private String fechaInicio;
     private int dia;
-    private RadioButton rb1,rb2,rb3,rb4,rb5;
 
 
     @Override
@@ -55,14 +61,99 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         setContentView(R.layout.activity_registrar_flex_place);
         configurarToolbar();
         bindearVistas();
-        cargarFechaInicioFromService();
-        configurarRbDia(rb1,1,rb2,rb3,rb4,rb5);
-        configurarRbDia(rb2,2,rb1,rb3,rb4,rb5);
-        configurarRbDia(rb3,3,rb2,rb1,rb4,rb5);
-        configurarRbDia(rb4,4,rb2,rb3,rb1,rb5);
-        configurarRbDia(rb5,5,rb2,rb3,rb4,rb1);
+        configurarBotonSeleccionFecha();
+
+
         configurarBotonRegistrar();
     }
+
+    private void bindearVistas() {
+        tvFechaInicio = findViewById(R.id.registro_flex_tvFechaInicio);
+        vSeleccionDia = findViewById(R.id.registro_flex_vSeleccionDia);
+        tvErrorDia = findViewById(R.id.registro_flex_tvErrorDia);
+        spPeriodo = findViewById(R.id.registro_flex_spPeriodo);
+        tvDia = findViewById(R.id.registro_flex_tvDia);
+        tvLiderAprobacion = findViewById(R.id.registro_flex_tvDescripcionLider);
+        tvButtonRegistrar = findViewById(R.id.registro_flex_tvButtonRegistrar);
+    }
+
+    private void configurarBotonSeleccionFecha() {
+        vSeleccionDia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Date dateInicial = Calendar.getInstance().getTime();
+                configurarBotonCalendarioInicio(dateInicial);
+                obtenerFecha(tvFechaInicio.getText().toString());
+            }
+        });
+    }
+    private void obtenerFecha(final String fechaActual){
+        Date currentDate;
+        Calendar cal = Calendar.getInstance();
+        currentDate = cal.getTime();
+
+        if (!fechaActual.equals("dd/mm/aaaa")){
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try{
+                Date dateInicial = dateFormat.parse(fechaActual);
+                currentDate = dateInicial;
+            }catch (Exception e){ }
+        }
+
+        DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                final int mesActual = month + 1;
+                String diaFormateado = (dayOfMonth < 10)? "0" + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
+                String mesFormateado = (mesActual < 10)? "0" + String.valueOf(mesActual):String.valueOf(mesActual);
+                fechaInicio = diaFormateado + "/" + mesFormateado + "/" + year;
+                tvFechaInicio.setText(fechaInicio);
+                try{
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date dateInicial = dateFormat.parse(fechaInicio);
+                    dateInicial.
+                }catch (Exception e){}
+
+
+
+
+                if (flag == INICIO){
+                    fechaInicio = diaFormateado + "/" + mesFormateado + "/" + year;
+                    tvFechaInicio.setText(fechaInicio);
+                    try {
+                        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        Date dateInicial = dateFormat.parse(fechaInicio);
+                        Date minimumDate = sumarMesesAFecha(dateInicial);
+                        Date maximumDate = sumarAnioAFecha(dateInicial);
+                        configurarBotonCalendarioFin(minimumDate,maximumDate);
+                        String strDateFin = dateFormat.format(minimumDate);
+                        tvFechaFin.setText(strDateFin);
+                        fechaFin = strDateFin;
+                        tvAvisoMeses.setVisibility(View.VISIBLE);
+                        cleanSeleccionDias();
+                        tvLiderAprobacion.setVisibility(View.INVISIBLE);
+                        tvButtonRegistrar.setVisibility(View.INVISIBLE);
+                        viewSeleccionDias.setVisibility(View.VISIBLE);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                } else{
+                    fechaFin = diaFormateado + "/" + mesFormateado + "/" + year;
+                    tvFechaFin.setText(fechaFin);
+                    tvAvisoMeses.setVisibility(View.INVISIBLE);
+                    tvLiderAprobacion.setVisibility(View.INVISIBLE);
+                    tvButtonRegistrar.setVisibility(View.INVISIBLE);
+                    cleanSeleccionDias();
+                }
+            }
+        }, currentDate.getYear(), currentDate.getMonth(), currentDate.getDay());
+
+
+        recogerFecha.getDatePicker().setMinDate(dateStart.getTime());
+        if (dateEnd != null) recogerFecha.getDatePicker().setMaxDate(dateEnd.getTime());
+        recogerFecha.show();
+    }
+
 
     private void configurarBotonRegistrar() {
         tvButtonRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -132,28 +223,6 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         if (!isFinishing()) alertDialog.show();
     }
 
-    private void configurarRbDia(RadioButton rb, final int valor,
-                                 final RadioButton rbAux1, final RadioButton rbAux2,
-                                 final RadioButton rbAux3, final RadioButton rbAux4) {
-        rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    dia = valor;
-                    buttonView.setBackgroundResource(R.drawable.boton_vacaciones_verde);
-                    buttonView.setTextAppearance (RegistrarFlexPlaceActivity.this, R.style.dia_selected);
-                    rbAux1.setChecked(false);rbAux2.setChecked(false);
-                    rbAux3.setChecked(false);rbAux4.setChecked(false);
-                    tvLiderAprobacion.setVisibility(View.VISIBLE);
-                    tvButtonRegistrar.setVisibility(View.VISIBLE);
-                }else{
-                    buttonView.setBackgroundResource(R.drawable.borde_seleccion_calendario);
-                    buttonView.setTextAppearance (RegistrarFlexPlaceActivity.this, R.style.dia_unselected);
-
-                }
-            }
-        });
-    }
 
 
 
@@ -187,59 +256,6 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         if (!isFinishing()) alertDialog.show();
     }
 
-    private void obtenerFecha(final String fechaActual, final int flag, final Date dateStart, final Date dateEnd){
-        Date currentDate;
-        Calendar cal = Calendar.getInstance();
-        currentDate = cal.getTime();
-
-        if (!fechaActual.equals("dd/mm/aaaa")){
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try{
-                Date dateInicial = dateFormat.parse(fechaActual);
-                currentDate = dateInicial;
-            }catch (Exception e){ }
-        }
-
-        DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                final int mesActual = month + 1;
-                String diaFormateado = (dayOfMonth < 10)? "0" + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
-                String mesFormateado = (mesActual < 10)? "0" + String.valueOf(mesActual):String.valueOf(mesActual);
-                if (flag == INICIO){
-                    fechaInicio = diaFormateado + "/" + mesFormateado + "/" + year;
-                    tvFechaInicio.setText(fechaInicio);
-                    try {
-                        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                        Date dateInicial = dateFormat.parse(fechaInicio);
-                        Date minimumDate = sumarMesesAFecha(dateInicial);
-                        Date maximumDate = sumarAnioAFecha(dateInicial);
-                        configurarBotonCalendarioFin(minimumDate,maximumDate);
-                        String strDateFin = dateFormat.format(minimumDate);
-                        tvFechaFin.setText(strDateFin);
-                        fechaFin = strDateFin;
-                        tvAvisoMeses.setVisibility(View.VISIBLE);
-                        cleanSeleccionDias();
-                        tvLiderAprobacion.setVisibility(View.INVISIBLE);
-                        tvButtonRegistrar.setVisibility(View.INVISIBLE);
-                        viewSeleccionDias.setVisibility(View.VISIBLE);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                } else{
-                    fechaFin = diaFormateado + "/" + mesFormateado + "/" + year;
-                    tvFechaFin.setText(fechaFin);
-                    tvAvisoMeses.setVisibility(View.INVISIBLE);
-                    tvLiderAprobacion.setVisibility(View.INVISIBLE);
-                    tvButtonRegistrar.setVisibility(View.INVISIBLE);
-                    cleanSeleccionDias();
-                }
-            }
-        }, currentDate.getYear(), currentDate.getMonth(), currentDate.getDay());
-        recogerFecha.getDatePicker().setMinDate(dateStart.getTime());
-        if (dateEnd != null) recogerFecha.getDatePicker().setMaxDate(dateEnd.getTime());
-        recogerFecha.show();
-    }
 
     private void cleanSeleccionDias() {
         dia = 0;
@@ -264,22 +280,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         return calendar.getTime();
     }
 
-    private void bindearVistas() {
-        vCalendarioInicio = findViewById(R.id.flexplace_vCalendarioInicio);
-        vCalendarioFin = findViewById(R.id.flexplace_vCalendarioFin);
-        tvFechaInicio = findViewById(R.id.registro_flex_tvFechaInicio);
-        tvFechaFin = findViewById(R.id.registro_flex_tvFechaFin);
-        tvAvisoMeses = findViewById(R.id.registrar_flex_tvAvisoMesesMinimo);
-        tvLiderAprobacion = findViewById(R.id.registrar_flex_tvLider);
-        tvButtonRegistrar = findViewById(R.id.registrar_flex_tvButtonRegistrar);
-        viewSeleccionDias = findViewById(R.id.view_seleccion_dias);
-        viewValidarFechas = findViewById(R.id.validar_fechas_viewProgress);
-        rb1 = findViewById(R.id.registrar_flex_dia1);
-        rb2 = findViewById(R.id.registrar_flex_dia2);
-        rb3 = findViewById(R.id.registrar_flex_dia3);
-        rb4 = findViewById(R.id.registrar_flex_dia4);
-        rb5 = findViewById(R.id.registrar_flex_dia5);
-    }
+
 
 
 
@@ -292,14 +293,6 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
-    private void configurarBotonCalendarioFin(final Date dateStart,final Date dateEnd) {
-        vCalendarioFin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                obtenerFecha(tvFechaFin.getText().toString(),FIN,dateStart,dateEnd);
-            }
-        });
-    }
     public void configurarToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);

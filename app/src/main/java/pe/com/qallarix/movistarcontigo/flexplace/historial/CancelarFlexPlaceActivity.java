@@ -57,7 +57,7 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
 
     private void mostrarDialogError() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(CancelarFlexPlaceActivity.this);
-        builder.setTitle("Descripción de la cancelación");
+        builder.setTitle("¡Ups!");
         builder.setMessage("Debes indicar un motivo de cancelación");
         builder.setCancelable(false);
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {

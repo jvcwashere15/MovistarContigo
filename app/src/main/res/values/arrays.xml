@@ -45,4 +45,18 @@
         <item>2034</item>
         <item>2035</item>
     </string-array>
+
+    <string-array name="periodos_a_tomar">
+        <item>mín 3 meses - máx 12 meses</item>
+        <item>3 meses</item>
+        <item>4 meses</item>
+        <item>5 meses</item>
+        <item>6 meses</item>
+        <item>7 meses</item>
+        <item>8 meses</item>
+        <item>9 meses</item>
+        <item>10 meses</item>
+        <item>11 meses</item>
+        <item>12 meses</item>
+    </string-array>
 </resources>

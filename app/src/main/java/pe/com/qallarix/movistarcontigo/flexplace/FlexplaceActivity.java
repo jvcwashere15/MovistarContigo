@@ -132,8 +132,10 @@ public class FlexplaceActivity extends TranquiParentActivity {
                         vSolicitudes.setVisibility(View.VISIBLE);
                     }
 
-                    if (TextUtils.isEmpty(dashboard.getMonthTaked())){
+                    if (dashboard.getIsStatus() == 1){
                         displayDashboardVacio();
+                    }else if(dashboard.getIsStatus() == 2){
+                        displayDashboardPendientes();
                     }else
                         displayResumenFlexPlace(dashboard.getDayWeek(),
                                 dashboard.getMonthTaked(), dashboard.getDateEnd());
@@ -154,6 +156,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
         });
 
     }
+
+
 
     private void displayResultadoException(ResponseBody response) {
         viewMessage.setVisibility(View.VISIBLE);
@@ -176,14 +180,26 @@ public class FlexplaceActivity extends TranquiParentActivity {
     private void displayDashboardVacio() {
         tvMensaje.setText("Disfruta de tu");
         tvDia.setText("FlexPlace");
+        tvMeses.setText("Regístralo ahora");
+
         tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         tvDescripcion.setText("¡Elige un día de la semana para trabajar desde casa!");
-        tvMeses.setText("Regístralo ahora");
+        tvFechaDerecho.setVisibility(View.GONE);
+    }
+
+    private void displayDashboardPendientes() {
+        tvMensaje.setText("Tu solicitud");
+        tvDia.setText("FlexPlace");
+        tvMeses.setVisibility(View.VISIBLE);
+        tvMeses.setText("está pendiente");
+
+        tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescripcion.setText("Se te notificará al momento de la aprobación.");
         tvFechaDerecho.setVisibility(View.GONE);
     }
 
     private void displayResumenFlexPlace(String dia, String meses, String fechaDerecho) {
-        tvDia.setText(dia+"!");
+        tvDia.setText("¡Son los " + dia + "!");
         tvFechaDerecho.setText(fechaDerecho);
     }
 
