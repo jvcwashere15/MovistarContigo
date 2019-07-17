@@ -6,6 +6,15 @@ public class Dashboard {
     private boolean isLeadership;
     private String dateEnd;
     private long isStatus;
+    private String leadership;
+
+    public String getLeadership() {
+        return leadership;
+    }
+
+    public void setLeadership(String leadership) {
+        this.leadership = leadership;
+    }
 
     public String getDayWeek() { return dayWeek; }
     public void setDayWeek(String value) { this.dayWeek = value; }

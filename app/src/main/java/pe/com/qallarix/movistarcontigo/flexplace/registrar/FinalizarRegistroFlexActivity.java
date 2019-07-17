@@ -22,8 +22,8 @@ import retrofit2.Response;
 
 public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
 
-    private String fechaInicio, fechaFin;
-    private int dia;
+    private String fechaInicio;
+    private int monthTaked;
     private ImageView ivRespuesta;
     private View viewProgress;
     private TextView tvRespuesta, tvRespuestaDescripcion, tvButtonEstado, tvButtonVolverMenu,
@@ -33,9 +33,9 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar_registro_flex);
+        getDataFromExtras();
         configurarToolbar();
         bindearVistas();
-        getDataFromExtras();
         registrarFlexPlace();
 
     }
@@ -43,9 +43,8 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     private void getDataFromExtras() {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            fechaInicio = extras.getString("fecha_inicio");
-            fechaFin = extras.getString("fecha_fin");
-            dia = extras.getInt("dia");
+            fechaInicio = extras.getString("fechaInicio");
+            monthTaked = extras.getInt("monthTaked");
         }
     }
 
@@ -95,8 +94,7 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
         Call<ResponseRegistrarFlexPlace> call = WebService3
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceRegistrarApi.class)
-                .registrarFlexPlace(getDocumentNumber(),
-                        fechaInicio,fechaFin,dia);
+                .registrarFlexPlace(fechaInicio,monthTaked);
         call.enqueue(new Callback<ResponseRegistrarFlexPlace>() {
             @Override
             public void onResponse(Call<ResponseRegistrarFlexPlace> call, Response<ResponseRegistrarFlexPlace> response) {

@@ -69,7 +69,7 @@
                     android:visibility="gone"
                     android:fontFamily="@font/telefonica_regular"
                     android:includeFontPadding="false"
-                    tools:text="Viernes!"
+                    tools:text="está pendiente"
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />

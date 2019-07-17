@@ -9,13 +9,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ServiceFlexplaceRegistrarApi {
-    @POST("flexplace/employee/request/register")
-    Call<ResponseRegistrarFlexPlace> registrarFlexPlace(@Query("documentNumber") String documentNumber,
-                                                        @Query("dateStart") String dateStart,
-                                                        @Query("dateEnd") String dateEnd,
-                                                        @Query("dayWeek") int dayWeek);
     @POST("flexplace/employee/request/validate")
     Call<ResponseValidarFlexPlace> validarFlexPlace(@Query("dateStart") String dateStart,
-                                                      @Query("dateEnd") String dateEnd,
-                                                      @Query("dayWeek") int dayWeek);
+                                                    @Query("monthsTaked") int monthsTaked);
+
+    @POST("flexplace/employee/request/register")
+    Call<ResponseRegistrarFlexPlace> registrarFlexPlace(@Query("dateStart") String dateStart,
+                                                        @Query("monthsTaked") int monthsTaked);
 }

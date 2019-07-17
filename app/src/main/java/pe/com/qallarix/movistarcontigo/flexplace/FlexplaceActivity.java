@@ -48,13 +48,15 @@ public class FlexplaceActivity extends TranquiParentActivity {
             tvDescripcion,
             tvFechaDerecho;
 
+    private Dashboard dashboard;
+
     //view message
     private View viewMessage;
     private TextView tvMessageTitle, tvMessageMensaje,tvMessageBoton;
     private ImageView ivMessageImagen;
 
     private boolean isLoading = true;
-    private String liderName = "";
+    private String leadership = "";
 
     private ShimmerFrameLayout mShimmerViewContainer;
     @Override
@@ -77,6 +79,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
                 Intent intent = new Intent(FlexplaceActivity.this,
                         MiEquipoFlexPlaceActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -88,6 +91,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
                 Intent intent = new Intent(FlexplaceActivity.this,
                         SolicitudesFlexPlaceActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -99,6 +103,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
                 Intent intent = new Intent(FlexplaceActivity.this,
                         HistorialFlexPlaceActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -109,7 +114,9 @@ public class FlexplaceActivity extends TranquiParentActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
                         RegistrarFlexPlaceActivity.class);
+                intent.putExtra("leadership",leadership);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -125,8 +132,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<DashBoardFlexPlace> call, Response<DashBoardFlexPlace> response) {
                 if ( response.code() == 200){
-                    Dashboard dashboard = response.body().getDashboard();
-
+                    dashboard = response.body().getDashboard();
+                    leadership= dashboard.getLeadership();
                     if (dashboard.isLeadership()){
                         vFlexEquipo.setVisibility(View.VISIBLE);
                         vSolicitudes.setVisibility(View.VISIBLE);
@@ -189,10 +196,10 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
     private void displayDashboardPendientes() {
         tvMensaje.setText("Tu solicitud");
-        tvDia.setText("FlexPlace");
+        tvMeses.setText("FlexPlace");
         tvMeses.setVisibility(View.VISIBLE);
-        tvMeses.setText("está pendiente");
-
+        tvDia.setText("está pendiente");
+        tvDia.setVisibility(View.VISIBLE);
         tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         tvDescripcion.setText("Se te notificará al momento de la aprobación.");
         tvFechaDerecho.setVisibility(View.GONE);

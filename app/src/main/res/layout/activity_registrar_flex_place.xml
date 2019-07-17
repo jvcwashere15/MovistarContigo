@@ -72,26 +72,32 @@
                 android:id="@+id/registro_flex_tvErrorDia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:visibility="invisible"
                 android:textColor="@android:color/holo_red_light"
-                tools:text="Solo puedes escoger tu FlexPlace de Lunes a Viernes"/>
+                android:text="Solo puedes escoger tu FlexPlace de Lunes a Viernes"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Periodo a tomar:"/>
-            <Spinner
-                android:id="@+id/registro_flex_spPeriodo"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/periodos_a_tomar"
-                android:background="@drawable/borde_seleccion_calendario"/>
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_seleccion_calendario">
+                <Spinner
+                    android:id="@+id/registro_flex_spPeriodo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/periodos_a_tomar"/>
+            </FrameLayout>
             <RelativeLayout
+                android:id="@+id/registro_flex_viewDiaElegido"
                 android:layout_marginTop="16dp"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
@@ -120,6 +126,7 @@
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/telefonica_regular"
                 android:textSize="14sp"
+                android:visibility="invisible"
                 android:text="Tus Martes Flex serán aprobados por José Eduardo
                 Mendoza Zavaleta y finzalizan el 01/09/2019." />
             <RelativeLayout
