@@ -26,7 +26,6 @@ import retrofit2.Response;
 public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
 
     private String fechaInicio, fechaFin, observacion;
-    private int dia;
     private long idRequest;
     private ImageView ivRespuesta;
     private View viewProgress;
@@ -46,9 +45,10 @@ public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
     private void getDataFromExtras() {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
+            //para mostrar mensaje de cancelación
             fechaInicio = extras.getString("fecha_inicio");
             fechaFin = extras.getString("fecha_fin");
-            dia = extras.getInt("dia");
+            //para realizar la transacción
             idRequest = extras.getLong("idRequest");
             observacion = extras.getString("observacion");
         }
@@ -171,10 +171,11 @@ public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
     }
 
     private void displayMensajeOK() {
-        tvRespuesta.setText("Cancelación exitosa");
+        tvRespuesta.setText("Cancelación hecha");
         tvButtonEstado.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
-        ivRespuesta.setImageResource(R.drawable.ic_check_ok);
-        tvRespuestaDescripcion.setText("Has cancelado los días a utilizar tu Flex. ");
+        ivRespuesta.setImageResource(R.drawable.ic_check_alert);
+        tvRespuestaDescripcion.setText("Has cancelado tu FlexPlace en curso del " +
+                fechaInicio + " al " + fechaFin + ".");
     }
 }

@@ -45,12 +45,17 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
         tvBotonContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (etDescripcion.getVisibility()==View.VISIBLE && !TextUtils.isEmpty(etDescripcion.getText().toString()))
+                if (etDescripcion.getVisibility() == View.VISIBLE){
+                    if(TextUtils.isEmpty(etDescripcion.getText().toString()))
+                        mostrarDialogError();
+                    else
+                        mostrarDialogCancelacionFlexPlace("¿Deseas continuar?",
+                                "Vas a cancelar tu FlexPlace en curso del " +
+                                        fechaInicio + " al " + fechaFin + ".");
+                }else
                     mostrarDialogCancelacionFlexPlace("¿Deseas continuar?",
-                        "Vas a cancelar tu FlexPlace en curso del " +
-                                fechaInicio + " al " + fechaFin + ".");
-                else
-                    mostrarDialogError();
+                            "Vas a cancelar tu FlexPlace en curso del " +
+                                    fechaInicio + " al " + fechaFin + ".");
             }
         });
     }
@@ -140,7 +145,6 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
                         FinalizarCancelacionFlexActivity.class);
                 intent.putExtra("fecha_inicio",fechaInicio);
                 intent.putExtra("fecha_fin",fechaFin);
-                intent.putExtra("dia",dia);
                 intent.putExtra("idRequest",idRequest);
                 intent.putExtra("observacion",etDescripcion.getText());
                 startActivity(intent);
