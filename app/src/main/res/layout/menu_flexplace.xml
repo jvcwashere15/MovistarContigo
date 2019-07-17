@@ -138,7 +138,7 @@
         android:layout_width="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:layout_height="@dimen/altura_item_beneficio">
 
         <ImageView
@@ -203,7 +203,7 @@
         android:layout_width="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:layout_height="@dimen/altura_item_beneficio">
 
         <ImageView

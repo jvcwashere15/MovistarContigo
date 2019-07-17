@@ -11,15 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import org.json.JSONObject;
-
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.flexplace.registrar.FinalizarRegistroFlexActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.registrar.RegistrarFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
-import retrofit2.Response;
+
 
 public class CancelarFlexPlaceActivity extends AppCompatActivity {
 
