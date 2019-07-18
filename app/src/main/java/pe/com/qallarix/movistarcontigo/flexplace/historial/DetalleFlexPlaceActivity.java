@@ -1,7 +1,9 @@
 package pe.com.qallarix.movistarcontigo.flexplace.historial;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -61,13 +63,24 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         tvButtonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetalleFlexPlaceActivity.this,CancelarFlexPlaceActivity.class);
-                intent.putExtra("fechaInicio",currentRequest.getDateStart());
-                intent.putExtra("fechaFin",currentRequest.getDateEnd());
-                intent.putExtra("dia",currentRequest.getDayWeek());
-                intent.putExtra("idRequest",currentRequest.getId());
-                intent.putExtra("idState",currentRequest.getStatusId());
-                startActivity(intent);
+                if (currentRequest.getStatusId().equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
+                    mostrarDialogCancelacionFlexPlace(currentRequest.getStatusId(),
+                            currentRequest.getDateStart(),
+                            currentRequest.getDateEnd());
+
+
+
+                }else{
+                    Intent intent = new Intent(DetalleFlexPlaceActivity.this,
+                            CancelarFlexPlaceActivity.class);
+                    intent.putExtra("fechaInicio",currentRequest.getDateStart());
+                    intent.putExtra("fechaFin",currentRequest.getDateEnd());
+                    intent.putExtra("dia",currentRequest.getDayWeek());
+                    intent.putExtra("idRequest",currentRequest.getId());
+                    intent.putExtra("idState",currentRequest.getStatusId());
+                    startActivity(intent);
+                }
+
             }
         });
     }
@@ -159,7 +172,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Mi historial FlexPlace");
+        getSupportActionBar().setTitle("Detalle de FlexPlace");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
@@ -213,5 +226,41 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                 displayDetalleFlexPlace();
             }
         });
+    }
+
+    public void mostrarDialogCancelacionFlexPlace(String statusId, String fechaInicio, String fechaFin){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetalleFlexPlaceActivity.this);
+        builder.setTitle("¿Deseas continuar?");
+        String mensaje = "";
+        if (statusId.equals(ServiceFlexplaceHistorialApi.PENDIENTE))
+            mensaje = "Vas a cancelar la solicitud de tus días Flex del "
+                    + fechaInicio + " al " + fechaFin + ".";
+        else{
+            mensaje = "Vas a cancelar tu FlexPlace en curso del "
+                    + fechaInicio + " al " + fechaFin + ".";
+        }
+        builder.setMessage(mensaje);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(DetalleFlexPlaceActivity.this,
+                        FinalizarCancelacionFlexActivity.class);
+                intent.putExtra("fecha_inicio",currentRequest.getDateStart());
+                intent.putExtra("fecha_fin",currentRequest.getDateEnd());
+                intent.putExtra("idRequest",currentRequest.getId());
+                intent.putExtra("statusId",currentRequest.getStatusId());
+                intent.putExtra("observacion","");
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("Ahora no", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
     }
 }

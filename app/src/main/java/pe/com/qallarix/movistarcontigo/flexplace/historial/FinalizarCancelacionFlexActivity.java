@@ -21,7 +21,7 @@ import retrofit2.Response;
 
 public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
 
-    private String fechaInicio, fechaFin, observacion;
+    private String fechaInicio, fechaFin, observacion, statusId;
     private long idRequest;
     private ImageView ivRespuesta;
     private View viewProgress;
@@ -47,6 +47,7 @@ public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
             //para realizar la transacción
             idRequest = extras.getLong("idRequest");
             observacion = extras.getString("observacion");
+            statusId = extras.getString("statusId");
         }
     }
 
@@ -171,7 +172,14 @@ public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
         tvButtonEstado.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         ivRespuesta.setImageResource(R.drawable.ic_check_alert);
-        tvRespuestaDescripcion.setText("Has cancelado tu FlexPlace en curso del " +
-                fechaInicio + " al " + fechaFin + ".");
+        String mensaje = "";
+        if (statusId.equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
+            mensaje = "Has cancelado la solicitud de FlexPlace del "
+                    + fechaInicio + " al " + fechaFin + ".";
+        }else{
+           mensaje = "Has cancelado tu FlexPlace en curso del " +
+                   fechaInicio + " al " + fechaFin + ".";
+        }
+        tvRespuestaDescripcion.setText(mensaje);
     }
 }
