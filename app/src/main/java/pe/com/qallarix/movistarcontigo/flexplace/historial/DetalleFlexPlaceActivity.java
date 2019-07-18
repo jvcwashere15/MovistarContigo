@@ -67,9 +67,6 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                     mostrarDialogCancelacionFlexPlace(currentRequest.getStatusId(),
                             currentRequest.getDateStart(),
                             currentRequest.getDateEnd());
-
-
-
                 }else{
                     Intent intent = new Intent(DetalleFlexPlaceActivity.this,
                             CancelarFlexPlaceActivity.class);
@@ -77,7 +74,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                     intent.putExtra("fechaFin",currentRequest.getDateEnd());
                     intent.putExtra("dia",currentRequest.getDayWeek());
                     intent.putExtra("idRequest",currentRequest.getId());
-                    intent.putExtra("idState",currentRequest.getStatusId());
+                    intent.putExtra("statusId",currentRequest.getStatusId());
                     startActivity(intent);
                 }
 

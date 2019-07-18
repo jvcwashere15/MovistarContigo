@@ -16,7 +16,7 @@ import pe.com.qallarix.movistarcontigo.R;
 
 public class CancelarFlexPlaceActivity extends AppCompatActivity {
 
-    private String fechaInicio, fechaFin, dia, idState;
+    private String fechaInicio, fechaFin, dia, statusId;
     private long idRequest;
     private TextView tvEstado, tvFechaInicio, tvFechaFin, tvDia, tvBotonContinuar,
             tvDescripcionLider, tvLider;
@@ -72,10 +72,10 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
 
         String strEstado = "";
         int colorEstado = 0;
-        if (idState.equals(ServiceFlexplaceHistorialApi.APROBADO)){
+        if (statusId.equals(ServiceFlexplaceHistorialApi.APROBADO)){
             strEstado = "APROBADO";colorEstado = R.drawable.etiqueta_verde;
             etDescripcion.setVisibility(View.VISIBLE);
-        }else if (idState.equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
+        }else if (statusId.equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
             strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
             tvLider.setText("FlexPlace por aprobar");
             tvDescripcionLider.setText("Cancelarás la solicitud de tus días Flex:");
@@ -104,8 +104,8 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
         fechaInicio = getIntent().getExtras().getString("fechaInicio");
         fechaFin = getIntent().getExtras().getString("fechaFin");
         dia = getIntent().getExtras().getString("dia");
+        statusId = getIntent().getExtras().getString("statusId");
         idRequest = getIntent().getExtras().getLong("idRequest");
-        idState = getIntent().getExtras().getString("idState");
     }
 
     public void configurarToolbar(){
@@ -139,6 +139,7 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
                 intent.putExtra("fecha_inicio",fechaInicio);
                 intent.putExtra("fecha_fin",fechaFin);
                 intent.putExtra("idRequest",idRequest);
+                intent.putExtra("statusId",statusId);
                 intent.putExtra("observacion",etDescripcion.getText());
                 startActivity(intent);
                 finish();

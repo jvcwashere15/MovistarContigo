@@ -14,6 +14,8 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
+import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebService3;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,10 +34,17 @@ public class LoginActivity extends TranquiParentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        clearWebServices();
         bindearVistas();
         configurarInputDni();
         configurarBotonIniciarSesion();
         configurarTerminos();
+    }
+
+    private void clearWebServices() {
+        WebService1.setInstance(null);
+        WebService2.setInstance(null);
+        WebService3.setInstance(null);
     }
 
     private void bindearVistas() {

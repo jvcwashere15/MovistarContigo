@@ -27,7 +27,7 @@ public class SolicitudesFlexPlaceActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Solicitudes FlexPlace");
+        getSupportActionBar().setTitle("FlexPlace para aprobar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }

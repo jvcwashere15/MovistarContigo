@@ -161,9 +161,7 @@ public class AccountActivity extends TranquiParentActivity {
     private void cleanPreferencias() {
         SharedPreferences sharedPref = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.remove("documentType");
-        editor.remove("documentNumber");
-        editor.remove("tokenAccess");
+        editor.clear();
         editor.commit();
     }
 

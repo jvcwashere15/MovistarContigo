@@ -2,10 +2,8 @@ package pe.com.qallarix.movistarcontigo.flexplace;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,11 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
-
 import org.json.JSONObject;
-
 import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
@@ -138,7 +133,6 @@ public class FlexplaceActivity extends TranquiParentActivity {
                         vFlexEquipo.setVisibility(View.VISIBLE);
                         vSolicitudes.setVisibility(View.VISIBLE);
                     }
-
                     if (dashboard.getIsStatus() == 1){
                         displayDashboardVacio();
                     }else if(dashboard.getIsStatus() == 2){
@@ -186,9 +180,9 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
     private void displayDashboardVacio() {
         tvMensaje.setText("Disfruta de tu");
-        tvDia.setText("FlexPlace");
-        tvMeses.setText("Regístralo ahora");
-
+        tvMeses.setText("FlexPlace");
+        tvDia.setVisibility(View.VISIBLE);
+        tvDia.setText("Regístralo ahora");
         tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         tvDescripcion.setText("¡Elige un día de la semana para trabajar desde casa!");
         tvFechaDerecho.setVisibility(View.GONE);

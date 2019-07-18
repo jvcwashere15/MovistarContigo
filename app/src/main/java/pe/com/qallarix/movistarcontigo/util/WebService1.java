@@ -26,6 +26,10 @@ public class WebService1 {
     private static final String BASIC_AUTH = "Basic " + Base64.encodeToString("qallarix:cWFsbGFyaXgqbW92aXN0YXI=".getBytes(), Base64.NO_WRAP);
     private String mDni;
 
+    public static void setInstance(WebService1 instance) {
+        WebService1.instance = instance;
+    }
+
     public WebService1(String dni){
         mDni = dni;
         httpLoggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
