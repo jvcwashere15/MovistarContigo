@@ -3,6 +3,7 @@ package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseDetalleFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseHistorialFlexPlace;
+import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseDetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseSolicitudesFlexPlace;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -20,10 +21,11 @@ public interface ServiceFlexplaceSolicitudesApi {
                                                              @Query("year") int anio);
 
     @GET("flexplace/leadership/request/id")
-    Call<ResponseDetalleFlexPlace> getSolicitudFlexPlace(@Query("requestCode") int requestCode);
+    Call<ResponseDetalleSolicitudFlex> getSolicitudFlexPlace(@Query("requestCode") int requestCode);
+
 
     @PUT("flexplace/leadership/request/approver")
     Call<ResponseFinalizarCancelacion> aprobarRechazarFlexPlace(@Query("requestCode") int requestCode,
-                                                                     @Query("approver") boolean approver,
-                                                                     @Query("observation") String observation);
+                                                                @Query("approver") boolean approver,
+                                                                @Query("observation") String observation);
 }
