@@ -45,43 +45,75 @@
                     android:text="Cancelados"/>
             </android.support.design.widget.TabLayout>
         </FrameLayout>
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp">
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
                 <Spinner
-                    android:id="@+id/solicitudes_flex_spFiltroAnio"
+                    android:id="@+id/solicitudes_flex_spFiltroAnio1"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:drawSelectorOnTop="true"
                     android:entries="@array/anios_flex"
                     />
-                <View
+                <Spinner
+                    android:id="@+id/solicitudes_flex_spFiltroAnio2"
                     android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="#DDDDDD"/>
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/anios_flex"
+                    />
+                <Spinner
+                    android:id="@+id/solicitudes_flex_spFiltroAnio3"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/anios_flex"
+                    />
+                <Spinner
+                    android:id="@+id/solicitudes_flex_spFiltroAnio4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:drawSelectorOnTop="true"
+                    android:visibility="invisible"
+                    android:entries="@array/anios_flex"
+                    />
+            </FrameLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/solicitudes_flex_rvListaSolicitudes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"/>
-            </LinearLayout>
-            <include
-                android:id="@+id/view_message"
-                android:visibility="gone"
-                layout="@layout/view_message_response_vacaciones"/>
-        </FrameLayout>
+                <include
+                    android:id="@+id/view_message"
+                    android:visibility="gone"
+                    layout="@layout/view_message_response_vacaciones"/>
+            </FrameLayout>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#55000000"
-        android:visibility="gone"
+
         android:id="@+id/lista_solicitudes_viewProgress"
         android:gravity="center"
         android:onClick="clickNull">
@@ -91,14 +123,15 @@
             android:theme="@style/StyleProgressBar"/>
         <TextView
             android:id="@+id/viewLoad_tvMensaje"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:gravity="center"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:fontFamily="@font/telefonica_regular"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:text=""/>
+            tools:text="Cargando los datos del flexplace"/>
     </LinearLayout>
 </FrameLayout>

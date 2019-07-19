@@ -13,18 +13,21 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".flexplace.historial.CancelarFlexPlaceActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity"></activity>
+        <activity
+            android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexplace.historial.CancelarFlexPlaceActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.historial.DetalleFlexPlaceActivity"
             android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"

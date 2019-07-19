@@ -129,10 +129,10 @@ public class FlexplaceActivity extends TranquiParentActivity {
                 if ( response.code() == 200){
                     dashboard = response.body().getDashboard();
                     leadership= dashboard.getLeadership();
-                    if (dashboard.isLeadership()){
+//                    if (dashboard.isLeadership()){
                         vFlexEquipo.setVisibility(View.VISIBLE);
                         vSolicitudes.setVisibility(View.VISIBLE);
-                    }
+//                    }
                     if (dashboard.getIsStatus() == 1){
                         displayDashboardVacio();
                     }else if(dashboard.getIsStatus() == 2){
