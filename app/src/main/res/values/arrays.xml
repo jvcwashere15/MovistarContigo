@@ -34,6 +34,21 @@
         <item>2023</item>
     </string-array>
 
+    <string-array name="meses_flex">
+        <item>enero</item>
+        <item>febrero</item>
+        <item>marzo</item>
+        <item>abril</item>
+        <item>mayo</item>
+        <item>junio</item>
+        <item>julio</item>
+        <item>agosto</item>
+        <item>setiembre</item>
+        <item>octubre</item>
+        <item>noviembre</item>
+        <item>diciembre</item>
+    </string-array>
+
     <string-array name="periodos_a_tomar">
         <item>mín 3 meses - máx 12 meses</item>
         <item>3 meses</item>
