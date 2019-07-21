@@ -7,6 +7,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseDetal
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseSolicitudesFlexPlace;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
@@ -24,7 +25,7 @@ public interface ServiceFlexplaceSolicitudesApi {
     Call<ResponseDetalleSolicitudFlex> getSolicitudFlexPlace(@Query("requestCode") int requestCode);
 
 
-    @PUT("flexplace/leadership/request/approver")
+    @POST("flexplace/leadership/request/approver")
     Call<ResponseFinalizarCancelacion> aprobarRechazarFlexPlace(@Query("requestCode") int requestCode,
                                                                 @Query("approver") boolean approver,
                                                                 @Query("observation") String observation);

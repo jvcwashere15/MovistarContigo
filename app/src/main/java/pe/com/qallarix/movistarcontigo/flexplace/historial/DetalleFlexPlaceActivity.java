@@ -34,9 +34,9 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
     private TextView tvLider,tvDescripcionLider,
                     tvEstado,tvFechaSolicitud,
                     tvFechaInicio, tvFechaFin,
-                    tvDiaElegido,tvDescripcion,
-                    tvMensajeNotificacion,tvButtonCancelar;
+                    tvDiaElegido,tvDescripcion,tvButtonCancelar;
     private View vNotificacion;
+    private TextView tvMensajeNotificacion,tvTituloNotificacion;
     private Request currentRequest;
 
     //view message
@@ -94,6 +94,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         tvButtonCancelar = findViewById(R.id.detalle_flexplace_tvButtonCancelar);
         vNotificacion = findViewById(R.id.detalle_flexplace_viewNoticacion);
         tvMensajeNotificacion = findViewById(R.id.detalle_flexplace_tvMensajeNotificacion);
+        tvTituloNotificacion = findViewById(R.id.detalle_flexplace_tvTituloNotificacion);
         mShimmerViewContainer = findViewById(R.id.detalle_vacaciones_shimerFrameLayout);
 
         viewMessage = findViewById(R.id.view_message);
@@ -127,11 +128,6 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                     if (currentRequest.isCancelled())
                         tvButtonCancelar.setVisibility(View.VISIBLE);
 
-                    if (!TextUtils.isEmpty(currentRequest.getReason())){
-                        vNotificacion.setVisibility(View.VISIBLE);
-                        tvMensajeNotificacion.setText(currentRequest.getReason());
-                    }
-
                     String strEstado = "";
                     int colorEstado = 0;
                     if (currentRequest.getStatusId().equals(ServiceFlexplaceHistorialApi.APROBADO)){
@@ -140,11 +136,17 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                         strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
                     }else if (currentRequest.getStatusId().equals(ServiceFlexplaceHistorialApi.RECHAZADO)){
                         strEstado = "RECHAZADO";colorEstado = R.drawable.etiqueta_roja;
+                        tvTituloNotificacion.setText("Motivo de rechazo");
                     }else if (currentRequest.getStatusId().equals(ServiceFlexplaceHistorialApi.CANCELADO)){
                         strEstado = "CANCELADO";colorEstado = R.drawable.etiqueta_morada;
                     }
                     tvEstado.setText(strEstado);
                     tvEstado.setBackgroundResource(colorEstado);
+
+                    if (!TextUtils.isEmpty(currentRequest.getReason())){
+                        vNotificacion.setVisibility(View.VISIBLE);
+                        tvMensajeNotificacion.setText(currentRequest.getReason());
+                    }
                 } else{
                     mostrarMensaje500();
                 }

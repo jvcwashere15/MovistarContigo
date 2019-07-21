@@ -226,14 +226,14 @@
 
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/detalle_solicitud_flex_tvTextoEstado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/telefonica_regular"
                     android:text="Estado de FlexPlace"
                     android:textColor="#757575"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/view1"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_viewLine"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view0" />
 
@@ -246,19 +246,18 @@
                     android:padding="4dp"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/view1"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_viewLine"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view0"
                     tools:text="APROBADO" />
 
                 <View
-                    android:id="@+id/view1"
+                    android:id="@+id/detalle_solicitud_flex_viewLine"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="48dp"
                     android:background="#DDDDDD"
-                    app:layout_constraintTop_toBottomOf="@+id/view0"
-                    tools:layout_editor_absoluteX="16dp" />
+                    app:layout_constraintTop_toBottomOf="@+id/view0"/>
 
 
                 <TextView
@@ -271,7 +270,7 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/view2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view1" />
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_viewLine" />
 
                 <TextView
                     android:id="@+id/detalle_solicitud_flex_tvFechaSolicitud"
@@ -281,7 +280,7 @@
                     android:textColor="#2A2A3C"
                     app:layout_constraintBottom_toTopOf="@+id/view2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_viewLine"
                     tools:text="15/03/2019" />
 
                 <View
@@ -291,7 +290,7 @@
                     android:layout_marginTop="48dp"
                     android:background="#DDDDDD"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_viewLine"
                     app:layout_constraintVertical_bias="0.0"
                     tools:layout_editor_absoluteX="16dp" />
                 <TextView
@@ -395,19 +394,36 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4"
                     tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
+
                 <TextView
-                    android:id="@+id/detalle_solicitud_flex_tvButtonCancelar"
+                    android:id="@+id/detalle_solicitud_flex_tvButtonAprobar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/boton_vacaciones_verde"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:gravity="center"
+                    android:text="Aprobar"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonRechazar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvButtonRechazar"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/telefonica_bold"
                     android:gravity="center"
-                    android:text="Cancelar FlexPlace"
+                    android:text="Rechazar"
                     android:textAllCaps="false"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/loginBoton"
                     android:textSize="16sp"
-                    android:visibility="invisible"
-                    android:background="@drawable/boton_vacaciones_verde"
+                    android:visibility="gone"
+                    android:background="@drawable/boton_vacaciones_verde_blanco"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

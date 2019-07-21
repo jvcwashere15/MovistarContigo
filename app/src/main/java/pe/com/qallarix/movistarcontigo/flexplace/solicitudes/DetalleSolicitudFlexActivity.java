@@ -1,6 +1,8 @@
 package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -18,7 +20,6 @@ import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.DetalleSolici
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseDetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseDetalleSolicitud;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +34,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
             tvFechaInicioFlex, tvFechaFinFlex, tvDescripcionSolicitud, tvDiaSolicitado;
 
     //boton aprobar rechazar
-    private TextView tvBotonAprobarRechazar;
+    private TextView tvBotonAprobar, tvBotonRechazar;
     private View viewNotification;
     private TextView tvMensajeNotificacion, tvTituloNotificacion;
 
@@ -53,7 +54,34 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         configurarToolbar();
         bindearVistas();
         displayDetalleSolicitudFlexPlace();
-//        configurarBotonCancelar();
+        configurarBotonAprobar();
+        configurarBotonRechazar();
+    }
+
+    private void configurarBotonAprobar() {
+        tvBotonAprobar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDialogAprobacionFlexPlace(detalleSolicitudFlex.getEmployee());
+            }
+        });
+    }
+
+    private void configurarBotonRechazar() {
+        tvBotonRechazar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetalleSolicitudFlexActivity.this,
+                        RechazoSolicitudFlexActivity.class);
+                intent.putExtra("fechaSolicitud",detalleSolicitudFlex.getDateRequest());
+                intent.putExtra("fechaInicio",detalleSolicitudFlex.getDateStart());
+                intent.putExtra("nombreEmpleado",detalleSolicitudFlex.getEmployee());
+                intent.putExtra("fechaFin",detalleSolicitudFlex.getDateEnd());
+                intent.putExtra("dia",detalleSolicitudFlex.getDayWeek());
+                intent.putExtra("idRequest",detalleSolicitudFlex.getId());
+                startActivity(intent);
+            }
+        });
     }
 
     private void displayDetalleSolicitudFlexPlace() {
@@ -89,6 +117,11 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
                         strEstado = "APROBADO";colorEstado = R.drawable.etiqueta_verde;
                     }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
                         strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
+                        findViewById(R.id.detalle_solicitud_flex_viewLine).setVisibility(View.GONE);
+                        findViewById(R.id.detalle_solicitud_flex_tvTextoEstado).setVisibility(View.GONE);
+                        tvEstadoSolicitudFlex.setVisibility(View.GONE);
+                        tvBotonAprobar.setVisibility(View.VISIBLE);
+                        tvBotonRechazar.setVisibility(View.VISIBLE);
                     }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.RECHAZADO)){
                         strEstado = "RECHAZADO";colorEstado = R.drawable.etiqueta_roja;
                     }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.CANCELADO)){
@@ -124,6 +157,8 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         tvDescripcionSolicitud = findViewById(R.id.detalle_solicitud_flex_tvDescripcion);
         tvDiaSolicitado = findViewById(R.id.detalle_solicitud_flex_tvDiaSolicitado);
         mShimmerViewContainer = findViewById(R.id.detalle_solicitud_flex_shimerFrameLayout);
+        tvBotonAprobar = findViewById(R.id.detalle_solicitud_flex_tvButtonAprobar);
+        tvBotonRechazar = findViewById(R.id.detalle_solicitud_flex_tvButtonRechazar);
 
         viewMessage = findViewById(R.id.view_message);
         tvMessageTitle = findViewById(R.id.view_message_tvTitle);
@@ -159,4 +194,47 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isLoading)
+            mShimmerViewContainer.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        mShimmerViewContainer.stopShimmer();
+        super.onPause();
+    }
+
+    public void mostrarDialogAprobacionFlexPlace(String nombre){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetalleSolicitudFlexActivity.this);
+        builder.setTitle("¿Deseas continuar?");
+        String mensaje = "Vas a aprobar la solicitud de FlexPlace de " + nombre + ".";
+
+        builder.setMessage(mensaje);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(DetalleSolicitudFlexActivity.this,
+                        FinalizarAprobarRechazarFlexActivity.class);
+                intent.putExtra("nombreEmpleado",detalleSolicitudFlex.getEmployee());
+                intent.putExtra("idRequest",detalleSolicitudFlex.getId());
+                intent.putExtra("dia",detalleSolicitudFlex.getDayWeek());
+                intent.putExtra("aprobar",true);
+                intent.putExtra("observacion","");
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("Ahora no", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
+    }
 }

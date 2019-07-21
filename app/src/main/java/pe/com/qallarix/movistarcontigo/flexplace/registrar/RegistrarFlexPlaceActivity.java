@@ -110,6 +110,8 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
                         inhabilitarBotonRegistrar();
                         ocultarInformacionAprobacion();
                     }
+                }else{
+                    inhabilitarBotonRegistrar();
                 }
             }
 

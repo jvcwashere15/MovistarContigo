@@ -227,14 +227,14 @@
 
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/detalle_flexplace_tvTextoEstado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/telefonica_regular"
                     android:text="Estado de FlexPlace"
                     android:textColor="#757575"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/view1"
+                    app:layout_constraintBottom_toTopOf="@+id/viewLineEstado"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view0" />
 
@@ -247,13 +247,13 @@
                     android:padding="4dp"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/view1"
+                    app:layout_constraintBottom_toTopOf="@+id/viewLineEstado"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view0"
                     tools:text="APROBADO" />
 
                 <View
-                    android:id="@+id/view1"
+                    android:id="@+id/viewLineEstado"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="48dp"
@@ -272,7 +272,7 @@
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/view2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view1" />
+                    app:layout_constraintTop_toBottomOf="@+id/viewLineEstado" />
 
                 <TextView
                     android:id="@+id/detalle_flexplace_tvFechaSolicitud"
@@ -282,7 +282,7 @@
                     android:textColor="#2A2A3C"
                     app:layout_constraintBottom_toTopOf="@+id/view2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    app:layout_constraintTop_toBottomOf="@+id/viewLineEstado"
                     tools:text="15/03/2019" />
 
                 <View
@@ -292,7 +292,7 @@
                     android:layout_marginTop="48dp"
                     android:background="#DDDDDD"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    app:layout_constraintTop_toBottomOf="@+id/viewLineEstado"
                     app:layout_constraintVertical_bias="0.0"
                     tools:layout_editor_absoluteX="16dp" />
                 <TextView
@@ -436,7 +436,7 @@
                         app:srcCompat="@drawable/ic_info_notification" />
 
                     <TextView
-                        android:id="@+id/textView41"
+                        android:id="@+id/detalle_flexplace_tvTituloNotificacion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -455,8 +455,8 @@
                         android:layout_marginBottom="8dp"
                         android:textColor="#757575"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView41"
-                        app:layout_constraintTop_toBottomOf="@+id/textView41"
+                        app:layout_constraintStart_toStartOf="@+id/detalle_flexplace_tvTituloNotificacion"
+                        app:layout_constraintTop_toBottomOf="@+id/detalle_flexplace_tvTituloNotificacion"
                         tools:text="Por cambio de proyecto y sede de Telefónica." />
                 </android.support.constraint.ConstraintLayout>
             </FrameLayout>

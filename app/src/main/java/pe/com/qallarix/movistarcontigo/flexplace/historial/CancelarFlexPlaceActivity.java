@@ -140,7 +140,7 @@ public class CancelarFlexPlaceActivity extends AppCompatActivity {
                 intent.putExtra("fecha_fin",fechaFin);
                 intent.putExtra("idRequest",idRequest);
                 intent.putExtra("statusId",statusId);
-                intent.putExtra("observacion",etDescripcion.getText());
+                intent.putExtra("observacion",etDescripcion.getText().toString());
                 startActivity(intent);
                 finish();
             }
