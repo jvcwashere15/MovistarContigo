@@ -10,6 +10,7 @@
     <application
         android:icon="@drawable/contigo"
         android:label="@string/app_name"
+        android:allowBackup="true"
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

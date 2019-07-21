@@ -16,6 +16,7 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONObject;
 
+import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
@@ -87,8 +88,11 @@ public class VacacionesActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     FutureJoy futureJoy = response.body().getFutureJoy();
                     displayFutureJoy(futureJoy);
-                }else
+                }else if (response.code() == 500 || response.code() == 404){
                     mostrarMensajeError();
+                }else {
+                    displayResultadoException(response.errorBody());
+                }
                 isLoading = false;
                 mShimmerViewContainer.setVisibility(View.GONE);
                 mShimmerViewContainer.stopShimmer();
@@ -99,6 +103,24 @@ public class VacacionesActivity extends TranquiParentActivity {
                 mostrarMensajeError();
             }
         });
+    }
+
+    private void displayResultadoException(ResponseBody response) {
+        viewMessage.setVisibility(View.VISIBLE);
+        ivMessageImagen.setImageResource(R.drawable.img_error_servidor);
+        tvMessageTitle.setText("¡Ups!");
+        tvMessageBoton.setVisibility(View.GONE);
+        try {
+            JSONObject jsonObject = new JSONObject(response.string());
+            JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
+            String m = jsonObject1.getString("exceptionMessage");
+            tvMessageMensaje.setText(m);
+        } catch (Exception e) {
+            e.printStackTrace();
+            tvMessageMensaje.setText("Hubo un problema con el servidor. Estamos trabajando para solucionarlo." +
+                    "\nPor favor, verifica tus solicitudes pendientes por aprobar.");
+        }
+
     }
 
     private void displayFutureJoy(FutureJoy futureJoy) {
