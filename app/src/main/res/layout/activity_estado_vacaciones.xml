@@ -61,8 +61,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="Las vacaciones que se gozaron de forma masiva,
-                     p.ej. el 24 de diciembre del 2018, se visualiza sólo en el SGV."/>
+                    android:text="Las vacaciones que se gozaron de forma masiva, por ejemplo el 24 de diciembre del 2018, se visualiza sólo en el SGV."/>
             </LinearLayout>
             <include
                 android:id="@+id/view_message"

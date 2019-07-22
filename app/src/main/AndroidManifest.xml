@@ -93,7 +93,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".vacaciones.VacacionesActivity"
-            android:launchMode="singleTop"
+
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -111,7 +111,8 @@
                 android:resource="@drawable/ic_contigo" />
         </service>
 
-        <activity android:name=".util.TranquiParentActivity" /> <!-- - - - - - - - Módulo Autenticación - - - - - - -->
+        <activity android:name=".util.TranquiParentActivity" />
+        <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
             android:name=".autenticacion.SplashActivity"
             android:screenOrientation="portrait">
@@ -137,12 +138,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".autenticacion.AccountActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - Main Activity - Dashboard - - - - -->
         <activity
             android:name=".principal.MainActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - Módulo Descuentos - - - - - - - -->
         <activity
             android:name=".descuentos.DescuentosActivity"
@@ -152,7 +155,8 @@
         <activity
             android:name=".descuentos.DetalleDescuentoActivity"
             android:parentActivityName=".descuentos.DescuentosActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - Módulo Salud - - - - - - - - - -->
         <activity
             android:name=".salud.SaludActivity"
@@ -164,7 +168,8 @@
             android:launchMode="singleTop"
             android:parentActivityName=".salud.SaludActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".salud.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+        <activity android:name=".salud.PdfActivity" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
         <activity
             android:name=".beneficioespeciales.BeneficiosEspecialesActivity"
@@ -174,7 +179,8 @@
         <activity
             android:name=".beneficioespeciales.DetalleBeneficioEspecialActivity"
             android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
         <activity
             android:name=".embajador.CanalEmbajadorActivity"
@@ -193,12 +199,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".embajador.total.EmbajadorMovistarTotalActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Noticia - - - - - - - -->
         <activity
             android:name=".noticias.DetalleNoticiaActivity"
             android:parentActivityName=".principal.MainActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <activity
             android:name=".openlearning.CategoriasActivity"
             android:screenOrientation="portrait" />
