@@ -6,6 +6,7 @@
     android:id="@+id/item_solicitud_flexplace_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -14,7 +15,7 @@
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/item_historial_flexplace_tvEstado"
+        app:layout_constraintEnd_toStartOf="@+id/textView39"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,11 +25,11 @@
             android:id="@+id/item_solicitud_flexplace_tvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:fontFamily="@font/telefonica_bold"
+            android:maxLines="1"
             android:textColor="#2A2A3C"
             android:textSize="16sp"
-            android:maxLines="1"
-            android:ellipsize="end"
             tools:text="Denis Ricardo Morales Retamozo" />
 
         <TextView
@@ -42,6 +43,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textView39"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

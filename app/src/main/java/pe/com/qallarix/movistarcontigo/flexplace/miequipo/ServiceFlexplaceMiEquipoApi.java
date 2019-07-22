@@ -15,4 +15,8 @@ public interface ServiceFlexplaceMiEquipoApi {
     Call<ResponseFlexPlaceEquipo> getFlexPlaceMiEquipo(@Query("month") int month,
                                                             @Query("year") int year);
 
+    @GET("flexplace/team/report")
+    Call<ResponseReporteFlexMiEquipo> getReporteFlexMiEquipo(@Query("month") int month,
+                                                            @Query("year") int year);
+
 }

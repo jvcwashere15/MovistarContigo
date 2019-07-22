@@ -1,12 +1,20 @@
 package pe.com.qallarix.movistarcontigo.flexplace.miequipo;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,14 +24,18 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.single.BasePermissionListener;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.SolicitudFlex;
+import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
 import retrofit2.Call;
@@ -39,6 +51,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
     private RadioButton rbLunes,rbMartes,rbMiercoles,rbJueves,rbViernes;
     private TextView tvBotonGenerarReporte;
     private int dia,mes,anio;
+    AlertDialog alertDialog;
 
     //view message
     private View viewMessage;
@@ -73,6 +86,54 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         configurarRecycler();
         configurarFechaActual();
         cargarListaFlexPlaceEquipo();
+        configurarBotonGenerarReporte();
+    }
+
+    private void configurarBotonGenerarReporte() {
+
+        tvBotonGenerarReporte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(
+                        MiEquipoFlexPlaceActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (PermissionUtils.neverAskAgainSelected(MiEquipoFlexPlaceActivity.this,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                            displayNeverAskAgainDialog();
+                        } else {
+                            mostrarDialogNecesitamosPermisos();
+                        }
+                    }
+                }else {
+                    getReporteFromService();
+                }
+            }
+        });
+    }
+
+    private void getReporteFromService() {
+        tvMensajeViewLoader.setText("Generando reporte...");
+        viewLoader.setVisibility(View.VISIBLE);
+        Call<ResponseReporteFlexMiEquipo> call = WebService3
+                .getInstance(getDocumentNumber())
+                .createService(ServiceFlexplaceMiEquipoApi.class)
+                .getReporteFlexMiEquipo(mes,anio);
+        call.enqueue(new Callback<ResponseReporteFlexMiEquipo>() {
+            @Override
+            public void onResponse(Call<ResponseReporteFlexMiEquipo> call,
+                                   Response<ResponseReporteFlexMiEquipo> response) {
+                if (response.code() == 200){
+                    generarGuardarReporte(response.body().getFile(),response.body().getNameFile());
+                }
+                viewLoader.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseReporteFlexMiEquipo> call, Throwable t) {
+                Toast.makeText(MiEquipoFlexPlaceActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void configurarFechaActual() {
@@ -279,5 +340,83 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
     }
 
     public void clickNull(View view) {
+    }
+
+    public void mostrarDialogNecesitamosPermisos(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MiEquipoFlexPlaceActivity.this);
+        builder.setMessage("Para visualizar el archivo PDF, permite que Movistar Contigo pueda acceder al almacenamiento");
+        builder.setCancelable(false);
+        builder.setPositiveButton("CONTINUAR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                pedirPermisos();
+            }
+        });
+        builder.setNegativeButton("AHORA NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void pedirPermisos() {
+        if (alertDialog != null) alertDialog.dismiss();
+        Dexter.withActivity(MiEquipoFlexPlaceActivity.this).withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new BasePermissionListener(){
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        getReporteFromService();
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+                        PermissionUtils.setShouldShowStatus(MiEquipoFlexPlaceActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                    }
+                }).check();
+    }
+
+    private void generarGuardarReporte(String stringFile, String nameFile) {
+        byte[] excelAsBytes = Base64.decode(stringFile, 0);
+
+        File file = new File(Environment.getExternalStorageDirectory()
+                + "/" + nameFile);
+//                            File nuevaCarpeta = new File(Environment.getExternalStorageDirectory(), "CONTIGO2018");
+//                            nuevaCarpeta.mkdirs();
+//                            File file = new File(nuevaCarpeta, "REPORT_FLEXPLACE_OCTUBRE.xlsx");
+        FileOutputStream os = null;
+        try {
+            os = new FileOutputStream(file, true);
+            os.write(excelAsBytes);
+            os.flush();
+            os.close();
+            Toast.makeText(MiEquipoFlexPlaceActivity.this, "Documento " +
+                            nameFile + " guardado en el dispositivo",
+                    Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void displayNeverAskAgainDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MiEquipoFlexPlaceActivity.this);
+        builder.setMessage("Para guardar el reporte en el dispositivo, permite que podamos acceder " +
+                "al almacenamiento"+
+                "\nToca Ajustes > Permisos, y activa Almacenamiento");
+        builder.setCancelable(false);
+        builder.setPositiveButton("AJUSTES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent = new Intent();
+                intent.setAction(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("AHORA NO", null);
+        builder.show();
     }
 }
