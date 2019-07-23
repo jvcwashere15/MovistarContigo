@@ -1,9 +1,11 @@
 package pe.com.qallarix.movistarcontigo.flexplace;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -134,12 +136,16 @@ public class FlexplaceActivity extends TranquiParentActivity {
                         vFlexEquipo.setVisibility(View.VISIBLE);
                         vSolicitudes.setVisibility(View.VISIBLE);
                     }
-                    if (dashboard.getIsStatus() == 1){
+
+                    if (dashboard.getIsStatus() == 1)
                         displayDashboardVacio();
-                    }else if(dashboard.getIsStatus() == 2){
+                    else if(dashboard.getIsStatus() == 2)
                         displayDashboardPendientes();
-                    }else
+                    else if(dashboard.getIsStatus() == 3)
                         displayResumenFlexPlace(dashboard.getDayWeek(), dashboard.getDateEnd());
+                    else
+                        displayResumenFlexPlaceFuturo(dashboard.getDateStart());
+
                 }else if (response.code() == 400){
                     displayResultadoException(response.errorBody());
                 }else{
@@ -158,6 +164,19 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
     }
 
+    private void displayResumenFlexPlaceFuturo(String dateStart) {
+        tvMensaje.setText("Tu solicitud");
+        tvMeses.setText("FlexPlace");
+        tvMeses.setVisibility(View.VISIBLE);
+        tvDia.setText("está aprobada");
+        tvDia.setVisibility(View.VISIBLE);
+        tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        Resources res = getResources();
+        String text = String.format(res.getString(R.string.resumen_flexplace_periodo_futuro), dateStart);
+        CharSequence styledText = Html.fromHtml(text);
+        tvDescripcion.setText(styledText);
+        tvFechaDerecho.setVisibility(View.GONE);
+    }
 
 
     private void displayResultadoException(ResponseBody response) {
