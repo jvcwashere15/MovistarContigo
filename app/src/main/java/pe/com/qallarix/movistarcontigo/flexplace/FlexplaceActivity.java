@@ -16,6 +16,7 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 import org.json.JSONObject;
 import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.miequipo.MiEquipoFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
@@ -138,8 +139,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
                     }else if(dashboard.getIsStatus() == 2){
                         displayDashboardPendientes();
                     }else
-                        displayResumenFlexPlace(dashboard.getDayWeek(),
-                                dashboard.getMonthTaked(), dashboard.getDateEnd());
+                        displayResumenFlexPlace(dashboard.getDayWeek(), dashboard.getDateEnd());
                 }else if (response.code() == 400){
                     displayResultadoException(response.errorBody());
                 }else{
@@ -199,8 +199,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
         tvFechaDerecho.setVisibility(View.GONE);
     }
 
-    private void displayResumenFlexPlace(String dia, String meses, String fechaDerecho) {
-        tvDia.setText("¡Son los " + dia + "!");
+    private void displayResumenFlexPlace(String dia, String fechaDerecho) {
+        tvMeses.setText("¡Son los " + dia + "!");
         tvFechaDerecho.setText(fechaDerecho);
     }
 
@@ -226,6 +226,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
         switch (item.getItemId()){
             case R.id.action_informacion:
                 Intent intent = new Intent(this, AcercaFlexPlace.class);
+                Analitycs.logEventoClickBotonAcercaDeFlexPlace(this);
                 startActivity(intent);
                 return true;
             case android.R.id.home:

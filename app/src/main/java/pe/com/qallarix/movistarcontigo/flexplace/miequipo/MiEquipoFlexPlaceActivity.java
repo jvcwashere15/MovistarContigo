@@ -35,6 +35,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
@@ -393,6 +394,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
             Toast.makeText(MiEquipoFlexPlaceActivity.this, "Documento " +
                             nameFile + " guardado en el dispositivo",
                     Toast.LENGTH_SHORT).show();
+            Analitycs.logEventoClickBotonReporteFlexPlace(MiEquipoFlexPlaceActivity.this);
         } catch (Exception e) {
             e.printStackTrace();
         }

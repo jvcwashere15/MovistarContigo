@@ -1,12 +1,15 @@
 package pe.com.qallarix.movistarcontigo.flexplace.pojos;
 
 public class Dashboard {
-    private String dayWeek;
-    private String monthTaked;
-    private boolean isLeadership;
+
     private String dateEnd;
+    private String dateStart;
+    private String dayWeek;
+    private boolean isLeadership;
     private long isStatus;
     private String leadership;
+    private String monthTaked;
+
 
     public String getLeadership() {
         return leadership;
@@ -39,5 +42,13 @@ public class Dashboard {
 
     public void setIsStatus(long isStatus) {
         this.isStatus = isStatus;
+    }
+
+    public String getDateStart() {
+        return dateStart;
+    }
+
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
     }
 }

@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
@@ -202,6 +203,7 @@ public class VacacionesActivity extends TranquiParentActivity {
         switch (item.getItemId()){
             case R.id.action_informacion:
                 Intent intent = new Intent(this,AcercaActivity.class);
+                Analitycs.logEventoClickBotonAcercaDeVacaciones(this);
                 startActivity(intent);
                 return true;
             case android.R.id.home:

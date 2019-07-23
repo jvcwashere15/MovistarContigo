@@ -20,4 +20,20 @@ public class EventsAnalitycs {
     public static final String EVENT_BUTTON_NOTIFICATION_BELL = "BUTTON_NOTIFICATION_BELL";
 
     public static final String EVENT_BUTTON_PRIX_CLICKED = "BUTTON_PRIX_CLICKED";
+
+    public static final String EVENT_VACATION_REGISTER = "BUTTON_VACATION_REGISTER";
+
+    public static final String EVENT_VACATION_APPROVE = "BUTTON_VACATION_APPROVE";
+
+    public static final String EVENT_FLEXPLACE_REGISTER = "BUTTON_FLEXPLACE_REGISTER";
+
+    public static final String EVENT_FLEXPLACE_APPROVE = "BUTTON_FLEXPLACE_APPROVE";
+
+    public static final String EVENT_FLEXPLACE_CANCEL = "BUTTON_FLEXPLACE_CANCEL";
+
+    public static final String EVENT_BUTTON_REPORTE_FLEXPLACE = "BUTTON_REPORTE_FLEXPLACE";
+
+    public static final String EVENT_BUTTON_ABOUT_FLEXPLACE = "BUTTON_FLEXPLACE_ABOUT";
+
+    public static final String EVENT_BUTTON_ABOUT_VACATION = "BUTTON_VACATION_ABOUT";
 }

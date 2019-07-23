@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:fontFamily="@font/telefonica_bold"
-                    android:text="¡Son los \n Miércoles!"
+                    tools:text="¡Son los \n Miércoles!"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
 

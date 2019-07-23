@@ -79,6 +79,52 @@ public class Analitycs {
         FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_NOTIFICATION_BELL,null);
     }
 
+
+    public static void logEventoRegistroVacaciones(Context context, String date){
+        Bundle params = new Bundle();
+        params.putString(ParamsAnalitycs.VACATION_REGISTER_DATE, date);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_VACATION_REGISTER,params);
+    }
+
+
+    public static void logEventoAprobacionVacaciones(Context context, String date, boolean type){
+        Bundle params = new Bundle();
+        params.putString(ParamsAnalitycs.VACATION_APPROVE_DATE, date);
+        params.putBoolean(ParamsAnalitycs.VACATION_APPROVE_TYPE, type);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_VACATION_APPROVE,params);
+    }
+
+    public static void logEventoRegistroFlexPlace(Context context, String date){
+        Bundle params = new Bundle();
+        params.putString(ParamsAnalitycs.FLEXPLACE_REGISTER_DATE, date);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_FLEXPLACE_REGISTER,params);
+    }
+
+    public static void logEventoAprobacionFlexPlace(Context context, String date, boolean type){
+        Bundle params = new Bundle();
+        params.putString(ParamsAnalitycs.FLEXPLACE_APPROVE_DATE, date);
+        params.putBoolean(ParamsAnalitycs.FLEXPLACE_APPROVE_TYPE, type);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_FLEXPLACE_APPROVE,params);
+    }
+
+    public static void logEventoCancelacionFlexPlace(Context context, String date){
+        Bundle params = new Bundle();
+        params.putString(ParamsAnalitycs.FLEXPLACE_CANCEL_DATE, date);
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_FLEXPLACE_CANCEL,params);
+    }
+
+    public static void logEventoClickBotonReporteFlexPlace(Context context){
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_REPORTE_FLEXPLACE,null);
+    }
+
+    public static void logEventoClickBotonAcercaDeFlexPlace(Context context){
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_ABOUT_FLEXPLACE,null);
+    }
+
+    public static void logEventoClickBotonAcercaDeVacaciones(Context context){
+        FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_BUTTON_ABOUT_VACATION,null);
+    }
+
     public static void setUserProperties(Context context, String clase, String category,
                                          String vicePresidency, String management, String cip, String direction ) {
         FirebaseAnalytics.getInstance(context).setUserProperty("FOR_AREA",clase);

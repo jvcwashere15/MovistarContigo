@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
     private static final String TITLE_DISCOUNT = "DISCOUNT",
             TITLE_HEALTH = "HEALTH",
             TITLE_AMBASSADOR = "AMBASSADOR",
-            TITLE_OPEN_LEARNING = "OPEN_LEARNING",
+            TITLE_FLEXPLACE = "FLEXPLACE",
             TITLE_SPECIALS = "SPECIALS",
             TITLE_VACACIONES = "VACATION";
 
@@ -244,15 +244,9 @@ public class HomeFragment extends Fragment {
                 if (cardView.equals(cvBeneficiosEspeciales)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_SPECIALS);
                 else if (cardView.equals(cvCanalEmbajador)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_AMBASSADOR);
                 else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
-                else if (cardView.equals(cvFlexPlace)) {
-//                    Analitycs.logEventoClickDashboard(getActivity(), TITLE_OPEN_LEARNING);
-                }
+                else if (cardView.equals(cvFlexPlace)) Analitycs.logEventoClickDashboard(getActivity(), TITLE_FLEXPLACE);
                 else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
-                else if (cardView.equals(cvVacaciones)){
-//                    parentActivity.mostrarMensaje("Próximamente habilitaremos esta opción, estate atento a futuras actualizaciones.");
-                    Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);
-//                    return;
-                }
+                else if (cardView.equals(cvVacaciones)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);
                 irAlBeneficio(activityClass);
             }
         });

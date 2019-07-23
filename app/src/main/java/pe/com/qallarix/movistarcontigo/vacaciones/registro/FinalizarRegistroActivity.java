@@ -58,6 +58,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
             public void onResponse(Call<ResponseRegistrarVacaciones> call, Response<ResponseRegistrarVacaciones> response) {
                 if (response.code() == 200){
                     displayMensajeOK();
+
                 }else if (response.code() == 404 || response.code() == 500){
                     displayMensajeError();
                 }else {

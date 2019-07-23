@@ -17,4 +17,18 @@ public class ParamsAnalitycs {
     public static final String BOTTOM_NAV_TITLE = "title";
 
     public static final String DASHBOARD_TITLE = "title";
+
+    public static final String VACATION_REGISTER_DATE = "date";
+
+    public static final String VACATION_APPROVE_TYPE = "type";
+    public static final String VACATION_APPROVE_DATE = "date";
+
+    public static final String FLEXPLACE_REGISTER_DATE = "date";
+
+    public static final String FLEXPLACE_CANCEL_DATE = "date";
+
+
+    public static final String FLEXPLACE_APPROVE_TYPE = "type";
+    public static final String FLEXPLACE_APPROVE_DATE = "date";
+
 }
