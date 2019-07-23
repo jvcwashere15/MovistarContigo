@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Base64;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +52,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
     private Team currentTeam;
     private int checkMeses = 0,checkAnios = 0;
     private RadioButton rbLunes,rbMartes,rbMiercoles,rbJueves,rbViernes;
-    private TextView tvBotonGenerarReporte;
+    private TextView tvBotonGenerarReporte, tvMensajeEquipo;
     private int dia,mes,anio;
     AlertDialog alertDialog;
 
@@ -187,6 +189,8 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
         ivMessageImagen = findViewById(R.id.view_message_ivImagen);
         tvMessageBoton = findViewById(R.id.view_message_tvBoton);
+
+        tvMensajeEquipo = findViewById(R.id.flexplace_equipo_mensajeEquipo);
     }
 
     private void cargarListaFlexPlaceEquipo() {
@@ -203,6 +207,14 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     currentTeam = response.body().getTeam();
                     cargarLista();
+                    long miembros = response.body().getTotal();
+                    String text = "";
+                    if (miembros < 2)
+                        text = String.format(getResources().getString(R.string.flexplace_equipo_texto_numero_singular), miembros+"");
+                    else
+                        text = String.format(getResources().getString(R.string.flexplace_equipo_texto_numeros_plural), miembros+"");
+                    CharSequence styledText = Html.fromHtml(text);
+                    tvMensajeEquipo.setText(styledText);
                 }else {
                     mostrarMensaje500();
                 }
@@ -421,4 +433,6 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         builder.setNegativeButton("AHORA NO", null);
         builder.show();
     }
+
+
 }
