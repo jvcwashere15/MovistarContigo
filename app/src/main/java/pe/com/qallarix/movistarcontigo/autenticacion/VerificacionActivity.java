@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goodiebag.pinview.Pinview;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import pe.com.qallarix.movistarcontigo.R;
@@ -22,6 +28,7 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
+import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.util.TopicosNotificacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
@@ -88,7 +95,24 @@ public class VerificacionActivity extends TranquiParentActivity {
             public void onDataEntered(Pinview pinview, boolean b) {
                 hideSoftKeyboard(VerificacionActivity.this);
                 tokenAccess = mPinview.getValue();
-                validarTokenConServicio(documentType,documentNumber,tokenAccess);
+                FirebaseInstanceId.getInstance().getInstanceId()
+                        .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                                if (!task.isSuccessful()) {
+                                    Log.w("Firebase Token Id/", "getInstanceId failed", task.getException());
+                                    return;
+                                }
+                                // Get new Instance ID token
+                                String token = task.getResult().getToken();
+                                Log.d("Firebase Token Id/","FIREBASE TOKEN ID: " + token);
+                                SharedPreferences sharedPref = getSharedPreferences("quallarix.movistar.pe.com.quallarix", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("tokenNotification", token);
+                                editor.commit();
+                                validarTokenConServicio(documentType,documentNumber,tokenAccess);
+                            }
+                        });
             }
         });
     }
