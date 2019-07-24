@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -38,6 +37,7 @@ import java.util.Calendar;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
+import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
 import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
@@ -65,6 +65,9 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
     private TextView tvMensajeViewLoader;
     private View viewLoader;
 
+    //emptyview
+    private View emptyView;
+    private TextView tvEmptyView;
 
     public final int LUNES = 1;
     public final int MARTES = 2;
@@ -165,7 +168,25 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         flexPlaceEquipoAdapter = new FlexPlaceEquipoAdapter(this, new FlexPlaceEquipoAdapter.FlexEquipoOnClick() {
             @Override
             public void onClick(View v, int position) {
+                Intent intent = new Intent(MiEquipoFlexPlaceActivity.this,
+                        DetalleSolicitudFlexActivity.class);
+                FlexEquipo currentSolicitudFlex = null;
 
+                List<FlexEquipo> flexEquipo = new ArrayList<>();
+                switch (dia){
+                    case LUNES: flexEquipo = currentTeam.getUno();break;
+                    case MARTES: flexEquipo = currentTeam.getDos();break;
+                    case MIERCOLES: flexEquipo = currentTeam.getTres();break;
+                    case JUEVES: flexEquipo = currentTeam.getCuatro();break;
+                    case VIERNES: flexEquipo = currentTeam.getCinco();break;
+                }
+                currentSolicitudFlex = flexEquipo.get(position);
+
+                if (currentSolicitudFlex != null) {
+                    int requestCode = (int)currentSolicitudFlex.getId();
+                    intent.putExtra("requestCode",requestCode);
+                    startActivity(intent);
+                }
             }
         });
         rvLista.setAdapter(flexPlaceEquipoAdapter);
@@ -191,9 +212,13 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         tvMessageBoton = findViewById(R.id.view_message_tvBoton);
 
         tvMensajeEquipo = findViewById(R.id.flexplace_equipo_mensajeEquipo);
+
+        emptyView = findViewById(R.id.solicitudes_emptyview_view);
+        tvEmptyView = findViewById(R.id.solicitudes_emptyview_text);
     }
 
     private void cargarListaFlexPlaceEquipo() {
+        emptyView.setVisibility(View.GONE);
         viewMessage.setVisibility(View.GONE);
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseFlexPlaceEquipo> call = WebService3
@@ -209,7 +234,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
                     cargarLista();
                     long miembros = response.body().getTotal();
                     String text = "";
-                    if (miembros < 2)
+                    if (miembros == 1)
                         text = String.format(getResources().getString(R.string.flexplace_equipo_texto_numero_singular), miembros+"");
                     else
                         text = String.format(getResources().getString(R.string.flexplace_equipo_texto_numeros_plural), miembros+"");
@@ -239,7 +264,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         }
         flexPlaceEquipoAdapter.setFlexPlaceMiEquipo(flexEquipo);
         if (flexEquipo.isEmpty())
-            mostrarEmptyView("","No tienes solicitudes FlexPlace para este periodo");
+            mostrarEmptyView();
     }
 
     private void configurarSpinnerAnios() {
@@ -344,12 +369,8 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
-    private void mostrarEmptyView(String title, String mensaje) {
-        viewMessage.setVisibility(View.VISIBLE);
-        ivMessageImagen.setImageResource(R.drawable.ic_empty_view_lista_vacaciones);
-        tvMessageTitle.setText(title);
-        tvMessageMensaje.setText(mensaje);
-        tvMessageBoton.setVisibility(View.GONE);
+    private void mostrarEmptyView() {
+        emptyView.setVisibility(View.VISIBLE);
     }
 
     public void clickNull(View view) {

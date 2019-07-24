@@ -92,7 +92,7 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
-                android:text="Juv"
+                android:text="Jue"
                 style="@style/RadioButtonDia"/>
             <RadioButton
                 android:id="@+id/flexplace_equipo_rbViernes"
@@ -118,6 +118,20 @@
                 android:id="@+id/view_message"
                 android:visibility="gone"
                 layout="@layout/view_message_response_vacaciones"/>
+            <RelativeLayout
+                android:id="@+id/solicitudes_emptyview_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="@android:color/white">
+                <TextView
+                    android:id="@+id/solicitudes_emptyview_text"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="No tienes FlexPlace registrados de tu equipo para este día."/>
+            </RelativeLayout>
         </FrameLayout>
         <TextView
             android:id="@+id/flexplace_equipo_mensajeEquipo"
@@ -144,7 +158,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#55000000"
-
         android:id="@+id/lista_solicitudes_viewProgress"
         android:gravity="center"
         android:onClick="clickNull">

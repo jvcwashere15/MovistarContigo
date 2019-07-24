@@ -45,9 +45,6 @@ public class TranquiParentActivity extends AppCompatActivity {
         else Toast.makeText(this, m, Toast.LENGTH_SHORT).show();
     }
 
-
-
-
     public boolean existConnectionInternet(){
         ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
@@ -64,8 +61,12 @@ public class TranquiParentActivity extends AppCompatActivity {
         return sharedPreferences.getString("cip","");
     }
 
-    public String obtenerIniciales() {
+    public String getTokenNotification(){
+        SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
+        return sharedPreferences.getString("tokenNotification","");
+    }
 
+    public String obtenerIniciales() {
         SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
         String iniciales =  sharedPreferences.getString("initials","");
         return iniciales;

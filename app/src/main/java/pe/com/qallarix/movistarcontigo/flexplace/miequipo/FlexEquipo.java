@@ -15,6 +15,6 @@ public class FlexEquipo {
     public String getEmployee() { return employee; }
     public void setEmployee(String value) { this.employee = value; }
 
-    public long getID() { return id; }
-    public void setID(long value) { this.id = value; }
+    public long getId() { return id; }
+    public void setId(long value) { this.id = value; }
 }

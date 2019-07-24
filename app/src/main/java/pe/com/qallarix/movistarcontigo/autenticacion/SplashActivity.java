@@ -17,12 +17,13 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
+import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends TranquiParentActivity {
     private String mDni;
     private String mToken;
     private String mDocumentType;
@@ -79,7 +80,7 @@ public class SplashActivity extends AppCompatActivity {
     private void validarSesion(String tipoDoc, String numeroDoc, String tokenIngresado) {
         Call<ValidacionToken> call = WebService1.getInstance(mDni)
             .createService(ServiceEmployeeApi.class)
-            .validarSesion(tipoDoc,numeroDoc,tokenIngresado);
+            .validarSesion(tipoDoc,numeroDoc,tokenIngresado,getTokenNotification(),"1");
 
         call.enqueue(new Callback<ValidacionToken>() {
             @Override
@@ -121,11 +122,11 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private boolean existConnectionInternet(){
-        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
-    }
+//    private boolean existConnectionInternet(){
+//        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+//        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+//    }
 
     public void mostrarMensaje(String m){
         Toast mToast = Toast.makeText(this, m, Toast.LENGTH_SHORT);

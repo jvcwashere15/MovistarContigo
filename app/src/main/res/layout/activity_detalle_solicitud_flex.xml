@@ -19,7 +19,6 @@
             android:padding="16dp"
             android:background="@android:color/white"
             android:layout_height="match_parent">
-
             <View
                 android:id="@+id/detalle_estado_tvLider1"
                 android:layout_width="match_parent"
@@ -396,6 +395,22 @@
                     tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
 
                 <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvButtonNotificar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/boton_vacaciones_verde"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:gravity="center"
+                    android:text="Notificar para cancelación"
+                    android:textAllCaps="false"
+                    android:visibility="gone"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonAprobar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
                     android:id="@+id/detalle_solicitud_flex_tvButtonAprobar"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
@@ -479,5 +494,6 @@
             android:visibility="gone"
             layout="@layout/view_message_response_vacaciones"
             android:id="@+id/view_message"/>
+
     </FrameLayout>
 </LinearLayout>

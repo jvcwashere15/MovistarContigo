@@ -149,7 +149,7 @@ public class VerificacionActivity extends TranquiParentActivity {
     private void validarTokenConServicio(String tipoDoc, String numeroDoc, String tokenIngresado) {
         Call<ValidacionToken> call = WebService1.getInstance(documentNumber)
                 .createService(ServiceEmployeeApi.class)
-                .validarToken(tipoDoc,numeroDoc,tokenIngresado);
+                .validarToken(tipoDoc,numeroDoc,tokenIngresado,getTokenNotification(),"1");
         vProgressVerificacion.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<ValidacionToken>() {
             @Override

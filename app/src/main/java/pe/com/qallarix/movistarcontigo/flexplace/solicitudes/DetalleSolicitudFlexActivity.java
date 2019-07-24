@@ -34,7 +34,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
             tvFechaInicioFlex, tvFechaFinFlex, tvDescripcionSolicitud, tvDiaSolicitado;
 
     //boton aprobar rechazar
-    private TextView tvBotonAprobar, tvBotonRechazar;
+    private TextView tvBotonAprobar, tvBotonRechazar, tvBotonNotificar;
     private View viewNotification;
     private TextView tvMensajeNotificacion, tvTituloNotificacion;
 
@@ -56,6 +56,11 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         displayDetalleSolicitudFlexPlace();
         configurarBotonAprobar();
         configurarBotonRechazar();
+        configurarBotonNotificar();
+    }
+
+    private void configurarBotonNotificar() {
+        //todo boton notificar
     }
 
     private void configurarBotonAprobar() {
@@ -115,6 +120,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
                     int colorEstado = 0;
                     if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.APROBADO)){
                         strEstado = "APROBADO";colorEstado = R.drawable.etiqueta_verde;
+                        tvBotonNotificar.setVisibility(View.VISIBLE);
                     }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
                         strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
                         findViewById(R.id.detalle_solicitud_flex_viewLine).setVisibility(View.GONE);
@@ -159,6 +165,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         mShimmerViewContainer = findViewById(R.id.detalle_solicitud_flex_shimerFrameLayout);
         tvBotonAprobar = findViewById(R.id.detalle_solicitud_flex_tvButtonAprobar);
         tvBotonRechazar = findViewById(R.id.detalle_solicitud_flex_tvButtonRechazar);
+        tvBotonNotificar = findViewById(R.id.detalle_solicitud_flex_tvButtonNotificar);
 
         viewMessage = findViewById(R.id.view_message);
         tvMessageTitle = findViewById(R.id.view_message_tvTitle);
