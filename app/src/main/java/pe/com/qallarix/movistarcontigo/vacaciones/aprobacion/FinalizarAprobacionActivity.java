@@ -17,6 +17,7 @@ import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.RegistroVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseRegistrarAprobacion;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
@@ -33,7 +34,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
     private long dias;
     private String colaborador;
     //data extraIntent
-    private String employeeCode, requestCode;
+    private String employeeCode, requestCode, requestDateStart,requestDateEnd, bossCode, bossName;
     private boolean approver;
     private View viewProgress;
 
@@ -50,10 +51,13 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
 
     private void registrarAprobacionORechazo() {
         viewProgress.setVisibility(View.VISIBLE);
+        RegistroVacaciones registroVacaciones = new RegistroVacaciones(bossName,bossCode,employeeCode,
+                approver,requestCode,requestDateEnd,requestDateStart);
+
         Call<ResponseRegistrarAprobacion> call = WebService2
                 .getInstance(getDocumentNumber())
                 .createService(ServiceAprobacionVacacionesApi.class)
-                .aprobarRechazarSolicitud(employeeCode,requestCode,approver);
+                .aprobarRechazarSolicitud(registroVacaciones);
         
         call.enqueue(new Callback<ResponseRegistrarAprobacion>() {
             @Override
@@ -106,6 +110,11 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         requestCode = getIntent().getExtras().getString("requestCode");
         dias = getIntent().getExtras().getLong("dias");
         colaborador = getIntent().getExtras().getString("colaborador");
+        requestDateStart = getIntent().getExtras().getString("requestDateStart");
+        requestDateEnd = getIntent().getExtras().getString("requestDateEnd");
+        bossCode = getIntent().getExtras().getString("bossCode");
+        bossName = getIntent().getExtras().getString("bossName");
+        Toast.makeText(this, "auxiliar", Toast.LENGTH_SHORT).show();
     }
 
     private void bindearVistas() {

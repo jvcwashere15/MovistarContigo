@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".flexplace.solicitudes.DetalleSolicitudFlexActivity">
+    tools:context=".flexplace.solicitudes.DetallePendienteActivity">
     <include layout="@layout/my_toolbar"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/detalle_solicitud_flex_shimerFrameLayout"
@@ -192,10 +192,10 @@
                     android:id="@+id/detalle_solicitud_flex_tvNomEmpleado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="#757575"
-                    android:fontFamily="@font/telefonica_regular"
-                    tools:text="Aprobaste los días Flex de:"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textColor="#2A2A3C"
+                    tools:text="José Eduardo Mendoza Zavaleta"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -204,10 +204,10 @@
                     android:id="@+id/detalle_solicitud_flex_tvDescLider"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:textColor="#2A2A3C"
-                    tools:text="José Eduardo Mendoza Zavaleta"
+                    android:textSize="15sp"
+                    android:textColor="#757575"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="Está solicitando sus días Flex en las siguientes fechas:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -232,6 +232,7 @@
                     android:text="Estado de FlexPlace"
                     android:textColor="#757575"
                     android:textSize="16sp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_viewLine"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view0" />
@@ -243,6 +244,7 @@
                     android:fontFamily="@font/telefonica_bold"
                     android:gravity="center"
                     android:padding="4dp"
+                    android:visibility="gone"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_viewLine"
@@ -255,6 +257,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="48dp"
+                    android:visibility="gone"
                     android:background="#DDDDDD"
                     app:layout_constraintTop_toBottomOf="@+id/view0"/>
 
@@ -393,23 +396,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4"
                     tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
-
-                <TextView
-                    android:id="@+id/detalle_solicitud_flex_tvButtonNotificar"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:gravity="center"
-                    android:text="Notificar para cancelación"
-                    android:textAllCaps="false"
-                    android:visibility="gone"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonAprobar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
                 <TextView
                     android:id="@+id/detalle_solicitud_flex_tvButtonAprobar"
                     android:layout_width="0dp"
@@ -422,7 +408,6 @@
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
-                    android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonRechazar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -437,58 +422,11 @@
                     android:textAllCaps="false"
                     android:textColor="@color/loginBoton"
                     android:textSize="16sp"
-                    android:visibility="gone"
                     android:background="@drawable/boton_vacaciones_verde_blanco"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
             </android.support.constraint.ConstraintLayout>
-            <FrameLayout
-                android:id="@+id/detalle_solicitud_flex_viewNoticacion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:background="#F6F6F6">
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/fondo_notification">
-                    <ImageView
-                        android:id="@+id/imageView13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_info_notification" />
-
-                    <TextView
-                        android:id="@+id/detalle_solicitud_flex_tvTituloNotificacion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/telefonica_bold"
-                        android:text="Motivo de cancelación"
-                        android:textColor="#2A2A3C"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView13"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/detalle_solicitud_flex_tvMensajeNotificacion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="#757575"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/detalle_solicitud_flex_tvTituloNotificacion"
-                        app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvTituloNotificacion"
-                        tools:text="Por cambio de proyecto y sede de Telefónica." />
-                </android.support.constraint.ConstraintLayout>
-            </FrameLayout>
         </LinearLayout>
         <include
             android:visibility="gone"

@@ -269,7 +269,11 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
                                 if (rechazadas != null && rechazadas.size() > 0) currentSolicitudFlex = rechazadas.get(position);
                                 break;
                             case PENDIENTES:
-                                if (pendientes != null && pendientes.size()> 0) currentSolicitudFlex = pendientes.get(position);
+                                if (pendientes != null && pendientes.size()> 0) {
+                                    currentSolicitudFlex = pendientes.get(position);
+                                    intent = new Intent(SolicitudesFlexPlaceActivity.this,
+                                            DetallePendienteActivity.class);
+                                }
                                 break;
                             case CANCELADO:
                                 if (cancelados != null && cancelados.size()> 0) currentSolicitudFlex = cancelados.get(position);

@@ -38,6 +38,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private TextView tvMensajeViewLoader;
     private View viewLoader;
     private TabLayout tabLayout;
+    private int tabSelected = 0;
     private int currentTab;
     private final int PENDIENTES = 0;
     private final int APROBADAS = 1;
@@ -55,9 +56,22 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         setContentView(R.layout.activity_estado_vacaciones);
         configurarToolbar();
         bindearVistas();
+        getDataFromExtras();
         configurarRecyclerView();
         configurarTabs();
-        cargarPendientes();
+        if (tabSelected != 0){
+            TabLayout.Tab tab = tabLayout.getTabAt(tabSelected);
+            tab.select();
+        }else{
+            cargarPendientes();
+        }
+    }
+
+    private void getDataFromExtras() {
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("tabSelected")){
+            tabSelected = getIntent().getExtras().getInt("tabSelected",0);
+        }
+
     }
 
     private void configurarTabs() {

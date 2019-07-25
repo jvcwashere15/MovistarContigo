@@ -14,11 +14,13 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".flexplace.solicitudes.DetallePendienteActivity"></activity>
         <activity android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity" />
         <activity android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity" />
         <activity android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity" />
         <activity
             android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.historial.CancelarFlexPlaceActivity"

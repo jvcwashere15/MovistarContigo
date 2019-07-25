@@ -26,6 +26,8 @@ import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.pojos.Message;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "FIREBASE CONTIGO";
@@ -72,7 +74,24 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 notifyIntent = new Intent(this, DetalleBeneficioEspecialActivity.class);
             }else if (pantalla.equals("salud")){
                 notifyIntent = new Intent(this, DetalleSaludActivity.class);
-            }else{
+            }else if (pantalla.equals("vacation")){
+                if (data.containsKey("subModule")){
+                    String submodulo = data.get("subModule");
+                    if (submodulo.equals("employee")){
+                        if (data.containsKey("action")){
+                            String action = data.get("action");
+                            notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
+                            if (action.equals("refuse")){
+                                notifyIntent.putExtra("tabSelected",2);
+                            }else if (action.equals("approver")){
+                                notifyIntent.putExtra("tabSelected",1);
+                            }
+                        }
+                    }else if (submodulo.equals("leadership")){
+                        notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
+                    }
+                }
+            } else{
                 notifyIntent = new Intent(this, MainActivity.class);
             }
         }
@@ -92,9 +111,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setSmallIcon(R.drawable.ic_notificacion_contigo)
                 .setContentTitle(remoteMessage.getData().get("title"))
                 .setColor(ContextCompat.getColor(context, R.color.colorCanalEmbajador))
-                .setContentText(remoteMessage.getData().get("body"))
+
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(remoteMessage.getData().get("body")))
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
+
         if (!TextUtils.isEmpty(remoteMessage.getData().get("image"))){
             try {
                 builder.setLargeIcon(Picasso.with(context)

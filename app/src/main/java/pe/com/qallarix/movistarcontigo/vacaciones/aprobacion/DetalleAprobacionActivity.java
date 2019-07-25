@@ -13,8 +13,9 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
 public class DetalleAprobacionActivity extends TranquiParentActivity {
-    private String requestCode,requestDay,employeeName,
+    private String requestCode,requestDay,employeeName, employeeCode, bossCode, bossName,
             requestDateStart,requestDateEnd;
+
     private long requestDaysDifference;
     private TextView
             tvEmpleado,
@@ -45,6 +46,10 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
         employeeName = getIntent().getExtras().getString("employeeName","");
         requestDateStart = getIntent().getExtras().getString("requestDateStart","");
         requestDateEnd = getIntent().getExtras().getString("requestDateEnd","");
+        employeeCode = getIntent().getExtras().getString("employeeCode","");
+        bossCode = getIntent().getExtras().getString("bossCode","");
+        bossName = getIntent().getExtras().getString("bossName","");
+
         requestDaysDifference = getIntent().getExtras().getLong("getRequestDaysDifference",0);
     }
 
@@ -132,6 +137,12 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
                 intent.putExtra("employeeCode",getCIP());
                 intent.putExtra("requestCode",requestCode);
                 intent.putExtra("approver",approver);
+                intent.putExtra("requestDateStart",requestDateStart);
+                intent.putExtra("requestDateEnd",requestDateEnd);
+                intent.putExtra("employeeCode",employeeCode);
+                intent.putExtra("bossCode",bossCode);
+                intent.putExtra("bossName",bossName);
+
                 //Datos para mostrar
                 intent.putExtra("colaborador",nombre);
                 intent.putExtra("dias",requestDaysDifference);

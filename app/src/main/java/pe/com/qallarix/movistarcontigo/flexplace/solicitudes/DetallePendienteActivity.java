@@ -3,6 +3,7 @@ package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -24,19 +25,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
+public class DetallePendienteActivity extends TranquiParentActivity {
+
     //codigo de la solicitud
     private int requestCode;
     private DetalleSolicitudFlex detalleSolicitudFlex;
 
     //etiquetas de informacion
-    private TextView tvDescLider, tvNombreEmpleado, tvEstadoSolicitudFlex, tvFechaSolicitudFlex,
+    private TextView tvDescLider, tvNombreEmpleado, tvFechaSolicitudFlex,
             tvFechaInicioFlex, tvFechaFinFlex, tvDescripcionSolicitud, tvDiaSolicitado;
 
     //boton aprobar rechazar
-    private TextView tvBotonAprobar, tvBotonRechazar, tvBotonNotificar;
-    private View viewNotification;
-    private TextView tvMensajeNotificacion, tvTituloNotificacion;
+    private TextView tvBotonAprobar, tvBotonRechazar;
+
 
     //view message
     private View viewMessage;
@@ -49,7 +50,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_solicitud_flex);
+        setContentView(R.layout.activity_detalle_pendiente);
         getDataFromIntent();
         configurarToolbar();
         bindearVistas();
@@ -76,7 +77,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         tvBotonRechazar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetalleSolicitudFlexActivity.this,
+                Intent intent = new Intent(DetallePendienteActivity.this,
                         RechazoSolicitudFlexActivity.class);
                 intent.putExtra("fechaSolicitud",detalleSolicitudFlex.getDateRequest());
                 intent.putExtra("fechaInicio",detalleSolicitudFlex.getDateStart());
@@ -100,44 +101,15 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
             public void onResponse(Call<ResponseDetalleSolicitudFlex> call, Response<ResponseDetalleSolicitudFlex> response) {
                 if (response.code() == 200){
                     detalleSolicitudFlex =  response.body().getRequest();
-                    tvDescLider.setText(detalleSolicitudFlex.getMessageOne());
-                    tvNombreEmpleado.setText(detalleSolicitudFlex.getEmployee());
+                    tvDescLider.setText(detalleSolicitudFlex.getEmployee());
+                    tvNombreEmpleado.setText(detalleSolicitudFlex.getMessageOne());
 
                     tvFechaInicioFlex.setText(detalleSolicitudFlex.getDateStart());
                     tvFechaFinFlex.setText(detalleSolicitudFlex.getDateEnd());
 
                     tvDescripcionSolicitud.setText(detalleSolicitudFlex.getMessageTwo());
                     tvDiaSolicitado.setText(detalleSolicitudFlex.getDayWeek());
-
-                    if (!TextUtils.isEmpty(detalleSolicitudFlex.getReason())){
-                        viewNotification.setVisibility(View.VISIBLE);
-                        if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.RECHAZADO))
-                            tvTituloNotificacion.setText("Motivo de rechazo");
-                        tvMensajeNotificacion.setText(detalleSolicitudFlex.getReason());
-                    }
-
-                    String strEstado = "";
-                    int colorEstado = 0;
-                    if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.APROBADO)){
-                        strEstado = "APROBADO";colorEstado = R.drawable.etiqueta_verde;
-                        tvBotonNotificar.setVisibility(View.VISIBLE);
-                    }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
-                        strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
-                        findViewById(R.id.detalle_solicitud_flex_viewLine).setVisibility(View.GONE);
-                        findViewById(R.id.detalle_solicitud_flex_tvTextoEstado).setVisibility(View.GONE);
-                        tvEstadoSolicitudFlex.setVisibility(View.GONE);
-                        tvBotonAprobar.setVisibility(View.VISIBLE);
-                        tvBotonRechazar.setVisibility(View.VISIBLE);
-                    }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.RECHAZADO)){
-                        strEstado = "RECHAZADO";colorEstado = R.drawable.etiqueta_roja;
-                    }else if (detalleSolicitudFlex.getStatusId().equals(ServiceFlexplaceHistorialApi.CANCELADO)){
-                        strEstado = "CANCELADO";colorEstado = R.drawable.etiqueta_morada;
-                    }
-
                     tvFechaSolicitudFlex.setText(detalleSolicitudFlex.getDateRequest());
-                    tvEstadoSolicitudFlex.setText(strEstado);
-                    tvEstadoSolicitudFlex.setBackgroundResource(colorEstado);
-
 
                 }
                 isLoading = false;
@@ -147,7 +119,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ResponseDetalleSolicitudFlex> call, Throwable t) {
-                Toast.makeText(DetalleSolicitudFlexActivity.this,
+                Toast.makeText(DetallePendienteActivity.this,
                         "Error en el servicio", Toast.LENGTH_SHORT).show();
             }
         });
@@ -156,7 +128,6 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     private void bindearVistas() {
         tvDescLider = findViewById(R.id.detalle_solicitud_flex_tvNomEmpleado);
         tvNombreEmpleado = findViewById(R.id.detalle_solicitud_flex_tvDescLider);
-        tvEstadoSolicitudFlex = findViewById(R.id.detalle_solicitud_flex_tvEstado);
         tvFechaSolicitudFlex = findViewById(R.id.detalle_solicitud_flex_tvFechaSolicitud);
         tvFechaInicioFlex = findViewById(R.id.detalle_solicitud_flex_tvFechaInicio);
         tvFechaFinFlex = findViewById(R.id.detalle_solicitud_flex_tvFechaFin);
@@ -165,17 +136,12 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         mShimmerViewContainer = findViewById(R.id.detalle_solicitud_flex_shimerFrameLayout);
         tvBotonAprobar = findViewById(R.id.detalle_solicitud_flex_tvButtonAprobar);
         tvBotonRechazar = findViewById(R.id.detalle_solicitud_flex_tvButtonRechazar);
-        tvBotonNotificar = findViewById(R.id.detalle_solicitud_flex_tvButtonNotificar);
 
         viewMessage = findViewById(R.id.view_message);
         tvMessageTitle = findViewById(R.id.view_message_tvTitle);
         tvMessageMensaje = findViewById(R.id.view_message_tvMensaje);
         ivMessageImagen = findViewById(R.id.view_message_ivImagen);
         tvMessageBoton = findViewById(R.id.view_message_tvBoton);
-
-        viewNotification = findViewById(R.id.detalle_solicitud_flex_viewNoticacion);
-        tvTituloNotificacion = findViewById(R.id.detalle_solicitud_flex_tvTituloNotificacion);
-        tvMensajeNotificacion = findViewById(R.id.detalle_solicitud_flex_tvMensajeNotificacion);
     }
 
     private void getDataFromIntent() {
@@ -215,7 +181,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     }
 
     public void mostrarDialogAprobacionFlexPlace(String nombre){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(DetalleSolicitudFlexActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetallePendienteActivity.this);
         builder.setTitle("¿Deseas continuar?");
         String mensaje = "Vas a aprobar la solicitud de FlexPlace de " + nombre + ".";
 
@@ -223,7 +189,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         builder.setCancelable(false);
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Intent intent = new Intent(DetalleSolicitudFlexActivity.this,
+                Intent intent = new Intent(DetallePendienteActivity.this,
                         FinalizarAprobarRechazarFlexActivity.class);
                 intent.putExtra("nombreEmpleado",detalleSolicitudFlex.getEmployee());
                 intent.putExtra("idRequest",detalleSolicitudFlex.getId());
