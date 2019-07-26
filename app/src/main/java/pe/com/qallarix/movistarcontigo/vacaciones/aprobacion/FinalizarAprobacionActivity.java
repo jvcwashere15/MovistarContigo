@@ -114,7 +114,6 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         requestDateEnd = getIntent().getExtras().getString("requestDateEnd");
         bossCode = getIntent().getExtras().getString("bossCode");
         bossName = getIntent().getExtras().getString("bossName");
-        Toast.makeText(this, "auxiliar", Toast.LENGTH_SHORT).show();
     }
 
     private void bindearVistas() {

@@ -72,7 +72,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@+id/vacaciones_tvPendientes"
                         android:fontFamily="@font/telefonica_regular"
-                        android:text="pendientes"
+                        android:text="disponibles"
                         android:textColor="@android:color/white"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -88,6 +88,7 @@
                         android:fontFamily="@font/telefonica_bold"
                         android:includeFontPadding="false"
                         tools:text="05"
+                        android:visibility="gone"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
@@ -95,6 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
+                        android:visibility="gone"
                         android:layout_toEndOf="@+id/vacaciones_tvAdelanto"
                         android:fontFamily="@font/telefonica_regular"
                         android:text="para adelanto"
