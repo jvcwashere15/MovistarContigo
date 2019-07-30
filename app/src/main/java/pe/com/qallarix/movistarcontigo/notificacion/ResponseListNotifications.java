@@ -4,18 +4,18 @@ import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.pojos.Message;
 
-public class Notificaciones {
+public class ResponseListNotifications {
     private Message message;
-    private List<Notification> notifications;
+    private List<Notification> list;
 
     public Message getMessage() { return message; }
     public void setMessage(Message value) { this.message = value; }
 
-    public List<Notification> getNotifications() {
-        return notifications;
+    public List<Notification> getList() {
+        return list;
     }
 
-    public void setNotifications(List<Notification> notifications) {
-        this.notifications = notifications;
+    public void setList(List<Notification> list) {
+        this.list = list;
     }
 }

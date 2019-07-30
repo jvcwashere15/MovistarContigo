@@ -50,6 +50,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
         setContentView(R.layout.activity_detalle_estado_vacaciones);
         configurarToolbar();
         requestCode = getIntent().getExtras().getString("requestCode");
+
         bindearVistas();
         displayDetalleEstado();
     }
@@ -151,6 +152,9 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
             @Override
             public void onFailure(Call<ResponseDetalleSolicitud> call, Throwable t) {
                 mostrarMensaje500();
+                isLoading = false;
+                mShimmerViewContainer.setVisibility(View.GONE);
+                mShimmerViewContainer.stopShimmer();
             }
         });
 

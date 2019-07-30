@@ -37,13 +37,13 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
     private RecyclerView rvLista;
     private PendientesAdapter pendientesAdapter;
     private List<SolicitudAprobacion> solicitudAprobacions;
+
     //view message
     private View viewMessage;
     private TextView tvMessageTitle, tvMessageMensaje, tvMessageBoton;
     private ImageView ivMessageImagen;
 
-    private boolean isLoading = true;
-
+    private boolean isLoading = true, mPantallaAnterior;
     private ShimmerFrameLayout mShimmerViewContainer;
 
 
@@ -51,6 +51,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprobacion_vacaciones);
+        mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
         configurarToolbar();
         bindearVistas();
         configurarRecycler();
@@ -198,6 +199,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
 
     @Override
     public void onBackPressed() {
-        goToParentActivity();
+        if (mPantallaAnterior) super.onBackPressed();
+        else goToParentActivity();
     }
 }

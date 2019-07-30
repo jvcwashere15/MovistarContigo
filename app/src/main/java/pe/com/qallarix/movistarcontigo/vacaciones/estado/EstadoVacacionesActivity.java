@@ -44,6 +44,8 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private final int APROBADAS = 1;
     private final int RECHAZADAS = 2;
 
+    private boolean mPantallaAnterior;
+
     //view message
     private View viewMessage;
     private TextView tvMessageTitle, tvMessageMensaje, tvMessageBoton;
@@ -70,6 +72,9 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private void getDataFromExtras() {
         if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("tabSelected")){
             tabSelected = getIntent().getExtras().getInt("tabSelected",0);
+        }
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("lista_notificaciones")){
+            mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
         }
 
     }
@@ -288,7 +293,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                goToParentActivity();
+                onBackPressed();
                 return true;
             default:return super.onOptionsItemSelected(item);
         }
@@ -303,7 +308,8 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
 
     @Override
     public void onBackPressed() {
-        goToParentActivity();
+        if (mPantallaAnterior) super.onBackPressed();
+        else goToParentActivity();
     }
 
     public void clickNull(View view) {

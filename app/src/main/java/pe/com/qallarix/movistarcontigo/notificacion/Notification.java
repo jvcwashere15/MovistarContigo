@@ -1,35 +1,17 @@
 package pe.com.qallarix.movistarcontigo.notificacion;
 
 public class Notification {
-    private String description;
     private long id;
     private String idPost;
-    private String image;
     private String module;
+    private String subModule;
+    private String action;
     private String moduleTitle;
     private String title;
-    private long viewed;
+    private String description;
+    private String image;
+    private boolean viewed;
 
-    public String getDescription() { return description; }
-    public void setDescription(String value) { this.description = value; }
-
-    public long getID() { return id; }
-    public void setID(long value) { this.id = value; }
-
-    public String getIDPost() { return idPost; }
-    public void setIDPost(String value) { this.idPost = value; }
-
-    public String getImage() { return image; }
-    public void setImage(String value) { this.image = value; }
-
-    public String getModule() { return module; }
-    public void setModule(String value) { this.module = value; }
-
-    public String getTitle() { return title; }
-    public void setTitle(String value) { this.title = value; }
-
-    public long getViewed() { return viewed; }
-    public void setViewed(long value) { this.viewed = value; }
 
     public long getId() {
         return id;
@@ -47,11 +29,67 @@ public class Notification {
         this.idPost = idPost;
     }
 
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
+
+    public String getSubModule() {
+        return subModule;
+    }
+
+    public void setSubModule(String subModule) {
+        this.subModule = subModule;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
     public String getModuleTitle() {
         return moduleTitle;
     }
 
     public void setModuleTitle(String moduleTitle) {
         this.moduleTitle = moduleTitle;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public boolean isViewed() {
+        return viewed;
+    }
+
+    public void setViewed(boolean viewed) {
+        this.viewed = viewed;
     }
 }
