@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -209,9 +210,33 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
         });
     }
 
+    private Date obtenerFechaActual(){
+        return Calendar.getInstance().getTime();
+    }
+
     private void obtenerFecha(final int flag){
-        Calendar cal = Calendar.getInstance();
-        Date currentDate = cal.getTime();
+        String dateSetter = "";
+        if (flag == INICIO) dateSetter = tvFechaInicio.getText().toString();
+        else dateSetter = tvFechaFin.getText().toString();
+
+        //obtenemos un date inciial para empezar el calendar
+        Date dateInit = obtenerFechaActual();
+        //Si se tiene fecha a setear, se transforma y setea sino se mantiene el date actual
+        if (!dateSetter.equals("dd/mm/aaaa")){
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try{
+                dateInit = dateFormat.parse(dateSetter);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        int year = dateInit.getYear() + 1900;
+        int mes = dateInit.getMonth();
+        int dia = dateInit.getDate();
+
+
+
+
         DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -244,9 +269,9 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
             /**
              *También puede cargar los valores que usted desee
              */
-        }, currentDate.getYear(), currentDate.getMonth(), currentDate.getDay());
+        }, year, mes, dia);
         //Muestro el widget
-
+        Date currentDate = obtenerFechaActual();
         recogerFecha.getDatePicker().setMinDate(currentDate.getTime());
         recogerFecha.show();
     }
