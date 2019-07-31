@@ -206,27 +206,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView35"
                     app:layout_constraintTop_toBottomOf="@+id/textView34"/>
-
-                <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
-                    android:id="@+id/textView37"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:inactiveColor="@color/colorCanalEmbajador"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView36" />
-                <TextView
-                    android:id="@+id/textView38"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/telefonica_regular"
-                    android:text="@string/texto_acerca_vacaciones_bullet2_3"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView37"
-                    app:layout_constraintTop_toBottomOf="@+id/textView36"/>
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
         <TextView

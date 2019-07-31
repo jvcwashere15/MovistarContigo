@@ -51,11 +51,18 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprobacion_vacaciones);
-        mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
+        getExtrasFromIntent();
         configurarToolbar();
         bindearVistas();
         configurarRecycler();
         cargarListaSolicitudesPendientes();
+    }
+
+    private void getExtrasFromIntent() {
+        if (getIntent().getExtras() != null &&
+                getIntent().getExtras().containsKey("lista_notificaciones"))
+            mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
+
     }
 
     @Override

@@ -201,7 +201,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
         tvMensaje.setText("Disfruta de tu");
         tvMeses.setText("FlexPlace");
         tvDia.setVisibility(View.VISIBLE);
-        tvDia.setText("Regístralo ahora");
+        tvDia.setText("¡Regístralo ahora!");
         tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         tvDescripcion.setText("¡Elige un día de la semana para trabajar desde casa!");
         tvFechaDerecho.setVisibility(View.GONE);

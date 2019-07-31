@@ -25,9 +25,9 @@
     <string name="dash_title_estudios">Estudios</string>
     <string name="dash_title_open_learning">Open\nLearning</string>
 
-    <string name="dash_title_embajador">Canal\nembajador</string>
+    <string name="dash_title_embajador">Embajador</string>
     <string name="dash_title_salud">Salud</string>
-    <string name="dash_title_beneficios_especiales">Beneficios\nespeciales</string>
+    <string name="dash_title_beneficios_especiales">Especiales</string>
     <string name="dashboard_descuentos_titulo">Descuentos exclusivos</string>
     <string name="noticia_titulo_1">¡Comienza tu verano en la playa!</string>
     <string name="noticia_titulo_2">¡Última hora!</string>
@@ -350,8 +350,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         de no cumplir con esta pauta.</string>
 
     <string name="texto_acerca_vacaciones_bullet2_1"><b>Fecha de derecho:</b> es la fecha en la que ganas 30 días de descanso vacacional por cada año de servicio.</string>
-    <string name="texto_acerca_vacaciones_bullet2_2"><b>Vacaciones pendientes:</b> son los días pendientes por gozar correspondiente a la fecha de derecho actual.</string>
-    <string name="texto_acerca_vacaciones_bullet2_3"><b>Vacaciones para adelanto:</b> son los días que acumulas mes a mes, antes de completar el año de servicio.</string>
+    <string name="texto_acerca_vacaciones_bullet2_2"><b>Vacaciones disponibles:</b> son los días reales que tienes por programar a partir de la fecha actual.</string>
 
     <string name="texto_acerca_vacaciones_vineta_1">Si tus vacaciones inician en la primera quincena del
         mes (entre el día 1 y 15) y ha sido registrado y aprobado como máximo hasta el día 2 del
@@ -383,7 +382,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         que hayas acumulado en el respectivo periodo.
         \n\nPara el registro de los 30 días calendario de vacaciones ganadas recuerda que:
     </string>
-    <string name="dash_title_vacaciones">Gestión de vacaciones</string>
+    <string name="dash_title_vacaciones">Vacaciones</string>
 
     <string name="salud_afiliaciones_eps_pt1">1.Completar la ficha de afiliación a la EPS, el formato carta Plan de Salud EPS y los requisitos especificados de acuerdo al tipo de afiliado.</string>
     <string name="salud_afiliaciones_eps_pt2">2.En la ficha de afiliación deberás llenar las secciones de: Entidad Empleadora, Datos de Titular, Dependientes (en caso de requerir), Declaración de Salud y responder a todas las preguntas. La ficha se debe enviar debidamente firmada.</string>

@@ -76,7 +76,6 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("lista_notificaciones")){
             mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
         }
-
     }
 
     private void configurarTabs() {

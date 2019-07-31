@@ -145,7 +145,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_canal_embajador"
+                    app:srcCompat="@drawable/ic_embajador"
                     android:layout_height="32dp"/>
                 <TextView
                     android:layout_width="0dp"
@@ -155,7 +155,7 @@
                     android:fontFamily="@font/telefonica_regular"
                     android:layout_gravity="center"
                     android:textSize="18sp"
-                    android:text="Canal embajador"/>
+                    android:text="@string/dash_title_embajador"/>
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -185,7 +185,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_beneficios_especiales"
+                    app:srcCompat="@drawable/ic_especiales"
                     android:layout_height="32dp"/>
                 <TextView
                     android:layout_width="0dp"
@@ -195,7 +195,7 @@
                     android:fontFamily="@font/telefonica_regular"
                     android:layout_gravity="center"
                     android:textSize="18sp"
-                    android:text="Beneficios especiales"/>
+                    android:text="@string/dash_title_beneficios_especiales"/>
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"

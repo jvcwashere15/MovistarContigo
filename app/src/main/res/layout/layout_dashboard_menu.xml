@@ -196,7 +196,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:paddingBottom="8dp"
-                        app:srcCompat="@drawable/ic_canal_embajador" />
+                        app:srcCompat="@drawable/ic_embajador" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -372,13 +372,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:paddingBottom="8dp"
-                        app:srcCompat="@drawable/ic_beneficios_especiales" />
+                        app:srcCompat="@drawable/ic_especiales" />
 
                     <TextView
                         android:layout_width="wrap_content"

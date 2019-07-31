@@ -1,6 +1,7 @@
 package pe.com.qallarix.movistarcontigo.principal.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,11 +9,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
@@ -244,12 +247,30 @@ public class HomeFragment extends Fragment {
                 if (cardView.equals(cvBeneficiosEspeciales)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_SPECIALS);
                 else if (cardView.equals(cvCanalEmbajador)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_AMBASSADOR);
                 else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
-                else if (cardView.equals(cvFlexPlace)) Analitycs.logEventoClickDashboard(getActivity(), TITLE_FLEXPLACE);
+                else if (cardView.equals(cvFlexPlace)){
+                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
+                    Analitycs.logEventoClickDashboard(getActivity(), TITLE_FLEXPLACE);
+                    return;
+                }
                 else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
                 else if (cardView.equals(cvVacaciones)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);
                 irAlBeneficio(activityClass);
             }
         });
+    }
+
+    public void mostrarMensaje(String m){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(m);
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!getActivity().isFinishing()) alertDialog.show();
+        else Toast.makeText(getActivity(), m, Toast.LENGTH_SHORT).show();
     }
 
 

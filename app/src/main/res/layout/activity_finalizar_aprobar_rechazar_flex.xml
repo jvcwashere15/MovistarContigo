@@ -99,9 +99,9 @@
                     android:gravity="center"
                     android:visibility="gone"
                     android:fontFamily="@font/telefonica_bold"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:textColor="@android:color/white"
-                    android:text="Volver al menú"
+                    android:background="@drawable/boton_vacaciones_verde_blanco"
+                    android:textColor="@color/loginBoton"
+                    android:text="Volver a FlexPlace"
                     android:onClick="volverMenu"/>
             </LinearLayout>
         </RelativeLayout>
