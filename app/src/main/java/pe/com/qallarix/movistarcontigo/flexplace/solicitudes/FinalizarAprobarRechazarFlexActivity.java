@@ -12,7 +12,13 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.FinalizarCancelacionFlexActivity;
@@ -21,6 +27,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.historial.ServiceFlexplaceHisto
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.FinalizarAprobacionActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -110,6 +117,13 @@ public class FinalizarAprobarRechazarFlexActivity extends TranquiParentActivity 
             @Override
             public void onResponse(Call<ResponseFinalizarCancelacion> call, Response<ResponseFinalizarCancelacion> response) {
                 if (response.code() == 200){
+                    Date date = Calendar.getInstance().getTime();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String strDate = dateFormat.format(date);
+                    if (aprobar)
+                        Analitycs.logEventoAprobacionFlexPlace(FinalizarAprobarRechazarFlexActivity.this,strDate,"true");
+                    else
+                        Analitycs.logEventoAprobacionFlexPlace(FinalizarAprobarRechazarFlexActivity.this,strDate,"false");
                     if (aprobar) displayMensajeOKAprobado();
                     else displayMensajeOKRechazado();
                 }else if (response.code() == 404 || response.code() == 500){

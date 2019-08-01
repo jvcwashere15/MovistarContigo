@@ -9,13 +9,21 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.pojos.ResponseRegistrarFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -99,6 +107,10 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseRegistrarFlexPlace> call, Response<ResponseRegistrarFlexPlace> response) {
                 if (response.code() == 200){
+                    Date date = Calendar.getInstance().getTime();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String strDate = dateFormat.format(date);
+                    Analitycs.logEventoRegistroFlexPlace(FinalizarRegistroFlexActivity.this,strDate);
                     displayMensajeOK();
                 }else if (response.code() == 404 || response.code() == 500){
                     displayMensajeError();

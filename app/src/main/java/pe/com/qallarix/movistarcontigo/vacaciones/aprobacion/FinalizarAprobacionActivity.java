@@ -13,8 +13,14 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.RegistroVacaciones;
@@ -63,6 +69,13 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseRegistrarAprobacion> call, Response<ResponseRegistrarAprobacion> response) {
                 if (response.code() == 200){
+                    Date date = Calendar.getInstance().getTime();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String strDate = dateFormat.format(date);
+                    if (approver)
+                        Analitycs.logEventoAprobacionVacaciones(FinalizarAprobacionActivity.this,strDate,"true");
+                    else
+                        Analitycs.logEventoAprobacionVacaciones(FinalizarAprobacionActivity.this,strDate,"false");
                     displayResultadoRegistroOK();
                 }else if (response.code() == 500 || response.code() == 404){
                     displayResultadoError();

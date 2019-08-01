@@ -9,7 +9,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
 import pe.com.qallarix.movistarcontigo.vacaciones.AcercaActivity;
@@ -57,8 +64,11 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseRegistrarVacaciones> call, Response<ResponseRegistrarVacaciones> response) {
                 if (response.code() == 200){
+                    Date date = Calendar.getInstance().getTime();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String strDate = dateFormat.format(date);
+                    Analitycs.logEventoRegistroVacaciones(FinalizarRegistroActivity.this,strDate);
                     displayMensajeOK();
-
                 }else if (response.code() == 404 || response.code() == 500){
                     displayMensajeError();
                 }else {

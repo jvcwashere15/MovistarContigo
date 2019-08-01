@@ -87,10 +87,10 @@ public class Analitycs {
     }
 
 
-    public static void logEventoAprobacionVacaciones(Context context, String date, boolean type){
+    public static void logEventoAprobacionVacaciones(Context context, String date, String type){
         Bundle params = new Bundle();
         params.putString(ParamsAnalitycs.VACATION_APPROVE_DATE, date);
-        params.putBoolean(ParamsAnalitycs.VACATION_APPROVE_TYPE, type);
+        params.putString(ParamsAnalitycs.VACATION_APPROVE_TYPE, type);
         FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_VACATION_APPROVE,params);
     }
 
@@ -100,10 +100,10 @@ public class Analitycs {
         FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_FLEXPLACE_REGISTER,params);
     }
 
-    public static void logEventoAprobacionFlexPlace(Context context, String date, boolean type){
+    public static void logEventoAprobacionFlexPlace(Context context, String date, String type){
         Bundle params = new Bundle();
         params.putString(ParamsAnalitycs.FLEXPLACE_APPROVE_DATE, date);
-        params.putBoolean(ParamsAnalitycs.FLEXPLACE_APPROVE_TYPE, type);
+        params.putString(ParamsAnalitycs.FLEXPLACE_APPROVE_TYPE, type);
         FirebaseAnalytics.getInstance(context).logEvent(EventsAnalitycs.EVENT_FLEXPLACE_APPROVE,params);
     }
 

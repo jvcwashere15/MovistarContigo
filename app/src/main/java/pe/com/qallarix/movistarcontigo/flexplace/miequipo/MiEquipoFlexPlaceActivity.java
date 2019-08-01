@@ -31,6 +31,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.single.BasePermissionListener;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -194,7 +195,33 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
 
     private void binderVistas() {
         spMeses = findViewById(R.id.flexplace_equipo_spMeses);
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true);
+
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(spMeses);
+
+            // Set popupWindow height to 500px
+            popupWindow.setHeight(560);
+        }
+        catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+            // silently fail...
+        }
         spAnios = findViewById(R.id.flexplace_equipo_spAnios);
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true);
+
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(spAnios);
+
+            // Set popupWindow height to 500px
+            popupWindow.setHeight(560);
+        }
+        catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+            // silently fail...
+        }
         rbLunes = findViewById(R.id.flexplace_equipo_rbLunes);
         rbMartes = findViewById(R.id.flexplace_equipo_rbMartes);
         rbMiercoles = findViewById(R.id.flexplace_equipo_rbMiercoles);

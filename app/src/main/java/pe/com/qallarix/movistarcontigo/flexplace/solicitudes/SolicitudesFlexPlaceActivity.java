@@ -3,6 +3,7 @@ package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -59,6 +60,8 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
     private final int RECHAZADAS = 2;
     private final int CANCELADO = 3;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
     private final String STATUS_PENDIENTES = "02";
     private final String STATUS_APROBADAS = "03";
     private final String STATUS_RECHAZADAS = "04";
@@ -79,15 +82,24 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
         bindearVistas();
         configurarRecyclerView();
         configurarTabs();
-        displayListaHistorial(PENDIENTES);
+        displayListaHistorial(PENDIENTES,false);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                displayListaHistorial(tabLayout.getSelectedTabPosition(),true);
+            }
+        });
     }
+
+
 
     private void configurarTabs() {
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int index = tab.getPosition();
-                displayListaHistorial(index);
+                displayListaHistorial(index,false);
             }
 
             @Override
@@ -98,7 +110,8 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
-    private void displayListaHistorial(int tipoLista) {
+    private void displayListaHistorial(int tipoLista,boolean recargar) {
+
         spAnioCancelado.setVisibility(View.GONE);
         spAnioRechazado.setVisibility(View.GONE);
         spAnioAprobado.setVisibility(View.GONE);
@@ -109,29 +122,30 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
                 spAnioAprobado.setVisibility(View.VISIBLE);
                 cargarListaHistorial(spAnioAprobado,tipoLista,STATUS_APROBADAS, aprobadas,
                         getString(R.string.flexplace_mensaje_carga_aprobadas),
-                        getString(R.string.flexplace_mensaje_empty_aprobadas)); break;
+                        getString(R.string.flexplace_mensaje_empty_aprobadas),recargar); break;
             case PENDIENTES:
                 spAnioPendiente.setVisibility(View.VISIBLE);
                 cargarListaHistorial(spAnioPendiente,tipoLista,STATUS_PENDIENTES, pendientes,
                         getString(R.string.flexplace_mensaje_carga_pendientes),
-                        getString(R.string.flexplace_mensaje_empty_pendientes)); break;
+                        getString(R.string.flexplace_mensaje_empty_pendientes),recargar); break;
             case RECHAZADAS:
                 spAnioRechazado.setVisibility(View.VISIBLE);
                 cargarListaHistorial(spAnioRechazado,tipoLista,STATUS_RECHAZADAS, rechazadas,
                         getString(R.string.flexplace_mensaje_carga_rechazadas),
-                        getString(R.string.flexplace_mensaje_empty_rechazadas)); break;
+                        getString(R.string.flexplace_mensaje_empty_rechazadas),recargar); break;
             case CANCELADO:
                 spAnioCancelado.setVisibility(View.VISIBLE);
                 cargarListaHistorial(spAnioCancelado,tipoLista,STATUS_CANCELADO, cancelados,
                         getString(R.string.flexplace_mensaje_carga_cancelados),
-                        getString(R.string.flexplace_mensaje_empty_cancelados)); break;
+                        getString(R.string.flexplace_mensaje_empty_cancelados),recargar); break;
         }
     }
 
     private void cargarListaHistorial(Spinner spinner, final int tipoLista, final String status, List<SolicitudFlex> solicitudesFlex,
-                                      final String mensajeCarga, final String mensajeEmpty){
+                                      final String mensajeCarga, final String mensajeEmpty,boolean recargar){
+        swipeRefreshLayout.setVisibility(View.VISIBLE);
         viewMessage.setVisibility(View.GONE);
-        if (solicitudesFlex == null){
+        if (solicitudesFlex == null || recargar){
             solicitudesFlexPlaceAdapter.setHistorialFlexPlace(new ArrayList<SolicitudFlex>());
             switch (tipoLista){
                 case PENDIENTES:
@@ -223,6 +237,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
         call.enqueue(new Callback<ResponseSolicitudesFlexPlace>() {
             @Override
             public void onResponse(Call<ResponseSolicitudesFlexPlace> call, Response<ResponseSolicitudesFlexPlace> response) {
+                swipeRefreshLayout.setRefreshing(false);
                 if (response.code() == 200){
                     List<SolicitudFlex> flexPlaces = response.body().getList();
                     cargarLista(tipoLista,flexPlaces,mensajeEmpty);
@@ -290,6 +305,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void mostrarMensaje500(final int tipoLista) {
+        swipeRefreshLayout.setVisibility(View.GONE);
         viewMessage.setVisibility(View.VISIBLE);
         ivMessageImagen.setImageResource(R.drawable.img_error_servidor);
         tvMessageTitle.setText("¡Ups!");
@@ -300,12 +316,13 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
         tvMessageBoton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayListaHistorial(tipoLista);
+                displayListaHistorial(tipoLista,false);
             }
         });
     }
 
     private void mostrarEmptyView(String title, String mensaje) {
+        swipeRefreshLayout.setVisibility(View.GONE);
         viewMessage.setVisibility(View.VISIBLE);
         ivMessageImagen.setImageResource(R.drawable.ic_empty_view_lista_vacaciones);
         tvMessageTitle.setText(title);
@@ -316,6 +333,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
     private void bindearVistas() {
         //tabs de solicitudes
         tabLayout = findViewById(R.id.solicitudes_flex_tabLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         //spinners
         spAnioPendiente = findViewById(R.id.solicitudes_flex_spFiltroAnio1);

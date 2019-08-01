@@ -9,10 +9,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
+import pe.com.qallarix.movistarcontigo.flexplace.registrar.FinalizarRegistroFlexActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService3;
 import retrofit2.Call;
@@ -102,6 +110,10 @@ public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseFinalizarCancelacion> call, Response<ResponseFinalizarCancelacion> response) {
                 if (response.code() == 200){
+                    Date date = Calendar.getInstance().getTime();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String strDate = dateFormat.format(date);
+                    Analitycs.logEventoCancelacionFlexPlace(FinalizarCancelacionFlexActivity.this,strDate);
                     displayMensajeOK();
                 }else if (response.code() == 404 || response.code() == 500){
                     displayMensajeError();

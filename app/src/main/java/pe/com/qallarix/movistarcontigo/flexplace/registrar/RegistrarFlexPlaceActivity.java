@@ -112,6 +112,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
                     }
                 }else{
                     inhabilitarBotonRegistrar();
+                    ocultarInformacionAprobacion();
                 }
             }
 
@@ -179,6 +180,8 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
                             Calendar calendar = Calendar.getInstance();
                             calendar.setTime(dateInicial);
                             diaElegido = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+                            //mostramos día elegido
+                            displayDiaElegido();
                             //El número de día no debe ser sabado(7) ni domingo(1)
                             if (diaSeleccionadoCorrecto()){
                                 ocultarMensajeErrorSeleccionFecha();
@@ -194,8 +197,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
                                 inhabilitarBotonRegistrar();
                                 mostrarMensajeErrorSeleccionFecha();
                             }
-                            //mostramos día elegido
-                            displayDiaElegido();
+
 
                         }catch (Exception e){
                             e.printStackTrace();

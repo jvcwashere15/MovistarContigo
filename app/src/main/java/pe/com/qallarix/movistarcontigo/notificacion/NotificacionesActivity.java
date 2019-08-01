@@ -2,6 +2,7 @@ package pe.com.qallarix.movistarcontigo.notificacion;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +32,7 @@ public class NotificacionesActivity extends TranquiParentActivity {
     private List<Notification> notifications;
     private Toolbar toolbar;
     private ShimmerFrameLayout mShimmerViewContainer;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private boolean isLoading;
 
 
@@ -42,16 +44,27 @@ public class NotificacionesActivity extends TranquiParentActivity {
         configurarToolbar();
         configurarRecyclerView();
         cargarListaNotificaciones();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getListaNotificacionesFromNetwork();
+            }
+        });
     }
 
     private void bindearVistas() {
         rvNotificaciones = findViewById(R.id.notificaciones_rvNotificaciones);
         mShimmerViewContainer = findViewById(R.id.notificaciones_shimerFrameLayout);
+        swipeRefreshLayout = findViewById(R.id.refreshLayout);
     }
 
     private void cargarListaNotificaciones() {
         mShimmerViewContainer.setVisibility(View.VISIBLE);
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
+        getListaNotificacionesFromNetwork();
+    }
+
+    private void getListaNotificacionesFromNetwork() {
         Call<ResponseListNotifications> call = WebServiceNotification
                 .getInstance(getDocumentNumber())
                 .createService(ServiceNotificationApi.class)
@@ -60,6 +73,7 @@ public class NotificacionesActivity extends TranquiParentActivity {
             @Override
             public void onResponse(Call<ResponseListNotifications> call, Response<ResponseListNotifications> response) {
                 if (response.code() == 200){
+                    swipeRefreshLayout.setRefreshing(false);
                     notifications = response.body().getList();
                     final NotificacionAdapter notificacionAdapter = new NotificacionAdapter(NotificacionesActivity.this, notifications, new NotificacionAdapter.NotificacionClick() {
                         @Override
@@ -80,7 +94,7 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                     notifyIntent = new Intent(NotificacionesActivity.this, DetalleSaludActivity.class);
                                 }else if (pantalla.equals("vacation")){
                                     if (notification.getSubModule() != null &&
-                                        !TextUtils.isEmpty(notification.getSubModule())){
+                                            !TextUtils.isEmpty(notification.getSubModule())){
                                         String submodulo = notification.getSubModule();
                                         if (submodulo.equals("employee")){
                                             if (notification.getAction() != null &&
