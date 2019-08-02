@@ -165,7 +165,12 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void getDataFromIntent() {
-        requestCode = getIntent().getExtras().getInt("requestCode");
+        if (getIntent().getExtras()!= null){
+            if (getIntent().getExtras().containsKey("id"))
+                requestCode = Integer.parseInt(getIntent().getExtras().getString("id"));
+            else if (getIntent().getExtras().containsKey("requestCode"))
+                requestCode = getIntent().getExtras().getInt("requestCode");
+        }
     }
 
     public void configurarToolbar(){

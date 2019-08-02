@@ -14,9 +14,11 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".flexplace.solicitudes.DetallePendienteActivity"></activity>
-        <activity android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"/>
+        <activity android:name=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity"></activity>
+        <activity android:name=".flexplace.solicitudes.DetallePendienteActivity" />
+        <activity
+            android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity" />
         <activity android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity" />
         <activity android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity" />
         <activity

@@ -60,7 +60,12 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonNotificar() {
-        //todo boton notificar
+        tvBotonNotificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDialogCancelacionFlexPlace(detalleSolicitudFlex.getEmployee());
+            }
+        });
     }
 
     private void configurarBotonAprobar() {
@@ -230,6 +235,33 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
                 intent.putExtra("dia",detalleSolicitudFlex.getDayWeek());
                 intent.putExtra("aprobar",true);
                 intent.putExtra("observacion","");
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("Ahora no", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        if (!isFinishing()) alertDialog.show();
+    }
+
+    public void mostrarDialogCancelacionFlexPlace(String nombre){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetalleSolicitudFlexActivity.this);
+        builder.setTitle("¿Deseas continuar?");
+        String mensaje = "Vas a notificar a " + nombre + " para que cancele su FlexPlace.";
+        builder.setMessage(mensaje);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(DetalleSolicitudFlexActivity.this,
+                        FinalizarNotificarCancelacionActivity.class);
+                intent.putExtra("nombreEmpleado",detalleSolicitudFlex.getEmployee());
+                intent.putExtra("idRequest",detalleSolicitudFlex.getId());
                 startActivity(intent);
                 finish();
             }

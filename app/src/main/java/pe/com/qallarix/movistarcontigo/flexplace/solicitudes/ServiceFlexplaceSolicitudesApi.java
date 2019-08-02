@@ -29,4 +29,9 @@ public interface ServiceFlexplaceSolicitudesApi {
     Call<ResponseFinalizarCancelacion> aprobarRechazarFlexPlace(@Query("requestCode") int requestCode,
                                                                 @Query("approver") boolean approver,
                                                                 @Query("observation") String observation);
+
+
+    @PUT("flexplace/leadership/request/cancelled")
+    Call<ResponseFinalizarCancelacion> notificarCancelacionFexPlace(@Query("requestCode") int requestCode);
+
 }

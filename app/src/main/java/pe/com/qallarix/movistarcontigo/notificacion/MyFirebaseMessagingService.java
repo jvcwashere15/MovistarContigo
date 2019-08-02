@@ -22,6 +22,7 @@ import java.util.Map;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.pojos.Message;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
@@ -72,8 +73,24 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 notifyIntent.putExtra("origin","Externo");
             }else if (pantalla.equals("especial")){
                 notifyIntent = new Intent(this, DetalleBeneficioEspecialActivity.class);
-            }else if (pantalla.equals("salud")){
+            }else if (pantalla.equals("salud")) {
                 notifyIntent = new Intent(this, DetalleSaludActivity.class);
+
+            }else if(pantalla.equals("flexplace")){
+                if (data.containsKey("subModule")){
+                    String submodulo = data.get("subModule");
+                    if (submodulo.equals("employee")){
+                        if (data.containsKey("action")){
+                            String action = data.get("action");
+                            notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
+                            if (action.equals("cancelled")){
+                                notifyIntent = new Intent(this, DetalleFlexPlaceActivity.class);
+                            }
+                        }
+                    }else if (submodulo.equals("leadership")){
+                        notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
+                    }
+                }
             }else if (pantalla.equals("vacation")){
                 if (data.containsKey("subModule")){
                     String submodulo = data.get("subModule");

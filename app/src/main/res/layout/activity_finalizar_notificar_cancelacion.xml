@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        tools:context=".vacaciones.registro.FinalizarRegistroActivity">
+        <include layout="@layout/my_toolbar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Registro exitoso"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/telefonica_bold"
+                android:textColor="#2A2A3C"/>
+            <ImageView
+                android:id="@+id/registrar_flexplace_ivRespuesta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_marginBottom="8dp"
+                android:layout_centerInParent="true"
+                tools:srcCompat="@drawable/ic_check_ok" />
+
+            <TextView
+                android:id="@+id/registrar_flexplace_tvMensajeDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:gravity="center"
+                android:textSize="14sp"
+                tools:text="Has solicitado tus vacaciones. Recibirás una notificación al momento de la aprobación." />
+
+            <TextView
+                android:id="@+id/registrar_flexplace_btVerFlexAprobar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textAllCaps="false"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:onClick="volverAtras"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/telefonica_bold"
+                android:background="@drawable/boton_vacaciones_verde"
+                android:textColor="@android:color/white"
+                android:text="Ver FlexPlace para aprobar"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#55000000"
+        android:visibility="gone"
+        android:id="@+id/registrar_flexplace_viewProgress"
+        android:gravity="center"
+        android:onClick="clickNull">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/telefonica_regular"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="Registrando FlexPlace..."/>
+    </LinearLayout>
+</FrameLayout>
