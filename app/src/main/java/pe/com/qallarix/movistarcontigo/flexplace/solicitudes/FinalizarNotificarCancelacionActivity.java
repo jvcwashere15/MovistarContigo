@@ -1,29 +1,18 @@
 package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
-import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,7 +65,7 @@ public class FinalizarNotificarCancelacionActivity extends TranquiParentActivity
 
     private void notificarCancelacion() {
         viewProgress.setVisibility(View.VISIBLE);
-        Call<ResponseFinalizarCancelacion> call = WebService3
+        Call<ResponseFinalizarCancelacion> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceSolicitudesApi.class)
                 .notificarCancelacionFexPlace((int)idRequest);

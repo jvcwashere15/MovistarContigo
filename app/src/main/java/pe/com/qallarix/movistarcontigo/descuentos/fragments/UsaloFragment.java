@@ -180,21 +180,31 @@ public class UsaloFragment extends Fragment {
         vWassapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String formattedNumber = "+51" + phone;
+
+                String formattedNumber = "+51 " + phone;
+
+                String url = "https://api.whatsapp.com/send?phone="+formattedNumber;
+
                 try{
-                    Intent sendIntent =new Intent("android.intent.action.MAIN");
-                    sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
-                    sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.setType("text/plain");
-                    sendIntent.putExtra(Intent.EXTRA_TEXT,"");
-                    sendIntent.putExtra("jid", formattedNumber +"@s.whatsapp.net");
-                    sendIntent.setPackage("com.whatsapp");
-                    activity.startActivity(sendIntent);
-                }
-                catch(Exception e)
-                {
-                    Toast.makeText(activity,"Error/n"+ e.toString(), Toast.LENGTH_SHORT).show();
-                }
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }catch (Exception e){}
+
+//                try{
+//                    Intent sendIntent =new Intent("android.intent.action.MAIN");
+//                    sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+//                    sendIntent.setAction(Intent.ACTION_SEND);
+//                    sendIntent.setType("text/plain");
+//                    sendIntent.putExtra(Intent.EXTRA_TEXT,"");
+//                    sendIntent.putExtra("jid", formattedNumber +"@s.whatsapp.net");
+//                    sendIntent.setPackage("com.whatsapp");
+//                    activity.startActivity(sendIntent);
+//                }
+//                catch(Exception e)
+//                {
+//                    Toast.makeText(activity,"Puedes contactar por"+ e.toString(), Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }

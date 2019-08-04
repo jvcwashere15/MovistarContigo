@@ -110,7 +110,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 android:textSize="18sp"
                 android:text="Descubre todos los beneficios que tienes como colaborador en Movistar."/>
-            <Button
+            <TextView
                 android:id="@+id/account_btHome"
                 android:layout_marginTop="16dp"
                 android:layout_width="240dp"
@@ -118,21 +118,23 @@
                 android:textAllCaps="false"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:fontFamily="@font/telefonica_regular"
                 android:textColor="@android:color/white"
-                android:background="@drawable/boton_verde"
+                android:background="@drawable/boton_vacaciones_verde"
                 android:text="Continuar al home"/>
-            <Button
+            <TextView
                 android:id="@+id/account_btCerrarSesion"
                 android:layout_marginTop="8dp"
                 android:layout_width="240dp"
                 android:layout_height="40dp"
                 android:textAllCaps="false"
                 android:textSize="18sp"
+                android:gravity="center"
                 android:textStyle="bold"
                 android:fontFamily="@font/telefonica_regular"
                 android:textColor="@android:color/white"
-                android:background="@drawable/boton_celeste"
+                android:background="@drawable/boton_vacaciones_celeste"
                 android:text="Cerrar sesion"/>
         </LinearLayout>
     </LinearLayout>

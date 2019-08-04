@@ -3,35 +3,23 @@ package pe.com.qallarix.movistarcontigo.flexplace.historial;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.FlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseHistorialFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.DetalleEstadoVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesAdapter;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.ServiceEstadoVacacionesApi;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseListaEstados;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -126,7 +114,7 @@ public class HistorialFlexPlaceActivity extends TranquiParentActivity {
     private void getListaFlexPlaceFromServices(final int tipoLista, String status, String mensajeCarga, final String mensajeEmpty) {
         tvMensajeViewLoader.setText(mensajeCarga);
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseHistorialFlexPlace> call = WebService3
+        Call<ResponseHistorialFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceHistorialApi.class)
                 .getHistorialFlexPlace(status,2019);

@@ -3,20 +3,14 @@ package pe.com.qallarix.movistarcontigo.flexplace.registrar;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +18,6 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,10 +25,7 @@ import java.util.Date;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.pojos.ResponseValidarFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -278,7 +268,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         tvButtonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<ResponseValidarFlexPlace> call = WebService3
+                Call<ResponseValidarFlexPlace> call = WebServiceFlexPlace
                         .getInstance(getDocumentNumber())
                         .createService(ServiceFlexplaceRegistrarApi.class)
                         .validarFlexPlace(fechaInicio,monthTaked);

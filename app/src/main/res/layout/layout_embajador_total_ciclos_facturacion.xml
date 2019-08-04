@@ -127,7 +127,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center|right"
-                    android:background="@drawable/boton_celeste"/>
+                    android:background="@drawable/etiqueta_celeste"/>
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/boton_rosado"/>
+                    android:background="@drawable/etiqueta_rosada"/>
 
 
                 <TextView
@@ -233,7 +233,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center|right"
-                    android:background="@drawable/boton_celeste"/>
+                    android:background="@drawable/etiqueta_celeste"/>
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
@@ -357,7 +357,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center|right"
-                    android:background="@drawable/boton_celeste"/>
+                    android:background="@drawable/etiqueta_celeste"/>
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
@@ -441,7 +441,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/boton_rosado"/>
+                    android:background="@drawable/etiqueta_rosada"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -461,7 +461,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center|right"
-                    android:background="@drawable/boton_celeste"/>
+                    android:background="@drawable/etiqueta_celeste"/>
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
@@ -583,7 +583,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center|right"
-                    android:background="@drawable/boton_celeste"/>
+                    android:background="@drawable/etiqueta_celeste"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -664,7 +664,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="center|right"
-                    android:background="@drawable/boton_celeste"/>
+                    android:background="@drawable/etiqueta_celeste"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

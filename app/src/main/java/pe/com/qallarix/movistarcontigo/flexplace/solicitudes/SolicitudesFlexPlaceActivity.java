@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,26 +14,17 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.StringReader;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceAdapter;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.ServiceFlexplaceHistorialApi;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.FlexPlace;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseHistorialFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseSolicitudesFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.SolicitudFlex;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -230,7 +220,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
         viewMessage.setVisibility(View.GONE);
         tvMensajeViewLoader.setText(mensajeCarga);
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseSolicitudesFlexPlace> call = WebService3
+        Call<ResponseSolicitudesFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceSolicitudesApi.class)
                 .getSolicitudesFlexPlace(status,anio);

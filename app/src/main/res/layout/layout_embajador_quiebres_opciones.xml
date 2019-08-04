@@ -79,11 +79,12 @@
         android:id="@+id/quiebres_lytAveriasHogar"
         android:visibility="gone"/>
 
-    <Button
+    <TextView
         android:id="@+id/embajador_quiebres_btnContinuar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Continuar"
+        android:gravity="center"
         android:textAllCaps="false"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/telefonica_regular"
@@ -91,6 +92,6 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         android:textColor="@android:color/white"
-        android:background="@drawable/boton_verde"/>
+        android:background="@drawable/boton_vacaciones_verde"/>
 
 </LinearLayout>

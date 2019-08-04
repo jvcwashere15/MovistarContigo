@@ -45,7 +45,7 @@ public class VerificacionActivity extends TranquiParentActivity {
     private TextView
             tvDni,
             tvVolverEnviarCodigo;
-    private Button btValidar;
+    private TextView btValidar;
     private String
             documentNumber,
             tokenAccess,

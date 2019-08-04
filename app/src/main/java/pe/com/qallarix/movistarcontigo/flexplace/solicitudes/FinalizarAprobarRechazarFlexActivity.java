@@ -2,7 +2,6 @@ package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -21,13 +20,9 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.FinalizarCancelacionFlexActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.ServiceFlexplaceHistorialApi;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.FinalizarAprobacionActivity;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,7 +104,7 @@ public class FinalizarAprobarRechazarFlexActivity extends TranquiParentActivity 
 
     private void registrarFlexPlace() {
         viewProgress.setVisibility(View.VISIBLE);
-        Call<ResponseFinalizarCancelacion> call = WebService3
+        Call<ResponseFinalizarCancelacion> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceSolicitudesApi.class)
                 .aprobarRechazarFlexPlace((int)idRequest,aprobar,observacion);

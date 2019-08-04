@@ -80,16 +80,17 @@
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Ingresa el código de 5 dígitos"/>
-            <Button
+            <TextView
                 android:id="@+id/verificacion_btAceptar"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:textAllCaps="false"
                 android:textSize="18sp"
+                android:gravity="center"
                 android:layout_marginTop="40dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/telefonica_bold"
-                android:background="@drawable/boton_verde"
+                android:background="@drawable/boton_vacaciones_verde"
                 android:text="@string/verificacion_boton_texto"/>
             <TextView
                 android:id="@+id/verificacion_tvVolverEnviarCodigo"

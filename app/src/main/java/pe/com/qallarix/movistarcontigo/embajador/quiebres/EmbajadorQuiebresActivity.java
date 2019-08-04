@@ -59,7 +59,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
     private View vAveriasHogar;
     private String eventExtOrForm = "";
 
-    private Button btnContinuar;
+    private TextView btnContinuar;
     private RadioGroup rgTitular;
     private Spinner spNetwork;
     private Spinner spQuery;
@@ -90,7 +90,7 @@ public class  EmbajadorQuiebresActivity extends TranquiParentActivity {
 
     private EditText etNombre, etDni, etTelefonoContacto, etEmail, etTelefonoConsulta;
     private EditText etEmbajadorEmail, etEmbajadorCelular, etEmbajadorDescripcion;
-    private Button btnRegistrarCaso;
+    private TextView btnRegistrarCaso;
 
     private Dialog dialog;
     private String mDni;

@@ -13,24 +13,24 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WebService3 {
+public class WebServiceFlexPlace {
     private final String BASE_URL_WS3_QA = "https://qallarix-fx-qa.azurewebsites.net/";
     private final String BASE_URL_WS3_PRODUCCION = "https://qallarix-fx-qa.azurewebsites.net/";
     private final String BASE_URL_W3 = BASE_URL_WS3_QA;
 
 
-    private static WebService3 instance;
+    private static WebServiceFlexPlace instance;
     private Retrofit retrofit;
     private HttpLoggingInterceptor httpLoggingInterceptor;
     private OkHttpClient.Builder okHttpClientBuilder;
     private static final String BASIC_AUTH = "Basic " + Base64.encodeToString("qallarix:cWFsbGFyaXgqbW92aXN0YXI=".getBytes(), Base64.NO_WRAP);
     private String mDni;
 
-    public static void setInstance(WebService3 instance) {
-        WebService3.instance = instance;
+    public static void setInstance(WebServiceFlexPlace instance) {
+        WebServiceFlexPlace.instance = instance;
     }
 
-    public WebService3(String dni){
+    public WebServiceFlexPlace(String dni){
         mDni = dni;
         httpLoggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
         okHttpClientBuilder = new OkHttpClient.Builder()
@@ -58,9 +58,9 @@ public class WebService3 {
                 .build();
     }
 
-    public static synchronized WebService3 getInstance(String dni){
+    public static synchronized WebServiceFlexPlace getInstance(String dni){
         if (instance == null)
-            instance = new WebService3(dni);
+            instance = new WebServiceFlexPlace(dni);
         return instance;
     }
 

@@ -28,7 +28,7 @@ public class AccountActivity extends TranquiParentActivity {
     private TextView tvCargo;
     private ImageView ivAtras;
 
-    private Button btCerrarSesion, btIrAHome;
+    private TextView btCerrarSesion, btIrAHome;
 
     private String mDni;
     private String mToken;

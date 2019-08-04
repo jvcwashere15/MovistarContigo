@@ -116,7 +116,7 @@
             android:text="@string/embajador_quiebres_descripcion_problema"
             android:textSize="12sp" />
     </LinearLayout>
-    <Button
+    <TextView
         android:id="@+id/embajador_quiebres_btnRegistrarCaso"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -127,6 +127,6 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/telefonica_regular"
         android:textColor="@android:color/white"
-        android:background="@drawable/boton_verde"
+        android:background="@drawable/boton_vacaciones_verde"
         android:text="¡Registra tu caso!"/>
 </LinearLayout>

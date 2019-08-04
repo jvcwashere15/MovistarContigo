@@ -64,7 +64,7 @@
                         android:text="GESTIONAR AQUI"
                         android:textSize="18sp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/boton_beneficios_especiales"
+                        android:background="@drawable/boton_beneficios_naranja"
                         style="?android:attr/borderlessButtonStyle"/>
                 </LinearLayout>
                 <LinearLayout

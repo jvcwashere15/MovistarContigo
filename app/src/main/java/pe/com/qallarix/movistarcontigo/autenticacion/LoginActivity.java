@@ -15,7 +15,8 @@ import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import pe.com.qallarix.movistarcontigo.util.WebService2;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
+import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,7 +25,7 @@ import retrofit2.Response;
 public class LoginActivity extends TranquiParentActivity {
 
     private EditText etDni;
-    private Button btIngresar;
+    private TextView btIngresar;
     private String documentType = "1";
     private TextView tvTerminos;
     private CheckBox cbTerminos;
@@ -44,7 +45,8 @@ public class LoginActivity extends TranquiParentActivity {
     private void clearWebServices() {
         WebService1.setInstance(null);
         WebService2.setInstance(null);
-        WebService3.setInstance(null);
+        WebServiceFlexPlace.setInstance(null);
+        WebServiceNotification.setInstance(null);
     }
 
     private void bindearVistas() {

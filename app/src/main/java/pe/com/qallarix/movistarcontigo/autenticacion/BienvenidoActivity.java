@@ -16,7 +16,7 @@ import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 public class BienvenidoActivity extends AppCompatActivity {
 
     private TextView tvNombreUsuario;
-    private Button btComenzar;
+    private TextView btComenzar;
     private String mNombreUsuario;
 
 

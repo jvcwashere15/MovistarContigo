@@ -22,8 +22,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.pojos.ResponseRegistrarFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -99,7 +98,7 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
 
     private void registrarFlexPlace() {
         viewProgress.setVisibility(View.VISIBLE);
-        Call<ResponseRegistrarFlexPlace> call = WebService3
+        Call<ResponseRegistrarFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceRegistrarApi.class)
                 .registrarFlexPlace(fechaInicio,monthTaked);

@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -20,13 +19,10 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.Request;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseDetalleFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.ServiceEstadoVacacionesApi;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static pe.com.qallarix.movistarcontigo.vacaciones.estado.ServiceEstadoVacacionesApi.APROBADAS;
 
 public class DetalleFlexPlaceActivity extends TranquiParentActivity {
 
@@ -106,7 +102,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void displayDetalleFlexPlace() {
-        Call<ResponseDetalleFlexPlace> call = WebService3
+        Call<ResponseDetalleFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceHistorialApi.class)
                 .getDetalleFlexPlace(requestCode);

@@ -41,7 +41,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
 import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -122,7 +122,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
     private void getReporteFromService() {
         tvMensajeViewLoader.setText("Generando reporte...");
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseReporteFlexMiEquipo> call = WebService3
+        Call<ResponseReporteFlexMiEquipo> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceMiEquipoApi.class)
                 .getReporteFlexMiEquipo(mes,anio);
@@ -248,7 +248,7 @@ public class MiEquipoFlexPlaceActivity extends TranquiParentActivity {
         emptyView.setVisibility(View.GONE);
         viewMessage.setVisibility(View.GONE);
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseFlexPlaceEquipo> call = WebService3
+        Call<ResponseFlexPlaceEquipo> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceMiEquipoApi.class)
                 .getFlexPlaceMiEquipo(mes,anio);

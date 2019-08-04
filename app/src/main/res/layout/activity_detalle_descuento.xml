@@ -172,7 +172,7 @@
                         android:layout_margin="8dp"
                         android:textAllCaps="false"
                         android:textSize="18sp"
-                        android:background="@drawable/boton_verde"
+                        android:background="@drawable/boton_vacaciones_verde"
                         android:textColor="@android:color/white"
                         android:fontFamily="@font/telefonica_bold"
                         android:text="Úsalo ahora"/>

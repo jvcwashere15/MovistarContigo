@@ -3,10 +3,8 @@ package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,11 +14,10 @@ import android.widget.Toast;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.ServiceFlexplaceHistorialApi;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.DetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseDetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,7 +88,7 @@ public class DetallePendienteActivity extends TranquiParentActivity {
     }
 
     private void displayDetalleSolicitudFlexPlace() {
-        Call<ResponseDetalleSolicitudFlex> call = WebService3
+        Call<ResponseDetalleSolicitudFlex> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceSolicitudesApi.class)
                 .getSolicitudFlexPlace(requestCode);

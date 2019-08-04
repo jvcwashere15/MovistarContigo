@@ -19,7 +19,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.historial.ServiceFlexplaceHisto
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.DetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseDetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,7 +95,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     }
 
     private void displayDetalleSolicitudFlexPlace() {
-        Call<ResponseDetalleSolicitudFlex> call = WebService3
+        Call<ResponseDetalleSolicitudFlex> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceSolicitudesApi.class)
                 .getSolicitudFlexPlace(requestCode);

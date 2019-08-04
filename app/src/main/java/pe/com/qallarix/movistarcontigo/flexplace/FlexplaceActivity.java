@@ -26,7 +26,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.pojos.Dashboard;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.RegistrarFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.SolicitudesFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -121,7 +121,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
 
     private void cargarMenuFlexPlace() {
-        Call<DashBoardFlexPlace> call = WebService3
+        Call<DashBoardFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceApi.class)
                 .getInfoDashboardFlexplace(getDocumentNumber());

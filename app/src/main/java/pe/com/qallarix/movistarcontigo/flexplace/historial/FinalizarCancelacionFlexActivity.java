@@ -20,9 +20,8 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
-import pe.com.qallarix.movistarcontigo.flexplace.registrar.FinalizarRegistroFlexActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService3;
+import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -102,7 +101,7 @@ public class FinalizarCancelacionFlexActivity extends TranquiParentActivity {
 
     private void registrarFlexPlace() {
         viewProgress.setVisibility(View.VISIBLE);
-        Call<ResponseFinalizarCancelacion> call = WebService3
+        Call<ResponseFinalizarCancelacion> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceHistorialApi.class)
                 .finalizarCancelacionFlexPlace(observacion,(int)idRequest);
