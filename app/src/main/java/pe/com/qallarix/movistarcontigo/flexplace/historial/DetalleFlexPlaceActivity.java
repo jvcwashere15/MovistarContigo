@@ -30,7 +30,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
     private TextView tvLider,tvDescripcionLider,
                     tvEstado,tvFechaSolicitud,
                     tvFechaInicio, tvFechaFin,
-                    tvDiaElegido,tvDescripcion,tvButtonCancelar;
+                    tvDiaElegido,tvDescripcion,tvDescripcionNotificacion,tvButtonCancelar;
     private View vNotificacion;
     private TextView tvMensajeNotificacion,tvTituloNotificacion;
     private Request currentRequest;
@@ -88,6 +88,8 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         tvFechaFin = findViewById(R.id.detalle_flexplace_tvFechaFin);
         tvDiaElegido = findViewById(R.id.detalle_flexplace_tvDiaSolicitado);
         tvDescripcion = findViewById(R.id.detalle_flexplace_tvDescripcion);
+        tvDescripcionNotificacion = findViewById(R.id.detalle_flexplace_tvDescripcionCancelar);
+
         tvButtonCancelar = findViewById(R.id.detalle_flexplace_tvButtonCancelar);
         vNotificacion = findViewById(R.id.detalle_flexplace_viewNoticacion);
         tvMensajeNotificacion = findViewById(R.id.detalle_flexplace_tvMensajeNotificacion);
@@ -122,6 +124,11 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
                         tvDescripcion.setVisibility(View.VISIBLE);
                         tvDescripcion.setText(currentRequest.getMessageTwo());
                     }
+                    if (!TextUtils.isEmpty(currentRequest.getMessageThree())) {
+                        tvDescripcionNotificacion.setVisibility(View.VISIBLE);
+                        tvDescripcionNotificacion.setText(currentRequest.getMessageThree());
+                    }
+
                     if (currentRequest.isCancelled())
                         tvButtonCancelar.setVisibility(View.VISIBLE);
 

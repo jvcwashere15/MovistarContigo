@@ -14,54 +14,127 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity"></activity>
-        <activity android:name=".flexplace.solicitudes.DetallePendienteActivity" />
+
         <activity
-            android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity" />
-        <activity android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity" />
-        <activity android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity" />
+            android:name=".notificacion.NotificacionesActivity"
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".notificacion.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/ic_contigo" />
+        </service>
+
+        <activity android:name=".util.TranquiParentActivity" />
+
+        <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
-            android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:name=".autenticacion.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".autenticacion.LoginActivity"
+            android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.historial.CancelarFlexPlaceActivity"
+            android:name=".autenticacion.TerminosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.historial.DetalleFlexPlaceActivity"
-            android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
+            android:name=".autenticacion.VerificacionActivity"
+            android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:name=".autenticacion.BienvenidoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:name=".autenticacion.AccountActivity"
             android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - Main Activity - Dashboard - - - - -->
         <activity
-            android:name=".flexplace.historial.HistorialFlexPlaceActivity"
+            android:name=".principal.MainActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - - - Módulo Descuentos - - - - - - - -->
         <activity
-            android:name=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".flexplace.registrar.RegistrarFlexPlaceActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".flexplace.AcercaFlexPlace"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".flexplace.FlexplaceActivity"
+            android:name=".descuentos.DescuentosActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".descuentos.DetalleDescuentoActivity"
+            android:parentActivityName=".descuentos.DescuentosActivity"
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - - Módulo Salud - - - - - - - - - -->
+        <activity
+            android:name=".salud.SaludActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".salud.DetalleSaludActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".salud.SaludActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".salud.PdfActivity" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
+        <activity
+            android:name=".beneficioespeciales.BeneficiosEspecialesActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".beneficioespeciales.DetalleBeneficioEspecialActivity"
+            android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
+        <activity
+            android:name=".embajador.CanalEmbajadorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".embajador.quiebres.EmbajadorQuiebresActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".embajador.preguntas.EmbajadorPreguntasActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".embajador.movil.EmbajadorMovilActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".embajador.hogar.EmbajadorHogarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".embajador.total.EmbajadorMovistarTotalActivity"
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - Módulo Noticia - - - - - - - -->
+        <activity
+            android:name=".noticias.DetalleNoticiaActivity"
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - Módulo Vacaciones - - - - - -->
         <activity
             android:name=".vacaciones.AcercaActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"
@@ -100,109 +173,83 @@
             android:name=".vacaciones.VacacionesActivity"
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
+        <!-- - - - - - - - - - - - - - - - - - - - - - -->
+
+        <!-- - - - - - - - Módulo FlexPlace - - - - - - -->
+
         <activity
-            android:name=".notificacion.NotificacionesActivity"
+            android:name=".flexplace.FlexplaceActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".notificacion.MyFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
+        <activity
+            android:name=".flexplace.AcercaFlexPlace"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
 
-            <meta-data
-                android:name="com.google.firebase.messaging.default_notification_icon"
-                android:resource="@drawable/ic_contigo" />
-        </service>
 
-        <activity android:name=".util.TranquiParentActivity" /> <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
-            android:name=".autenticacion.SplashActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".flexplace.registrar.RegistrarFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
-            android:name=".autenticacion.LoginActivity"
-            android:configChanges="keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".autenticacion.TerminosActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".autenticacion.VerificacionActivity"
-            android:configChanges="keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".autenticacion.BienvenidoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".autenticacion.AccountActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- - - - - - - Main Activity - Dashboard - - - - -->
-        <activity
-            android:name=".principal.MainActivity"
+            android:name=".flexplace.historial.HistorialFlexPlaceActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- - - - - - - - - - Módulo Descuentos - - - - - - - -->
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+
         <activity
-            android:name=".descuentos.DescuentosActivity"
+            android:name=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity android:name=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".flexplace.solicitudes.DetallePendienteActivity"
+            android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity"
+            android:parentActivityName=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".descuentos.DetalleDescuentoActivity"
-            android:parentActivityName=".descuentos.DescuentosActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- - - - - - - - - Módulo Salud - - - - - - - - - -->
+            android:name=".flexplace.historial.CancelarFlexPlaceActivity"
+            android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
+            android:screenOrientation="portrait"  />
         <activity
-            android:name=".salud.SaludActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
+            android:name=".flexplace.historial.DetalleFlexPlaceActivity"
+            android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".salud.DetalleSaludActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".salud.SaludActivity"
+            android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".salud.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
-        <activity
-            android:name=".beneficioespeciales.BeneficiosEspecialesActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".beneficioespeciales.DetalleBeneficioEspecialActivity"
-            android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
-        <activity
-            android:name=".embajador.CanalEmbajadorActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".embajador.quiebres.EmbajadorQuiebresActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".embajador.preguntas.EmbajadorPreguntasActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".embajador.movil.EmbajadorMovilActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".embajador.hogar.EmbajadorHogarActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".embajador.total.EmbajadorMovistarTotalActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- - - - - - - - Módulo Noticia - - - - - - - -->
-        <activity
-            android:name=".noticias.DetalleNoticiaActivity"
-            android:parentActivityName=".principal.MainActivity"
-            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <activity
             android:name=".openlearning.CategoriasActivity"
             android:screenOrientation="portrait" />

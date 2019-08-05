@@ -397,6 +397,22 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4"
                     tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
+
+                <TextView
+                    android:id="@+id/detalle_flexplace_tvDescripcionCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="14sp"
+                    android:visibility="invisible"
+                    android:fontFamily="@font/telefonica_bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_flexplace_tvDescripcion"
+                    tools:text="Tu jefe solicitó cancelar tu FlexPlace el 20/05/2019." />
+
                 <TextView
                     android:id="@+id/detalle_flexplace_tvButtonCancelar"
                     android:layout_width="0dp"

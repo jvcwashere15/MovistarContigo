@@ -400,6 +400,9 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         finish();
     }
 
+    public void clickNull(View view) {
+    }
+
     @Override
     public void onBackPressed() {
         goToParentActivity();

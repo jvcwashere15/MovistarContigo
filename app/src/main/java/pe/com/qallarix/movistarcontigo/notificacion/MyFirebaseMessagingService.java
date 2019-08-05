@@ -23,6 +23,10 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.SolicitudesFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.DetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.pojos.Message;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
@@ -46,7 +50,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             final RemoteMessage currentRemoteMessage = remoteMessage;
             createNotificationChannel();
             PendingIntent pendingIntent = linkearPantalla(currentRemoteMessage.getData());
-            buildNotification(currentRemoteMessage,pendingIntent);
+            if (pendingIntent !=  null) buildNotification(currentRemoteMessage,pendingIntent);
         }
     }
 
@@ -63,57 +67,97 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private PendingIntent linkearPantalla(Map<String, String> data) {
-        Intent notifyIntent = null;
-        if (data.containsKey("module")){
-            String pantalla = data.get("module");
-            if (pantalla.equals("noticia")){
-                notifyIntent = new Intent(this, DetalleNoticiaActivity.class);
-            }else if (pantalla.equals("descuento")){
-                notifyIntent = new Intent(this, DetalleDescuentoActivity.class);
-                notifyIntent.putExtra("origin","Externo");
-            }else if (pantalla.equals("especial")){
-                notifyIntent = new Intent(this, DetalleBeneficioEspecialActivity.class);
-            }else if (pantalla.equals("salud")) {
-                notifyIntent = new Intent(this, DetalleSaludActivity.class);
-
-            }else if(pantalla.equals("flexplace")){
-                if (data.containsKey("subModule")){
-                    String submodulo = data.get("subModule");
-                    if (submodulo.equals("employee")){
-                        if (data.containsKey("action")){
-                            String action = data.get("action");
-                            notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
-                            if (action.equals("cancelled")){
-                                notifyIntent = new Intent(this, DetalleFlexPlaceActivity.class);
-                            }
+        Intent notifyIntent = new Intent(this, MainActivity.class);
+        if (data.containsKey("module") && data.get("module") != null) {
+            String modulo = data.get("module");
+            switch (modulo) {
+                case "noticia":
+                    notifyIntent = new Intent(this, DetalleNoticiaActivity.class);
+                    break;
+                case "descuento":
+                    notifyIntent = new Intent(this, DetalleDescuentoActivity.class);
+                    notifyIntent.putExtra("origin", "Externo");
+                    break;
+                case "especial":
+                    notifyIntent = new Intent(this, DetalleBeneficioEspecialActivity.class);
+                    break;
+                case "salud":
+                    notifyIntent = new Intent(this, DetalleSaludActivity.class);
+                    break;
+                case "flexplace":
+                    if (data.containsKey("subModule") && data.get("subModule") != null) {
+                        String submodulo = data.get("subModule");
+                        switch (submodulo){
+                            case "employee":
+                                if (data.containsKey("action") && data.get("action")!= null) {
+                                    String action = data.get("action");
+                                    switch (action){
+                                        case "cancelled":
+                                            notifyIntent = new Intent(this,
+                                                    DetalleFlexPlaceActivity.class);
+                                            break;
+                                        case "approver":
+                                            notifyIntent = new Intent(this,
+                                                    DetalleFlexPlaceActivity.class);
+                                            break;
+                                        case "refuse":
+                                            notifyIntent = new Intent(this,
+                                                    DetalleFlexPlaceActivity.class);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case "leadership":
+                                if (data.containsKey("action") && data.get("action")!= null) {
+                                    String action = data.get("action");
+                                    switch (action){
+                                        case "cancelled":
+                                            notifyIntent = new Intent(this,
+                                                    DetalleSolicitudFlexActivity.class);
+                                            break;
+                                        case "register":
+                                            notifyIntent = new Intent(this,
+                                                    DetalleSolicitudFlexActivity.class);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                break;
                         }
-                    }else if (submodulo.equals("leadership")){
-                        notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
                     }
-                }
-            }else if (pantalla.equals("vacation")){
-                if (data.containsKey("subModule")){
-                    String submodulo = data.get("subModule");
-                    if (submodulo.equals("employee")){
-                        if (data.containsKey("action")){
-                            String action = data.get("action");
-                            notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
-                            if (action.equals("refuse")){
-                                notifyIntent.putExtra("tabSelected",2);
-                            }else if (action.equals("approver")){
-                                notifyIntent.putExtra("tabSelected",1);
+                    break;
+                case "vacation":
+                    if (data.containsKey("subModule")) {
+                        String submodulo = data.get("subModule");
+                        if (submodulo.equals("employee")) {
+                            if (data.containsKey("action")) {
+                                String action = data.get("action");
+                                notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
+                                if (action.equals("refuse")) {
+                                    notifyIntent.putExtra("tabSelected", 2);
+                                } else if (action.equals("approver")) {
+                                    notifyIntent.putExtra("tabSelected", 1);
+                                }
                             }
+                        } else if (submodulo.equals("leadership")) {
+                            notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
                         }
-                    }else if (submodulo.equals("leadership")){
-                        notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
                     }
-                }
-            } else{
-                notifyIntent = new Intent(this, MainActivity.class);
+                    break;
+                default: break;
             }
         }
-        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntent.putExtra("id",data.get("idPost"));
+
+        if (notifyIntent != null){
+            notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            notifyIntent.putExtra("id",data.get("idPost"));
+        }
+
         PendingIntent notifyPendingIntent = PendingIntent.getActivity(
                 context,
                 requestCode++,

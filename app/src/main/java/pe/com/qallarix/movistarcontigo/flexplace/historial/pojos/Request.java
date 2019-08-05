@@ -13,9 +13,11 @@ public class Request {
     private String dateApprover;
     private String dateRefuse;
     private String dateCancelled;
+    private String dateCancelledLeadership;
     private String reason;
     private String messageOne;
     private String messageTwo;
+    private String messageThree;
     private boolean isCancelled;
 
 
@@ -145,5 +147,21 @@ public class Request {
 
     public void setCancelled(boolean cancelled) {
         isCancelled = cancelled;
+    }
+
+    public String getDateCancelledLeadership() {
+        return dateCancelledLeadership;
+    }
+
+    public void setDateCancelledLeadership(String dateCancelledLeadership) {
+        this.dateCancelledLeadership = dateCancelledLeadership;
+    }
+
+    public String getMessageThree() {
+        return messageThree;
+    }
+
+    public void setMessageThree(String messageThree) {
+        this.messageThree = messageThree;
     }
 }

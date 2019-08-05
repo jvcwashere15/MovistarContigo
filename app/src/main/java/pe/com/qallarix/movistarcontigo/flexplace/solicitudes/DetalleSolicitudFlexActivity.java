@@ -2,6 +2,7 @@ package pe.com.qallarix.movistarcontigo.flexplace.solicitudes;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -184,7 +185,12 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     }
 
     private void getDataFromIntent() {
-        requestCode = getIntent().getExtras().getInt("requestCode");
+        if (getIntent().getExtras()!= null){
+            if (getIntent().getExtras().containsKey("id"))
+                requestCode = Integer.parseInt(getIntent().getExtras().getString("id"));
+            else if (getIntent().getExtras().containsKey("requestCode"))
+                requestCode = getIntent().getExtras().getInt("requestCode");
+        }
     }
 
     public void configurarToolbar(){
@@ -200,11 +206,24 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                onBackPressed();
+                goToParentActivity();
                 return true;
             default:return super.onOptionsItemSelected(item);
         }
     }
+
+    private void goToParentActivity() {
+        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(upIntent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        goToParentActivity();
+    }
+
 
     @Override
     public void onResume() {
