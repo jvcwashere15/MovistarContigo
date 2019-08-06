@@ -165,6 +165,49 @@
             android:layout_height="8dp"
             android:background="@color/colorCanalEmbajador"/>
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:id="@+id/canal_embajador_cvQuiebresRegistrados"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="@dimen/altura_item_beneficio">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:tint="@color/colorCanalEmbajador"
+                app:srcCompat="@drawable/ic_quiebres_registrados"
+                android:layout_height="32dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:text="Quiebres registrados"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:tint="@color/colorCanalEmbajador"
+                app:srcCompat="@drawable/ic_next_arrow"
+                android:layout_height="16dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/colorCanalEmbajador"/>
+    </android.support.v7.widget.CardView>
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="8dp"
@@ -205,4 +248,6 @@
             android:layout_height="8dp"
             android:background="@color/colorCanalEmbajador"/>
     </android.support.v7.widget.CardView>
+
+
 </LinearLayout>

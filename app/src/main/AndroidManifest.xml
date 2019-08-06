@@ -14,7 +14,7 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".embajador.registrados.EmbajadorRegistradosActivity"></activity>
         <activity
             android:name=".notificacion.NotificacionesActivity"
             android:parentActivityName=".principal.MainActivity"
@@ -30,9 +30,7 @@
                 android:resource="@drawable/ic_contigo" />
         </service>
 
-        <activity android:name=".util.TranquiParentActivity" />
-
-        <!-- - - - - - - - Módulo Autenticación - - - - - - -->
+        <activity android:name=".util.TranquiParentActivity" /> <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
             android:name=".autenticacion.SplashActivity"
             android:screenOrientation="portrait">
@@ -58,16 +56,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".autenticacion.AccountActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - Main Activity - Dashboard - - - - -->
         <activity
             android:name=".principal.MainActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - Módulo Descuentos - - - - - - - -->
         <activity
             android:name=".descuentos.DescuentosActivity"
@@ -77,9 +71,7 @@
         <activity
             android:name=".descuentos.DetalleDescuentoActivity"
             android:parentActivityName=".descuentos.DescuentosActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - Módulo Salud - - - - - - - - - -->
         <activity
             android:name=".salud.SaludActivity"
@@ -91,9 +83,7 @@
             android:launchMode="singleTop"
             android:parentActivityName=".salud.SaludActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".salud.PdfActivity" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
-
+        <activity android:name=".salud.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
         <activity
             android:name=".beneficioespeciales.BeneficiosEspecialesActivity"
@@ -103,9 +93,7 @@
         <activity
             android:name=".beneficioespeciales.DetalleBeneficioEspecialActivity"
             android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
         <activity
             android:name=".embajador.CanalEmbajadorActivity"
@@ -124,16 +112,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".embajador.total.EmbajadorMovistarTotalActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Noticia - - - - - - - -->
         <activity
             android:name=".noticias.DetalleNoticiaActivity"
             android:parentActivityName=".principal.MainActivity"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Vacaciones - - - - - -->
         <activity
             android:name=".vacaciones.AcercaActivity"
@@ -171,67 +155,55 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".vacaciones.VacacionesActivity"
-            android:parentActivityName=".principal.MainActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <!-- - - - - - - - - - - - - - - - - - - - - - -->
-
+            android:parentActivityName=".principal.MainActivity"
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo FlexPlace - - - - - - -->
-
         <activity
             android:name=".flexplace.FlexplaceActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flexplace.AcercaFlexPlace"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-
-
         <activity
             android:name=".flexplace.registrar.RegistrarFlexPlaceActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flexplace.historial.HistorialFlexPlaceActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:launchMode="singleTop"
+            android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flexplace.miequipo.MiEquipoFlexPlaceActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-
-
-        <activity android:name=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity"
+        <activity
+            android:name=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".flexplace.solicitudes.DetallePendienteActivity"
+        <activity
+            android:name=".flexplace.solicitudes.DetallePendienteActivity"
             android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity"
+        <activity
+            android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity"
+        <activity
+            android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity"
             android:parentActivityName=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
@@ -239,7 +211,7 @@
         <activity
             android:name=".flexplace.historial.CancelarFlexPlaceActivity"
             android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
-            android:screenOrientation="portrait"  />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.historial.DetalleFlexPlaceActivity"
             android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
@@ -247,10 +219,7 @@
         <activity
             android:name=".flexplace.registrar.FinalizarRegistroFlexActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+            android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <activity
             android:name=".openlearning.CategoriasActivity"
             android:screenOrientation="portrait" />

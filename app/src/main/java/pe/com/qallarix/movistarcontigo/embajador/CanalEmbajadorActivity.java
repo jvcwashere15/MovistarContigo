@@ -18,6 +18,7 @@ import pe.com.qallarix.movistarcontigo.embajador.hogar.EmbajadorHogarActivity;
 import pe.com.qallarix.movistarcontigo.embajador.movil.EmbajadorMovilActivity;
 import pe.com.qallarix.movistarcontigo.embajador.preguntas.EmbajadorPreguntasActivity;
 import pe.com.qallarix.movistarcontigo.embajador.quiebres.EmbajadorQuiebresActivity;
+import pe.com.qallarix.movistarcontigo.embajador.registrados.EmbajadorRegistradosActivity;
 import pe.com.qallarix.movistarcontigo.embajador.total.EmbajadorMovistarTotalActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
@@ -25,11 +26,7 @@ import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 public class CanalEmbajadorActivity extends TranquiParentActivity {
 
     private Toolbar toolbar;
-    private CardView cvMovistarTotal;
-    private CardView cvHogar;
-    private CardView cvMovil;
-    private CardView cvQuiebres;
-    private CardView cvPreguntas;
+    private CardView cvMovistarTotal, cvHogar,cvMovil,cvQuiebres,cvQuiebresRegistrados,cvPreguntas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +47,7 @@ public class CanalEmbajadorActivity extends TranquiParentActivity {
         cvHogar = findViewById(R.id.canal_embajador_cvHogar);
         cvMovil = findViewById(R.id.canal_embajador_cvMovil);
         cvQuiebres = findViewById(R.id.canal_embajador_cvQuiebresReclamos);
+        cvQuiebresRegistrados = findViewById(R.id.canal_embajador_cvQuiebresRegistrados);
         cvPreguntas = findViewById(R.id.canal_embajador_cvPreguntasFrecuentes);
     }
 
@@ -78,6 +76,7 @@ public class CanalEmbajadorActivity extends TranquiParentActivity {
         configurarClickCvCanalEmbajador(cvHogar,EmbajadorHogarActivity.class);
         configurarClickCvCanalEmbajador(cvMovil,EmbajadorMovilActivity.class);
         configurarClickCvCanalEmbajador(cvQuiebres,EmbajadorQuiebresActivity.class);
+        configurarClickCvCanalEmbajador(cvQuiebresRegistrados, EmbajadorRegistradosActivity.class);
         configurarClickCvCanalEmbajador(cvPreguntas,EmbajadorPreguntasActivity.class);
     }
 
