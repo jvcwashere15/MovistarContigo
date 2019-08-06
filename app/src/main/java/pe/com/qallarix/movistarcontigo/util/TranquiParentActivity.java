@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 
 public class TranquiParentActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class TranquiParentActivity extends AppCompatActivity {
     }
 
     public void mostrarMensaje(String m){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogMensajeStyle);
         builder.setMessage(m);
         builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

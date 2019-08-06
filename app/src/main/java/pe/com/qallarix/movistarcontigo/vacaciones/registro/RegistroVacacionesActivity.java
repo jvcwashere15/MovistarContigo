@@ -103,7 +103,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
     }
 
     private void mostrarDialog400(Response<ResponseValidarFechas> response) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                RegistroVacacionesActivity.this, R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
         try {
@@ -124,7 +125,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
     }
 
     private void mostrarDialogError() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                RegistroVacacionesActivity.this, R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
         builder.setCancelable(false);
@@ -136,7 +138,8 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
     }
 
     public void mostrarDialogAprobacionFechas(String title){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistroVacacionesActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                RegistroVacacionesActivity.this, R.style.DialogMensajeStyle);
         builder.setTitle(title);
         builder.setMessage("Tu solicitud será aprobada en un plazo no mayor a 3 días hábiles.");
         builder.setCancelable(false);

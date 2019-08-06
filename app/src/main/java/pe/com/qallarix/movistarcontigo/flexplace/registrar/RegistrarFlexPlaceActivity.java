@@ -300,7 +300,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void mostrarDialog400(Response<ResponseValidarFlexPlace> response) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
         try {
@@ -321,7 +321,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void mostrarDialogError() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
         builder.setCancelable(false);
@@ -335,7 +335,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
 
 
     public void mostrarDialogAprobacionFechas(String title, String mensaje){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarFlexPlaceActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle(title);
         builder.setMessage(mensaje);
         builder.setCancelable(false);

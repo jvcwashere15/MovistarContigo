@@ -42,6 +42,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
 
     private ShimmerFrameLayout mShimmerViewContainer;
     private boolean isLoading;
+    private boolean mPantallaAnterior;
 
 
     @Override
@@ -174,6 +175,9 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
             else if (getIntent().getExtras().containsKey("requestCode"))
                 requestCode = getIntent().getExtras().getInt("requestCode");
         }
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("lista_notificaciones")){
+            mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
+        }
     }
 
     public void configurarToolbar(){
@@ -189,7 +193,7 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                goToParentActivity();
+                onBackPressed();
                 return true;
             default:return super.onOptionsItemSelected(item);
         }
@@ -200,11 +204,6 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        goToParentActivity();
     }
 
     @Override
@@ -270,5 +269,11 @@ public class DetalleFlexPlaceActivity extends TranquiParentActivity {
         });
         final AlertDialog alertDialog = builder.create();
         if (!isFinishing()) alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mPantallaAnterior) super.onBackPressed();
+        else goToParentActivity();
     }
 }

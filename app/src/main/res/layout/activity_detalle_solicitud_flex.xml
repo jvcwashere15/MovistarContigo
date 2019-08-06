@@ -379,12 +379,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4"
                     app:layout_constraintVertical_bias="1.0" />
+
                 <TextView
                     android:id="@+id/detalle_solicitud_flex_tvDescripcion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="64dp"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/telefonica_regular"
                     android:textColor="#757575"
                     android:textSize="14sp"
@@ -395,21 +395,36 @@
                     tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
 
                 <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvMessageThree"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textColor="#757575"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvDescripcion"
+                    tools:text="Esta solicitud fue aprobadSolicitaste cancelar este FlexPlace el 20/05/2019." />
+
+                <TextView
                     android:id="@+id/detalle_solicitud_flex_tvButtonNotificar"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/boton_vacaciones_verde"
                     android:fontFamily="@font/telefonica_bold"
                     android:gravity="center"
                     android:text="Notificar para cancelación"
-                    android:textAllCaps="false"
                     android:visibility="gone"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonAprobar"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvMessageThree"
+                    app:layout_constraintVertical_bias="1.0" />
                 <TextView
                     android:id="@+id/detalle_solicitud_flex_tvButtonAprobar"
                     android:layout_width="0dp"

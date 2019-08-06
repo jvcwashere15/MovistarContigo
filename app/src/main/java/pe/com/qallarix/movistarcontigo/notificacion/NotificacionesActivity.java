@@ -16,6 +16,8 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
@@ -80,44 +82,113 @@ public class NotificacionesActivity extends TranquiParentActivity {
                         public void onClick(View v, int position) {
                             Notification notification = notifications.get(position);
                             Intent notifyIntent = null;
+
                             if (notification.getModule()!= null &&
-                                    !TextUtils.isEmpty(notification.getModule())){
-                                String pantalla = notification.getModule();
-                                if (pantalla.equals("noticia")){
-                                    notifyIntent = new Intent(NotificacionesActivity.this, DetalleNoticiaActivity.class);
-                                }else if (pantalla.equals("descuento")){
-                                    notifyIntent = new Intent(NotificacionesActivity.this, DetalleDescuentoActivity.class);
-                                    notifyIntent.putExtra("origin","Externo");
-                                }else if (pantalla.equals("especial")){
-                                    notifyIntent = new Intent(NotificacionesActivity.this, DetalleBeneficioEspecialActivity.class);
-                                }else if (pantalla.equals("salud")){
-                                    notifyIntent = new Intent(NotificacionesActivity.this, DetalleSaludActivity.class);
-                                }else if (pantalla.equals("vacation")){
-                                    if (notification.getSubModule() != null &&
-                                            !TextUtils.isEmpty(notification.getSubModule())){
-                                        String submodulo = notification.getSubModule();
-                                        if (submodulo.equals("employee")){
-                                            if (notification.getAction() != null &&
-                                                    !TextUtils.isEmpty(notification.getAction())){
-                                                String action = notification.getAction();
-                                                notifyIntent = new Intent(NotificacionesActivity.this, EstadoVacacionesActivity.class);
-                                                if (action.equals("refuse")){
-                                                    notifyIntent.putExtra("tabSelected",2);
-                                                }else if (action.equals("approver")){
-                                                    notifyIntent.putExtra("tabSelected",1);
-                                                }
+                                    !TextUtils.isEmpty(notification.getModule())) {
+                                String modulo = notification.getModule();
+                                switch (modulo) {
+                                    case "noticia":
+                                        notifyIntent = new Intent(NotificacionesActivity.this, DetalleNoticiaActivity.class);
+                                        break;
+                                    case "descuento":
+                                        notifyIntent = new Intent(NotificacionesActivity.this, DetalleDescuentoActivity.class);
+                                        notifyIntent.putExtra("origin", "Externo");
+                                        break;
+                                    case "especial":
+                                        notifyIntent = new Intent(NotificacionesActivity.this, DetalleBeneficioEspecialActivity.class);
+                                        break;
+                                    case "salud":
+                                        notifyIntent = new Intent(NotificacionesActivity.this, DetalleSaludActivity.class);
+                                        break;
+                                    case "flexplace":
+                                        if (notification.getSubModule() != null &&
+                                                !TextUtils.isEmpty(notification.getSubModule())) {
+                                            String submodulo = notification.getSubModule();
+                                            switch (submodulo){
+                                                case "employee":
+                                                    if (notification.getAction() != null &&
+                                                            !TextUtils.isEmpty(notification.getAction())) {
+                                                        String action = notification.getAction();
+                                                        switch (action){
+                                                            case "cancelled":
+                                                                notifyIntent = new Intent(NotificacionesActivity.this,
+                                                                        DetalleFlexPlaceActivity.class);
+                                                                break;
+                                                            case "approver":
+                                                                notifyIntent = new Intent(NotificacionesActivity.this,
+                                                                        DetalleFlexPlaceActivity.class);
+                                                                break;
+                                                            case "refuse":
+                                                                notifyIntent = new Intent(NotificacionesActivity.this,
+                                                                        DetalleFlexPlaceActivity.class);
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+                                                    }
+                                                    break;
+                                                case "leadership":
+                                                    if (notification.getAction() != null &&
+                                                            !TextUtils.isEmpty(notification.getAction())) {
+                                                        String action = notification.getAction();
+                                                        switch (action){
+                                                            case "cancelled":
+                                                                notifyIntent = new Intent(NotificacionesActivity.this,
+                                                                        DetalleSolicitudFlexActivity.class);
+                                                                break;
+                                                            case "register":
+                                                                notifyIntent = new Intent(NotificacionesActivity.this,
+                                                                        DetalleSolicitudFlexActivity.class);
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+                                                    }
+                                                    break;
+                                                default:
+                                                    break;
                                             }
-                                        }else if (submodulo.equals("leadership")){
-                                            notifyIntent = new Intent(NotificacionesActivity.this, AprobacionVacacionesActivity.class);
                                         }
-                                    }
-                                } else{
-                                    notifyIntent = new Intent(NotificacionesActivity.this, MainActivity.class);
+                                        break;
+                                    case "vacation":
+                                        if (notification.getSubModule() != null &&
+                                                !TextUtils.isEmpty(notification.getSubModule())) {
+                                            String submodulo = notification.getSubModule();
+                                            switch (submodulo){
+                                                case "employee":
+                                                    if (notification.getAction() != null &&
+                                                            !TextUtils.isEmpty(notification.getAction())) {
+                                                        String action = notification.getAction();
+                                                        notifyIntent = new Intent(NotificacionesActivity.this, EstadoVacacionesActivity.class);
+                                                        switch (action){
+                                                            case "refuse":
+                                                                notifyIntent.putExtra("tabSelected", 2);
+                                                                break;
+                                                            case "approver":
+                                                                notifyIntent.putExtra("tabSelected", 1);
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+                                                    }
+                                                    break;
+                                                case "leadership":
+                                                    notifyIntent = new Intent(NotificacionesActivity.this, AprobacionVacacionesActivity.class);
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                        }
+                                        break;
+                                    default: break;
                                 }
                             }
+
+
                             notifyIntent.putExtra("id",notification.getIdPost());
                             notifyIntent.putExtra("lista_notificaciones",true);
                             startActivity(notifyIntent);
+
                         }
                     });
                     rvNotificaciones.setAdapter(notificacionAdapter);

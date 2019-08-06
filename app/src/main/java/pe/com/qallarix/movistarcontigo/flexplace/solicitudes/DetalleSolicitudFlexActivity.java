@@ -32,7 +32,8 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
 
     //etiquetas de informacion
     private TextView tvDescLider, tvNombreEmpleado, tvEstadoSolicitudFlex, tvFechaSolicitudFlex,
-            tvFechaInicioFlex, tvFechaFinFlex, tvDescripcionSolicitud, tvDiaSolicitado;
+            tvFechaInicioFlex, tvFechaFinFlex, tvDescripcionSolicitud,tvDescripcionCancelacion,
+            tvDiaSolicitado;
 
     //boton aprobar rechazar
     private TextView tvBotonAprobar, tvBotonRechazar, tvBotonNotificar;
@@ -46,6 +47,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
 
     private ShimmerFrameLayout mShimmerViewContainer;
     private boolean isLoading;
+    private boolean mPantallaAnterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
                     tvFechaFinFlex.setText(detalleSolicitudFlex.getDateEnd());
 
                     tvDescripcionSolicitud.setText(detalleSolicitudFlex.getMessageTwo());
+                    tvDescripcionCancelacion.setText(detalleSolicitudFlex.getMessageThree());
                     tvDiaSolicitado.setText(detalleSolicitudFlex.getDayWeek());
 
                     if (!TextUtils.isEmpty(detalleSolicitudFlex.getReason())){
@@ -182,6 +185,8 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
         viewNotification = findViewById(R.id.detalle_solicitud_flex_viewNoticacion);
         tvTituloNotificacion = findViewById(R.id.detalle_solicitud_flex_tvTituloNotificacion);
         tvMensajeNotificacion = findViewById(R.id.detalle_solicitud_flex_tvMensajeNotificacion);
+
+        tvDescripcionCancelacion = findViewById(R.id.detalle_solicitud_flex_tvMessageThree);
     }
 
     private void getDataFromIntent() {
@@ -190,6 +195,10 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
                 requestCode = Integer.parseInt(getIntent().getExtras().getString("id"));
             else if (getIntent().getExtras().containsKey("requestCode"))
                 requestCode = getIntent().getExtras().getInt("requestCode");
+        }
+
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("lista_notificaciones")){
+            mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
         }
     }
 
@@ -206,7 +215,7 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                goToParentActivity();
+                onBackPressed();
                 return true;
             default:return super.onOptionsItemSelected(item);
         }
@@ -221,10 +230,9 @@ public class DetalleSolicitudFlexActivity extends TranquiParentActivity {
 
     @Override
     public void onBackPressed() {
-        goToParentActivity();
+        if (mPantallaAnterior) super.onBackPressed();
+        else goToParentActivity();
     }
-
-
     @Override
     public void onResume() {
         super.onResume();

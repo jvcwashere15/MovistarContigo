@@ -16,6 +16,15 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="DialogMensajeStyle" parent="Theme.AppCompat.Light.Dialog">
+        <!--<item name="android:colorAccent">@color/colorCanalEmbajador</item>-->
+        <!--<item name="android:textColor">@color/colorCanalEmbajador</item>-->
+        <item name="android:textColorPrimary">#030303</item>
+        <item name="colorAccent">@color/colorCanalEmbajador</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/telefonica_regular</item>
+    </style>
+
     <style name="EstiloCVHerramientas" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_margin">8dp</item>

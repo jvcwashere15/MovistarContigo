@@ -14,10 +14,29 @@ public class DetalleSolicitudFlex {
     private String dateApprover;
     private String dateRefuse;
     private String dateCancelled;
+    private String dateCancelledLeadership;
     private String messageOne;
     private String messageTwo;
+    private String messageThree;
     private boolean isCancelled;
     private String reason;
+
+
+    public String getDateCancelledLeadership() {
+        return dateCancelledLeadership;
+    }
+
+    public void setDateCancelledLeadership(String dateCancelledLeadership) {
+        this.dateCancelledLeadership = dateCancelledLeadership;
+    }
+
+    public String getMessageThree() {
+        return messageThree;
+    }
+
+    public void setMessageThree(String messageThree) {
+        this.messageThree = messageThree;
+    }
 
     public long getId() {
         return id;
