@@ -248,9 +248,9 @@ public class HomeFragment extends Fragment {
                 else if (cardView.equals(cvCanalEmbajador)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_AMBASSADOR);
                 else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
                 else if (cardView.equals(cvFlexPlace)){
-//                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
+                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
                     Analitycs.logEventoClickDashboard(getActivity(), TITLE_FLEXPLACE);
-//                    return;
+                    return;
                 }
                 else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
                 else if (cardView.equals(cvVacaciones)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);

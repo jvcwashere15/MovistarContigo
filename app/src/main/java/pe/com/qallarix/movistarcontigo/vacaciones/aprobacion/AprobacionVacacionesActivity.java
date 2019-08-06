@@ -2,7 +2,6 @@ package pe.com.qallarix.movistarcontigo.vacaciones.aprobacion;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,22 +10,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseListaSolicitudes;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseSolicitudAprobacion;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.SolicitudAprobacion;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -83,7 +77,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
         viewMessage.setVisibility(View.GONE);
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
         solicitudAprobacions = new ArrayList<>();
-        Call<ResponseListaSolicitudes> call = WebService2
+        Call<ResponseListaSolicitudes> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceAprobacionVacacionesApi.class)
                 .obtenerListaSolicitudesAprobar(getCIP(),1);

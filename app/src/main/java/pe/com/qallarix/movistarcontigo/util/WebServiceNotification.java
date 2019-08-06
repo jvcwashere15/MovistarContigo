@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WebServiceNotification {
     private final String BASE_URL_WS3_QA = "https://qallarix-np-qa.azurewebsites.net/";
     private final String BASE_URL_WS3_PRODUCCION = "https://npqallarix.azurewebsites.net/";
-    private final String BASE_URL_W3 = BASE_URL_WS3_QA;
+    private final String BASE_URL_W3 = BASE_URL_WS3_PRODUCCION;
 
 
     private static WebServiceNotification instance;

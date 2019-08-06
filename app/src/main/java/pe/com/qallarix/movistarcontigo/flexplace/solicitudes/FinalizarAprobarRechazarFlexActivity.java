@@ -150,9 +150,7 @@ public class FinalizarAprobarRechazarFlexActivity extends TranquiParentActivity 
     }
 
     public void volverMenu(View view) {
-        Intent intent = new Intent(FinalizarAprobarRechazarFlexActivity.this, FlexplaceActivity.class);
-        startActivity(intent);
-        finish();
+        goToParentActivity();
     }
 
     public void clickNull(View view) {

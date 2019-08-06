@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +13,7 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
 import retrofit2.Call;
@@ -44,7 +43,7 @@ public class LoginActivity extends TranquiParentActivity {
 
     private void clearWebServices() {
         WebService1.setInstance(null);
-        WebService2.setInstance(null);
+        WebServiceVacaciones.setInstance(null);
         WebServiceFlexPlace.setInstance(null);
         WebServiceNotification.setInstance(null);
     }

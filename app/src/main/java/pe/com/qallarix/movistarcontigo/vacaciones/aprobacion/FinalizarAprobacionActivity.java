@@ -2,14 +2,12 @@ package pe.com.qallarix.movistarcontigo.vacaciones.aprobacion;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -22,11 +20,9 @@ import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.RegistroVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseRegistrarAprobacion;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,7 +56,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         RegistroVacaciones registroVacaciones = new RegistroVacaciones(bossName,bossCode,employeeCode,
                 approver,requestCode,requestDateEnd,requestDateStart);
 
-        Call<ResponseRegistrarAprobacion> call = WebService2
+        Call<ResponseRegistrarAprobacion> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceAprobacionVacacionesApi.class)
                 .aprobarRechazarSolicitud(registroVacaciones);

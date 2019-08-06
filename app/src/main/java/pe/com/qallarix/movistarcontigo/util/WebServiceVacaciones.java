@@ -13,24 +13,24 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WebService2 {
+public class WebServiceVacaciones {
     private final String BASE_URL_WS2_QA = "https://qallarix-vc-qa.azurewebsites.net/";
     private final String BASE_URL_WS2_PRODUCCION = "https://vcqallarix.azurewebsites.net";
-    private final String BASE_URL_W2 = BASE_URL_WS2_QA;
+    private final String BASE_URL_W2 = BASE_URL_WS2_PRODUCCION;
 
 
-    private static WebService2 instance;
+    private static WebServiceVacaciones instance;
     private Retrofit retrofit;
     private HttpLoggingInterceptor httpLoggingInterceptor;
     private OkHttpClient.Builder okHttpClientBuilder;
     private static final String BASIC_AUTH = "Basic " + Base64.encodeToString("qallarix:cWFsbGFyaXgqbW92aXN0YXI=".getBytes(), Base64.NO_WRAP);
     private String mDni;
 
-    public static void setInstance(WebService2 instance) {
-        WebService2.instance = instance;
+    public static void setInstance(WebServiceVacaciones instance) {
+        WebServiceVacaciones.instance = instance;
     }
 
-    public WebService2(String dni){
+    public WebServiceVacaciones(String dni){
         mDni = dni;
         httpLoggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
         okHttpClientBuilder = new OkHttpClient.Builder()
@@ -58,9 +58,9 @@ public class WebService2 {
                 .build();
     }
 
-    public static synchronized WebService2 getInstance(String dni){
+    public static synchronized WebServiceVacaciones getInstance(String dni){
         if (instance == null)
-            instance = new WebService2(dni);
+            instance = new WebServiceVacaciones(dni);
         return instance;
     }
 

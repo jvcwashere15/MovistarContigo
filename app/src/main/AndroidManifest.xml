@@ -172,6 +172,7 @@
         <activity
             android:name=".vacaciones.VacacionesActivity"
             android:parentActivityName=".principal.MainActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <!-- - - - - - - - - - - - - - - - - - - - - - -->
 

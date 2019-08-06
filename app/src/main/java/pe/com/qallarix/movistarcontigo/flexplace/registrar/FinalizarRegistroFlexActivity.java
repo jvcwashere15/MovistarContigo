@@ -140,9 +140,7 @@ public class FinalizarRegistroFlexActivity extends TranquiParentActivity {
     }
 
     public void volverMenu(View view) {
-        Intent intent = new Intent(FinalizarRegistroFlexActivity.this, FlexplaceActivity.class);
-        startActivity(intent);
-        finish();
+        goToParentActivity();
     }
 
     public void clickNull(View view) {

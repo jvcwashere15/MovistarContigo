@@ -18,7 +18,7 @@ import java.util.Date;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.AcercaActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
@@ -56,7 +56,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
 
     private void registrarVacaciones() {
         viewProgress.setVisibility(View.VISIBLE);
-        Call<ResponseRegistrarVacaciones> call = WebService2
+        Call<ResponseRegistrarVacaciones> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceRegistrarVacacionesApi.class)
                 .registrarVacaciones(getCIP(),fechaInicio,fechaFin);
@@ -170,9 +170,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
     }
 
     public void volverMenu(View view) {
-        Intent intent = new Intent(FinalizarRegistroActivity.this, VacacionesActivity.class);
-        startActivity(intent);
-        finish();
+        goToParentActivity();
     }
 
     public void clickNull(View view) {

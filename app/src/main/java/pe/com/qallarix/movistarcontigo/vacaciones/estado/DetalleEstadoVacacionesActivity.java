@@ -2,7 +2,6 @@ package pe.com.qallarix.movistarcontigo.vacaciones.estado;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -10,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -18,7 +16,7 @@ import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.DetalleVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseDetalleSolicitud;
@@ -87,7 +85,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
     private void displayDetalleEstado() {
         mShimmerViewContainer.setVisibility(View.VISIBLE);
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
-        Call<ResponseDetalleSolicitud> call = WebService2
+        Call<ResponseDetalleSolicitud> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceEstadoVacacionesApi.class)
                 .obtenerDetalleVacaciones(getCIP(),requestCode);

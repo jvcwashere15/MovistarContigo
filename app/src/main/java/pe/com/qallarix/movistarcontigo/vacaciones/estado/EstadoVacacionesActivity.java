@@ -11,18 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseListaEstados;
 import retrofit2.Call;
@@ -113,7 +109,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private void getAprobadasFromServices() {
         tvMensajeViewLoader.setText("Cargando lista de vacaciones aprobadas...");
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseListaEstados> call = WebService2
+        Call<ResponseListaEstados> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceEstadoVacacionesApi.class)
                 .obtenerListaEstadoVacaciones(getCIP(),
@@ -161,7 +157,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
 
         tvMensajeViewLoader.setText("Cargando lista de vacaciones pendientes...");
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseListaEstados> call = WebService2
+        Call<ResponseListaEstados> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceEstadoVacacionesApi.class)
                 .obtenerListaEstadoVacaciones(getCIP(),
@@ -204,7 +200,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private void getRechazadasFromServices() {
         tvMensajeViewLoader.setText("Cargando lista de vacaciones rechazadas...");
         viewLoader.setVisibility(View.VISIBLE);
-        Call<ResponseListaEstados> call = WebService2
+        Call<ResponseListaEstados> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceEstadoVacacionesApi.class)
                 .obtenerListaEstadoVacaciones(getCIP(),

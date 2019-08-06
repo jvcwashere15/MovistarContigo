@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -20,7 +19,7 @@ import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.FutureJoy;
@@ -79,7 +78,7 @@ public class VacacionesActivity extends TranquiParentActivity {
     private void cargarDatosVacaciones() {
         mShimmerViewContainer.setVisibility(View.VISIBLE);
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
-        Call<VacacionesDashboard> call = WebService2
+        Call<VacacionesDashboard> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
                 .createService(ServiceVacacionesApi.class)
                 .getInfoDashboardVacaciones(getCIP());

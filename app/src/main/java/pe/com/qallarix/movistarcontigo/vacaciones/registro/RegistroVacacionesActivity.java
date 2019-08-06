@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService2;
+import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.Validation;
 import retrofit2.Call;
@@ -74,7 +74,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
 
             @Override
             public void onClick(View v) {
-                Call<ResponseValidarFechas> call = WebService2
+                Call<ResponseValidarFechas> call = WebServiceVacaciones
                         .getInstance(getDocumentNumber())
                         .createService(ServiceRegistrarVacacionesApi.class)
                         .validarEntreFechas(getCIP(),fechaInicio,fechaFin);

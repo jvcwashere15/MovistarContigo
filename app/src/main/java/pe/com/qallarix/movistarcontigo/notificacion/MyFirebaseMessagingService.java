@@ -132,20 +132,30 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     }
                     break;
                 case "vacation":
-                    if (data.containsKey("subModule")) {
+                    if (data.containsKey("subModule") && data.get("subModule") != null) {
                         String submodulo = data.get("subModule");
-                        if (submodulo.equals("employee")) {
-                            if (data.containsKey("action")) {
-                                String action = data.get("action");
-                                notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
-                                if (action.equals("refuse")) {
-                                    notifyIntent.putExtra("tabSelected", 2);
-                                } else if (action.equals("approver")) {
-                                    notifyIntent.putExtra("tabSelected", 1);
+                        switch (submodulo){
+                            case "employee":
+                                if (data.containsKey("action") && data.get("action")!= null) {
+                                    String action = data.get("action");
+                                    notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
+                                    switch (action){
+                                        case "refuse":
+                                            notifyIntent.putExtra("tabSelected", 2);
+                                            break;
+                                        case "approver":
+                                            notifyIntent.putExtra("tabSelected", 1);
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                 }
-                            }
-                        } else if (submodulo.equals("leadership")) {
-                            notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
+                                break;
+                            case "leadership":
+                                notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
+                                break;
+                            default:
+                                break;
                         }
                     }
                     break;
