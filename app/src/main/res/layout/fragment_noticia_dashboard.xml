@@ -37,6 +37,8 @@
         android:gravity="center"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        android:lines="3"
+        android:ellipsize="end"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
