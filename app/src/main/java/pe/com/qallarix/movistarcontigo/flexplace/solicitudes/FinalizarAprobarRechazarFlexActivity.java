@@ -64,7 +64,7 @@ public class FinalizarAprobarRechazarFlexActivity extends TranquiParentActivity 
     public void configurarToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Cancelar FlexPlace");
+        getSupportActionBar().setTitle("Detalle de FlexPlace");
     }
 
 
