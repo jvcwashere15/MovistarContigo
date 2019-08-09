@@ -84,6 +84,7 @@ public class DetallePendienteActivity extends TranquiParentActivity {
                 intent.putExtra("dia",detalleSolicitudFlex.getDayWeek());
                 intent.putExtra("idRequest",detalleSolicitudFlex.getId());
                 startActivity(intent);
+                finish();
             }
         });
     }
