@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".autenticacion.LoginActivity">
 
 
@@ -155,12 +156,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Acepto los "
+                            android:fontFamily="@font/telefonica_regular"
                             android:textColor="#868686" />
 
                         <TextView
                             android:id="@+id/login_tvTerminosCondiciones"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/telefonica_regular"
                             android:background="?attr/selectableItemBackground"
                             android:text="@string/login_terminos_condiciones"
                             android:textColor="@color/colorCanalEmbajador" />
