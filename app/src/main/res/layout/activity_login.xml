@@ -1,197 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context=".autenticacion.LoginActivity">
-
-
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="messaggeLoad" type="String" />
+    </data>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/login_view_parent">
-        <ScrollView
+        android:background="@android:color/white"
+        tools:context=".autenticacion.LoginActivity">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.constraint.ConstraintLayout
+            android:layout_height="match_parent"
+            android:id="@+id/login_view_parent">
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/linearLayout5"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:background="@drawable/ic_login_header"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="@font/telefonica_bold"
-                        android:text="@string/login_texto_bienvenido"
-                        android:textColor="@android:color/white"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.45" />
-
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView10"
-                        app:srcCompat="@drawable/ic_contigo" />
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView10"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/logo_movistar_blanco" />
-                </android.support.constraint.ConstraintLayout>
-                <android.support.constraint.ConstraintLayout
-                    android:id="@+id/constraintLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-                    <TextView
-                        android:id="@+id/textView11"
+                    android:layout_height="wrap_content">
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/linearLayout5"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="32dp"
-                        android:fontFamily="@font/telefonica_bold"
-                        android:text="@string/texto_input_dni"
-                        android:textColor="@color/loginTextoDNI"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <EditText
-                        android:id="@+id/login_etDni"
-                        android:layout_width="match_parent"
-                        android:layout_height="33dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="32dp"
-                        android:background="@drawable/login_input_dni"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:hint="@string/login_hint_input"
-                        android:inputType="numberPassword"
-                        android:maxLength="9"
-                        android:paddingLeft="16dp"
-                        android:textColor="@color/loginHintInput"
-                        android:textSize="15sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-                    <TextView
-                        android:id="@+id/login_btIngresar"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="32dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@drawable/boton_vacaciones_verde"
-                        android:fontFamily="@font/telefonica_bold"
-                        android:text="@string/boton_texto_ingresar"
+                        android:layout_height="240dp"
+                        android:background="@drawable/ic_login_header"
                         android:gravity="center"
-                        android:textAllCaps="false"
-                        android:textColor="@color/loginTextoBoton"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/lyt_acepta_terminos" />
-
-                    <LinearLayout
-                        android:id="@+id/lyt_acepta_terminos"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="32dp"
-                        android:layout_marginBottom="8dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/login_etDni"
-                        app:layout_constraintVertical_bias="0.0">
-
-                        <CheckBox
-                            android:id="@+id/login_cbTerminos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Acepto los "
-                            android:fontFamily="@font/telefonica_regular"
-                            android:textColor="#868686" />
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/login_tvTerminosCondiciones"
+                            android:id="@+id/textView10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/telefonica_bold"
+                            android:text="@string/login_texto_bienvenido"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.45" />
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView10"
+                            app:srcCompat="@drawable/ic_contigo" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView10"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:srcCompat="@drawable/logo_movistar_blanco" />
+                    </android.support.constraint.ConstraintLayout>
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginEnd="32dp"
+                            android:fontFamily="@font/telefonica_bold"
+                            android:text="@string/texto_input_dni"
+                            android:textColor="@color/loginTextoDNI"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/login_etDni"
+                            android:layout_width="match_parent"
+                            android:layout_height="33dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            android:background="@drawable/login_input_dni"
                             android:fontFamily="@font/telefonica_regular"
-                            android:background="?attr/selectableItemBackground"
-                            android:text="@string/login_terminos_condiciones"
-                            android:textColor="@color/colorCanalEmbajador" />
-                    </LinearLayout>
+                            android:hint="@string/login_hint_input"
+                            android:inputType="numberPassword"
+                            android:maxLength="9"
+                            android:paddingLeft="16dp"
+                            android:textColor="@color/loginHintInput"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                        <TextView
+                            android:id="@+id/login_btIngresar"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/boton_vacaciones_verde"
+                            android:fontFamily="@font/telefonica_bold"
+                            android:text="@string/boton_texto_ingresar"
+                            android:gravity="center"
+                            android:textAllCaps="false"
+                            android:textColor="@color/loginTextoBoton"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lyt_acepta_terminos" />
+
+                        <LinearLayout
+                            android:id="@+id/lyt_acepta_terminos"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/login_etDni"
+                            app:layout_constraintVertical_bias="0.0">
+
+                            <CheckBox
+                                android:id="@+id/login_cbTerminos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Acepto los "
+                                android:fontFamily="@font/telefonica_regular"
+                                android:textColor="#868686" />
+
+                            <TextView
+                                android:id="@+id/login_tvTerminosCondiciones"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/telefonica_regular"
+                                android:background="?attr/selectableItemBackground"
+                                android:text="@string/login_terminos_condiciones"
+                                android:textColor="@color/colorCanalEmbajador" />
+                        </LinearLayout>
+                    </android.support.constraint.ConstraintLayout>
                 </android.support.constraint.ConstraintLayout>
-            </android.support.constraint.ConstraintLayout>
-        </ScrollView>
+            </ScrollView>
+        </FrameLayout>
+        <include
+            android:id="@+id/screen_load_process"
+            layout="@layout/layout_progress_messagge"
+            bind:messagge="@{messaggeLoad}"/>
     </FrameLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#55000000"
-        android:id="@+id/login_viewProgress"
-        android:gravity="center"
-        android:visibility="gone"
-        android:onClick="clickNull">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/StyleProgressBar"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:fontFamily="@font/telefonica_regular"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:text="Validando documento..."/>
-    </LinearLayout>
-</FrameLayout>
+</layout>
