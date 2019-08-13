@@ -1,6 +1,7 @@
 package pe.com.qallarix.movistarcontigo.autenticacion;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
+import pe.com.qallarix.movistarcontigo.databinding.ActivityLoginBinding;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
@@ -33,7 +35,9 @@ public class LoginActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        ActivityLoginBinding activityLoginBinding = DataBindingUtil.setContentView(
+                this,R.layout.activity_login);
+        activityLoginBinding.setMessaggeLoad("");
         clearWebServices();
         bindearVistas();
         configurarInputDni();
