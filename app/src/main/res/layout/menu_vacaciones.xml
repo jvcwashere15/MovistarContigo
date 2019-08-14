@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <android.support.constraint.ConstraintLayout
         android:id="@+id/vacaciones_vRegistro"
         android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:layout_marginBottom="8dp"
             android:layout_weight="6"
             android:fontFamily="@font/telefonica_regular"
-            android:text="Estado de vacaciones"
+            android:text="Solicitudes pendientes"
             android:textColor="#2A2A3C"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

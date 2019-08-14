@@ -20,20 +20,33 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ScrollView
+        <LinearLayout
             android:id="@+id/view_dashboard_vacaciones"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="vertical"
+
+            <include layout="@layout/resumen_vacaciones"/>
+            <include layout="@layout/menu_vacaciones"/>
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <include layout="@layout/resumen_vacaciones"/>
-                <include layout="@layout/menu_vacaciones"/>
-            </LinearLayout>
-        </ScrollView>
-        <include
-            android:visibility="gone"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/textView38"
+                    android:onClick="verInformacionImportante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="Ver información importante"
+                    android:textColor="@color/colorCanalEmbajador"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+        <include android:visibility="gone"
             layout="@layout/view_message_response_vacaciones"
             android:id="@+id/view_message"/>
     </FrameLayout>

@@ -351,6 +351,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
     <string name="texto_acerca_vacaciones_bullet2_1"><b>Fecha de derecho:</b> es la fecha en la que ganas 30 días de descanso vacacional por cada año de servicio.</string>
     <string name="texto_acerca_vacaciones_bullet2_2"><b>Vacaciones disponibles:</b> son los días reales que tienes por programar a partir de la fecha actual.</string>
+    <string name="texto_acerca_vacaciones_bullet2_3">Si vas a registrar reprogramaciones o solicitar préstamo de retorno vacacional</string>
 
     <string name="texto_acerca_vacaciones_vineta_1">Si tus vacaciones inician en la primera quincena del
         mes (entre el día 1 y 15) y ha sido registrado y aprobado como máximo hasta el día 2 del

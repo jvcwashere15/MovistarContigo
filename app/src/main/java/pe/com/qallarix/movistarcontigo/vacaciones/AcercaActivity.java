@@ -69,6 +69,11 @@ public class AcercaActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        goToParentActivity();
+    }
+
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
         upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

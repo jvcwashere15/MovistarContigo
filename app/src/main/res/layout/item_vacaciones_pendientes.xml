@@ -25,9 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:fontFamily="@font/telefonica_regular"
+            android:fontFamily="@font/telefonica_bold"
             android:maxLines="1"
-            android:textColor="#757575"
+            android:textColor="#2A2A3C"
             android:textSize="15sp"
             tools:text="DENIS RICARDO MORALES RETAMOZO" />
 
@@ -37,8 +37,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/telefonica_light"
             android:textColor="#757575"
-            android:textSize="15sp"
-            tools:text="20/10/2019" />
+            android:textSize="14sp"
+            tools:text="Solicitó sus vacaciones el 20/10/2019" />
     </LinearLayout>
 
     <ImageView

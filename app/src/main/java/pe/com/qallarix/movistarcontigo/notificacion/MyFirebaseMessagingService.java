@@ -11,7 +11,6 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -23,16 +22,13 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.SolicitudesFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.DetalleSolicitudFlex;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
-import pe.com.qallarix.movistarcontigo.pojos.Message;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "FIREBASE CONTIGO";
@@ -138,13 +134,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             case "employee":
                                 if (data.containsKey("action") && data.get("action")!= null) {
                                     String action = data.get("action");
-                                    notifyIntent = new Intent(this, EstadoVacacionesActivity.class);
+                                    notifyIntent = new Intent(this, VacacionesActivity.class);
+                                    notifyIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     switch (action){
                                         case "refuse":
-                                            notifyIntent.putExtra("tabSelected", 2);
+                                            notifyIntent.putExtra("resultadoPedidoVacaciones", 2);
                                             break;
                                         case "approver":
-                                            notifyIntent.putExtra("tabSelected", 1);
+                                            notifyIntent.putExtra("resultadoPedidoVacaciones", 1);
                                             break;
                                         default:
                                             break;

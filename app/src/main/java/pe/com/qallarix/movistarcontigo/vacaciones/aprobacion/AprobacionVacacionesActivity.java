@@ -127,8 +127,9 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
         viewMessage.setVisibility(View.VISIBLE);
         ivMessageImagen.setImageResource(R.drawable.ic_empty_view_lista_vacaciones);
         tvMessageTitle.setText("Sin solicitudes pendientes");
-        tvMessageMensaje.setText("Si deseas ver el reporte de tus solicitudes aprobadas o " +
-                "rechazadas puedes hacerlo desde el SGV.");
+        tvMessageMensaje.setText("¡Atendiste todas las solicitudes de tu equipo!\n" +
+                "Puedes revisar el reporte de todas las vacaciones que aprobaste " +
+                "o rechazaste desde el SGV.");
         tvMessageBoton.setVisibility(View.GONE);
 
     }

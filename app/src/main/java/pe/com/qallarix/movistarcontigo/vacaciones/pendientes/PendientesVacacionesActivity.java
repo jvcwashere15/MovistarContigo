@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.vacaciones.estado;
+package pe.com.qallarix.movistarcontigo.vacaciones.pendientes;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -19,18 +19,18 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseListaEstados;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.EstadoVacaciones;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.ResponseListaEstados;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EstadoVacacionesActivity extends TranquiParentActivity {
+public class PendientesVacacionesActivity extends TranquiParentActivity {
     RecyclerView rvVacaciones;
     List<EstadoVacaciones> aprobadas;
     List<EstadoVacaciones> pendientes;
     List<EstadoVacaciones> rechazadas;
-    EstadoVacacionesAdapter estadoVacacionesAdapter;
+    PendientesVacacionesAdapter pendientesVacacionesAdapter;
     private TextView tvMensajeViewLoader;
     private View viewLoader;
     private TabLayout tabLayout;
@@ -99,7 +99,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private void cargarAprobadas(){
         viewMessage.setVisibility(View.GONE);
         if (aprobadas == null){
-            estadoVacacionesAdapter.setEstadoVacaciones(new ArrayList<EstadoVacaciones>());
+            pendientesVacacionesAdapter.setEstadoVacaciones(new ArrayList<EstadoVacaciones>());
             getAprobadasFromServices();
         }else{
             displayDataListAprobadas();
@@ -111,9 +111,9 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseListaEstados> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceEstadoVacacionesApi.class)
+                .createService(ServicePendientesVacacionesApi.class)
                 .obtenerListaEstadoVacaciones(getCIP(),
-                        ServiceEstadoVacacionesApi.APROBADAS,1);
+                        ServicePendientesVacacionesApi.APROBADAS,1);
         call.enqueue(new Callback<ResponseListaEstados>() {
             @Override
             public void onResponse(Call<ResponseListaEstados> call,
@@ -138,18 +138,18 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         if (aprobadas.size() == 0) mostrarEmptyView("", "No tienes " +
                 "solicitudes de vacaciones aprobadas hasta el momento. En caso de tener " +
                 "registradas vacaciones masivas, podrás visualizarlas desde el SGV.");
-        else estadoVacacionesAdapter.setEstadoVacaciones(aprobadas);
+        else pendientesVacacionesAdapter.setEstadoVacaciones(aprobadas);
     }
 
     private void cargarPendientes() {
         viewMessage.setVisibility(View.GONE);
         if (pendientes == null){
-            estadoVacacionesAdapter.setEstadoVacaciones(new ArrayList<EstadoVacaciones>());
+            pendientesVacacionesAdapter.setEstadoVacaciones(new ArrayList<EstadoVacaciones>());
             getPendientesFromServices();
         }else{
             if (pendientes.isEmpty()) mostrarEmptyView("¡Genial!",
                     "Todas tus solicitudes de vacaciones han sido atendidas.");
-            else estadoVacacionesAdapter.setEstadoVacaciones(pendientes);
+            else pendientesVacacionesAdapter.setEstadoVacaciones(pendientes);
         }
     }
 
@@ -159,19 +159,20 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseListaEstados> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceEstadoVacacionesApi.class)
+                .createService(ServicePendientesVacacionesApi.class)
                 .obtenerListaEstadoVacaciones(getCIP(),
-                        ServiceEstadoVacacionesApi.PENDIENTES,1);
+                        ServicePendientesVacacionesApi.PENDIENTES,1);
         call.enqueue(new Callback<ResponseListaEstados>() {
             @Override
             public void onResponse(Call<ResponseListaEstados> call,
                                    Response<ResponseListaEstados> response) {
                 if (response.code() == 200){
                     pendientes = Arrays.asList(response.body().getVacaciones());
-                    if (pendientes.size() == 0) mostrarEmptyView("¡Genial!",
-                            "Todas tus solicitudes de vacaciones\n" +
-                            "han sido atendidas.");
-                    else estadoVacacionesAdapter.setEstadoVacaciones(pendientes);
+                    if (pendientes.size() == 0) mostrarEmptyView("Sin solicitudes pendientes",
+                            "¡Todas tus solicitudes fueron atendidas!\n" +
+                                    "Puedes revisar todas tus vacaciones aprobadas, " +
+                                    "rechazadas y gozadas desde el SGV.");
+                    else pendientesVacacionesAdapter.setEstadoVacaciones(pendientes);
                 }else {
                     mostrarMensaje500(PENDIENTES);
                 }
@@ -188,12 +189,12 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
     private void cargarRechazadas(){
         viewMessage.setVisibility(View.GONE);
         if (rechazadas == null){
-            estadoVacacionesAdapter.setEstadoVacaciones(new ArrayList<EstadoVacaciones>());
+            pendientesVacacionesAdapter.setEstadoVacaciones(new ArrayList<EstadoVacaciones>());
             getRechazadasFromServices();
         }else{
             if (rechazadas.isEmpty()) mostrarEmptyView("¡Genial!",
                     "No tienes solicitudes de vacaciones rechazadas hasta el momento.");
-            else estadoVacacionesAdapter.setEstadoVacaciones(rechazadas);
+            else pendientesVacacionesAdapter.setEstadoVacaciones(rechazadas);
         }
     }
 
@@ -202,9 +203,9 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         viewLoader.setVisibility(View.VISIBLE);
         Call<ResponseListaEstados> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceEstadoVacacionesApi.class)
+                .createService(ServicePendientesVacacionesApi.class)
                 .obtenerListaEstadoVacaciones(getCIP(),
-                        ServiceEstadoVacacionesApi.RECHAZADAS,1);
+                        ServicePendientesVacacionesApi.RECHAZADAS,1);
         call.enqueue(new Callback<ResponseListaEstados>() {
             @Override
             public void onResponse(Call<ResponseListaEstados> call,
@@ -214,7 +215,7 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
                     if (rechazadas.size() == 0) mostrarEmptyView("¡Genial!",
                             "No tienes solicitudes de vacaciones" +
                             " rechazadas hasta el momento.");
-                    else estadoVacacionesAdapter.setEstadoVacaciones(rechazadas);
+                    else pendientesVacacionesAdapter.setEstadoVacaciones(rechazadas);
                 }else {
                     mostrarMensaje500(RECHAZADAS);
                 }
@@ -243,11 +244,11 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
         rvVacaciones.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvVacaciones.setLayoutManager(layoutManager);
-        estadoVacacionesAdapter = new EstadoVacacionesAdapter(this,
-                new EstadoVacacionesAdapter.EstadoOnClick() {
+        pendientesVacacionesAdapter = new PendientesVacacionesAdapter(this,
+                new PendientesVacacionesAdapter.EstadoOnClick() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(EstadoVacacionesActivity.this,
+                Intent intent = new Intent(PendientesVacacionesActivity.this,
                         DetalleEstadoVacacionesActivity.class);
                 EstadoVacaciones currentEstadoVacaciones = null;
                 switch (currentTab){
@@ -271,14 +272,14 @@ public class EstadoVacacionesActivity extends TranquiParentActivity {
                 }
             }
         });
-        rvVacaciones.setAdapter(estadoVacacionesAdapter);
+        rvVacaciones.setAdapter(pendientesVacacionesAdapter);
     }
 
     public void configurarToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Estado de vacaciones");
+        getSupportActionBar().setTitle("Solicitudes pendientes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }

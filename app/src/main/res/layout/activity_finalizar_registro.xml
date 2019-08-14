@@ -66,7 +66,7 @@
                     android:fontFamily="@font/telefonica_bold"
                     android:gravity="center"
                     android:onClick="verNormativa"
-                    android:text="Ver normativa vacacional"
+                    android:text="Ver informacion importante"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
@@ -82,7 +82,7 @@
                     android:fontFamily="@font/telefonica_bold"
                     android:gravity="center"
                     android:onClick="verEstadoVacaciones"
-                    android:text="Ver estado de vacaciones"
+                    android:text="Ir a solicitudes pendientes"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />

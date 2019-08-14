@@ -126,7 +126,8 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
     }
 
     private void mostrarDialogAprobacionRechazo(String mensaje, final String nombre, final boolean approver) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(DetalleAprobacionActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                DetalleAprobacionActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¿Deseas continuar?");
         builder.setMessage("Vas a " + mensaje + " la solicitud de vacaciones de " + nombre);
         builder.setCancelable(false);

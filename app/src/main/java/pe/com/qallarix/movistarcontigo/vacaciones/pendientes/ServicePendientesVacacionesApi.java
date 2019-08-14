@@ -1,13 +1,12 @@
-package pe.com.qallarix.movistarcontigo.vacaciones.estado;
+package pe.com.qallarix.movistarcontigo.vacaciones.pendientes;
 
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseDetalleSolicitud;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseListaEstados;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseValidarFechas;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.ResponseDetalleSolicitud;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.ResponseListaEstados;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface ServiceEstadoVacacionesApi {
+public interface ServicePendientesVacacionesApi {
     public static final String APROBADAS = "03";
     public static final String PENDIENTES = "02";
     public static final String RECHAZADAS = "04";

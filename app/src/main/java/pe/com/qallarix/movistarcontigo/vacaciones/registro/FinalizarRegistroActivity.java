@@ -20,8 +20,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.AcercaActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseRegistrarVacaciones;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -158,7 +157,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
 
 
     public void verEstadoVacaciones(View view) {
-        Intent intent = new Intent(FinalizarRegistroActivity.this, EstadoVacacionesActivity.class);
+        Intent intent = new Intent(FinalizarRegistroActivity.this, PendientesVacacionesActivity.class);
         startActivity(intent);
         finish();
     }

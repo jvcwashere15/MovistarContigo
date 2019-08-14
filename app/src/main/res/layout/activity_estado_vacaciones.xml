@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".vacaciones.estado.EstadoVacacionesActivity">
+    tools:context=".vacaciones.pendientes.PendientesVacacionesActivity">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,9 +13,10 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
-        tools:context=".vacaciones.estado.EstadoVacacionesActivity">
+        tools:context=".vacaciones.pendientes.PendientesVacacionesActivity">
         <include layout="@layout/my_toolbar"/>
         <FrameLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <View
@@ -47,22 +48,10 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/estado_vacaciones_rvListaVacaciones"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/estado_vacaciones_rvListaVacaciones"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:text="Las vacaciones que se gozaron de forma masiva, por ejemplo el 24 de diciembre del 2018, se visualiza sólo en el SGV."/>
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
             <include
                 android:id="@+id/view_message"
                 android:visibility="gone"

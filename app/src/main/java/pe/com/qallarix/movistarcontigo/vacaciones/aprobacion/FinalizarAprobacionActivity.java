@@ -21,8 +21,11 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
+import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.RegistroVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseRegistrarAprobacion;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -146,9 +149,16 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         }
     }
 
-    public void verSolicitudesPendientes(View view) {
+    public void verSolicitudesParaAprobar (View view) {
         Intent intent = new Intent(FinalizarAprobacionActivity.this, AprobacionVacacionesActivity.class);
         startActivity(intent);
+    }
+
+    public void volverMenu(View view) {
+        Intent intent = new Intent(FinalizarAprobacionActivity.this, VacacionesActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     public void configurarToolbar(){

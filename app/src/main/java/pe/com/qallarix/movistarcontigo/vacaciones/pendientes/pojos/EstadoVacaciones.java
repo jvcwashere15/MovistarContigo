@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos;
+package pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos;
 
 public class EstadoVacaciones {
     private String bossCode;

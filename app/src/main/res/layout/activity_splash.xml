@@ -13,14 +13,16 @@
         android:background="#FFFFFF"
         android:orientation="vertical">
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="8dp"
-            android:tint="@color/colorCanalEmbajador"
-            app:srcCompat="@drawable/ic_cabecera_contigo" />
+            android:text="Movistar Contigo"
+            android:textColor="@color/colorCanalEmbajador"
+            android:fontFamily="@font/telefonica_bold"
+            android:textSize="16sp"/>
 
         <TextView
             android:layout_width="match_parent"

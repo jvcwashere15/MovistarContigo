@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.vacaciones.estado;
+package pe.com.qallarix.movistarcontigo.vacaciones.pendientes;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.EstadoVacaciones;
 
-public class EstadoVacacionesAdapter extends RecyclerView.Adapter<EstadoVacacionesAdapter.EstadoVacacionesHolder> {
+public class PendientesVacacionesAdapter extends RecyclerView.Adapter<PendientesVacacionesAdapter.EstadoVacacionesHolder> {
 
     Context context;
     List<EstadoVacaciones> estadoVacaciones;
     EstadoOnClick estadoOnClick;
 
-    public EstadoVacacionesAdapter(Context context, EstadoOnClick estadoOnClick) {
+    public PendientesVacacionesAdapter(Context context, EstadoOnClick estadoOnClick) {
         this.context = context;
         this.estadoVacaciones = new ArrayList<>();
         this.estadoOnClick = estadoOnClick;

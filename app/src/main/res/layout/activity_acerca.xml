@@ -206,6 +206,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView35"
                     app:layout_constraintTop_toBottomOf="@+id/textView34"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="@string/texto_acerca_vacaciones_bullet2_3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView36"/>
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
         <TextView

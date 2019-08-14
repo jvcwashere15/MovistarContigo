@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.vacaciones.estado;
+package pe.com.qallarix.movistarcontigo.vacaciones.pendientes;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
@@ -17,9 +17,9 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.DetalleVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.EstadoVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.pojos.ResponseDetalleSolicitud;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.DetalleVacaciones;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.EstadoVacaciones;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.ResponseDetalleSolicitud;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -87,7 +87,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
         if (!mShimmerViewContainer.isShimmerStarted()) mShimmerViewContainer.startShimmer();
         Call<ResponseDetalleSolicitud> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceEstadoVacacionesApi.class)
+                .createService(ServicePendientesVacacionesApi.class)
                 .obtenerDetalleVacaciones(getCIP(),requestCode);
         call.enqueue(new Callback<ResponseDetalleSolicitud>() {
             @Override
@@ -101,7 +101,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                     String strEstado = "";
                     int colorEstado = 0;
                     if (currentDetalle.getRequestStateCode()
-                            .equals(ServiceEstadoVacacionesApi.APROBADAS)){
+                            .equals(ServicePendientesVacacionesApi.APROBADAS)){
                         if (TextUtils.isEmpty(currentDetalle.getBossFirstName())){
                             tvLider.setText("TUS VACACIONES FUERON APROBADAS");
                             descripcionLider = "Comunícate con el CAE para cualquier consulta.";
@@ -113,7 +113,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                         strEstado = "APROBADAS";colorEstado = R.drawable.etiqueta_verde;
 
                     }else if (currentDetalle.getRequestStateCode()
-                            .equals(ServiceEstadoVacacionesApi.PENDIENTES)){
+                            .equals(ServicePendientesVacacionesApi.PENDIENTES)){
                         if (TextUtils.isEmpty(currentDetalle.getBossFirstName())){
                             tvLider.setText("TUS VACACIONES FUERON SOLICITADAS");
                             descripcionLider = "Comunícate con el CAE para cualquier consulta.";
@@ -124,7 +124,7 @@ public class DetalleEstadoVacacionesActivity extends TranquiParentActivity {
                         }
                         strEstado = "PENDIENTES";colorEstado = R.drawable.etiqueta_amarilla;
                     }else if (currentDetalle.getRequestStateCode()
-                            .equals(ServiceEstadoVacacionesApi.RECHAZADAS)){
+                            .equals(ServicePendientesVacacionesApi.RECHAZADAS)){
                         if (TextUtils.isEmpty(currentDetalle.getBossFirstName())){
                             tvLider.setText("TUS VACACIONES FUERON SOLICITADAS");
                             descripcionLider = "Comunícate con el CAE para cualquier consulta.";

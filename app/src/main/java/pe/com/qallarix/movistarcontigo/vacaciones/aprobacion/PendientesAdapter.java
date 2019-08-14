@@ -46,7 +46,7 @@ public class PendientesAdapter extends RecyclerView.Adapter<PendientesAdapter.Pe
     public void onBindViewHolder(@NonNull PendienteHolder pendienteHolder, final int position) {
         SolicitudAprobacion currentPendiente = solicitudes.get(position);
         pendienteHolder.setColaborador(currentPendiente.getEmployeeName());
-        pendienteHolder.setFecha(currentPendiente.getRequestDay());
+        pendienteHolder.setFecha("Solicitó sus vacaciones el " + currentPendiente.getRequestDay());
         pendienteHolder.vItemPendiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

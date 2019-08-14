@@ -76,7 +76,7 @@ public class CanalEmbajadorActivity extends TranquiParentActivity {
         configurarClickCvCanalEmbajador(cvHogar,EmbajadorHogarActivity.class);
         configurarClickCvCanalEmbajador(cvMovil,EmbajadorMovilActivity.class);
         configurarClickCvCanalEmbajador(cvQuiebres,EmbajadorQuiebresActivity.class);
-        configurarClickCvCanalEmbajador(cvQuiebresRegistrados, EmbajadorRegistradosActivity.class);
+//        configurarClickCvCanalEmbajador(cvQuiebresRegistrados, EmbajadorRegistradosActivity.class);
         configurarClickCvCanalEmbajador(cvPreguntas,EmbajadorPreguntasActivity.class);
     }
 

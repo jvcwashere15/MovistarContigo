@@ -33,18 +33,35 @@
         android:layout_below="@+id/aprobacion_vacaciones_tvMensajeRespuesta"
         android:layout_marginTop="8dp"
         tools:text="Has solicitado tus vacaciones. Recibirás una notificación al momento de la aprobación." />
+
     <TextView
         android:id="@+id/aprobacion_vacaciones_btVerEstadoVacaciones"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/aprobacion_vacaciones_btVolverVacaciones"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/boton_vacaciones_verde"
+        android:fontFamily="@font/telefonica_bold"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="verSolicitudesParaAprobar"
+        android:text="Ir a vacaciones para aprobar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/aprobacion_vacaciones_btVolverVacaciones"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
         android:textAllCaps="false"
         android:layout_margin="16dp"
         android:textSize="16sp"
+        android:onClick="volverMenu"
         android:fontFamily="@font/telefonica_bold"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/boton_vacaciones_verde"
-        android:textColor="@android:color/white"
-        android:text="Ver solicitudes pendientes"
-        android:onClick="verSolicitudesPendientes"/>
+        android:background="@drawable/boton_vacaciones_verde_blanco"
+        android:textColor="@color/loginBoton"
+        android:text="Volver a vacaciones"/>
 </RelativeLayout>

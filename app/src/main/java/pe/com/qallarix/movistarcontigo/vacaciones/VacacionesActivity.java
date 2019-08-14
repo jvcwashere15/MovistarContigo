@@ -21,7 +21,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.estado.EstadoVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.FutureJoy;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.VacacionesDashboard;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
@@ -45,6 +45,8 @@ public class VacacionesActivity extends TranquiParentActivity {
     private TextView tvMessageTitle, tvMessageMensaje,tvMessageBoton;
     private ImageView ivMessageImagen;
 
+    private int resultadoPedidoVacaciones;
+
     private boolean isLoading = true;
     private String liderName = "";
 
@@ -55,11 +57,17 @@ public class VacacionesActivity extends TranquiParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vacaciones);
         configurarToolbar();
+        getDataFromExtras();
         bindearVistas();
         configurarBotonRegistroVacaciones();
         configurarBotonEstadoVacaciones();
         configurarBotonAprobacionVacaciones();
         cargarDatosVacaciones();
+    }
+
+    private void getDataFromExtras() {
+        if (getIntent().getExtras()!= null && getIntent().getExtras().containsKey("resultadoPedidoVacaciones"))
+            resultadoPedidoVacaciones = getIntent().getExtras().getInt("resultadoPedidoVacaciones",0);
     }
 
     @Override
@@ -88,6 +96,7 @@ public class VacacionesActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     FutureJoy futureJoy = response.body().getFutureJoy();
                     displayFutureJoy(futureJoy);
+                    if (resultadoPedidoVacaciones > 0) mostrarPopUpNotificacion();
                 }else if (response.code() == 500 || response.code() == 404){
                     mostrarMensajeError();
                 }else {
@@ -103,6 +112,10 @@ public class VacacionesActivity extends TranquiParentActivity {
                 mostrarMensajeError();
             }
         });
+    }
+
+    private void mostrarPopUpNotificacion() {
+
     }
 
     private void displayResultadoException(ResponseBody response) {
@@ -141,6 +154,7 @@ public class VacacionesActivity extends TranquiParentActivity {
                 Intent intent =  new Intent(VacacionesActivity.this, RegistroVacacionesActivity.class);
                 intent.putExtra("leadershipName",liderName);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -148,8 +162,9 @@ public class VacacionesActivity extends TranquiParentActivity {
         vEstado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this, EstadoVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, PendientesVacacionesActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -159,6 +174,7 @@ public class VacacionesActivity extends TranquiParentActivity {
             public void onClick(View v) {
                 Intent intent =  new Intent(VacacionesActivity.this, AprobacionVacacionesActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -190,21 +206,19 @@ public class VacacionesActivity extends TranquiParentActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_vacaciones, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_vacaciones, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_informacion:
-                Intent intent = new Intent(this,AcercaActivity.class);
-                Analitycs.logEventoClickBotonAcercaDeVacaciones(this);
-                startActivity(intent);
-                return true;
+//            case R.id.action_informacion:
+//
+//                return true;
             case android.R.id.home:
                 goToParentActivity();
                 return true;
@@ -234,5 +248,17 @@ public class VacacionesActivity extends TranquiParentActivity {
                 cargarDatosVacaciones();
             }
         });
+    }
+
+    public void verInformacionImportante(View view) {
+        Intent intent = new Intent(this,AcercaActivity.class);
+        Analitycs.logEventoClickBotonAcercaDeVacaciones(this);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        goToParentActivity();
     }
 }

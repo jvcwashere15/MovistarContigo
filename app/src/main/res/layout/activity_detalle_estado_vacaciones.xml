@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".vacaciones.estado.DetalleEstadoVacacionesActivity">
+    tools:context=".vacaciones.pendientes.DetalleEstadoVacacionesActivity">
     <include layout="@layout/my_toolbar"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/detalle_vacaciones_shimerFrameLayout"

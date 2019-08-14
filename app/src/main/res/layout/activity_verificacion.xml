@@ -29,6 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
                     android:text="Movistar Contigo"
+                    android:textSize="16sp"
                     android:fontFamily="@font/telefonica_bold"
                     android:layout_centerInParent="true"
                     android:textColor="@color/colorCanalEmbajador"
