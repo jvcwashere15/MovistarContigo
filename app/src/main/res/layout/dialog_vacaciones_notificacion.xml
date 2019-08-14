@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp"
+    android:background="@drawable/boton_blanco">
+
+    <ImageView
+        android:id="@+id/dialog_noti_vacaciones_ivResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_vacacion_aprobada" />
+
+    <TextView
+        android:id="@+id/dialog_noti_vacaciones_tvTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/telefonica_bold"
+        android:gravity="center"
+        android:textColor="#2A2A3C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_noti_vacaciones_ivResultado"
+        tools:text="Vacaciones aprobadas" />
+
+    <TextView
+        android:id="@+id/dialog_noti_vacaciones_tvMensaje"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        tools:text="Tu solicitud de vacaciones fue aprobada por tu jefe aprobador. Revisa el detalle en el SGV."
+        android:textColor="@color/colorTextoCanalEmbajador"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_noti_vacaciones_tvTitulo" />
+
+    <TextView
+        android:id="@+id/dialog_noti_vacaciones_btOkEntiendo"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:background="@drawable/boton_vacaciones_verde"
+        android:fontFamily="@font/telefonica_bold"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="¡OK, entiendo!"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_noti_vacaciones_tvMensaje" />
+
+</android.support.constraint.ConstraintLayout>

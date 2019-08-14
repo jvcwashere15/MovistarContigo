@@ -22,6 +22,7 @@ import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
+import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
 import retrofit2.Call;
@@ -158,13 +159,14 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                                     if (notification.getAction() != null &&
                                                             !TextUtils.isEmpty(notification.getAction())) {
                                                         String action = notification.getAction();
-                                                        notifyIntent = new Intent(NotificacionesActivity.this, PendientesVacacionesActivity.class);
+                                                        notifyIntent = new Intent(NotificacionesActivity.this, VacacionesActivity.class);
+                                                        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                         switch (action){
                                                             case "refuse":
-                                                                notifyIntent.putExtra("tabSelected", 2);
+                                                                notifyIntent.putExtra("resultadoPedidoVacaciones", 2);
                                                                 break;
                                                             case "approver":
-                                                                notifyIntent.putExtra("tabSelected", 1);
+                                                                notifyIntent.putExtra("resultadoPedidoVacaciones", 1);
                                                                 break;
                                                             default:
                                                                 break;

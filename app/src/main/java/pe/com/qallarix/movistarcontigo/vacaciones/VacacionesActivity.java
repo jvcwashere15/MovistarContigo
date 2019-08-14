@@ -1,13 +1,14 @@
 package pe.com.qallarix.movistarcontigo.vacaciones;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -96,7 +97,19 @@ public class VacacionesActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     FutureJoy futureJoy = response.body().getFutureJoy();
                     displayFutureJoy(futureJoy);
-                    if (resultadoPedidoVacaciones > 0) mostrarPopUpNotificacion();
+                    if (resultadoPedidoVacaciones == 1)
+                        mostrarPopUpNotificacion(
+                                R.drawable.ic_vacacion_aprobada,
+                                "Vacaciones aprobadas",
+                                "Tu solicitud de vacaciones fue aprobada por tu jefe aprobador. " +
+                                        "Revisa el detalle en el SGV.");
+                    else if (resultadoPedidoVacaciones == 2){
+                        mostrarPopUpNotificacion(
+                                R.drawable.ic_vacacion_rechazada,
+                                "Vacaciones rechazadas",
+                                "Tu solicitud de vacaciones fue rechazada por tu jefe aprobador." +
+                                        " Revisa el detalle en el SGV.");
+                    }
                 }else if (response.code() == 500 || response.code() == 404){
                     mostrarMensajeError();
                 }else {
@@ -114,8 +127,28 @@ public class VacacionesActivity extends TranquiParentActivity {
         });
     }
 
-    private void mostrarPopUpNotificacion() {
+    private void mostrarPopUpNotificacion(int drawableImage, String titulo, String mensaje) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_vacaciones_notificacion);
+        dialog.show();
 
+        ImageView ivResultado = dialog.findViewById(R.id.dialog_noti_vacaciones_ivResultado);
+        TextView tvTitulo = dialog.findViewById(R.id.dialog_noti_vacaciones_tvTitulo);
+        TextView tvMensaje = dialog.findViewById(R.id.dialog_noti_vacaciones_tvMensaje);
+        TextView tvBotonOkEntiendo = dialog.findViewById(R.id.dialog_noti_vacaciones_btOkEntiendo);
+
+        ivResultado.setImageResource(drawableImage);
+        tvTitulo.setText(titulo);
+        tvMensaje.setText(mensaje);
+
+        tvBotonOkEntiendo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     private void displayResultadoException(ResponseBody response) {
