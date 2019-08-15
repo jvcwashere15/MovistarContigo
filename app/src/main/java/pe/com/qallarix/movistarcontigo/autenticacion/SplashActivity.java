@@ -95,7 +95,6 @@ public class SplashActivity extends TranquiParentActivity {
             public void onResponse(Call<ValidacionToken> call, Response<ValidacionToken> response) {
                 if (response.code() == 200){
                     Employee currentEmployee = response.body().getEmployee();
-
                     guardarNuevasPreferencias(currentEmployee);
                     Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(mainIntent);
@@ -116,25 +115,29 @@ public class SplashActivity extends TranquiParentActivity {
 
     private void guardarNuevasPreferencias(Employee employee) {
         SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        if (sharedPreferences != null && !sharedPreferences.contains("direction")){
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("cip", employee.getCip());
-            editor.putString("vicePresidency", employee.getVicePresidency());
-            editor.putString("management", employee.getManagement());
-            editor.putString("direction", employee.getDirection());
-            editor.commit();
-            Analitycs.setUserProperties(SplashActivity.this,
-                    employee.getClase(),employee.getCategory(),
-                    employee.getVicePresidency(),employee.getManagement(),
-                    employee.getCip(),employee.getDirection());
-        }
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("documentType", mDocumentType);
+        editor.putString("tokenAccess", mDni);
+        editor.putString("category", employee.getCategory());
+        editor.putString("clase", employee.getClase());
+        editor.putString("initials", employee.getInitials());
+        editor.putString("documentNumber", employee.getDocumentNumber());
+        editor.putString("email", employee.getEmail());
+        editor.putString("firstName", employee.getFirstName());
+        editor.putString("fullName", employee.getFullName());
+        editor.putString("sex", employee.getSex());
+        editor.putString("shortName", employee.getShortName());
+        editor.putString("cip", employee.getCip());
+        editor.putString("vicePresidency", employee.getVicePresidency());
+        editor.putString("management", employee.getManagement());
+        editor.putString("direction", employee.getDirection());
+        editor.putBoolean("isFlexPlace", employee.isFlexPlace());
+        editor.commit();
+        Analitycs.setUserProperties(SplashActivity.this,
+                employee.getClase(),employee.getCategory(),
+                employee.getVicePresidency(),employee.getManagement(),
+                employee.getCip(),employee.getDirection());
     }
-
-//    private boolean existConnectionInternet(){
-//        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-//        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-//        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
-//    }
 
     public void mostrarMensaje(String m){
         Toast mToast = Toast.makeText(this, m, Toast.LENGTH_SHORT);

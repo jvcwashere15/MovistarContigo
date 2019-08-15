@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dash_cvVacaciones"
+            android:id="@+id/dash_cv1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -82,6 +82,7 @@
 
 
                     <ImageView
+                        android:id="@+id/dash_iv1"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -89,6 +90,7 @@
                         app:srcCompat="@drawable/ic_vacaciones" />
 
                     <TextView
+                        android:id="@+id/dash_tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="5"
@@ -105,7 +107,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dash_cvFlexplace"
+            android:id="@+id/dash_cv2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -137,6 +139,7 @@
 
 
                     <ImageView
+                        android:id="@+id/dash_iv2"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -144,6 +147,7 @@
                         app:srcCompat="@drawable/ic_flexplace" />
 
                     <TextView
+                        android:id="@+id/dash_tv2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="5"
@@ -160,7 +164,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dash_cvCanalEmbajador"
+            android:id="@+id/dash_cv3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -192,6 +196,7 @@
 
 
                     <ImageView
+                        android:id="@+id/dash_iv3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -199,6 +204,7 @@
                         app:srcCompat="@drawable/ic_embajador" />
 
                     <TextView
+                        android:id="@+id/dash_tv3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="5"
@@ -232,7 +238,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dash_cvDescuentos"
+            android:id="@+id/dash_cv4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -264,6 +270,7 @@
 
 
                     <ImageView
+                        android:id="@+id/dash_iv4"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -271,6 +278,7 @@
                         app:srcCompat="@drawable/ic_descuentos" />
 
                     <TextView
+                        android:id="@+id/dash_tv4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="5"
@@ -287,7 +295,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dash_cvSalud"
+            android:id="@+id/dash_cv5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -319,6 +327,7 @@
 
 
                     <ImageView
+                        android:id="@+id/dash_iv5"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -326,6 +335,7 @@
                         app:srcCompat="@drawable/ic_salud"/>
 
                     <TextView
+                        android:id="@+id/dash_tv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="5"
@@ -342,7 +352,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dash_cvBeneficiosEspeciales"
+            android:id="@+id/dash_cv6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -373,6 +383,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:id="@+id/dash_iv6"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -380,6 +391,7 @@
                         app:srcCompat="@drawable/ic_especiales" />
 
                     <TextView
+                        android:id="@+id/dash_tv6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="5"

@@ -100,13 +100,13 @@ public class VacacionesActivity extends TranquiParentActivity {
                     if (resultadoPedidoVacaciones == 1)
                         mostrarPopUpNotificacion(
                                 R.drawable.ic_vacacion_aprobada,
-                                "Vacaciones aprobadas",
+                                "!Vacaciones aprobadas!",
                                 "Tu solicitud de vacaciones fue aprobada por tu jefe aprobador. " +
                                         "Revisa el detalle en el SGV.");
                     else if (resultadoPedidoVacaciones == 2){
                         mostrarPopUpNotificacion(
                                 R.drawable.ic_vacacion_rechazada,
-                                "Vacaciones rechazadas",
+                                "!Vacaciones rechazadas!",
                                 "Tu solicitud de vacaciones fue rechazada por tu jefe aprobador." +
                                         " Revisa el detalle en el SGV.");
                     }
@@ -170,7 +170,7 @@ public class VacacionesActivity extends TranquiParentActivity {
     }
 
     private void displayFutureJoy(FutureJoy futureJoy) {
-        tvPendientes.setText(String.valueOf(futureJoy.getPlannedDaysPending()));
+        tvPendientes.setText(String.valueOf(futureJoy.getPlannedDaysPending()) + " disponibles");
         tvAdelanto.setText(String.valueOf(futureJoy.getPlannedDaysTruncate()));
         tvFechaDerecho.setText(futureJoy.getDateOfRight());
         liderName = futureJoy.getLeadershipName();

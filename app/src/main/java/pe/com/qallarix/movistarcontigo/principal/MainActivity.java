@@ -107,7 +107,7 @@ public class MainActivity extends TranquiParentActivity {
     public void setFragmentHome(){
         Analitycs.logEventoClickBottomNav(this,TITLE_HOME);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_fragment, HomeFragment.newInstance(noticias), "frag");
+        fragmentTransaction.replace(R.id.main_fragment, HomeFragment.newInstance(noticias,getIfIsFlexPlace()), "frag");
         fragmentTransaction.commit();
         fragmentActual = TipoFragment.HOME;
     }

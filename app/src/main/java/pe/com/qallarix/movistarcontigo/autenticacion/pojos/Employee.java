@@ -15,6 +15,16 @@ public class Employee {
     private String vicePresidency;
     private String direction;
     private String management;
+    private boolean isFlexPlace;
+
+
+    public boolean isFlexPlace() {
+        return isFlexPlace;
+    }
+
+    public void setFlexPlace(boolean flexPlace) {
+        isFlexPlace = flexPlace;
+    }
 
     public String getDocumentNumber() { return documentNumber; }
     public void setDocumentNumber(String value) { this.documentNumber = value; }

@@ -1,5 +1,6 @@
 package pe.com.qallarix.movistarcontigo.principal.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ import pe.com.qallarix.movistarcontigo.beneficioespeciales.BeneficiosEspecialesA
 import pe.com.qallarix.movistarcontigo.descuentos.DescuentosActivity;
 import pe.com.qallarix.movistarcontigo.embajador.CanalEmbajadorActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.FlexPlace;
 import pe.com.qallarix.movistarcontigo.noticias.DataNoticias;
 import pe.com.qallarix.movistarcontigo.noticias.News;
 import pe.com.qallarix.movistarcontigo.noticias.ServiceNewsApi;
@@ -49,12 +52,20 @@ import retrofit2.Response;
  */
 public class HomeFragment extends Fragment {
     private TextView tvHolaUsuario;
-    private CardView cvDescuentos, cvSalud, cvCanalEmbajador,
-            cvFlexPlace, cvBeneficiosEspeciales, cvVacaciones;
+    private CardView cvDash1, cvDash2, cvDash3,
+            cvDash4, cvDash5, cvDash6;
+
+    private TextView tvDash1,tvDash2,tvDash3,
+            tvDash4,tvDash5,tvDash6;
+
+    private ImageView ivDash1,ivDash2,ivDash3,
+            ivDash4,ivDash5,ivDash6;
+
     private ViewPager vpNoticias;
     private NoticiasDashboardAdapter noticiasDashboardAdapter;
 
     private List<News> noticias;
+    private boolean isFlexPlace;
     private DotIndicator dotIndicator;
     private boolean isLoading = true;
     private ShimmerFrameLayout mShimmerViewContainer;
@@ -67,18 +78,22 @@ public class HomeFragment extends Fragment {
             TITLE_AMBASSADOR = "AMBASSADOR",
             TITLE_FLEXPLACE = "FLEXPLACE",
             TITLE_SPECIALS = "SPECIALS",
-            TITLE_VACACIONES = "VACATION";
+            TITLE_VACACIONES = "VACATION",
+            TITLE_STUDY = "STUDY";
 
 
     private static final String ARGUMENT_NOTICIAS = "noticias";
+    private static final String ARGUMENT_IS_FLEXPLACE = "isFlexPlace";
+
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(List<News> noticias) {
+    public static HomeFragment newInstance(List<News> noticias, boolean isFlexPlace) {
         Bundle args = new Bundle();
         args.putSerializable(ARGUMENT_NOTICIAS,(Serializable) noticias);
+        args.putBoolean(ARGUMENT_IS_FLEXPLACE,isFlexPlace);
         HomeFragment fragment = new HomeFragment();
         fragment.setArguments(args);
         return fragment;
@@ -87,6 +102,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         noticias = (List<News>) getArguments().getSerializable(ARGUMENT_NOTICIAS);
+        isFlexPlace = getArguments().getBoolean(ARGUMENT_IS_FLEXPLACE,false);
         mDni = ((TranquiParentActivity)getActivity()).getDocumentNumber();
         parentActivity = (MainActivity) getActivity();
         View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -99,6 +115,80 @@ public class HomeFragment extends Fragment {
         bindearVistas(rootView);
         return rootView;
     }
+
+    private void settingsMenuWithoutFlexPlace() {
+        settingsImagesOfButtons(
+                R.drawable.ic_vacaciones,
+                R.drawable.ic_embajador,
+                R.drawable.ic_descuentos,
+                R.drawable.ic_salud,
+                R.drawable.ic_especiales,
+                R.drawable.ic_open_learning);
+        settingsStringsOfButtons(
+                getString(R.string.dash_title_vacaciones),
+                getString(R.string.dash_title_embajador),
+                getString(R.string.dash_title_descuentos),
+                getString(R.string.dash_title_salud),
+                getString(R.string.dash_title_beneficios_especiales),
+                getString(R.string.dash_title_open_learning));
+        settingsClickOfButtons(isFlexPlace);
+    }
+
+    private void settingsMenuWithFlexPlace() {
+        settingsImagesOfButtons(R.drawable.ic_vacaciones,
+                R.drawable.ic_flexplace,
+                R.drawable.ic_embajador,
+                R.drawable.ic_descuentos,
+                R.drawable.ic_salud,
+                R.drawable.ic_especiales);
+        settingsStringsOfButtons(getString(R.string.dash_title_vacaciones),
+                getString(R.string.dash_title_flexplace),
+                getString(R.string.dash_title_embajador),
+                getString(R.string.dash_title_descuentos),
+                getString(R.string.dash_title_salud),
+                getString(R.string.dash_title_beneficios_especiales));
+        settingsClickOfButtons(isFlexPlace);
+    }
+
+    private void settingsImagesOfButtons(int resourceImage1,int resourceImage2,int resourceImage3,
+                                         int resourceImage4,int resourceImage5,int resourceImage6) {
+        ivDash1.setImageResource(resourceImage1);
+        ivDash2.setImageResource(resourceImage2);
+        ivDash3.setImageResource(resourceImage3);
+        ivDash4.setImageResource(resourceImage4);
+        ivDash5.setImageResource(resourceImage5);
+        ivDash6.setImageResource(resourceImage6);
+    }
+
+    private void settingsStringsOfButtons(String s1,String s2,String s3,
+                                          String s4,String s5,String s6) {
+        tvDash1.setText(s1);
+        tvDash2.setText(s2);
+        tvDash3.setText(s3);
+        tvDash4.setText(s4);
+        tvDash5.setText(s5);
+        tvDash6.setText(s6);
+    }
+
+    private void settingsClickOfButtons(boolean habilitarFlexPlace) {
+        if (habilitarFlexPlace){
+            setearMetodoClick(cvDash1,VacacionesActivity.class,TITLE_VACACIONES);
+            setearMetodoClick(cvDash2, FlexplaceActivity.class,TITLE_FLEXPLACE);
+            setearMetodoClick(cvDash3,CanalEmbajadorActivity.class,TITLE_AMBASSADOR);
+            setearMetodoClick(cvDash4,DescuentosActivity.class,TITLE_DISCOUNT);
+            setearMetodoClick(cvDash5,SaludActivity.class,TITLE_HEALTH);
+            setearMetodoClick(cvDash6,BeneficiosEspecialesActivity.class,TITLE_SPECIALS);
+        }else{
+            setearMetodoClick(cvDash1,VacacionesActivity.class,TITLE_VACACIONES);
+            setearMetodoClick(cvDash2, FlexplaceActivity.class,TITLE_SPECIALS);
+            setearMetodoClick(cvDash3,CanalEmbajadorActivity.class,TITLE_AMBASSADOR);
+            setearMetodoClick(cvDash4,DescuentosActivity.class,TITLE_DISCOUNT);
+            setearMetodoClick(cvDash5,SaludActivity.class,TITLE_HEALTH);
+            setearMetodoClick(cvDash6,OpenLearningActivity.class,TITLE_STUDY);
+        }
+    }
+
+
 
     @Override
     public void onResume() {
@@ -184,7 +274,8 @@ public class HomeFragment extends Fragment {
     private void cargarDashBoardFromCache() {
         configurarViewPagerNoticiasDestacadas();
         mostrarDatosUsuario();
-        configurarBotonesBeneficios();
+        if (isFlexPlace) settingsMenuWithFlexPlace();
+        else settingsMenuWithoutFlexPlace();
     }
 
     private void configurarViewPagerNoticiasDestacadas() {
@@ -225,14 +316,6 @@ public class HomeFragment extends Fragment {
             }
         }
     }
-    private void configurarBotonesBeneficios() {
-        setearMetodoClick(cvDescuentos,DescuentosActivity.class);
-        setearMetodoClick(cvFlexPlace, FlexplaceActivity.class);
-        setearMetodoClick(cvSalud,SaludActivity.class);
-        setearMetodoClick(cvCanalEmbajador,CanalEmbajadorActivity.class);
-        setearMetodoClick(cvBeneficiosEspeciales,BeneficiosEspecialesActivity.class);
-        setearMetodoClick(cvVacaciones,VacacionesActivity.class);
-    }
 
 
     /**
@@ -240,21 +323,16 @@ public class HomeFragment extends Fragment {
      * @param cardView vista cardview clickeable del beneficio
      * @param activityClass activity.class a donde se dirigira al dar click
      */
-    private void setearMetodoClick(final CardView cardView, final Class<?> activityClass) {
+    private void setearMetodoClick(final CardView cardView, final Class<?> activityClass,
+                                   final String titleAnalitycs) {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cardView.equals(cvBeneficiosEspeciales)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_SPECIALS);
-                else if (cardView.equals(cvCanalEmbajador)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_AMBASSADOR);
-                else if (cardView.equals(cvDescuentos)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_DISCOUNT);
-                else if (cardView.equals(cvFlexPlace)){
-//                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
-                    Analitycs.logEventoClickDashboard(getActivity(), TITLE_FLEXPLACE);
-//                    return;
-                }
-                else if (cardView.equals(cvSalud)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_HEALTH);
-                else if (cardView.equals(cvVacaciones)) Analitycs.logEventoClickDashboard(getActivity(),TITLE_VACACIONES);
-                irAlBeneficio(activityClass);
+                Analitycs.logEventoClickDashboard(getActivity(),titleAnalitycs);
+                if (titleAnalitycs.equals(TITLE_FLEXPLACE))
+                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
+                else
+                    irAlBeneficio(activityClass);
             }
         });
     }
@@ -288,11 +366,25 @@ public class HomeFragment extends Fragment {
      * @param vistaRaiz referencia a la vista inflada para el fragment
      */
     public void bindearVistas(View vistaRaiz){
-        cvDescuentos = vistaRaiz.findViewById(R.id.dash_cvDescuentos);
-        cvSalud = vistaRaiz.findViewById(R.id.dash_cvSalud);
-        cvFlexPlace = vistaRaiz.findViewById(R.id.dash_cvFlexplace);
-        cvCanalEmbajador = vistaRaiz.findViewById(R.id.dash_cvCanalEmbajador);
-        cvBeneficiosEspeciales = vistaRaiz.findViewById(R.id.dash_cvBeneficiosEspeciales);
-        cvVacaciones = vistaRaiz.findViewById(R.id.dash_cvVacaciones);
+        cvDash1 = vistaRaiz.findViewById(R.id.dash_cv1);
+        cvDash2 = vistaRaiz.findViewById(R.id.dash_cv2);
+        cvDash3 = vistaRaiz.findViewById(R.id.dash_cv3);
+        cvDash4 = vistaRaiz.findViewById(R.id.dash_cv4);
+        cvDash5 = vistaRaiz.findViewById(R.id.dash_cv5);
+        cvDash6 = vistaRaiz.findViewById(R.id.dash_cv6);
+
+        tvDash1 = vistaRaiz.findViewById(R.id.dash_tv1);
+        tvDash2 = vistaRaiz.findViewById(R.id.dash_tv2);
+        tvDash3 = vistaRaiz.findViewById(R.id.dash_tv3);
+        tvDash4 = vistaRaiz.findViewById(R.id.dash_tv4);
+        tvDash5 = vistaRaiz.findViewById(R.id.dash_tv5);
+        tvDash6 = vistaRaiz.findViewById(R.id.dash_tv6);
+
+        ivDash1 = vistaRaiz.findViewById(R.id.dash_iv1);
+        ivDash2 = vistaRaiz.findViewById(R.id.dash_iv2);
+        ivDash3 = vistaRaiz.findViewById(R.id.dash_iv3);
+        ivDash4 = vistaRaiz.findViewById(R.id.dash_iv4);
+        ivDash5 = vistaRaiz.findViewById(R.id.dash_iv5);
+        ivDash6 = vistaRaiz.findViewById(R.id.dash_iv6);
     }
 }

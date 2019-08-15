@@ -227,6 +227,7 @@ public class VerificacionActivity extends TranquiParentActivity {
         editor.putString("vicePresidency", employee.getVicePresidency());
         editor.putString("management", employee.getManagement());
         editor.putString("direction", employee.getDirection());
+        editor.putBoolean("isFlexPlace", employee.isFlexPlace());
         editor.commit();
     }
 

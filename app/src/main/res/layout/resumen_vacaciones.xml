@@ -47,13 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/telefonica_bold"
-                    android:text="Tus días de vacaciones"
+                    android:text="Días de vacaciones"
                     android:textColor="#B2E5F5"
                     android:textSize="14sp" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/vacaciones_tvPendientes"
@@ -62,20 +63,19 @@
                         android:layout_alignParentLeft="true"
                         android:fontFamily="@font/telefonica_bold"
                         android:includeFontPadding="false"
-                        tools:text="20"
+                        tools:text="20 disponibles"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
                         android:layout_toEndOf="@+id/vacaciones_tvPendientes"
                         android:fontFamily="@font/telefonica_regular"
-                        android:text="disponibles"
+                        android:text="al día de hoy"
                         android:textColor="@android:color/white"
                         android:textSize="15sp" />
-                </RelativeLayout>
+                </LinearLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
