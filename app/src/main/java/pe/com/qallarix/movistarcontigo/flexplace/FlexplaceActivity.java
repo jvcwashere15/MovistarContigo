@@ -316,4 +316,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
         mShimmerViewContainer.stopShimmer();
         super.onPause();
     }
+
+    public void verInformacionImportante(View view) {
+
+    }
 }

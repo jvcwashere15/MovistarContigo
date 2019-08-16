@@ -423,6 +423,20 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="resumen_flexplace_periodo_futuro">Puedes disfrutar de tu día Flex a partir del &lt;b>%1$s&lt;/b>.</string>
     <string name="flexplace_equipo_texto_numero_singular">&lt;b>%1$s miembro&lt;/b> de tu equipo usa su FlexPlace este mes.</string>
     <string name="flexplace_equipo_texto_numeros_plural">&lt;b>%1$s miembros&lt;/b> de tu equipo usan su FlexPlace este mes.</string>
+    <string name="texto_acerca_flexplace_guion1">Está dirigido a trabajadores no sujetos a fiscalización, es decir trabajadores que no marquen horario de entrada y salida.</string>
+    <string name="texto_acerca_flexplace_guion2">El programa es optativo, previo acuerdo con el líder.</string>
+    <string name="texto_acerca_flexplace_guion3">El trabajador, en coordinación con el líder directo, eligen el día que mejor se acomode a las actividades laborales y que asegure la equitativa distribución de FlexPlace en el área (L-V).</string>
+    <string name="texto_acerca_flexplace_guion4">El beneficio es reversible, tanto colaborador como líder directo puede anular el beneficio.</string>
+    <string name="texto_acerca_flexplace_guion5">El programa no permite reposición, acumulación, ni compensación de días y tampoco puede ser gozado en medios días.</string>
+    <string name="texto_acerca_flexplace_guion6">Los días de FlexPlace pueden ser rotativos previa coordinación con el líder. Para cambiar el día del FlexPlace, el trabajador deberá haber gozado un mínimo de 3 meses con el día anterior e ingresar el nuevo día escogido.</string>
+    <string name="texto_acerca_flexplace_guion7">No es acumulable con otros beneficios de tiempo. Si el trabajador(a) está gozando actualmente del beneficio de tiempo Padres e-time, deberá esperar al término del beneficio para hacer uso de FlexPlace.</string>
+    <string name="texto_acerca_flexplace_guion8">El día de FlexPlace es un día de trabajo, por lo cual no deberá ser utilizado para realizar otro tipo de actividades ajenas a las funciones laborales.</string>
+    <string name="texto_acerca_flexplace_req1">Realizar labores que no requieran presencia física de el(la) trabajador(a) en las instalaciones de la empresa durante los cinco días de la semana. Por ejemplo, atención presencial a clientes o proveedores.</string>
+    <string name="texto_acerca_flexplace_req2">Contar con laptop y celular corporativo de Telefónica.</string>
+    <string name="texto_acerca_flexplace_req3">Aprobación del líder del día de FlexPlace en los sistemas oficiales.</string>
+    <string name="texto_acerca_flexplace_req4">Haber completado satisfactoriamente el curso E-Work en Success Factors.</string>
+    <string name="texto_acerca_flexplace_req5">Asistir al centro de trabajo cuando sea necesario y/o requerido por el líder directo.</string>
+    <string name="texto_acerca_flexplace_req6">Estar conectad@s (correo, celular corporativo y Microsoft Teams) a disposición del  líder y/o equipos de trabajo durante su jornada laboral.</string>
 
 
 </resources>
