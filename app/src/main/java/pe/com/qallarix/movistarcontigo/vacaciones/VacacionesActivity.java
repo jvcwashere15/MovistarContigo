@@ -101,13 +101,13 @@ public class VacacionesActivity extends TranquiParentActivity {
                     if (resultadoPedidoVacaciones == 1)
                         mostrarPopUpNotificacion(
                                 R.drawable.ic_vacacion_aprobada,
-                                "!Vacaciones aprobadas!",
+                                "¡Vacaciones aprobadas!",
                                 "Tu solicitud de vacaciones fue aprobada por tu jefe aprobador. " +
                                         "Revisa el detalle en el SGV.");
                     else if (resultadoPedidoVacaciones == 2){
                         mostrarPopUpNotificacion(
                                 R.drawable.ic_vacacion_rechazada,
-                                "!Vacaciones rechazadas!",
+                                "¡Vacaciones rechazadas!",
                                 "Tu solicitud de vacaciones fue rechazada por tu jefe aprobador." +
                                         " Revisa el detalle en el SGV.");
                     }
