@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.embajador.movil.fragments.EmbajadorMovilPaquetesFragment;
-import pe.com.qallarix.movistarcontigo.embajador.movil.fragments.EmbajadorMovilQueHacerFragment;
 
 
 public class HerramientasFragment extends Fragment {
@@ -28,7 +26,7 @@ public class HerramientasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_herramientas, container, false);
-        tabLayout = rootView.findViewById(R.id.embajador_movil_tabLayout);
+        tabLayout = rootView.findViewById(R.id.ambassador_mobile_tabLayout);
         configurarTabs();
         return rootView;
     }

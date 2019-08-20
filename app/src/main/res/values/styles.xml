@@ -10,6 +10,7 @@
 
     <style name="temaToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:fontFamily">@font/telefonica_bold</item>
+        <item name="android:text"></item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

@@ -43,7 +43,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:text="Nos pondremos en contacto en breve patra informarle la evolución/solución del quiebre. Gracias por utilizar nuestro canal"
+        android:text="Nos pondremos en contacto en breve patra informarle la evolución/solución del aBreak. Gracias por utilizar nuestro canal"
         android:textColor="@color/colorTextoCanalEmbajador"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

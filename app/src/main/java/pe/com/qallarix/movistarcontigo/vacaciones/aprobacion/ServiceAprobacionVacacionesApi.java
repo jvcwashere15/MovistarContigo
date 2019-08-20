@@ -1,11 +1,8 @@
 package pe.com.qallarix.movistarcontigo.vacaciones.aprobacion;
 
-import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.Quiebre;
-import pe.com.qallarix.movistarcontigo.embajador.quiebres.pojos.QuiebreRegistrado;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.RegistroVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseListaSolicitudes;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseRegistrarAprobacion;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseSolicitudAprobacion;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

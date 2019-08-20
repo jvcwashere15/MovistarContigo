@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".embajador.movil.fragments.MovilPaqueteFragment">
+    tools:context=".ambassador.mobile.fragments.MobilePacksFragment">
     <LinearLayout
         android:orientation="vertical"
         android:padding="8dp"

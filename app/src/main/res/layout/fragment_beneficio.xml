@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".beneficioespeciales.fragments.BeneficioFragment">
+    tools:context=".especiales.fragments.BeneficioFragment">
     <TextView
         android:id="@+id/detalle_beneficio_especial_tvDescripcion"
         android:layout_width="match_parent"

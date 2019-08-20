@@ -14,17 +14,16 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
+import pe.com.qallarix.movistarcontigo.especiales.DetalleEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.approve.DetalleSolicitudFlexActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,7 +94,7 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                         notifyIntent.putExtra("origin", "Externo");
                                         break;
                                     case "especial":
-                                        notifyIntent = new Intent(NotificacionesActivity.this, DetalleBeneficioEspecialActivity.class);
+                                        notifyIntent = new Intent(NotificacionesActivity.this, DetalleEspecialActivity.class);
                                         break;
                                     case "salud":
                                         notifyIntent = new Intent(NotificacionesActivity.this, DetalleSaludActivity.class);

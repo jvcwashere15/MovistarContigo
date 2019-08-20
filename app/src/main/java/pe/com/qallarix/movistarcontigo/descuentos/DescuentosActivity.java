@@ -70,7 +70,7 @@ public class DescuentosActivity extends TranquiParentActivity {
         mShimmerViewContainer = findViewById(R.id.descuentos_shimerFrameLayout);
         configurarToolbar();
         configurarRecyclerView();
-        if (existConnectionInternet()){
+        if (internetConectionExists()){
             cargarInicialRecyclerView(NO_FILTRAR);
         }else {
             mostrarMensaje("No hay conexion a internet");

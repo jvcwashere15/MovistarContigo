@@ -250,9 +250,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <string name="embajador_hogar_importante_respuesta_5">El Descuento Embajador no es acumulable con otros descuentos promocionales.</string>
     <string name="embajador_hogar_importante_respuesta_6">Para empleados nuevos, debes esperar 35 días desde tu contratación para realizar el alta nueva o migración para que el descuento se pueda aplicar.</string>
     <string name="embajador_paquete_movil_footer">Adquiere tu plan en cualquiera de nuestros puntos de venta  con tu <font color='#5BC500'><b>DNI</b></font>.</string>
-    <string name="embajador_paquete_hogar_footer_1">Pídelo como <font color='#5BC500'><b>trío regular</b></font>, no como un trío Embajador.</string>
+    <string name="embajador_paquete_hogar_footer_1">Pídelo como trío regular, no como un trío Embajador.</string>
+
     <string name="embajador_paquete_hogar_footer_2">¿Quieres migrar tu trío?</string>
-    <string name="embajador_paquete_hogar_footer_aqui"><font color='#00A9E0'><u>Pídelo aquí</u></font></string>
+    <string name="embajador_paquete_hogar_footer_aqui"><font color='#FF00A9E0'><u>Pídelo aquí</u></font></string>
     <string name="hint_nombre_apellido"><i>Nombre y apellido (*)</i></string>
     <string name="hint_dni"><i>DNI/CEX(*)</i></string>
     <string name="hint_telefono_contacto"><i>Teléfono de contacto (*)</i></string>
@@ -332,7 +333,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <string name="version_name">v1.5</string>
     <string name="quiebre_averias_hogar_descripcion">Recuerda que antes de continuar; debes de
         contar con el código de avería y éste debe de tener más de 72 horas de haberse generado
-        para considerarlo como un quiebre.
+        para considerarlo como un aBreak.
         \nPor única vez, te pedimos que sigas dos pasos previos antes de registrar el caso,
         revísalo haciendo</string>
     <string name="lint_text"><u>Click Aquí</u></string>

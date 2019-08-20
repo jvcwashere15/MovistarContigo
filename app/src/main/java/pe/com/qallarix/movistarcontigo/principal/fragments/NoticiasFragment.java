@@ -112,7 +112,7 @@ public class NoticiasFragment extends Fragment {
     }
 
     private void cargarNoticiasFromNetWork() {
-        if (parentActivity.existConnectionInternet()){
+        if (parentActivity.internetConectionExists()){
             mostrarViewLoading();
             onLoadNoticiasFromNetwork();
         }else{

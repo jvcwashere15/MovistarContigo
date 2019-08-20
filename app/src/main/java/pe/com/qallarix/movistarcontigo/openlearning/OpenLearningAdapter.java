@@ -3,7 +3,6 @@ package pe.com.qallarix.movistarcontigo.openlearning;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +13,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.beneficioespeciales.adapters.VinetaDescripcionAdapter;
-import pe.com.qallarix.movistarcontigo.beneficioespeciales.pojos.ItemList;
 import pe.com.qallarix.movistarcontigo.openlearning.pojos.OpenLearningItem;
 
 public class OpenLearningAdapter extends RecyclerView.Adapter<OpenLearningAdapter.TipoBeneficioHolder> {

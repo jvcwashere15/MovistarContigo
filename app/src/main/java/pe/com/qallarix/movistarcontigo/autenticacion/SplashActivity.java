@@ -4,19 +4,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,7 +31,7 @@ public class SplashActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (existConnectionInternet()){
+        if (internetConectionExists()){
             setContentView(R.layout.activity_splash);
             if(existeToken())
                 validarSesion(mDocumentType,mDni,mToken);
@@ -117,7 +107,7 @@ public class SplashActivity extends TranquiParentActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("documentType", mDocumentType);
-        editor.putString("tokenAccess", mDni);
+        editor.putString("tokenAccess", mToken);
         editor.putString("category", employee.getCategory());
         editor.putString("clase", employee.getClase());
         editor.putString("initials", employee.getInitials());

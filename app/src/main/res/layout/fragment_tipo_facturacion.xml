@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".embajador.total.fragments.TipoFacturacionFragment">
+    tools:context=".ambassador.total.fragments.TipoFacturacionFragment">
     <TextView
         android:id="@+id/tipo_facturacion_tvDescripcion"
         android:layout_width="match_parent"

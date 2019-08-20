@@ -165,7 +165,7 @@
             android:layout_marginBottom="8dp"
             android:layout_weight="6"
             android:fontFamily="@font/telefonica_regular"
-            android:text="Solicitudes FlexPlace"
+            android:text="FlexPlace para aprobar"
             android:textColor="#2A2A3C"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

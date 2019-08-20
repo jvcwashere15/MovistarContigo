@@ -1,6 +1,5 @@
 package pe.com.qallarix.movistarcontigo.flexplace.miequipo;
 
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.pojos.ResponseSolicitudesFlexPlace;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

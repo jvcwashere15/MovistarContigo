@@ -2,7 +2,6 @@ package pe.com.qallarix.movistarcontigo.principal.fragments;
 
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.ambassador.AmbassadorChannelActivity;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.beneficioespeciales.BeneficiosEspecialesActivity;
+import pe.com.qallarix.movistarcontigo.especiales.EspecialesActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DescuentosActivity;
-import pe.com.qallarix.movistarcontigo.embajador.CanalEmbajadorActivity;
 import pe.com.qallarix.movistarcontigo.openlearning.OpenLearningActivity;
 import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 
@@ -62,8 +61,8 @@ public class BeneficiosFragment extends Fragment {
 //                startActivity(i);
 //            }
 //        });
-        setearMetodoClick(cvCanalEmbajador,CanalEmbajadorActivity.class);
-        setearMetodoClick(cvBeneficiosEspeciales,BeneficiosEspecialesActivity.class);
+        setearMetodoClick(cvCanalEmbajador, AmbassadorChannelActivity.class);
+        setearMetodoClick(cvBeneficiosEspeciales, EspecialesActivity.class);
     }
 
     /**

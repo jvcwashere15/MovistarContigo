@@ -14,7 +14,7 @@
         android:roundIcon="@drawable/ic_round_contigo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".embajador.registrados.EmbajadorRegistradosActivity"></activity>
+        <activity android:name=".ambassador.registered.AmbassadorRegisteredActivity"></activity>
         <activity
             android:name=".notificacion.NotificacionesActivity"
             android:parentActivityName=".principal.MainActivity"
@@ -96,34 +96,34 @@
 
         <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
         <activity
-            android:name=".beneficioespeciales.BeneficiosEspecialesActivity"
+            android:name=".especiales.EspecialesActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".beneficioespeciales.DetalleBeneficioEspecialActivity"
-            android:parentActivityName=".beneficioespeciales.BeneficiosEspecialesActivity"
+            android:name=".especiales.DetalleEspecialActivity"
+            android:parentActivityName=".especiales.EspecialesActivity"
             android:screenOrientation="portrait" />
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
         <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
         <activity
-            android:name=".embajador.CanalEmbajadorActivity"
+            android:name=".ambassador.AmbassadorChannelActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".embajador.quiebres.EmbajadorQuiebresActivity"
+            android:name=".ambassador.breaks.AmbassadorBreaksActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".embajador.preguntas.EmbajadorPreguntasActivity"
+            android:name=".ambassador.questions.AmbassadorQuestionsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".embajador.movil.EmbajadorMovilActivity"
+            android:name=".ambassador.mobile.AmbassadorMobileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".embajador.hogar.EmbajadorHogarActivity"
+            android:name=".ambassador.home.AmbassadorHomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".embajador.total.EmbajadorMovistarTotalActivity"
+            android:name=".ambassador.total.EmbajadorMovistarTotalActivity"
             android:screenOrientation="portrait" />
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
@@ -197,7 +197,7 @@
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
+            android:name=".flexplace.approve.SolicitudesFlexPlaceActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
@@ -206,22 +206,22 @@
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.solicitudes.FinalizarNotificarCancelacionActivity"
+            android:name=".flexplace.approve.FinalizarNotificarCancelacionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.solicitudes.DetallePendienteActivity"
-            android:parentActivityName=".flexplace.historial.HistorialFlexPlaceActivity"
+            android:name=".flexplace.approve.DetalleFlexPendienteActivity"
+            android:parentActivityName=".flexplace.approve.SolicitudesFlexPlaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.solicitudes.FinalizarAprobarRechazarFlexActivity"
+            android:name=".flexplace.approve.FinalizarAprobarRechazarFlexActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.solicitudes.RechazoSolicitudFlexActivity"
+            android:name=".flexplace.approve.RechazoSolicitudFlexActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.solicitudes.DetalleSolicitudFlexActivity"
-            android:parentActivityName=".flexplace.solicitudes.SolicitudesFlexPlaceActivity"
+            android:name=".flexplace.approve.DetalleSolicitudFlexActivity"
+            android:parentActivityName=".flexplace.approve.SolicitudesFlexPlaceActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"

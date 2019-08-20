@@ -54,26 +54,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#EEEEEE"
-
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/telefonica_bold"
                         android:includeFontPadding="false"
-                        android:text="\u25CF"
-                        android:textColor="@color/colorCanalEmbajador"
-                        android:textSize="15sp" />
+                        app:inactiveColor="@color/colorCanalEmbajador"/>
 
                     <TextView
+                        android:id="@+id/ambassador_home_tvFooter1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/telefonica_regular"
                         android:paddingLeft="8dp"
                         android:textColor="#86888C"
-                        android:text="@string/embajador_paquete_hogar_footer_1"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>

@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical">
         <TextView
+            android:id="@+id/item_break_registered_tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="#757575"
@@ -21,6 +22,7 @@
             android:textSize="16sp"
             android:layout_weight="2"/>
         <TextView
+            android:id="@+id/item_break_registered_tvState"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,6 +52,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 />
             <TextView
+                android:id="@+id/item_break_registered_tvDni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="43372489"
@@ -67,6 +70,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 />
             <TextView
+                android:id="@+id/item_break_registered_tvTypeBreak"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FIJA/PEDIDOS"
@@ -91,6 +95,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 />
             <TextView
+                android:id="@+id/item_break_registered_tvPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="984763597"
@@ -108,6 +113,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 />
             <TextView
+                android:id="@+id/item_break_registered_tvTypeProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TRÍO MOVISTAR"
@@ -130,6 +136,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 />
             <TextView
+                android:id="@+id/item_break_registered_tvDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="04/08/2019"

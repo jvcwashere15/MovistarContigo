@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.TypedValue;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,7 +22,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.miequipo.MiEquipoFlexPlaceActiv
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.Dashboard;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.RegistrarFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.SolicitudesFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.approve.SolicitudesFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;

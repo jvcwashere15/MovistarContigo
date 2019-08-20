@@ -1,6 +1,5 @@
 package pe.com.qallarix.movistarcontigo.principal.fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,12 +25,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.ambassador.AmbassadorChannelActivity;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.beneficioespeciales.BeneficiosEspecialesActivity;
+import pe.com.qallarix.movistarcontigo.especiales.EspecialesActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DescuentosActivity;
-import pe.com.qallarix.movistarcontigo.embajador.CanalEmbajadorActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.FlexPlace;
 import pe.com.qallarix.movistarcontigo.noticias.DataNoticias;
 import pe.com.qallarix.movistarcontigo.noticias.News;
 import pe.com.qallarix.movistarcontigo.noticias.ServiceNewsApi;
@@ -174,16 +172,16 @@ public class HomeFragment extends Fragment {
         if (habilitarFlexPlace){
             setearMetodoClick(cvDash1,VacacionesActivity.class,TITLE_VACACIONES);
             setearMetodoClick(cvDash2, FlexplaceActivity.class,TITLE_FLEXPLACE);
-            setearMetodoClick(cvDash3,CanalEmbajadorActivity.class,TITLE_AMBASSADOR);
+            setearMetodoClick(cvDash3, AmbassadorChannelActivity.class,TITLE_AMBASSADOR);
             setearMetodoClick(cvDash4,DescuentosActivity.class,TITLE_DISCOUNT);
             setearMetodoClick(cvDash5,SaludActivity.class,TITLE_HEALTH);
-            setearMetodoClick(cvDash6,BeneficiosEspecialesActivity.class,TITLE_SPECIALS);
+            setearMetodoClick(cvDash6, EspecialesActivity.class,TITLE_SPECIALS);
         }else{
             setearMetodoClick(cvDash1,VacacionesActivity.class,TITLE_VACACIONES);
-            setearMetodoClick(cvDash2, FlexplaceActivity.class,TITLE_SPECIALS);
-            setearMetodoClick(cvDash3,CanalEmbajadorActivity.class,TITLE_AMBASSADOR);
-            setearMetodoClick(cvDash4,DescuentosActivity.class,TITLE_DISCOUNT);
-            setearMetodoClick(cvDash5,SaludActivity.class,TITLE_HEALTH);
+            setearMetodoClick(cvDash2, AmbassadorChannelActivity.class,TITLE_AMBASSADOR);
+            setearMetodoClick(cvDash3,DescuentosActivity.class,TITLE_DISCOUNT);
+            setearMetodoClick(cvDash4,SaludActivity.class,TITLE_HEALTH);
+            setearMetodoClick(cvDash5, EspecialesActivity.class,TITLE_SPECIALS);
             setearMetodoClick(cvDash6,OpenLearningActivity.class,TITLE_STUDY);
         }
     }
@@ -241,7 +239,7 @@ public class HomeFragment extends Fragment {
 
 
     private void cargarDashBoardFromNetWork() {
-        if (parentActivity.existConnectionInternet())
+        if (parentActivity.internetConectionExists())
             loadNewsFromNetWork();
         else {
             mostrarViewSinConexion();

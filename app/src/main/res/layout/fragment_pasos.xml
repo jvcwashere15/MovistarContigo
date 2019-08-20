@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="#F4F4F4"
-    tools:context=".embajador.hogar.fragments.HogarPasosFragment">
+    tools:context=".ambassador.home.fragments.HomeStepsFragment">
 
     <TextView
         android:id="@+id/movil_pasos_tvNumero"

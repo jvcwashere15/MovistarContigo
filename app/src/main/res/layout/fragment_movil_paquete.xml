@@ -9,7 +9,7 @@
     android:paddingBottom="8dp"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".embajador.movil.fragments.MovilPaqueteFragment">
+    tools:context=".ambassador.mobile.fragments.MobilePacksFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

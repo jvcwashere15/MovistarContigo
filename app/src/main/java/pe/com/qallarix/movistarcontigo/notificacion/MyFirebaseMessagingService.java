@@ -19,16 +19,15 @@ import java.io.IOException;
 import java.util.Map;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.beneficioespeciales.DetalleBeneficioEspecialActivity;
+import pe.com.qallarix.movistarcontigo.especiales.DetalleEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.approve.DetalleSolicitudFlexActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "FIREBASE CONTIGO";
@@ -75,7 +74,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     notifyIntent.putExtra("origin", "Externo");
                     break;
                 case "especial":
-                    notifyIntent = new Intent(this, DetalleBeneficioEspecialActivity.class);
+                    notifyIntent = new Intent(this, DetalleEspecialActivity.class);
                     break;
                 case "salud":
                     notifyIntent = new Intent(this, DetalleSaludActivity.class);

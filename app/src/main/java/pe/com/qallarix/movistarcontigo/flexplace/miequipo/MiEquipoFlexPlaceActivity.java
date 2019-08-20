@@ -38,7 +38,7 @@ import java.util.Calendar;
 import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.flexplace.solicitudes.DetalleSolicitudFlexActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.approve.DetalleSolicitudFlexActivity;
 import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;

@@ -13,6 +13,7 @@ import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
+import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
@@ -43,6 +44,7 @@ public class LoginActivity extends TranquiParentActivity {
 
     private void clearWebServices() {
         WebService1.setInstance(null);
+        WebServiceAmbassador.setInstance(null);
         WebServiceVacaciones.setInstance(null);
         WebServiceFlexPlace.setInstance(null);
         WebServiceNotification.setInstance(null);
@@ -83,7 +85,7 @@ public class LoginActivity extends TranquiParentActivity {
         String documentNumber = etDni.getText().toString().trim();
         if (documentNumber != null && !TextUtils.isEmpty(documentNumber)) {
             if (documentoEsValido(documentNumber) && terminosAceptados()){
-                if (existConnectionInternet()){
+                if (internetConectionExists()){
                     documentNumber = etDni.getText().toString();
                     pedirTokenAlServicio(documentType, documentNumber);
                 }else{
