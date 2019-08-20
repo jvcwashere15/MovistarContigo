@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".flexplace.AcercaFlexPlace">
+    android:background="@android:color/white"
+    tools:context=".flexplace.AcercaFlexPlaceActivity">
     <include layout="@layout/my_toolbar"/>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -351,8 +353,18 @@
                 android:fontFamily="@font/telefonica_regular"
                 android:text="¡Si aún no estás inscrito, inscríbete a FlexPlace para empezar a trabajar de manera distinta!"
                 app:layout_constraintTop_toBottomOf="@+id/texto_requisito6" />
-
-
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
+    <TextView
+        android:id="@+id/acerca_de_flex_tvPreguntasFrecuentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:background="@drawable/boton_vacaciones_verde"
+        android:text="Revisar preguntas frecuentes"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
 </LinearLayout>

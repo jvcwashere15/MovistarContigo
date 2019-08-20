@@ -184,7 +184,7 @@
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.AcercaFlexPlace"
+            android:name=".flexplace.AcercaFlexPlaceActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity

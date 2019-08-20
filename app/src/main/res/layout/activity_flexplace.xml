@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".flexplace.FlexplaceActivity">
     <include layout="@layout/my_toolbar"/>
@@ -18,36 +17,33 @@
     </com.facebook.shimmer.ShimmerFrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ScrollView
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+        <LinearLayout
             android:id="@+id/view_dashboard_flexplace"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="vertical"
+            <include layout="@layout/resumen_flexplace"/>
+            <include layout="@layout/menu_flexplace"/>
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <include layout="@layout/resumen_flexplace"/>
-                <include layout="@layout/menu_flexplace"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-                    <TextView
-                        android:id="@+id/textView38"
-                        android:onClick="verInformacionImportante"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/telefonica_regular"
-                        android:text="Ver información importante"
-                        android:textColor="@color/colorCanalEmbajador"
-                        android:layout_marginBottom="16dp"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-            </LinearLayout>
-        </ScrollView>
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/textView38"
+                    android:onClick="verInformacionImportante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="Ver información importante"
+                    android:textColor="@color/colorCanalEmbajador"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+        </LinearLayout>
         <include
             android:visibility="gone"
             layout="@layout/view_message_response_vacaciones"

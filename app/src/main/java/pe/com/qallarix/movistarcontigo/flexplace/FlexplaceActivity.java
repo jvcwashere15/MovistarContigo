@@ -234,20 +234,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_vacaciones, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_informacion:
-                Intent intent = new Intent(this, AcercaFlexPlace.class);
-                Analitycs.logEventoClickBotonAcercaDeFlexPlace(this);
-                startActivity(intent);
-                return true;
             case android.R.id.home:
                 goToParentActivity();
                 return true;
@@ -318,6 +306,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     public void verInformacionImportante(View view) {
-
+        Intent intent = new Intent(this, AcercaFlexPlaceActivity.class);
+        Analitycs.logEventoClickBotonAcercaDeFlexPlace(this);
+        startActivity(intent);
     }
 }

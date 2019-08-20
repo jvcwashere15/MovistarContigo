@@ -18,8 +18,7 @@ import java.util.Date;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlace;
-import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.AcercaFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.historial.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
@@ -144,7 +143,7 @@ public class FinalizarAprobarRechazarFlexActivity extends TranquiParentActivity 
     }
 
     public void verNormativa(View view) {
-        Intent intent = new Intent(FinalizarAprobarRechazarFlexActivity.this, AcercaFlexPlace.class);
+        Intent intent = new Intent(FinalizarAprobarRechazarFlexActivity.this, AcercaFlexPlaceActivity.class);
         startActivity(intent);
         finish();
     }
