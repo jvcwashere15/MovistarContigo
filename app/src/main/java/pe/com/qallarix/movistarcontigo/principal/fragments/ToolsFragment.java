@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 import pe.com.qallarix.movistarcontigo.R;
 
 
-public class HerramientasFragment extends Fragment {
+public class ToolsFragment extends Fragment {
 
     private TabLayout tabLayout;
     private int currentTab = 0;
 
-    public HerramientasFragment() {
+    public ToolsFragment() {
         // Required empty public constructor
     }
 
@@ -57,9 +57,9 @@ public class HerramientasFragment extends Fragment {
     private void setearFragment() {
         Fragment fragment = null;
         if(currentTab == 0){
-            fragment = new InternasFragment();
+            fragment = new InternalFragment();
         }else if(currentTab == 1){
-            fragment = new ExternasFragment();
+            fragment = new ExternalFragment();
         }
         getChildFragmentManager().beginTransaction().replace(R.id.embajador_movil_content,fragment,"fragment_movil").commit();
     }

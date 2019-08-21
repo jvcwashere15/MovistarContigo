@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".flexplace.FlexplaceActivity">
     <include layout="@layout/my_toolbar"/>
@@ -13,11 +14,12 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         app:shimmer_duration="800">
-        <include layout="@layout/vacaciones_dashboard_placeholder"/>
+        <include layout="@layout/placeholder_flexplace_dashboard"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         android:background="@android:color/white">
         <LinearLayout
             android:id="@+id/view_dashboard_flexplace"
@@ -40,7 +42,6 @@
                     android:fontFamily="@font/telefonica_regular"
                     android:text="Ver información importante"
                     android:textColor="@color/colorCanalEmbajador"
-                    android:layout_marginBottom="16dp"
                     android:textSize="14sp"/>
             </RelativeLayout>
         </LinearLayout>

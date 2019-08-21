@@ -35,7 +35,7 @@ import pe.com.qallarix.movistarcontigo.noticias.News;
 import pe.com.qallarix.movistarcontigo.noticias.ServiceNewsApi;
 import pe.com.qallarix.movistarcontigo.openlearning.OpenLearningActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
-import pe.com.qallarix.movistarcontigo.principal.NoticiasDashboardAdapter;
+import pe.com.qallarix.movistarcontigo.principal.NewsDashboardAdapter;
 import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
             ivDash4,ivDash5,ivDash6;
 
     private ViewPager vpNoticias;
-    private NoticiasDashboardAdapter noticiasDashboardAdapter;
+    private NewsDashboardAdapter noticiasDashboardAdapter;
 
     private List<News> noticias;
     private boolean isFlexPlace;
@@ -301,7 +301,7 @@ public class HomeFragment extends Fragment {
             public void onPageScrollStateChanged(int i) { }
         });
         if (!isAdded()) return;
-        noticiasDashboardAdapter = new NoticiasDashboardAdapter(getChildFragmentManager(),noticias,numberOfImages);
+        noticiasDashboardAdapter = new NewsDashboardAdapter(getChildFragmentManager(),noticias,numberOfImages);
         vpNoticias.setAdapter(noticiasDashboardAdapter);
     }
 

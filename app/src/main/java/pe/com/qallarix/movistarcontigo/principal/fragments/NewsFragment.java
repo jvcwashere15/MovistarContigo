@@ -34,7 +34,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NoticiasFragment extends Fragment {
+public class NewsFragment extends Fragment {
     private RecyclerView rvNoticias;
     private RecyclerView.LayoutManager layoutManager;
     private NoticiasAdapter noticiasAdapter;
@@ -51,15 +51,15 @@ public class NoticiasFragment extends Fragment {
     private boolean isLoading = true;
 
 
-    public NoticiasFragment() {
+    public NewsFragment() {
         // Required empty public constructor
     }
 
-    public static NoticiasFragment newInstance(List<News> noticias, String mDni) {
+    public static NewsFragment newInstance(List<News> noticias, String mDni) {
         Bundle args = new Bundle();
         args.putSerializable(ARGUMENT_NOTICIAS, (Serializable) noticias);
         args.putString(ARGUMENT_DNI,mDni);
-        NoticiasFragment fragment = new NoticiasFragment();
+        NewsFragment fragment = new NewsFragment();
         fragment.setArguments(args);
         return fragment;
     }

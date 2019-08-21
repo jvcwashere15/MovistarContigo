@@ -23,10 +23,10 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 import pe.com.qallarix.movistarcontigo.noticias.News;
 import pe.com.qallarix.movistarcontigo.notificacion.NotificacionesActivity;
-import pe.com.qallarix.movistarcontigo.principal.fragments.BeneficiosFragment;
-import pe.com.qallarix.movistarcontigo.principal.fragments.HerramientasFragment;
+import pe.com.qallarix.movistarcontigo.principal.fragments.BenefitsFragment;
+import pe.com.qallarix.movistarcontigo.principal.fragments.ToolsFragment;
 import pe.com.qallarix.movistarcontigo.principal.fragments.HomeFragment;
-import pe.com.qallarix.movistarcontigo.principal.fragments.NoticiasFragment;
+import pe.com.qallarix.movistarcontigo.principal.fragments.NewsFragment;
 import pe.com.qallarix.movistarcontigo.util.TipoFragment;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
@@ -116,7 +116,7 @@ public class MainActivity extends TranquiParentActivity {
     public void setFragmentBeneficios(){
         Analitycs.logEventoClickBottomNav(this,TITLE_BENEFIT);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_fragment,new BeneficiosFragment(),"frag");
+        fragmentTransaction.replace(R.id.main_fragment,new BenefitsFragment(),"frag");
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("frag_imagen");
         if (fragment != null) fragmentTransaction.remove(fragment);
         fragmentTransaction.commit();
@@ -126,7 +126,7 @@ public class MainActivity extends TranquiParentActivity {
     public void setFragmentHerramientas(){
         Analitycs.logEventoClickBottomNav(this,TITLE_TOOLS);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_fragment,new HerramientasFragment(),"frag");
+        fragmentTransaction.replace(R.id.main_fragment,new ToolsFragment(),"frag");
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("frag_imagen");
         if (fragment != null) fragmentTransaction.remove(fragment);
         fragmentTransaction.commit();
@@ -136,7 +136,7 @@ public class MainActivity extends TranquiParentActivity {
     public void setFragmentNoticias(){
         Analitycs.logEventoClickBottomNav(this,TITLE_NEWS);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_fragment,NoticiasFragment.newInstance(noticias,mDni),"frag");
+        fragmentTransaction.replace(R.id.main_fragment, NewsFragment.newInstance(noticias,mDni),"frag");
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("frag_imagen");
         if (fragment != null) fragmentTransaction.remove(fragment);
         fragmentTransaction.commit();

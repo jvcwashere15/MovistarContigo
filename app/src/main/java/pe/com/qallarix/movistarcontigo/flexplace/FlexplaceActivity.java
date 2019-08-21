@@ -22,7 +22,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.miequipo.MiEquipoFlexPlaceActiv
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.Dashboard;
 import pe.com.qallarix.movistarcontigo.flexplace.registrar.RegistrarFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.approve.SolicitudesFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.approve.FlexPlaceForApproveActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
@@ -33,16 +33,16 @@ import retrofit2.Response;
 public class FlexplaceActivity extends TranquiParentActivity {
     private View
             vDashboard,
-            vRegistro,
-            vHistorial,
-            vSolicitudes,
-            vFlexEquipo;
+            vRegister,
+            vHistory,
+            vRequests,
+            vFlexTeam;
     private TextView
-            tvMensaje,
-            tvDia,
-            tvMeses,
-            tvDescripcion,
-            tvFechaDerecho;
+            tvMessage,
+            tvDay,
+            tvMonth,
+            tvDescription,
+            tvRightDate;
 
     private Dashboard dashboard;
 
@@ -69,7 +69,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonMiEquipo() {
-        vFlexEquipo.setOnClickListener(new View.OnClickListener() {
+        vFlexTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
@@ -81,11 +81,11 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonSolicitudes() {
-        vSolicitudes.setOnClickListener(new View.OnClickListener() {
+        vRequests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
-                        SolicitudesFlexPlaceActivity.class);
+                        FlexPlaceForApproveActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -93,7 +93,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonHistorial() {
-        vHistorial.setOnClickListener(new View.OnClickListener() {
+        vHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
@@ -105,7 +105,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void configurarBotonRegistrar() {
-        vRegistro.setOnClickListener(new View.OnClickListener() {
+        vRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
@@ -131,8 +131,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
                     dashboard = response.body().getDashboard();
                     leadership= dashboard.getLeadership();
                     if (dashboard.isLeadership()){
-                        vFlexEquipo.setVisibility(View.VISIBLE);
-                        vSolicitudes.setVisibility(View.VISIBLE);
+                        vFlexTeam.setVisibility(View.VISIBLE);
+                        vRequests.setVisibility(View.VISIBLE);
                     }
 
                     if (dashboard.getIsStatus() == 1)
@@ -163,17 +163,17 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void displayResumenFlexPlaceFuturo(String dateStart) {
-        tvMensaje.setText("Tu solicitud");
-        tvMeses.setText("FlexPlace");
-        tvMeses.setVisibility(View.VISIBLE);
-        tvDia.setText("está aprobada");
-        tvDia.setVisibility(View.VISIBLE);
-        tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvMessage.setText("Tu solicitud");
+        tvMonth.setText("FlexPlace");
+        tvMonth.setVisibility(View.VISIBLE);
+        tvDay.setText("está aprobada");
+        tvDay.setVisibility(View.VISIBLE);
+        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         Resources res = getResources();
         String text = String.format(res.getString(R.string.resumen_flexplace_periodo_futuro), dateStart);
         CharSequence styledText = Html.fromHtml(text);
-        tvDescripcion.setText(styledText);
-        tvFechaDerecho.setVisibility(View.GONE);
+        tvDescription.setText(styledText);
+        tvRightDate.setVisibility(View.GONE);
     }
 
 
@@ -196,29 +196,29 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     private void displayDashboardVacio() {
-        tvMensaje.setText("Disfruta de tu");
-        tvMeses.setText("FlexPlace");
-        tvDia.setVisibility(View.VISIBLE);
-        tvDia.setText("¡Regístralo ahora!");
-        tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-        tvDescripcion.setText("¡Elige un día de la semana para trabajar desde casa!");
-        tvFechaDerecho.setVisibility(View.GONE);
+        tvMessage.setText("Disfruta de tu");
+        tvMonth.setText("FlexPlace");
+        tvDay.setVisibility(View.VISIBLE);
+        tvDay.setText("¡Regístralo ahora!");
+        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescription.setText("¡Elige un día de la semana para trabajar desde casa!");
+        tvRightDate.setVisibility(View.GONE);
     }
 
     private void displayDashboardPendientes() {
-        tvMensaje.setText("Tu solicitud");
-        tvMeses.setText("FlexPlace");
-        tvMeses.setVisibility(View.VISIBLE);
-        tvDia.setText("está pendiente");
-        tvDia.setVisibility(View.VISIBLE);
-        tvDescripcion.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-        tvDescripcion.setText("Se te notificará al momento de la aprobación.");
-        tvFechaDerecho.setVisibility(View.GONE);
+        tvMessage.setText("Tu solicitud");
+        tvMonth.setText("FlexPlace");
+        tvMonth.setVisibility(View.VISIBLE);
+        tvDay.setText("está pendiente");
+        tvDay.setVisibility(View.VISIBLE);
+        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescription.setText("Se te notificará al momento de la aprobación.");
+        tvRightDate.setVisibility(View.GONE);
     }
 
     private void displayResumenFlexPlace(String dia, String fechaDerecho) {
-        tvMeses.setText("¡Son los " + dia + "!");
-        tvFechaDerecho.setText(fechaDerecho);
+        tvMonth.setText("¡Son los " + dia + "!");
+        tvRightDate.setText(fechaDerecho);
     }
 
 
@@ -267,16 +267,16 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
     private void bindearVistas() {
         //views opciones menu
-        vRegistro = findViewById(R.id.flexplace_vRegistro);
-        vHistorial = findViewById(R.id.flexplace_vHistorial);
-        vSolicitudes = findViewById(R.id.flexplace_vSolicitudes);
-        vFlexEquipo = findViewById(R.id.flexplace_vFlexEquipo);
+        vRegister = findViewById(R.id.flexplace_vRegistro);
+        vHistory = findViewById(R.id.flexplace_vHistorial);
+        vRequests = findViewById(R.id.flexplace_vSolicitudes);
+        vFlexTeam = findViewById(R.id.flexplace_vFlexEquipo);
         //views info resumen
-        tvMensaje = findViewById(R.id.flexplace_tvMensajeInicial);
-        tvDia = findViewById(R.id.flexplace_tvDia);
-        tvMeses = findViewById(R.id.flexplace_tvMeses);
-        tvDescripcion = findViewById(R.id.flexplace_tvDescripcionDashEmpty);
-        tvFechaDerecho = findViewById(R.id.flexplace_tvFechaDerecho);
+        tvMessage = findViewById(R.id.flexplace_tvMensajeInicial);
+        tvDay = findViewById(R.id.flexplace_tvDia);
+        tvMonth = findViewById(R.id.flexplace_tvMeses);
+        tvDescription = findViewById(R.id.flexplace_tvDescripcionDashEmpty);
+        tvRightDate = findViewById(R.id.flexplace_tvFechaDerecho);
         //view shimmer
         mShimmerViewContainer = findViewById(R.id.dashboard_flexplace_shimerFrameLayout);
         //views message

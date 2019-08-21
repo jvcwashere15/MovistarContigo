@@ -1,5 +1,6 @@
-package pe.com.qallarix.movistarcontigo.ambassador.registered;
+package pe.com.qallarix.movistarcontigo.ambassador.registered.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,14 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.ambassador.registered.pojos.BreakRegistered;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.ServiceFlexplaceHistorialApi;
 
 public class RegisteredAdapter extends RecyclerView.Adapter<RegisteredAdapter.RegisteredHolder> {
     List<BreakRegistered> breaks;
+    Context context;
+
+    public RegisteredAdapter(Context context) {
+        this.breaks = new ArrayList<>();
+        this.context = context;
+    }
+
+    public void setBreaks(List<BreakRegistered> breaks) {
+        this.breaks = breaks;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override

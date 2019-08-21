@@ -7,13 +7,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.noticias.News;
-import pe.com.qallarix.movistarcontigo.principal.fragments.NoticiaDashboardFragment;
+import pe.com.qallarix.movistarcontigo.principal.fragments.NewsDashboardFragment;
 
-public class NoticiasDashboardAdapter extends FragmentPagerAdapter {
+public class NewsDashboardAdapter extends FragmentPagerAdapter {
     private List<News> noticias;
     private int numberOfItems;
 
-    public NoticiasDashboardAdapter(FragmentManager fm, List<News> noticias,int numberOfItems) {
+    public NewsDashboardAdapter(FragmentManager fm, List<News> noticias, int numberOfItems) {
         super(fm);
         this.noticias = noticias;
         this.numberOfItems = numberOfItems;
@@ -21,8 +21,8 @@ public class NoticiasDashboardAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        if (noticias == null) return new NoticiaDashboardFragment();
-        return NoticiaDashboardFragment.newInstance(noticias.get(i));
+        if (noticias == null) return new NewsDashboardFragment();
+        return NewsDashboardFragment.newInstance(noticias.get(i));
     }
 
     @Override

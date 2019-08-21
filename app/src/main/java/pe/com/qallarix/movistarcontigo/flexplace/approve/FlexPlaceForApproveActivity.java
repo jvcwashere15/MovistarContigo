@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
+public class FlexPlaceForApproveActivity extends TranquiParentActivity {
     RecyclerView rvSolicitudesFlex;
     List<SolicitudFlex> aprobadas;
     List<SolicitudFlex> pendientes;
@@ -220,6 +220,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
         viewMessage.setVisibility(View.GONE);
         tvMensajeViewLoader.setText(mensajeCarga);
         viewLoader.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setVisibility(View.VISIBLE);
         Call<ResponseSolicitudesFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceSolicitudesApi.class)
@@ -251,8 +252,13 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
             case RECHAZADAS: rechazadas = solicitudFlexes; break;
             case CANCELADO: cancelados = solicitudFlexes; break;
         }
-        if (solicitudFlexes.size() == 0) mostrarEmptyView("", mensajeEmpty);
-        else solicitudesFlexPlaceAdapter.setHistorialFlexPlace(solicitudFlexes);
+        if (solicitudFlexes.size() == 0)
+            mostrarEmptyView("", mensajeEmpty);
+        else{
+            rvSolicitudesFlex.setVisibility(View.VISIBLE);
+            solicitudesFlexPlaceAdapter.setHistorialFlexPlace(solicitudFlexes);
+        }
+
     }
 
     private void configurarRecyclerView() {
@@ -263,7 +269,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
                 new SolicitudesFlexPlaceAdapter.SolicitudOnClick() {
                     @Override
                     public void onClick(View v, int position) {
-                        Intent intent = new Intent(SolicitudesFlexPlaceActivity.this,
+                        Intent intent = new Intent(FlexPlaceForApproveActivity.this,
                                 DetalleSolicitudFlexActivity.class);
                         SolicitudFlex currentSolicitudFlex = null;
                         switch (tabLayout.getSelectedTabPosition()){
@@ -276,7 +282,7 @@ public class SolicitudesFlexPlaceActivity extends TranquiParentActivity {
                             case PENDIENTES:
                                 if (pendientes != null && pendientes.size()> 0) {
                                     currentSolicitudFlex = pendientes.get(position);
-                                    intent = new Intent(SolicitudesFlexPlaceActivity.this,
+                                    intent = new Intent(FlexPlaceForApproveActivity.this,
                                             DetalleFlexPendienteActivity.class);
                                 }
                                 break;

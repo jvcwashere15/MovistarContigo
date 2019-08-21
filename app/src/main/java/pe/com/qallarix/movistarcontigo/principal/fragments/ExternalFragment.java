@@ -19,7 +19,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ExternasFragment extends Fragment {
+public class ExternalFragment extends Fragment {
 
     private CardView cvMovistarHogar;
     private CardView cvMiMovistar;
@@ -31,7 +31,7 @@ public class ExternasFragment extends Fragment {
     private ImageView ivFlechaMiMovistar;
 
 
-    public ExternasFragment() {
+    public ExternalFragment() {
         // Required empty public constructor
     }
 

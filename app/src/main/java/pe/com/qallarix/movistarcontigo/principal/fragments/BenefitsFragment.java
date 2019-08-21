@@ -20,7 +20,7 @@ import pe.com.qallarix.movistarcontigo.openlearning.OpenLearningActivity;
 import pe.com.qallarix.movistarcontigo.salud.SaludActivity;
 
 
-public class BeneficiosFragment extends Fragment {
+public class BenefitsFragment extends Fragment {
 
     CardView cvDescuentos;
     CardView cvSalud;
@@ -35,7 +35,7 @@ public class BeneficiosFragment extends Fragment {
             TITLE_SPECIALS = "SPECIALS";
 
 
-    public BeneficiosFragment() {
+    public BenefitsFragment() {
     }
 
 

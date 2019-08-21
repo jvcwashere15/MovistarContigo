@@ -137,7 +137,7 @@ public class FinalizarAprobarRechazarFlexActivity extends TranquiParentActivity 
 
 
     public void verSolicitudesFlexPlace(View view) {
-        Intent intent =  new Intent(this, SolicitudesFlexPlaceActivity.class);
+        Intent intent =  new Intent(this, FlexPlaceForApproveActivity.class);
         startActivity(intent);
         finish();
     }

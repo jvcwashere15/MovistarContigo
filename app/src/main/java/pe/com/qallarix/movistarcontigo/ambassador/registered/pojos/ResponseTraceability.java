@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.ambassador.registered;
+package pe.com.qallarix.movistarcontigo.ambassador.registered.pojos;
 
 import java.util.List;
 

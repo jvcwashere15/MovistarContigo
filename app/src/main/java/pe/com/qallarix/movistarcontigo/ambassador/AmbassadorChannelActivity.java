@@ -12,6 +12,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.breaks.AmbassadorBreaksActivit
 import pe.com.qallarix.movistarcontigo.ambassador.home.AmbassadorHomeActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.mobile.AmbassadorMobileActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.questions.AmbassadorQuestionsActivity;
+import pe.com.qallarix.movistarcontigo.ambassador.registered.AmbassadorRegisteredActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.total.EmbajadorMovistarTotalActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
@@ -69,7 +70,7 @@ public class AmbassadorChannelActivity extends TranquiParentActivity {
         configurarClickCvCanalEmbajador(cvHogar, AmbassadorHomeActivity.class);
         configurarClickCvCanalEmbajador(cvMovil, AmbassadorMobileActivity.class);
         configurarClickCvCanalEmbajador(cvQuiebres, AmbassadorBreaksActivity.class);
-//        configurarClickCvCanalEmbajador(cvQuiebresRegistrados, AmbassadorRegisteredActivity.class);
+        configurarClickCvCanalEmbajador(cvQuiebresRegistrados, AmbassadorRegisteredActivity.class);
         configurarClickCvCanalEmbajador(cvPreguntas, AmbassadorQuestionsActivity.class);
     }
 

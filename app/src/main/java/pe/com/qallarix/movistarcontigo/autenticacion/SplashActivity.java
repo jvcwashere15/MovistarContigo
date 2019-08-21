@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import pe.com.qallarix.movistarcontigo.R;
@@ -15,6 +17,7 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
+import pe.com.qallarix.movistarcontigo.util.TopicosNotificacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
@@ -90,6 +93,7 @@ public class SplashActivity extends TranquiParentActivity {
                     startActivity(mainIntent);
                     finish();
                 }else{
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic(TopicosNotificacion.TOPIC_NOTIFICATIONS);
                     Intent intentLogin = new Intent(SplashActivity.this,LoginActivity.class);
                     startActivity(intentLogin);
                     finish();

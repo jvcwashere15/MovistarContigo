@@ -197,7 +197,7 @@
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.approve.SolicitudesFlexPlaceActivity"
+            android:name=".flexplace.approve.FlexPlaceForApproveActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
@@ -210,7 +210,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.approve.DetalleFlexPendienteActivity"
-            android:parentActivityName=".flexplace.approve.SolicitudesFlexPlaceActivity"
+            android:parentActivityName=".flexplace.approve.FlexPlaceForApproveActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.approve.FinalizarAprobarRechazarFlexActivity"
@@ -221,7 +221,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.approve.DetalleSolicitudFlexActivity"
-            android:parentActivityName=".flexplace.approve.SolicitudesFlexPlaceActivity"
+            android:parentActivityName=".flexplace.approve.FlexPlaceForApproveActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.historial.FinalizarCancelacionFlexActivity"

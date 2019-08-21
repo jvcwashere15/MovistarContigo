@@ -8,7 +8,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.QuestionBreak;
 import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.ProductBreak;
 import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.NetworkBreak;
 import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.RegisteredBreak;
-import pe.com.qallarix.movistarcontigo.ambassador.registered.ResponseTraceability;
+import pe.com.qallarix.movistarcontigo.ambassador.registered.pojos.ResponseTraceability;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

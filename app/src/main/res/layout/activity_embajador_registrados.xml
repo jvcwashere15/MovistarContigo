@@ -4,12 +4,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
+
     <include layout="@layout/my_toolbar"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/ambassador_registered_rvLista"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent">
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/ambassador_registered_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shimmer_duration="800">
+            <include layout="@layout/placeholder_lista_vacaciones"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+        <LinearLayout
+            android:id="@+id/ambassador_registered_emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@android:color/white">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/emptyview"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="No se encontraron quiebres registrados."/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ambassador_registered_errorView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@android:color/white">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/img_error_servidor"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Se produjo un error con el servidor."/>
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ambassador_registered_rvLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
 </LinearLayout>
