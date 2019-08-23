@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".flexplace.approve.RechazoSolicitudFlexActivity">
+    tools:context=".flexplace.forapprove.ForApproveFlexRejectRequestActivity">
     <include layout="@layout/my_toolbar"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/rechazar_flexplace_shimerFrameLayout"
@@ -364,7 +364,7 @@
                 android:textSize="14sp"
                 android:maxLength="100"
                 android:inputType="text"
-                android:hint="Escribe el motivo de cancelación de tu FlexPlace"
+                android:hint="Escribe el motivo del rechazo de tu FlexPlace"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

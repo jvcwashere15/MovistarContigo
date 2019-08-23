@@ -58,7 +58,7 @@
         android:textAllCaps="false"
         android:layout_margin="16dp"
         android:textSize="16sp"
-        android:onClick="volverMenu"
+        android:onClick="backToFlexPlace"
         android:fontFamily="@font/telefonica_bold"
         android:layout_alignParentBottom="true"
         android:background="@drawable/boton_vacaciones_verde_blanco"

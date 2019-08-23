@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".flexplace.forapprove.ForApproveFlexRequestDetailActivity">
+    <include layout="@layout/my_toolbar"/>
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/detalle_solicitud_flex_shimerFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:shimmer_duration="800">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:background="@android:color/white"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/detalle_estado_tvLider1"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/detalle_estado_tvDescLider1"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detalle_estado_tvLider1" />
+
+            <View
+                android:id="@+id/view01"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detalle_estado_tvDescLider1"
+                app:layout_constraintVertical_bias="0.0"/>
+
+            <View
+                android:id="@+id/textView221"
+                android:layout_width="104dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/view11"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view01" />
+
+            <View
+                android:id="@+id/detalle_estado_tvEstado1"
+                android:layout_width="80dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/view11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view01" />
+
+            <View
+                android:id="@+id/view11"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="48dp"
+                android:background="#DDDDDD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view01"
+                app:layout_constraintVertical_bias="0.0"/>
+
+
+            <View
+                android:id="@+id/textView241"
+                android:layout_width="104dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/view31"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view11" />
+
+            <View
+                android:id="@+id/detalle_estado_tvFechaInicio1"
+                android:layout_width="80dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/view31"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view11" />
+
+            <View
+                android:id="@+id/view31"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="48dp"
+                android:background="#DDDDDD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view11"
+                app:layout_constraintVertical_bias="0.0"/>
+
+
+            <View
+                android:id="@+id/textView251"
+                android:layout_width="104dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/view41"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view31" />
+
+            <View
+                android:id="@+id/detalle_estado_tvFechaFin1"
+                android:layout_width="80dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/view41"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view31" />
+
+            <View
+                android:id="@+id/view41"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="48dp"
+                android:background="#DDDDDD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view31"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/textView261"
+                android:layout_marginBottom="16dp"
+                android:layout_width="104dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                app:layout_constraintBottom_toTopOf="@+id/detalle_estado_tvDescripcion1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view41"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/detalle_estado_tvDiasSolicitados1"
+                android:layout_width="80dp"
+                android:layout_height="16dp"
+                android:background="@color/colorPlaceHolder"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/detalle_estado_tvDescripcion1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view41"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/detalle_estado_tvDescripcion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                tools:text=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view41" />
+        </android.support.constraint.ConstraintLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="16dp">
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvNomEmpleado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#757575"
+                    android:fontFamily="@font/telefonica_regular"
+                    tools:text="Aprobaste los días Flex de:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvDescLider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textColor="#2A2A3C"
+                    tools:text="José Eduardo Mendoza Zavaleta"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvNomEmpleado" />
+                <View
+                    android:id="@+id/view0"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvDescLider"
+                    app:layout_constraintVertical_bias="0.0"/>
+
+
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvTextoEstado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="Estado de FlexPlace"
+                    android:textColor="#757575"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_viewLine"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view0" />
+
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvEstado"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_viewLine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view0"
+                    tools:text="APROBADO" />
+
+                <View
+                    android:id="@+id/detalle_solicitud_flex_viewLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="48dp"
+                    android:background="#DDDDDD"
+                    app:layout_constraintTop_toBottomOf="@+id/view0"/>
+
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:text="Fecha de solicitud"
+                    android:textColor="#757575"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_viewLine" />
+
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvFechaSolicitud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textColor="#2A2A3C"
+                    app:layout_constraintBottom_toTopOf="@+id/view2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_viewLine"
+                    tools:text="15/03/2019" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="48dp"
+                    android:background="#DDDDDD"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_viewLine"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:layout_editor_absoluteX="16dp" />
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de inicio"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:textColor="#757575"
+                    app:layout_constraintBottom_toTopOf="@+id/view3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvFechaInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    tools:text="01/04/2019"
+                    android:textColor="#2A2A3C"
+                    app:layout_constraintBottom_toTopOf="@+id/view3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="48dp"
+                    android:background="#DDDDDD"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:layout_editor_absoluteX="16dp" />
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de fin"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:textColor="#757575"
+                    app:layout_constraintBottom_toTopOf="@+id/view4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvFechaFin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    tools:text="30/06/2019"
+                    android:textColor="#2A2A3C"
+                    app:layout_constraintBottom_toTopOf="@+id/view4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="48dp"
+                    android:background="#DDDDDD"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3"
+                    app:layout_constraintVertical_bias="0.0"/>
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:text="Día Flex elegido"
+                    android:textColor="#2A2A3C"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvDescripcion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4"
+                    app:layout_constraintVertical_bias="1.0" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvDiaSolicitado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/telefonica_bold"
+                    tools:text="Miércoles"
+                    android:textColor="#2A2A3C"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvDescripcion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvDescripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="64dp"
+                    android:fontFamily="@font/telefonica_regular"
+                    android:textColor="#757575"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4"
+                    tools:text="Tu FlexPlace fue aprobado el 17/03/2019." />
+
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvMessageThree"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:textColor="#757575"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvDescripcion"
+                    tools:text="Esta solicitud fue aprobadSolicitaste cancelar este FlexPlace el 20/05/2019." />
+
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvButtonNotificar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/boton_vacaciones_verde"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:gravity="center"
+                    android:text="Notificar para cancelación"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonAprobar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvMessageThree"
+                    app:layout_constraintVertical_bias="1.0" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvButtonAprobar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/boton_vacaciones_verde"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:gravity="center"
+                    android:text="Aprobar"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/detalle_solicitud_flex_tvButtonRechazar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/detalle_solicitud_flex_tvButtonRechazar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/telefonica_bold"
+                    android:gravity="center"
+                    android:text="Rechazar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/loginBoton"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    android:background="@drawable/boton_vacaciones_verde_blanco"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+            <FrameLayout
+                android:id="@+id/detalle_solicitud_flex_viewNoticacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="#F6F6F6">
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/fondo_notification">
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_info_notification" />
+
+                    <TextView
+                        android:id="@+id/detalle_solicitud_flex_tvTituloNotificacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/telefonica_bold"
+                        android:text="Motivo de cancelación"
+                        android:textColor="#2A2A3C"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView13"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/detalle_solicitud_flex_tvMensajeNotificacion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="#757575"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/detalle_solicitud_flex_tvTituloNotificacion"
+                        app:layout_constraintTop_toBottomOf="@+id/detalle_solicitud_flex_tvTituloNotificacion"
+                        tools:text="Por cambio de proyecto y sede de Telefónica." />
+                </android.support.constraint.ConstraintLayout>
+            </FrameLayout>
+        </LinearLayout>
+        <include
+            android:visibility="gone"
+            layout="@layout/flexplace_view_message"
+            android:id="@+id/flexplace_detail_view_message"/>
+
+    </FrameLayout>
+</LinearLayout>

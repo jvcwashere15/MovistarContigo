@@ -101,7 +101,7 @@
                     android:background="@drawable/boton_vacaciones_verde_blanco"
                     android:textColor="@color/loginBoton"
                     android:text="Volver a Vacaciones"
-                    android:onClick="volverMenu"/>
+                    android:onClick="backToFlexPlace"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

@@ -16,8 +16,8 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.especiales.DetalleEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.approve.DetalleSolicitudFlexActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.history.HistoryFlexDetailActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.forapprove.ForApproveFlexRequestDetailActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
@@ -111,15 +111,15 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                                         switch (action){
                                                             case "cancelled":
                                                                 notifyIntent = new Intent(NotificacionesActivity.this,
-                                                                        DetalleFlexPlaceActivity.class);
+                                                                        HistoryFlexDetailActivity.class);
                                                                 break;
                                                             case "approver":
                                                                 notifyIntent = new Intent(NotificacionesActivity.this,
-                                                                        DetalleFlexPlaceActivity.class);
+                                                                        HistoryFlexDetailActivity.class);
                                                                 break;
                                                             case "refuse":
                                                                 notifyIntent = new Intent(NotificacionesActivity.this,
-                                                                        DetalleFlexPlaceActivity.class);
+                                                                        HistoryFlexDetailActivity.class);
                                                                 break;
                                                             default:
                                                                 break;
@@ -133,11 +133,11 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                                         switch (action){
                                                             case "cancelled":
                                                                 notifyIntent = new Intent(NotificacionesActivity.this,
-                                                                        DetalleSolicitudFlexActivity.class);
+                                                                        ForApproveFlexRequestDetailActivity.class);
                                                                 break;
                                                             case "register":
                                                                 notifyIntent = new Intent(NotificacionesActivity.this,
-                                                                        DetalleSolicitudFlexActivity.class);
+                                                                        ForApproveFlexRequestDetailActivity.class);
                                                                 break;
                                                             default:
                                                                 break;

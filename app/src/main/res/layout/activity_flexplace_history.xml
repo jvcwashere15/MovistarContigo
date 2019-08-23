@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".flexplace.history.HistoryFlexPlaceActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <include layout="@layout/my_toolbar"/>
+        <include layout="@layout/flexplace_tabs_requests"/>
+        <include layout="@layout/flexplace_recycler_requests"/>
+    </LinearLayout>
+    <include
+        android:id="@+id/flexplace_loading_view"
+        layout="@layout/flexplace_view_loading"
+        android:visibility="gone"/>
+
+</FrameLayout>

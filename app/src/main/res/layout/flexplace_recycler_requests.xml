@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/flexplace_rvListRequests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+    <include
+        android:id="@+id/flexplace_empty_view"
+        layout="@layout/flexplace_view_message"
+        android:visibility="gone"/>
+</FrameLayout>

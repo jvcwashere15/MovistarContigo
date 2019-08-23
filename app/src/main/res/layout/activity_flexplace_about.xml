@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".flexplace.AboutFlexPlaceActivity">
+    <include layout="@layout/my_toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Caractertisticas:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+            <TextView
+                android:id="@+id/texto_guion1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion1"
+                app:layout_constraintStart_toEndOf="@+id/guion1"
+                app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion1" />
+
+            <TextView
+                android:id="@+id/texto_guion2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion2"
+                app:layout_constraintStart_toEndOf="@+id/guion2"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion1" />
+
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion2" />
+
+            <TextView
+                android:id="@+id/texto_guion3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion3"
+                app:layout_constraintStart_toEndOf="@+id/guion3"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion2" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion3" />
+
+            <TextView
+                android:id="@+id/texto_guion4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion4"
+                app:layout_constraintStart_toEndOf="@+id/guion4"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion3" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion4" />
+
+            <TextView
+                android:id="@+id/texto_guion5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion5"
+                app:layout_constraintStart_toEndOf="@+id/guion5"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion4" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion5" />
+
+            <TextView
+                android:id="@+id/texto_guion6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion6"
+                app:layout_constraintStart_toEndOf="@+id/guion6"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion5" />
+
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion6" />
+
+            <TextView
+                android:id="@+id/texto_guion7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion7"
+                app:layout_constraintStart_toEndOf="@+id/guion7"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion6" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/guion8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion7" />
+
+            <TextView
+                android:id="@+id/texto_guion8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_guion8"
+                app:layout_constraintStart_toEndOf="@+id/guion8"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion7" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="Requisitos para gozar de FlexPlace:"
+                app:layout_constraintTop_toBottomOf="@+id/texto_guion8"/>
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/requisito1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+            <TextView
+                android:id="@+id/texto_requisito1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_req1"
+                app:layout_constraintStart_toEndOf="@+id/requisito1"
+                app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/requisito2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito1" />
+
+            <TextView
+                android:id="@+id/texto_requisito2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_req2"
+                app:layout_constraintStart_toEndOf="@+id/requisito2"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito1" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/requisito3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito2" />
+
+            <TextView
+                android:id="@+id/texto_requisito3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_req3"
+                app:layout_constraintStart_toEndOf="@+id/requisito3"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito2" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/requisito4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito3" />
+
+            <TextView
+                android:id="@+id/texto_requisito4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_req4"
+                app:layout_constraintStart_toEndOf="@+id/requisito4"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito3" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/requisito5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito4" />
+
+            <TextView
+                android:id="@+id/texto_requisito5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_req5"
+                app:layout_constraintStart_toEndOf="@+id/requisito5"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito4" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.Dot
+                android:id="@+id/requisito6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inactiveColor="@color/colorCanalEmbajador"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito5" />
+
+            <TextView
+                android:id="@+id/texto_requisito6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="@string/texto_acerca_flexplace_req6"
+                app:layout_constraintStart_toEndOf="@+id/requisito6"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito5" />
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/telefonica_regular"
+                android:text="¡Si aún no estás inscrito, inscríbete a FlexPlace para empezar a trabajar de manera distinta!"
+                app:layout_constraintTop_toBottomOf="@+id/texto_requisito6" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/acerca_de_flex_tvPreguntasFrecuentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:background="@drawable/boton_vacaciones_verde"
+        android:text="Revisar preguntas frecuentes"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/telefonica_bold"/>
+</LinearLayout>

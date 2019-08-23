@@ -45,11 +45,11 @@
             android:src="@drawable/imagen_splash" />
 
         <TextView
+            android:id="@+id/splash_tvVersionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_margin="16dp"
-            android:text="@string/version_name" />
+            android:layout_margin="16dp"/>
     </LinearLayout>
     <include
         android:id="@+id/splash_vSinConexion"

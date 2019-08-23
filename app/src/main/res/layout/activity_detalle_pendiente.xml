@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".flexplace.approve.DetalleFlexPendienteActivity">
+    tools:context=".flexplace.forapprove.ForApproveFlexAwaitingDetailActivity">
     <include layout="@layout/my_toolbar"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/detalle_solicitud_flex_shimerFrameLayout"

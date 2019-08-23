@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import pe.com.qallarix.movistarcontigo.BuildConfig;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autenticacion.pojos.Employee;
@@ -29,13 +32,17 @@ public class SplashActivity extends TranquiParentActivity {
     private String mToken;
     private String mDocumentType;
     private boolean conectado = true;
+    private TextView tvVersionName;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (internetConectionExists()){
             setContentView(R.layout.activity_splash);
+            bindViews();
+            setVersionName();
             if(existeToken())
                 validarSesion(mDocumentType,mDni,mToken);
             else
@@ -44,6 +51,14 @@ public class SplashActivity extends TranquiParentActivity {
             conectado = false;
             setContentView(R.layout.sin_conexion_internet);
         }
+    }
+
+    private void setVersionName() {
+        tvVersionName.setText(BuildConfig.VERSION_NAME);
+    }
+
+    private void bindViews() {
+        tvVersionName = findViewById(R.id.splash_tvVersionName);
     }
 
     @Override

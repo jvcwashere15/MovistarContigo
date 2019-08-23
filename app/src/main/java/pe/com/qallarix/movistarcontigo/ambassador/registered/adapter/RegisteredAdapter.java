@@ -91,13 +91,13 @@ public class RegisteredAdapter extends RecyclerView.Adapter<RegisteredAdapter.Re
         public void setState(String state){
 //            String strEstado = "";
 //            int colorEstado = 0;
-//            if (state.equals(ServiceFlexplaceHistorialApi.APROBADO)){
+//            if (state.equals(ServiceFlexPlaceHistoryApi.APROBADO)){
 //                strEstado = "APROBADO";colorEstado = R.drawable.etiqueta_verde;
-//            }else if (state.equals(ServiceFlexplaceHistorialApi.PENDIENTE)){
+//            }else if (state.equals(ServiceFlexPlaceHistoryApi.PENDIENTE)){
 //                strEstado = "PENDIENTE";colorEstado = R.drawable.etiqueta_amarilla;
-//            }else if (state.equals(ServiceFlexplaceHistorialApi.RECHAZADO)){
+//            }else if (state.equals(ServiceFlexPlaceHistoryApi.RECHAZADO)){
 //                strEstado = "RECHAZADO";colorEstado = R.drawable.etiqueta_roja;
-//            }else if (state.equals(ServiceFlexplaceHistorialApi.CANCELADO)){
+//            }else if (state.equals(ServiceFlexPlaceHistoryApi.CANCELADO)){
 //                strEstado = "CANCELADO";colorEstado = R.drawable.etiqueta_morada;
 //            }
 //            tvName.setText(strEstado);

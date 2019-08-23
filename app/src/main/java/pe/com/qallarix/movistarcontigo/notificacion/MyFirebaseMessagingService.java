@@ -21,8 +21,8 @@ import java.util.Map;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.especiales.DetalleEspecialActivity;
 import pe.com.qallarix.movistarcontigo.descuentos.DetalleDescuentoActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.DetalleFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.approve.DetalleSolicitudFlexActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.history.HistoryFlexDetailActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.forapprove.ForApproveFlexRequestDetailActivity;
 import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
@@ -89,15 +89,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                     switch (action){
                                         case "cancelled":
                                             notifyIntent = new Intent(this,
-                                                    DetalleFlexPlaceActivity.class);
+                                                    HistoryFlexDetailActivity.class);
                                             break;
                                         case "approver":
                                             notifyIntent = new Intent(this,
-                                                    DetalleFlexPlaceActivity.class);
+                                                    HistoryFlexDetailActivity.class);
                                             break;
                                         case "refuse":
                                             notifyIntent = new Intent(this,
-                                                    DetalleFlexPlaceActivity.class);
+                                                    HistoryFlexDetailActivity.class);
                                             break;
                                         default:
                                             break;
@@ -110,11 +110,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                     switch (action){
                                         case "cancelled":
                                             notifyIntent = new Intent(this,
-                                                    DetalleSolicitudFlexActivity.class);
+                                                    ForApproveFlexRequestDetailActivity.class);
                                             break;
                                         case "register":
                                             notifyIntent = new Intent(this,
-                                                    DetalleSolicitudFlexActivity.class);
+                                                    ForApproveFlexRequestDetailActivity.class);
                                             break;
                                         default:
                                             break;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".flexplace.approve.FinalizarAprobarRechazarFlexActivity">
+    tools:context=".flexplace.forapprove.ForApproveFlexFinishProcessActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -102,7 +102,7 @@
                     android:background="@drawable/boton_vacaciones_verde_blanco"
                     android:textColor="@color/loginBoton"
                     android:text="Volver a FlexPlace"
-                    android:onClick="volverMenu"/>
+                    android:onClick="backToFlexPlace"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

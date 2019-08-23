@@ -156,8 +156,19 @@
         <item name="android:background">@drawable/boton_vacaciones_verde</item>
         <item name="android:fontFamily">@font/telefonica_bold</item>
         <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BotonVerdeBlancoFlat" parent="AppTheme">
+        <item name="android:background">@drawable/boton_vacaciones_verde_blanco</item>
+        <item name="android:fontFamily">@font/telefonica_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/loginBoton</item>
         <item name="android:textSize">16sp</item>
     </style>
 
@@ -166,6 +177,7 @@
         <item name="android:fontFamily">@font/telefonica_bold</item>
         <item name="android:gravity">center</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">16sp</item>
     </style>

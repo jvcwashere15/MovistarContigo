@@ -409,13 +409,13 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
 
 
     <string name="flexplace_mensaje_carga_aprobadas">Cargando lista de solicitudes FlexPlace aprobadas...</string>
-    <string name="flexplace_mensaje_empty_aprobadas">No tienes solicitudes FlexPlace aprobadas hasta el momento</string>
-    <string name="flexplace_mensaje_empty_pendientes">Todas tus solicitudes de FlexPlace han sido atendidas.</string>
+    <string name="flexplace_emptyview_approved_message">No tienes solicitudes FlexPlace aprobadas.</string>
+    <string name="flexplace_emptyview_awaiting_message">Todas tus solicitudes de FlexPlace han sido atendidas.</string>
     <string name="flexplace_mensaje_carga_pendientes">Cargando lista de solicitudes FlexPlace pendientes...</string>
-    <string name="flexplace_mensaje_carga_rechazadas">Cargando solicitudes FlexPlace rechazadas</string>
-    <string name="flexplace_mensaje_empty_rechazadas">No tienes solicitudes FlexPlace rechazadas</string>
+    <string name="flexplace_mensaje_carga_rechazadas">Cargando solicitudes FlexPlace rechazadas.</string>
+    <string name="flexplace_emptyview_rejected_message">No tienes solicitudes FlexPlace rechazadas</string>
     <string name="flexplace_mensaje_carga_cancelados">Cargando solicitudes FlexPlace canceladas...</string>
-    <string name="flexplace_mensaje_empty_cancelados">No tienes solicitudes FlexPlace canceladas.</string>
+    <string name="flexplace_emptyview_canceled_message">No tienes solicitudes FlexPlace canceladas.</string>
     <string name="descripcion_lider_pendiente">Está por aprobar tus días Flex en las siguientes fechas:</string>
     <string name="descripcion_lider_aprobado">Aprobó tus días Flex en las siguientes fechas:</string>
     <string name="descripcion_lider_rechazado">Rechazó tus días Flex en las siguientes fechas:</string>
@@ -438,6 +438,26 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="texto_acerca_flexplace_req4">Haber completado satisfactoriamente el curso E-Work en Success Factors.</string>
     <string name="texto_acerca_flexplace_req5">Asistir al centro de trabajo cuando sea necesario y/o requerido por el líder directo.</string>
     <string name="texto_acerca_flexplace_req6">Estar conectad@s (correo, celular corporativo y Microsoft Teams) a disposición del  líder y/o equipos de trabajo durante su jornada laboral.</string>
+    <string name="flexplace_error500_message_title">¡Ups!</string>
+    <string name="flexplace_error500_message">Hubo un problema con el servidor. Estamos trabajando para solucionarlo.</string>
+    <string name="flexplace_error500_title">¡Ups!</string>
+    <string name="flexplace_error500_textButton">Cargar nuevamente</string>
+    <string name="flexplace_module_history_name">Mi Historial FlexPlace</string>
+    <string name="flexplace_emptyview_title">¡Genial!</string>
+    <string name="flexplace_emptyview_approved_title">¡Registra tu días Flex!</string>
+    <string name="flexplace_emptyview_rejected_title">¡Genial!</string>
+    <string name="flexplace_emptyview_awaiting_title">¡Genial!</string>
+    <string name="flexplace_emptyview_canceled_title">¡Genial!</string>
+    <string name="flexplace_module_forapprove_name">FlexPlace para aprobar</string>
+
+    <string name="flexplace_forapproved_emptyview_approved_message">No tienes solicitudes FlexPlace aprobadas hasta el momento</string>
+    <string name="flexplace_forapproved_emptyview_awaiting_message">Todas tus solicitudes de FlexPlace han sido atendidas.</string>
+    <string name="flexplace_forapproved_emptyview_rejected_message">No tienes solicitudes FlexPlace rechazadas</string>
+    <string name="flexplace_forapproved_emptyview_canceled_message">No tienes solicitudes FlexPlace canceladas.</string>
+    <string name="flexplace_forapproved_emptyview_approved_title"></string>
+    <string name="flexplace_forapproved_emptyview_awaiting_title">¡Genial!</string>
+    <string name="flexplace_forapproved_emptyview_rejected_title">¡Genial!</string>
+    <string name="flexplace_forapproved_emptyview_canceled_title">¡Genial!</string>
 
 
 </resources>

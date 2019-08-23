@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,12 +18,12 @@ import org.json.JSONObject;
 import okhttp3.ResponseBody;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.flexplace.historial.HistorialFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.miequipo.MiEquipoFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.history.HistoryFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.myteam.MyTeamFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.Dashboard;
-import pe.com.qallarix.movistarcontigo.flexplace.registrar.RegistrarFlexPlaceActivity;
-import pe.com.qallarix.movistarcontigo.flexplace.approve.FlexPlaceForApproveActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.register.RegistrarFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.forapprove.ForApproveFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
@@ -52,7 +53,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
     private ImageView ivMessageImagen;
 
     private boolean isLoading = true;
-    private String leadership = "";
+    private String leader = "";
 
     private ShimmerFrameLayout mShimmerViewContainer;
     @Override
@@ -73,7 +74,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
-                        MiEquipoFlexPlaceActivity.class);
+                        MyTeamFlexPlaceActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -85,7 +86,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
-                        FlexPlaceForApproveActivity.class);
+                        ForApproveFlexPlaceActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -97,7 +98,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
-                        HistorialFlexPlaceActivity.class);
+                        HistoryFlexPlaceActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -110,7 +111,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FlexplaceActivity.this,
                         RegistrarFlexPlaceActivity.class);
-                intent.putExtra("leadership",leadership);
+                intent.putExtra("leader", leader);
                 startActivity(intent);
                 finish();
             }
@@ -129,7 +130,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             public void onResponse(Call<DashBoardFlexPlace> call, Response<DashBoardFlexPlace> response) {
                 if ( response.code() == 200){
                     dashboard = response.body().getDashboard();
-                    leadership= dashboard.getLeadership();
+                    leader = dashboard.getLeadership();
                     if (dashboard.isLeadership()){
                         vFlexTeam.setVisibility(View.VISIBLE);
                         vRequests.setVisibility(View.VISIBLE);
@@ -165,10 +166,12 @@ public class FlexplaceActivity extends TranquiParentActivity {
     private void displayResumenFlexPlaceFuturo(String dateStart) {
         tvMessage.setText("Tu solicitud");
         tvMonth.setText("FlexPlace");
+        tvMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         tvMonth.setVisibility(View.VISIBLE);
         tvDay.setText("está aprobada");
         tvDay.setVisibility(View.VISIBLE);
-        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        tvDescription.setGravity(Gravity.CENTER);
         Resources res = getResources();
         String text = String.format(res.getString(R.string.resumen_flexplace_periodo_futuro), dateStart);
         CharSequence styledText = Html.fromHtml(text);
@@ -198,9 +201,11 @@ public class FlexplaceActivity extends TranquiParentActivity {
     private void displayDashboardVacio() {
         tvMessage.setText("Disfruta de tu");
         tvMonth.setText("FlexPlace");
+        tvMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         tvDay.setVisibility(View.VISIBLE);
         tvDay.setText("¡Regístralo ahora!");
         tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescription.setGravity(Gravity.CENTER);
         tvDescription.setText("¡Elige un día de la semana para trabajar desde casa!");
         tvRightDate.setVisibility(View.GONE);
     }
@@ -208,10 +213,12 @@ public class FlexplaceActivity extends TranquiParentActivity {
     private void displayDashboardPendientes() {
         tvMessage.setText("Tu solicitud");
         tvMonth.setText("FlexPlace");
+        tvMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
         tvMonth.setVisibility(View.VISIBLE);
         tvDay.setText("está pendiente");
         tvDay.setVisibility(View.VISIBLE);
         tvDescription.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+        tvDescription.setGravity(Gravity.CENTER);
         tvDescription.setText("Se te notificará al momento de la aprobación.");
         tvRightDate.setVisibility(View.GONE);
     }
@@ -304,7 +311,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
     public void verInformacionImportante(View view) {
-        Intent intent = new Intent(this, AcercaFlexPlaceActivity.class);
+        Intent intent = new Intent(this, AboutFlexPlaceActivity.class);
         Analitycs.logEventoClickBotonAcercaDeFlexPlace(this);
         startActivity(intent);
     }

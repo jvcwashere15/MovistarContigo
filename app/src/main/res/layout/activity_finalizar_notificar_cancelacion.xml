@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".flexplace.approve.FinalizarNotificarCancelacionActivity">
+    tools:context=".flexplace.forapprove.ForApproveFlexFinishNotificationActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -60,8 +60,8 @@
                 android:layout_marginLeft="16dp"
                 android:textSize="16sp"
                 android:gravity="center"
-                android:visibility="invisible"
                 android:onClick="volverAtras"
+                android:visibility="invisible"
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/telefonica_bold"
                 android:background="@drawable/boton_vacaciones_verde"
