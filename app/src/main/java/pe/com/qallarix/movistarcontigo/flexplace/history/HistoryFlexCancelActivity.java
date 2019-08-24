@@ -27,7 +27,7 @@ public class HistoryFlexCancelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexplace_cancel);
+        setContentView(R.layout.activity_flexplace_history_cancel);
         getDataFromIntent();
         configurarToolbar();
         bindearVistas();

@@ -3,13 +3,18 @@ package pe.com.qallarix.movistarcontigo.flexplace.register;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,6 +22,7 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -116,6 +122,21 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
         vDaySelection = findViewById(R.id.registro_flex_vSeleccionDia);
         tvDayError = findViewById(R.id.registro_flex_tvErrorDia);
         spPeriod = findViewById(R.id.registro_flex_spPeriodo);
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true);
+
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow =
+                    (android.widget.ListPopupWindow) popup.get(spPeriod);
+            final float scale = getResources().getDisplayMetrics().density;
+            int pixels = (int) (48 * scale + 0.5f);
+            // Set popupWindow height to 500px
+            popupWindow.setHeight(pixels * 5);
+        }
+        catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+            // silently fail...
+        }
         tvDay = findViewById(R.id.registro_flex_tvDia);
         tvLeaderApprove = findViewById(R.id.registro_flex_tvDescripcionLider);
         tvButtonRegister = findViewById(R.id.registro_flex_tvButtonRegistrar);
@@ -152,6 +173,7 @@ public class RegistrarFlexPlaceActivity extends TranquiParentActivity {
                 //mostramos calendario para elegir el día flex
                 DatePickerDialog recogerFecha =
                         new DatePickerDialog(RegistrarFlexPlaceActivity.this,
+                                R.style.DatePickerDialogTheme,
                                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {

@@ -48,7 +48,7 @@ public class ForApproveFlexAwaitingDetailActivity extends TranquiParentActivity 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_pendiente);
+        setContentView(R.layout.activity_flexplace_forapprove_awaiting_request);
         getDataFromIntent();
         configurarToolbar();
         bindearVistas();
@@ -76,7 +76,7 @@ public class ForApproveFlexAwaitingDetailActivity extends TranquiParentActivity 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ForApproveFlexAwaitingDetailActivity.this,
-                        ForApproveFlexRejectRequestActivity.class);
+                        ForApproveFlexRejectActivity.class);
                 intent.putExtra("fechaSolicitud", flexRequestDetail.getDateRequest());
                 intent.putExtra("fechaInicio", flexRequestDetail.getDateStart());
                 intent.putExtra("nombreEmpleado", flexRequestDetail.getEmployee());
@@ -188,7 +188,8 @@ public class ForApproveFlexAwaitingDetailActivity extends TranquiParentActivity 
     }
 
     public void mostrarDialogAprobacionFlexPlace(String nombre){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(ForApproveFlexAwaitingDetailActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                ForApproveFlexAwaitingDetailActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¿Deseas continuar?");
         String mensaje = "Vas a aprobar la solicitud de FlexPlace de " + nombre + ".";
 

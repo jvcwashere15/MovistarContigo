@@ -6,179 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".flexplace.forapprove.ForApproveFlexRejectRequestActivity">
+    tools:context=".flexplace.forapprove.ForApproveFlexRejectActivity">
     <include layout="@layout/my_toolbar"/>
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/rechazar_flexplace_shimerFrameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="@android:color/white"
-        app:shimmer_duration="800">
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:padding="16dp"
-            android:background="@android:color/white"
-            android:layout_height="match_parent">
-
-            <View
-                android:id="@+id/rechazar_flexplace_tvLider1"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/rechazar_flexplace_tvDescLider1"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rechazar_flexplace_tvLider1" />
-
-            <View
-                android:id="@+id/view01"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rechazar_flexplace_tvDescLider1"
-                app:layout_constraintVertical_bias="0.0"/>
-
-            <View
-                android:id="@+id/textView221"
-                android:layout_width="104dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/view11"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view01" />
-
-            <View
-                android:id="@+id/rechazar_flexplace_tvEstado1"
-                android:layout_width="80dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/view11"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view01" />
-
-            <View
-                android:id="@+id/view11"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="48dp"
-                android:background="#DDDDDD"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view01"
-                app:layout_constraintVertical_bias="0.0"
-                tools:layout_editor_absoluteX="16dp" />
-
-
-            <View
-                android:id="@+id/textView241"
-                android:layout_width="104dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/view31"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view11" />
-
-            <View
-                android:id="@+id/rechazar_flexplace_tvFechaInicio1"
-                android:layout_width="80dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/view31"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view11" />
-
-            <View
-                android:id="@+id/view31"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="48dp"
-                android:background="#DDDDDD"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view11"
-                app:layout_constraintVertical_bias="0.0"/>
-
-
-            <View
-                android:id="@+id/textView251"
-                android:layout_width="104dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/view41"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view31" />
-
-            <View
-                android:id="@+id/rechazar_flexplace_tvFechaFin1"
-                android:layout_width="80dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/view41"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view31" />
-
-            <View
-                android:id="@+id/view41"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="48dp"
-                android:background="#DDDDDD"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view31"
-                app:layout_constraintVertical_bias="0.0"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/textView261"
-                android:layout_marginBottom="16dp"
-                android:layout_width="104dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                app:layout_constraintBottom_toTopOf="@+id/rechazar_flexplace_tvDescripcion1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view41"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/rechazar_flexplace_tvDiasSolicitados1"
-                android:layout_width="80dp"
-                android:layout_height="16dp"
-                android:background="@color/colorPlaceHolder"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/rechazar_flexplace_tvDescripcion1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view41"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/rechazar_flexplace_tvDescripcion1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/telefonica_regular"
-                android:textColor="#757575"
-                android:textSize="14sp"
-                tools:text=""
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view41" />
-        </android.support.constraint.ConstraintLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -241,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/telefonica_bold"
                 tools:text="01/04/2019"
+                android:textSize="16sp"
                 android:textColor="#2A2A3C"
                 app:layout_constraintBottom_toTopOf="@+id/view1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -276,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/telefonica_bold"
                 tools:text="01/04/2019"
+                android:textSize="16sp"
                 android:textColor="#2A2A3C"
                 app:layout_constraintBottom_toTopOf="@+id/view3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -311,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/telefonica_bold"
                 tools:text="30/06/2019"
+                android:textSize="16sp"
                 android:textColor="#2A2A3C"
                 app:layout_constraintBottom_toTopOf="@+id/view4"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -348,7 +180,7 @@
                 android:fontFamily="@font/telefonica_bold"
                 tools:text="Miércoles"
                 android:textColor="#2A2A3C"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/rechazar_flexplace_etDescripcion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view4"
@@ -360,9 +192,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
                 android:fontFamily="@font/telefonica_regular"
-                android:textColor="#757575"
-                android:textSize="14sp"
                 android:maxLength="100"
+                android:textColor="#757575"
+                android:textSize="15sp"
+                android:backgroundTint="@color/loginBoton"
                 android:inputType="text"
                 android:hint="Escribe el motivo del rechazo de tu FlexPlace"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -375,13 +208,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/boton_vacaciones_verde"
-                android:gravity="center"
-                android:padding="8dp"
                 android:text="Rechazar"
-                android:textSize="16sp"
-                android:fontFamily="@font/telefonica_bold"
-                android:textColor="@android:color/white"
+                style="@style/BotonVerdeFlat"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </android.support.constraint.ConstraintLayout>
         <include

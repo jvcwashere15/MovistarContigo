@@ -458,6 +458,6 @@ Se respetará la fecha 1 del mes en curso en casos de recién nacidos en el mes 
     <string name="flexplace_forapproved_emptyview_awaiting_title">¡Genial!</string>
     <string name="flexplace_forapproved_emptyview_rejected_title">¡Genial!</string>
     <string name="flexplace_forapproved_emptyview_canceled_title">¡Genial!</string>
-
+    <string name="dni_yajayra">47630216</string>
 
 </resources>

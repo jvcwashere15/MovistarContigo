@@ -50,7 +50,7 @@
     </string-array>
 
     <string-array name="periodos_a_tomar">
-        <item>mín 3 meses - máx 12 meses</item>
+        <item>mín 3 - máx 12</item>
         <item>3 meses</item>
         <item>4 meses</item>
         <item>5 meses</item>

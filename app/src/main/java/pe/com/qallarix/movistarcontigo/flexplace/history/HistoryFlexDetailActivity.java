@@ -49,7 +49,7 @@ public class HistoryFlexDetailActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexplace_detail);
+        setContentView(R.layout.activity_flexplace_history_detail);
         getDataFromIntent();
         configurarToolbar();
         bindearVistas();

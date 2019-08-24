@@ -217,7 +217,7 @@
             android:parentActivityName=".flexplace.FlexplaceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flexplace.forapprove.ForApproveFlexRejectRequestActivity"
+            android:name=".flexplace.forapprove.ForApproveFlexRejectActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.forapprove.ForApproveFlexRequestDetailActivity"

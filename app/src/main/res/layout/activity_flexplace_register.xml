@@ -32,6 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#2A2A3C"
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Fecha de inicio:"/>
@@ -52,8 +53,8 @@
 
                 <ImageView
                     android:id="@+id/registro_flex_ivFechaInicio"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
@@ -81,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textSize="16sp"
+                android:textColor="#2A2A3C"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Periodo a tomar:"/>
             <FrameLayout
@@ -153,7 +155,7 @@
         android:visibility="gone"
         android:id="@+id/validar_fechas_viewProgress"
         android:gravity="center"
-        android:onClick="">
+        android:onClick="clickNull">
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

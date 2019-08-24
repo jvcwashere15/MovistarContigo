@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import pe.com.qallarix.movistarcontigo.R;
 
-public class ForApproveFlexRejectRequestActivity extends AppCompatActivity {
+public class ForApproveFlexRejectActivity extends AppCompatActivity {
 
     private String fechaInicio, fechaFin, dia, fechaSolicitud, nombreEmpleado;
     private long idRequest;
@@ -27,7 +27,7 @@ public class ForApproveFlexRejectRequestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rechazo_solicitud_flex);
+        setContentView(R.layout.activity_flexplace_forapprove_reject);
         getDataFromIntent();
         configurarToolbar();
         bindearVistas();
@@ -49,7 +49,7 @@ public class ForApproveFlexRejectRequestActivity extends AppCompatActivity {
 
     private void mostrarDialogError() {
         final AlertDialog.Builder builder = new AlertDialog
-                .Builder(ForApproveFlexRejectRequestActivity.this);
+                .Builder(ForApproveFlexRejectActivity.this);
         builder.setTitle("¡Ups!");
         builder.setMessage("Debes indicar un motivo de cancelación");
         builder.setCancelable(false);
@@ -109,13 +109,13 @@ public class ForApproveFlexRejectRequestActivity extends AppCompatActivity {
 
     public void mostrarDialogRechazarFlexPlace(){
         final AlertDialog.Builder builder = new AlertDialog
-                .Builder(ForApproveFlexRejectRequestActivity.this);
+                .Builder(ForApproveFlexRejectActivity.this);
         builder.setTitle("¿Deseas continuar?");
         builder.setMessage("Vas a rechazar la solicitud de FlexPlace de " + nombreEmpleado + ".");
         builder.setCancelable(false);
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Intent intent = new Intent(ForApproveFlexRejectRequestActivity.this,
+                Intent intent = new Intent(ForApproveFlexRejectActivity.this,
                         ForApproveFlexFinishProcessActivity.class);
                 intent.putExtra("nombreEmpleado",nombreEmpleado);
                 intent.putExtra("idRequest",idRequest);

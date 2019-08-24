@@ -54,7 +54,7 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexplace_request_detail);
+        setContentView(R.layout.activity_flexplace_forapprove_detail);
         getDataFromIntent();
         configurarToolbar();
         bindViews();
@@ -87,7 +87,7 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ForApproveFlexRequestDetailActivity.this,
-                        ForApproveFlexRejectRequestActivity.class);
+                        ForApproveFlexRejectActivity.class);
                 intent.putExtra("fechaSolicitud", flexRequestDetail.getDateRequest());
                 intent.putExtra("fechaInicio", flexRequestDetail.getDateStart());
                 intent.putExtra("nombreEmpleado", flexRequestDetail.getEmployee());

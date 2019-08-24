@@ -39,7 +39,7 @@ public class HistoryFlexFinishCancelActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexplace_finish_cancellation);
+        setContentView(R.layout.activity_flexplace_history_finish_cancel);
         configurarToolbar();
         bindearVistas();
         getDataFromExtras();
