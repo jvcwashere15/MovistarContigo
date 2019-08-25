@@ -167,6 +167,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
             @Override
             public void onFailure(Call<DashBoardFlexPlace> call, Throwable t) {
                 Toast.makeText(FlexplaceActivity.this, "Error en el servicio", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 

@@ -293,6 +293,7 @@ public class ForApproveFlexPlaceActivity extends TranquiParentActivity {
             @Override
             public void onFailure(Call<ResponseSolicitudesFlexPlace> call, Throwable t) {
                 displayMessage500(tipoLista);
+                viewLoading.setVisibility(View.GONE);
             }
         });
     }

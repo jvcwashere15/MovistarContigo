@@ -55,7 +55,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 style="@style/BotonVerdeFlat"
-                android:onClick="goToFlexApproved"
                 android:visibility="invisible"
                 android:layout_marginBottom="8dp"
                 android:layout_above="@id/forapprove_flex_finish_notification_tvButtonBackFlexDash"

@@ -80,6 +80,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
     public final int THURSDAY = 4;
     public final int FRIDAY = 5;
 
+    public final int MODULE_MYTEAM = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,7 +191,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
                 if (currentSolicitudFlex != null) {
                     int requestCode = (int)currentSolicitudFlex.getId();
                     intent.putExtra("requestCode",requestCode);
-                    intent.putExtra("texto_boton","Ver FlexPlace de mi equipo");
+                    intent.putExtra("flagModule",MODULE_MYTEAM);
                     startActivity(intent);
                 }
             }
@@ -274,6 +275,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
                     tvMensajeEquipo.setText(styledText);
                 }else {
                     mostrarMensaje500();
+
                 }
                 viewLoader.setVisibility(View.GONE);
             }
@@ -281,6 +283,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
             @Override
             public void onFailure(Call<ResponseFlexPlaceEquipo> call, Throwable t) {
                 mostrarMensaje500();
+                viewLoader.setVisibility(View.GONE);
             }
         });
     }

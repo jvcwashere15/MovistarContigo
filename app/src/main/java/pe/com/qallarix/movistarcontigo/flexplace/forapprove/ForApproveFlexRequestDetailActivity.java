@@ -19,6 +19,7 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.history.ServiceFlexPlaceHistoryApi;
 import pe.com.qallarix.movistarcontigo.flexplace.forapprove.pojos.FlexRequestDetail;
 import pe.com.qallarix.movistarcontigo.flexplace.forapprove.pojos.ResponseDetalleSolicitudFlex;
+import pe.com.qallarix.movistarcontigo.flexplace.myteam.MyTeamFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
@@ -50,6 +51,10 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
     private boolean mPantallaAnterior;
 
     private String mTextoBoton = "";
+
+    private final int MODULE_FORAPPROVE = 3;
+    private final int MODULE_MYTEAM = 4;
+    private int FLAG_MODULE = MODULE_FORAPPROVE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -205,8 +210,8 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
             mPantallaAnterior = getIntent().getExtras().getBoolean("lista_notificaciones",false);
         }
 
-        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("texto_boton")){
-            mTextoBoton = getIntent().getExtras().getString("texto_boton","");
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey("flagModule")){
+            FLAG_MODULE = getIntent().getExtras().getInt("flagModule",MODULE_FORAPPROVE);
         }
     }
 
@@ -230,7 +235,9 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
     }
 
     private void goToParentActivity() {
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        Intent upIntent = new Intent(this,ForApproveFlexPlaceActivity.class);
+        if (FLAG_MODULE == MODULE_MYTEAM)
+            upIntent = new Intent(this, MyTeamFlexPlaceActivity.class);
         upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
@@ -299,7 +306,7 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
                         ForApproveFlexFinishNotificationActivity.class);
                 intent.putExtra("nombreEmpleado", flexRequestDetail.getEmployee());
                 intent.putExtra("idRequest", flexRequestDetail.getId());
-                intent.putExtra("texto_boton", mTextoBoton);
+                intent.putExtra("flagModule", FLAG_MODULE);
                 startActivity(intent);
                 finish();
             }

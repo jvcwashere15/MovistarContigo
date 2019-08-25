@@ -149,6 +149,7 @@ public class HistoryFlexPlaceActivity extends TranquiParentActivity {
             @Override
             public void onFailure(Call<ResponseHistorialFlexPlace> call, Throwable t) {
                 displayMessage500(tipoLista);
+                viewLoader.setVisibility(View.GONE);
             }
         });
     }

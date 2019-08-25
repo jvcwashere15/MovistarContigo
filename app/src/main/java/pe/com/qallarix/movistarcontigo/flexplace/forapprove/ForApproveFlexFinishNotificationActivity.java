@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.history.pojos.ResponseFinalizarCancelacion;
+import pe.com.qallarix.movistarcontigo.flexplace.myteam.MyTeamFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
@@ -26,18 +27,35 @@ public class ForApproveFlexFinishNotificationActivity extends TranquiParentActiv
     private ImageView ivIconResponse;
     private View viewProgress;
     private TextView tvResponseTitle, tvResponseMessage,
-            tvButtonGoToFlexDashboard, tvButtonGoToFlexApproved;
+            tvButtonGoToFlexDashboard, tvButtonGoToFlexApprovedOrMyTeam;
 
-    private final int TAB_APPROVED = 2;
+    private final int MODULE_APPROVED = 3;
+    private final int MODULE_MYTEAM = 4;
+
+    private int FLAG_MODULE = MODULE_APPROVED;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flex_forapprove_finish_notification);
-        setUpToolbar();
-        bindViews();
         getDataFromExtras();
+        bindViews();
+        setUpMyUpButton();
+        setUpToolbar();
         notifyCancelation();
+    }
+
+    private void setUpMyUpButton() {
+        if (FLAG_MODULE == MODULE_MYTEAM){
+            tvButtonGoToFlexApprovedOrMyTeam.setText("Ir a Flexplace de mi equipo");
+        }
+        tvButtonGoToFlexApprovedOrMyTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFlexApprovedOrMyTeam();
+            }
+        });
     }
 
     private void getDataFromExtras() {
@@ -46,6 +64,8 @@ public class ForApproveFlexFinishNotificationActivity extends TranquiParentActiv
             employeeName = extras.getString("nombreEmpleado", "");
             //para realizar la transacción
             idRequest = extras.getLong("idRequest");
+            if (extras.containsKey("flagModule"))
+                FLAG_MODULE = extras.getInt("flagModule",MODULE_APPROVED);
         }
     }
 
@@ -55,16 +75,18 @@ public class ForApproveFlexFinishNotificationActivity extends TranquiParentActiv
         getSupportActionBar().setTitle("Detalle de FlexPlace");
     }
 
-    public void goToFlexApproved(View view) {
-        onBackPressed();
+    public void goToFlexApprovedOrMyTeam() {
+        Intent intent =  new Intent(this, ForApproveFlexPlaceActivity.class);
+        if (FLAG_MODULE == MODULE_MYTEAM)
+            intent = new Intent(this, MyTeamFlexPlaceActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent =  new Intent(this, ForApproveFlexPlaceActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
+        goToFlexApprovedOrMyTeam();
     }
 
     public void backToFlexPlace(View view) {
@@ -91,7 +113,7 @@ public class ForApproveFlexFinishNotificationActivity extends TranquiParentActiv
     }
 
     private void displayMensajeError() {
-        tvButtonGoToFlexApproved.setVisibility(View.VISIBLE);
+        tvButtonGoToFlexApprovedOrMyTeam.setVisibility(View.VISIBLE);
         tvButtonGoToFlexDashboard.setVisibility(View.VISIBLE);
         tvResponseTitle.setText("¡Ups!");
         ivIconResponse.setImageResource(R.drawable.img_error_servidor);
@@ -101,7 +123,7 @@ public class ForApproveFlexFinishNotificationActivity extends TranquiParentActiv
     }
 
     private void displayMensajeOKNotificado() {
-        tvButtonGoToFlexApproved.setVisibility(View.VISIBLE);
+        tvButtonGoToFlexApprovedOrMyTeam.setVisibility(View.VISIBLE);
         tvButtonGoToFlexDashboard.setVisibility(View.VISIBLE);
         tvResponseTitle.setText("Notificación hecha");
         ivIconResponse.setImageResource(R.drawable.ic_check_ok);
@@ -115,7 +137,7 @@ public class ForApproveFlexFinishNotificationActivity extends TranquiParentActiv
         ivIconResponse = findViewById(R.id.forapprove_flex_finish_notification_ivIcon);
         tvResponseTitle = findViewById(R.id.forapprove_flex_finish_notification_tvTitle);
         tvResponseMessage = findViewById(R.id.forapprove_flex_finish_notification_tvMessage);
-        tvButtonGoToFlexApproved = findViewById(R.id.forapprove_flex_finish_notification_tvButtonGoFlexApproved);
+        tvButtonGoToFlexApprovedOrMyTeam = findViewById(R.id.forapprove_flex_finish_notification_tvButtonGoFlexApproved);
         tvButtonGoToFlexDashboard = findViewById(R.id.forapprove_flex_finish_notification_tvButtonBackFlexDash);
         viewProgress = findViewById(R.id.registrar_flexplace_viewProgress);
     }
