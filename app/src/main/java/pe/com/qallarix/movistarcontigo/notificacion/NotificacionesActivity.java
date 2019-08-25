@@ -23,7 +23,7 @@ import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.ForApproveVacationsActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -173,7 +173,7 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                                     }
                                                     break;
                                                 case "leadership":
-                                                    notifyIntent = new Intent(NotificacionesActivity.this, AprobacionVacacionesActivity.class);
+                                                    notifyIntent = new Intent(NotificacionesActivity.this, ForApproveVacationsActivity.class);
                                                     break;
                                                 default:
                                                     break;

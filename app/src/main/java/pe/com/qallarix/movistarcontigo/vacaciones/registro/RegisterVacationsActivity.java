@@ -33,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RegistroVacacionesActivity extends TranquiParentActivity {
+public class RegisterVacationsActivity extends TranquiParentActivity {
 
     private View
             vCalendarioInicio,
@@ -76,7 +76,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
             public void onClick(View v) {
                 Call<ResponseValidarFechas> call = WebServiceVacaciones
                         .getInstance(getDocumentNumber())
-                        .createService(ServiceRegistrarVacacionesApi.class)
+                        .createService(ServiceRegisterVacationsApi.class)
                         .validarEntreFechas(getCIP(),fechaInicio,fechaFin);
                 viewValidarFechas.setVisibility(View.VISIBLE);
                 call.enqueue(new Callback<ResponseValidarFechas>() {
@@ -95,7 +95,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
                     @Override
                     public void onFailure(Call<ResponseValidarFechas> call, Throwable t) {
                         viewValidarFechas.setVisibility(View.GONE);
-                        Toast.makeText(RegistroVacacionesActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterVacationsActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -104,7 +104,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
 
     private void mostrarDialog400(Response<ResponseValidarFechas> response) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(
-                RegistroVacacionesActivity.this, R.style.DialogMensajeStyle);
+                RegisterVacationsActivity.this, R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
         try {
@@ -126,7 +126,7 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
 
     private void mostrarDialogError() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(
-                RegistroVacacionesActivity.this, R.style.DialogMensajeStyle);
+                RegisterVacationsActivity.this, R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Hubo un problema con el servidor. Estamos trabajando para solucionarlo.");
         builder.setCancelable(false);
@@ -139,13 +139,13 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
 
     public void mostrarDialogAprobacionFechas(String title){
         final AlertDialog.Builder builder = new AlertDialog.Builder(
-                RegistroVacacionesActivity.this, R.style.DialogMensajeStyle);
+                RegisterVacationsActivity.this, R.style.DialogMensajeStyle);
         builder.setTitle(title);
         builder.setMessage("Tu solicitud será aprobada en un plazo no mayor a 3 días hábiles.");
         builder.setCancelable(false);
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Intent intent = new Intent(RegistroVacacionesActivity.this,FinalizarRegistroActivity.class);
+                Intent intent = new Intent(RegisterVacationsActivity.this, RegisterVacationsFinishActivity.class);
                 intent.putExtra("fecha_inicio",fechaInicio);
                 intent.putExtra("fecha_fin",fechaFin);
                 startActivity(intent);
@@ -185,7 +185,6 @@ public class RegistroVacacionesActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
     }

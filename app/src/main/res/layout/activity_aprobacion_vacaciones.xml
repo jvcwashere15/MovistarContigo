@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".vacaciones.aprobacion.AprobacionVacacionesActivity">
+    tools:context=".vacaciones.aprobacion.ForApproveVacationsActivity">
     <include layout="@layout/my_toolbar"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/lista_vacaciones_shimerFrameLayout"

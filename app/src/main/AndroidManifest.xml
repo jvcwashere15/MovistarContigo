@@ -129,32 +129,32 @@
             android:parentActivityName=".vacaciones.VacacionesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.FinalizarAprobacionActivity"
-            android:parentActivityName=".vacaciones.aprobacion.AprobacionVacacionesActivity"
+            android:name=".vacaciones.aprobacion.ForApproveFinishActivity"
+            android:parentActivityName=".vacaciones.aprobacion.ForApproveVacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.DetalleAprobacionActivity"
-            android:parentActivityName=".vacaciones.aprobacion.AprobacionVacacionesActivity"
+            android:name=".vacaciones.aprobacion.ForApproveDetailActivity"
+            android:parentActivityName=".vacaciones.aprobacion.ForApproveVacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.pendientes.DetalleEstadoVacacionesActivity"
-            android:parentActivityName=".vacaciones.pendientes.PendientesVacacionesActivity"
+            android:name=".vacaciones.pendientes.PendingRequestsDetailActivity"
+            android:parentActivityName=".vacaciones.pendientes.PendingRequestsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.registro.FinalizarRegistroActivity"
+            android:name=".vacaciones.registro.RegisterVacationsFinishActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.registro.RegistroVacacionesActivity"
+            android:name=".vacaciones.registro.RegisterVacationsActivity"
             android:parentActivityName=".vacaciones.VacacionesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.pendientes.PendientesVacacionesActivity"
+            android:name=".vacaciones.pendientes.PendingRequestsActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".vacaciones.VacacionesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.AprobacionVacacionesActivity"
+            android:name=".vacaciones.aprobacion.ForApproveVacationsActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".vacaciones.VacacionesActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - -->

@@ -26,10 +26,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AprobacionVacacionesActivity extends TranquiParentActivity {
+public class ForApproveVacationsActivity extends TranquiParentActivity {
 
     private RecyclerView rvLista;
-    private PendientesAdapter pendientesAdapter;
+    private ForApproveRequestsAdapter forApproveRequestsAdapter;
     private List<SolicitudAprobacion> solicitudAprobacions;
 
     //view message
@@ -79,7 +79,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
         solicitudAprobacions = new ArrayList<>();
         Call<ResponseListaSolicitudes> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceAprobacionVacacionesApi.class)
+                .createService(ServiceForApproveVacationsApi.class)
                 .obtenerListaSolicitudesAprobar(getCIP(),1);
         call.enqueue(new Callback<ResponseListaSolicitudes>() {
             @Override
@@ -88,7 +88,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
                 if (response.code() == 200){
                     solicitudAprobacions = Arrays.asList(response.body().getList());
                     if (!solicitudAprobacions.isEmpty()){
-                        pendientesAdapter.setSolicitudes(solicitudAprobacions);
+                        forApproveRequestsAdapter.setSolicitudes(solicitudAprobacions);
                     }else{
                         mostrarEmptyView();
                     }
@@ -137,12 +137,12 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
     private void configurarRecycler() {
         rvLista.setLayoutManager(new LinearLayoutManager(this));
         rvLista.setHasFixedSize(true);
-        pendientesAdapter = new PendientesAdapter(this,
-                new PendientesAdapter.OnClickPendiente() {
+        forApproveRequestsAdapter = new ForApproveRequestsAdapter(this,
+                new ForApproveRequestsAdapter.OnClickPendiente() {
             @Override
             public void onClick(int position) {
-                Intent intent = new Intent(AprobacionVacacionesActivity.this,
-                        DetalleAprobacionActivity.class);
+                Intent intent = new Intent(ForApproveVacationsActivity.this,
+                        ForApproveDetailActivity.class);
                 SolicitudAprobacion currentSolicitud = solicitudAprobacions.get(position);
 
                 //para mostrar en el detalle
@@ -159,7 +159,7 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
                 startActivity(intent);
             }
         });
-        rvLista.setAdapter(pendientesAdapter);
+        rvLista.setAdapter(forApproveRequestsAdapter);
     }
 
     private void bindearVistas() {
@@ -194,7 +194,6 @@ public class AprobacionVacacionesActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
     }

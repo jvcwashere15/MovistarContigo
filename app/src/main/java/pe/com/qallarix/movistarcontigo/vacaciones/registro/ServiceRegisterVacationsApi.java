@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public interface ServiceRegistrarVacacionesApi {
+public interface ServiceRegisterVacationsApi {
     @GET("vacation/employee/request/validation")
     Call<ResponseValidarFechas> validarEntreFechas(@Query("employeeCip") String employeeCip,
                                                    @Query("dateStart") String dateStart,

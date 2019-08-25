@@ -1,10 +1,8 @@
 package pe.com.qallarix.movistarcontigo.vacaciones.registro;
 
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,13 +18,14 @@ import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.AcercaActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendingRequestsActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.registro.pojos.ResponseRegistrarVacaciones;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FinalizarRegistroActivity extends TranquiParentActivity {
+public class RegisterVacationsFinishActivity extends TranquiParentActivity {
     private String fechaInicio = "", fechaFin = "";
     private ImageView ivRespuesta;
     private View viewProgress;
@@ -57,7 +56,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
         viewProgress.setVisibility(View.VISIBLE);
         Call<ResponseRegistrarVacaciones> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceRegistrarVacacionesApi.class)
+                .createService(ServiceRegisterVacationsApi.class)
                 .registrarVacaciones(getCIP(),fechaInicio,fechaFin);
         call.enqueue(new Callback<ResponseRegistrarVacaciones>() {
             @Override
@@ -66,7 +65,7 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
                     Date date = Calendar.getInstance().getTime();
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     String strDate = dateFormat.format(date);
-                    Analitycs.logEventoRegistroVacaciones(FinalizarRegistroActivity.this,strDate);
+                    Analitycs.logEventoRegistroVacaciones(RegisterVacationsFinishActivity.this,strDate);
                     displayMensajeOK();
                 }else if (response.code() == 404 || response.code() == 500){
                     displayMensajeError();
@@ -133,47 +132,32 @@ public class FinalizarRegistroActivity extends TranquiParentActivity {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                goToParentActivity();
-                return true;
-            default:return super.onOptionsItemSelected(item);
-        }
+    public void goToPendingRequests(View view) {
+        Intent intent = new Intent(RegisterVacationsFinishActivity.this, PendingRequestsActivity.class);
+        startActivity(intent);
+        finish();
     }
 
-    private void goToParentActivity() {
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(upIntent);
+    public void backToVacacionesDashboard(View view) {
+        goToVacacionesDashboard();
+    }
+
+    public void seeImportantInformation(View view) {
+        Intent intent = new Intent(RegisterVacationsFinishActivity.this, AcercaActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void goToVacacionesDashboard() {
+        Intent intent = new Intent(this, VacacionesActivity.class);
+        startActivity(intent);
         finish();
     }
 
     @Override
     public void onBackPressed() {
-        goToParentActivity();
+        goToVacacionesDashboard();
     }
 
-
-    public void verEstadoVacaciones(View view) {
-        Intent intent = new Intent(FinalizarRegistroActivity.this, PendientesVacacionesActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void verNormativa(View view) {
-        Intent intent = new Intent(FinalizarRegistroActivity.this, AcercaActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void volverMenu(View view) {
-        goToParentActivity();
-    }
-
-    public void clickNull(View view) {
-    }
-
-
+    public void clickNull(View view) { }
 }

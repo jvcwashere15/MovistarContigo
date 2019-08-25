@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".vacaciones.registro.FinalizarRegistroActivity">
+    tools:context=".vacaciones.registro.RegisterVacationsFinishActivity">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,11 +13,12 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
-        tools:context=".vacaciones.registro.FinalizarRegistroActivity">
+        tools:context=".vacaciones.registro.RegisterVacationsFinishActivity">
         <include layout="@layout/my_toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="16dp">
             <TextView
                 android:id="@+id/registrar_vacaciones_tvMensajeRespuesta"
                 android:layout_width="wrap_content"
@@ -35,7 +36,6 @@
                 android:layout_marginBottom="8dp"
                 android:layout_centerInParent="true"
                 tools:srcCompat="@drawable/ic_check_ok" />
-
 
             <TextView
                 android:id="@+id/registrar_vacaciones_tvMensajeDescripcion"
@@ -58,50 +58,28 @@
                     android:id="@+id/registro_vacaciones_btVerNormativa"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:visibility="gone"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:gravity="center"
-                    android:onClick="verNormativa"
-                    android:text="Ver informacion importante"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    style="@style/BotonVerdeFlat"
+                    android:onClick="seeImportantInformation"
+                    android:text="Ver informacion importante"/>
                 <TextView
                     android:id="@+id/registro_vacaciones_btVerEstadoVacaciones"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
                     android:visibility="gone"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:gravity="center"
-                    android:onClick="verEstadoVacaciones"
+                    android:layout_marginBottom="8dp"
+                    style="@style/BotonVerdeFlat"
                     android:text="Ir a solicitudes pendientes"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    android:onClick="goToPendingRequests"/>
                 <TextView
                     android:id="@+id/registro_vacaciones_btVolverAlMenu"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:textAllCaps="false"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:textSize="16sp"
-                    android:gravity="center"
+                    style="@style/BotonVerdeBlancoFlat"
                     android:visibility="gone"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:background="@drawable/boton_vacaciones_verde_blanco"
-                    android:textColor="@color/loginBoton"
                     android:text="Volver a Vacaciones"
-                    android:onClick="backToFlexPlace"/>
+                    android:onClick="backToVacacionesDashboard"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

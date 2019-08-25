@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public interface ServiceAprobacionVacacionesApi {
+public interface ServiceForApproveVacationsApi {
 
     @GET("vacation/leadership/requests/pending")
     Call<ResponseListaSolicitudes> obtenerListaSolicitudesAprobar(@Query("employeeCip") String employeeCip,

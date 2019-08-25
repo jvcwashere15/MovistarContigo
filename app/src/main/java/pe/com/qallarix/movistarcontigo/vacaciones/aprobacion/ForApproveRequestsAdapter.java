@@ -14,13 +14,13 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.SolicitudAprobacion;
 
-public class PendientesAdapter extends RecyclerView.Adapter<PendientesAdapter.PendienteHolder> {
+public class ForApproveRequestsAdapter extends RecyclerView.Adapter<ForApproveRequestsAdapter.PendienteHolder> {
 
     private List<SolicitudAprobacion> solicitudes;
     private OnClickPendiente onClickPendiente;
     private Context context;
 
-    public PendientesAdapter(Context context, OnClickPendiente onClickPendiente) {
+    public ForApproveRequestsAdapter(Context context, OnClickPendiente onClickPendiente) {
         this.solicitudes = new ArrayList<SolicitudAprobacion>();
         this.onClickPendiente = onClickPendiente;
         this.context = context;

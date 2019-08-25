@@ -24,15 +24,14 @@ import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.RegistroVacaciones;
 import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.pojos.ResponseRegistrarAprobacion;
-import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.FinalizarRegistroActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FinalizarAprobacionActivity extends TranquiParentActivity {
+public class ForApproveFinishActivity extends TranquiParentActivity {
 
-    TextView tvResultado, tvDescripcion;
+    TextView tvResultado, tvDescripcion,
+            tvButtonBackToVacationsDash, tvButtonGoToForApprove;
     ImageView ivResultado;
     private View viewRespuestaAprobacionRechazo;
     //datos reenviados
@@ -49,19 +48,19 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar_aprobacion);
         getDataExtraFromIntent();
-        configurarToolbar();
-        bindearVistas();
-        registrarAprobacionORechazo();
+        setUpToolbar();
+        bindViews();
+        registerApproveOrReject();
     }
 
-    private void registrarAprobacionORechazo() {
+    private void registerApproveOrReject() {
         viewProgress.setVisibility(View.VISIBLE);
         RegistroVacaciones registroVacaciones = new RegistroVacaciones(bossName,bossCode,employeeCode,
                 approver,requestCode,requestDateEnd,requestDateStart);
 
         Call<ResponseRegistrarAprobacion> call = WebServiceVacaciones
                 .getInstance(getDocumentNumber())
-                .createService(ServiceAprobacionVacacionesApi.class)
+                .createService(ServiceForApproveVacationsApi.class)
                 .aprobarRechazarSolicitud(registroVacaciones);
         
         call.enqueue(new Callback<ResponseRegistrarAprobacion>() {
@@ -72,9 +71,9 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     String strDate = dateFormat.format(date);
                     if (approver)
-                        Analitycs.logEventoAprobacionVacaciones(FinalizarAprobacionActivity.this,strDate,"true");
+                        Analitycs.logEventoAprobacionVacaciones(ForApproveFinishActivity.this,strDate,"true");
                     else
-                        Analitycs.logEventoAprobacionVacaciones(FinalizarAprobacionActivity.this,strDate,"false");
+                        Analitycs.logEventoAprobacionVacaciones(ForApproveFinishActivity.this,strDate,"false");
                     displayResultadoRegistroOK();
                 }else if (response.code() == 500 || response.code() == 404){
                     displayResultadoError();
@@ -95,6 +94,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
         ivResultado.setImageResource(R.drawable.ic_check_error);
         tvResultado.setText("Registro inválido");
+        tvButtonBackToVacationsDash.setVisibility(View.VISIBLE);
         try {
             JSONObject jsonObject = new JSONObject(response.string());
             JSONObject jsonObject1 = jsonObject.getJSONObject("exception");
@@ -110,6 +110,7 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
 
     private void displayResultadoError() {
         viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
+        tvButtonBackToVacationsDash.setVisibility(View.VISIBLE);
         tvResultado.setText("¡Ups!");
         ivResultado.setImageResource(R.drawable.img_error_servidor);
         tvDescripcion.setText("Hubo un problema con el servidor. Estamos trabajando para solucionarlo." +
@@ -128,10 +129,12 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
         bossName = getIntent().getExtras().getString("bossName");
     }
 
-    private void bindearVistas() {
+    private void bindViews() {
         ivResultado = findViewById(R.id.aprobacion_vacaciones_ivRespuesta);
         tvResultado = findViewById(R.id.aprobacion_vacaciones_tvMensajeRespuesta);
         tvDescripcion = findViewById(R.id.aprobacion_vacaciones_tvMensajeDescripcion);
+        tvButtonGoToForApprove = findViewById(R.id.aprobacion_vacaciones_btVerEstadoVacaciones);
+        tvButtonBackToVacationsDash = findViewById(R.id.aprobacion_vacaciones_btVolverVacaciones);
         viewProgress = findViewById(R.id.aprobando_vacaciones_viewProgress);
         viewRespuestaAprobacionRechazo = findViewById(R.id.view_respuesta_aprobacion_rechazo);
     }
@@ -139,58 +142,45 @@ public class FinalizarAprobacionActivity extends TranquiParentActivity {
     private void displayResultadoRegistroOK() {
         viewRespuestaAprobacionRechazo.setVisibility(View.VISIBLE);
         if (approver){
+            tvButtonGoToForApprove.setVisibility(View.VISIBLE);
+            tvButtonBackToVacationsDash.setVisibility(View.VISIBLE);
             ivResultado.setImageResource(R.drawable.ic_check_ok);
             tvResultado.setText("Aprobación exitosa");
             tvDescripcion.setText("Has aprobado " + dias + " días de vacaciones a " + colaborador);
         }else{
+            tvButtonGoToForApprove.setVisibility(View.VISIBLE);
+            tvButtonBackToVacationsDash.setVisibility(View.VISIBLE);
             ivResultado.setImageResource(R.drawable.ic_check_alert);
             tvResultado.setText("Vacaciones denegadas");
             tvDescripcion.setText("Has rechazado la solicitud de " + colaborador + " por necesidad operativa.");
         }
     }
 
-    public void verSolicitudesParaAprobar (View view) {
-        Intent intent = new Intent(FinalizarAprobacionActivity.this, AprobacionVacacionesActivity.class);
-        startActivity(intent);
-    }
-
-    public void volverMenu(View view) {
-        Intent intent = new Intent(FinalizarAprobacionActivity.this, VacacionesActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-    }
-
-    public void configurarToolbar(){
+    public void setUpToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Detalle de solicitud");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                goToParentActivity();
-                return true;
-            default:return super.onOptionsItemSelected(item);
-        }
+    public void backVacationsForApprove (View view) {
+        Intent intent = new Intent(ForApproveFinishActivity.this, ForApproveVacationsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
-    private void goToParentActivity() {
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(upIntent);
+    public void backToVacationsDashboard(View view) {
+        goToVacationsDashBoard();
+    }
+
+    private void goToVacationsDashBoard() {
+        Intent intent = new Intent(ForApproveFinishActivity.this, VacacionesActivity.class);
+        startActivity(intent);
         finish();
     }
 
     @Override
     public void onBackPressed() {
-        goToParentActivity();
+        goToVacationsDashBoard();
     }
 
 

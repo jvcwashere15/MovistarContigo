@@ -12,7 +12,7 @@ import android.widget.TextView;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
-public class DetalleAprobacionActivity extends TranquiParentActivity {
+public class ForApproveDetailActivity extends TranquiParentActivity {
     private String requestCode,requestDay,employeeName, employeeCode, bossCode, bossName,
             requestDateStart,requestDateEnd;
 
@@ -127,13 +127,13 @@ public class DetalleAprobacionActivity extends TranquiParentActivity {
 
     private void mostrarDialogAprobacionRechazo(String mensaje, final String nombre, final boolean approver) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(
-                DetalleAprobacionActivity.this,R.style.DialogMensajeStyle);
+                ForApproveDetailActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¿Deseas continuar?");
         builder.setMessage("Vas a " + mensaje + " la solicitud de vacaciones de " + nombre);
         builder.setCancelable(false);
         builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(DetalleAprobacionActivity.this,FinalizarAprobacionActivity.class);
+                Intent intent = new Intent(ForApproveDetailActivity.this, ForApproveFinishActivity.class);
                 //Datos para aprobar o rechazar vacaciones
                 intent.putExtra("employeeCode",getCIP());
                 intent.putExtra("requestCode",requestCode);

@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface ServicePendientesVacacionesApi {
+public interface ServicePendingRequestsVacationApi {
     public static final String APROBADAS = "03";
     public static final String PENDIENTES = "02";
     public static final String RECHAZADAS = "04";

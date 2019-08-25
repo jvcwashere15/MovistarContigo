@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:backgroundTint="@android:color/white"
         android:background="@android:color/white"
-        tools:context=".vacaciones.registro.RegistroVacacionesActivity">
+        tools:context=".vacaciones.registro.RegisterVacationsActivity">
         <include layout="@layout/my_toolbar"/>
         <TextView
             android:layout_width="match_parent"

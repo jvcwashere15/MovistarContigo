@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,11 +21,11 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacaciones;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendientesVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.ForApproveVacationsActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.PendingRequestsActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.FutureJoy;
 import pe.com.qallarix.movistarcontigo.vacaciones.pojos.VacacionesDashboard;
-import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegistroVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.registro.RegisterVacationsActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -187,7 +186,7 @@ public class VacacionesActivity extends TranquiParentActivity {
         vRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this, RegistroVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, RegisterVacationsActivity.class);
                 intent.putExtra("leadershipName",liderName);
                 startActivity(intent);
                 finish();
@@ -198,7 +197,7 @@ public class VacacionesActivity extends TranquiParentActivity {
         vEstado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this, PendientesVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, PendingRequestsActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -208,7 +207,7 @@ public class VacacionesActivity extends TranquiParentActivity {
         vAprobacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(VacacionesActivity.this, AprobacionVacacionesActivity.class);
+                Intent intent =  new Intent(VacacionesActivity.this, ForApproveVacationsActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -242,19 +241,9 @@ public class VacacionesActivity extends TranquiParentActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_navigation);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_vacaciones, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-//            case R.id.action_informacion:
-//
-//                return true;
             case android.R.id.home:
                 goToParentActivity();
                 return true;

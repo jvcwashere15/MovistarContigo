@@ -27,7 +27,7 @@ import pe.com.qallarix.movistarcontigo.noticias.DetalleNoticiaActivity;
 import pe.com.qallarix.movistarcontigo.principal.MainActivity;
 import pe.com.qallarix.movistarcontigo.salud.DetalleSaludActivity;
 import pe.com.qallarix.movistarcontigo.vacaciones.VacacionesActivity;
-import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.AprobacionVacacionesActivity;
+import pe.com.qallarix.movistarcontigo.vacaciones.aprobacion.ForApproveVacationsActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "FIREBASE CONTIGO";
@@ -134,7 +134,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                 if (data.containsKey("action") && data.get("action")!= null) {
                                     String action = data.get("action");
                                     notifyIntent = new Intent(this, VacacionesActivity.class);
-                                    notifyIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     switch (action){
                                         case "refuse":
                                             notifyIntent.putExtra("resultadoPedidoVacaciones", 2);
@@ -148,7 +147,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                 }
                                 break;
                             case "leadership":
-                                notifyIntent = new Intent(this, AprobacionVacacionesActivity.class);
+                                notifyIntent = new Intent(this, ForApproveVacationsActivity.class);
                                 break;
                             default:
                                 break;

@@ -14,13 +14,13 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.vacaciones.pendientes.pojos.EstadoVacaciones;
 
-public class PendientesVacacionesAdapter extends RecyclerView.Adapter<PendientesVacacionesAdapter.EstadoVacacionesHolder> {
+public class PendingRequestsAdapter extends RecyclerView.Adapter<PendingRequestsAdapter.EstadoVacacionesHolder> {
 
     Context context;
     List<EstadoVacaciones> estadoVacaciones;
     EstadoOnClick estadoOnClick;
 
-    public PendientesVacacionesAdapter(Context context, EstadoOnClick estadoOnClick) {
+    public PendingRequestsAdapter(Context context, EstadoOnClick estadoOnClick) {
         this.context = context;
         this.estadoVacaciones = new ArrayList<>();
         this.estadoOnClick = estadoOnClick;
