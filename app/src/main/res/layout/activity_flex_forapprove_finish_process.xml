@@ -10,35 +10,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        android:orientation="vertical"
-        tools:context=".vacaciones.registro.FinalizarRegistroActivity">
+        android:orientation="vertical">
         <include layout="@layout/my_toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="16dp">
             <TextView
-                android:id="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:id="@+id/forapprove_flex_finish_process_tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Registro exitoso"
+                tools:text="Aprobación exitosa"
                 android:textSize="20sp"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/telefonica_bold"
                 android:textColor="#2A2A3C"/>
             <ImageView
-                android:id="@+id/registrar_flexplace_ivRespuesta"
+                android:id="@+id/forapprove_flex_finish_process_ivIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_above="@+id/forapprove_flex_finish_process_tvTitle"
                 android:layout_marginBottom="8dp"
                 android:layout_centerInParent="true"
                 tools:srcCompat="@drawable/ic_check_ok" />
 
             <TextView
-                android:id="@+id/registrar_flexplace_tvMensajeDescripcion"
+                android:id="@+id/forapprove_flex_finish_process_tvMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_below="@+id/forapprove_flex_finish_process_tvTitle"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="16dp"
@@ -48,7 +48,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 android:gravity="center"
                 android:textSize="14sp"
-                tools:text="Has solicitado tus vacaciones. Recibirás una notificación al momento de la aprobación." />
+                tools:text="Has aprobado los Martes como FlexPlace para Diego Alonso León Gutierrez." />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,53 +56,23 @@
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/registrar_flexplace_btVerNormativa"
+                    android:id="@+id/forapprove_flex_finish_process_tvButtonGoApproveFlex"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
-                    android:visibility="gone"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:gravity="center"
-                    android:onClick="verNormativa"
-                    android:text="Ver normativa FlexPlace"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
+                    android:visibility="invisible"
+                    style="@style/BotonVerdeFlat"
+                    android:onClick="goToFlexPlaceForApprove"
+                    android:text="Ir a FlexPlace para aprobar"/>
                 <TextView
-                    android:id="@+id/registrar_flexplace_btVerHistorialFlexplace"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:visibility="gone"
-                    android:background="@drawable/boton_vacaciones_verde"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:gravity="center"
-                    android:onClick="verSolicitudesFlexPlace"
-                    android:text="Ver Solicitudes FlexPlace"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp" />
-                <TextView
-                    android:id="@+id/registrar_flexplace_btVolverAlMenu"
+                    android:id="@+id/forapprove_flex_finish_process_tvButtonBackToFlex"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:textAllCaps="false"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    android:fontFamily="@font/telefonica_bold"
-                    android:background="@drawable/boton_vacaciones_verde_blanco"
-                    android:textColor="@color/loginBoton"
-                    android:text="Volver a FlexPlace"
-                    android:onClick="backToFlexPlace"/>
+                    android:visibility="invisible"
+                    android:onClick="backToFlexPlaceDashBoard"
+                    style="@style/BotonVerdeBlancoFlat"
+                    android:text="Volver a FlexPlace"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

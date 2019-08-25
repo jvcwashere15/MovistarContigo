@@ -54,7 +54,7 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexplace_forapprove_detail);
+        setContentView(R.layout.activity_flex_forapprove_detail);
         getDataFromIntent();
         configurarToolbar();
         bindViews();
@@ -255,7 +255,8 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
     }
 
     public void mostrarDialogAprobacionFlexPlace(String nombre){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(ForApproveFlexRequestDetailActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                ForApproveFlexRequestDetailActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¿Deseas continuar?");
         String mensaje = "Vas a aprobar la solicitud de FlexPlace de " + nombre + ".";
 
@@ -286,7 +287,8 @@ public class ForApproveFlexRequestDetailActivity extends TranquiParentActivity {
     }
 
     public void displayDialogNotifyCancelattion(String nombre){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(ForApproveFlexRequestDetailActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                ForApproveFlexRequestDetailActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¿Deseas continuar?");
         String mensaje = "Vas a notificar a " + nombre + " para que cancele su FlexPlace.";
         builder.setMessage(mensaje);

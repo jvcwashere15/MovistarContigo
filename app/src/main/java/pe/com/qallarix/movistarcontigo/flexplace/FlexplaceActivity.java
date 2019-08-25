@@ -119,6 +119,15 @@ public class FlexplaceActivity extends TranquiParentActivity {
     }
 
 
+
+    public void verInformacionImportante(View view) {
+        Intent intent = new Intent(this, AboutFlexPlaceActivity.class);
+        Analitycs.logEventoClickBotonAcercaDeFlexPlace(this);
+        startActivity(intent);
+        finish();
+    }
+
+
     private void cargarMenuFlexPlace() {
         Call<DashBoardFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
@@ -255,6 +264,11 @@ public class FlexplaceActivity extends TranquiParentActivity {
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        goToParentActivity();
+    }
+
     private void mostrarMensajeError() {
         viewMessage.setVisibility(View.VISIBLE);
         vDashboard.setVisibility(View.GONE);
@@ -310,9 +324,5 @@ public class FlexplaceActivity extends TranquiParentActivity {
         super.onPause();
     }
 
-    public void verInformacionImportante(View view) {
-        Intent intent = new Intent(this, AboutFlexPlaceActivity.class);
-        Analitycs.logEventoClickBotonAcercaDeFlexPlace(this);
-        startActivity(intent);
-    }
+
 }

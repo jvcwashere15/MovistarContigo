@@ -94,6 +94,23 @@ public class HistoryFlexFinishCancelActivity extends TranquiParentActivity {
         goToParentActivity();
     }
 
+
+
+    public void goToFlexPlaceHistory(View view) {
+        goToParentActivity();
+    }
+
+    public void backToFlexPlace(View view) {
+        Intent intent = new Intent(HistoryFlexFinishCancelActivity.this, FlexplaceActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickNull(View view) {
+    }
+
+
     private void bindearVistas() {
         ivRespuesta = findViewById(R.id.registrar_flexplace_ivRespuesta);
         tvRespuesta = findViewById(R.id.registrar_flexplace_tvMensajeRespuesta);
@@ -134,31 +151,6 @@ public class HistoryFlexFinishCancelActivity extends TranquiParentActivity {
                 displayMensajeError();
             }
         });
-    }
-
-
-    public void goToFlexPlaceHistory(View view) {
-//        Intent intent =  new Intent(this, HistoryFlexPlaceActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//        intent.putExtra("initTab",typeRequest);
-//        startActivity(intent);
-//        finish();
-        goToParentActivity();
-    }
-
-    public void verNormativa(View view) {
-        Intent intent = new Intent(HistoryFlexFinishCancelActivity.this, AboutFlexPlaceActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void backToFlexPlace(View view) {
-        Intent intent = new Intent(HistoryFlexFinishCancelActivity.this, FlexplaceActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void clickNull(View view) {
     }
 
 

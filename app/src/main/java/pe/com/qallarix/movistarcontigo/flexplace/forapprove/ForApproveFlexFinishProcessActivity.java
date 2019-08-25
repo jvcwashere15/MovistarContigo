@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +18,7 @@ import java.util.Date;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.flexplace.AboutFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.history.pojos.ResponseFinalizarCancelacion;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
@@ -34,13 +33,12 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
     private long idRequest;
     private ImageView ivRespuesta;
     private View viewProgress;
-    private TextView tvRespuesta, tvRespuestaDescripcion, tvButtonEstado, tvButtonVolverMenu,
-            tvButtonNormativa;
+    private TextView tvRespuesta, tvRespuestaDescripcion, tvButtonEstado, tvButtonVolverMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finalizar_aprobar_rechazar_flex);
+        setContentView(R.layout.activity_flex_forapprove_finish_process);
         configurarToolbar();
         bindearVistas();
         getDataFromExtras();
@@ -79,7 +77,7 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        upIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(upIntent);
         finish();
     }
@@ -89,13 +87,26 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
         goToParentActivity();
     }
 
+
+    public void goToFlexPlaceForApprove(View view) {
+        goToParentActivity();
+    }
+
+    public void backToFlexPlaceDashBoard(View view) {
+        Intent intent = new Intent(this, FlexplaceActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    public void clickNull(View view) { }
+
     private void bindearVistas() {
-        ivRespuesta = findViewById(R.id.registrar_flexplace_ivRespuesta);
-        tvRespuesta = findViewById(R.id.registrar_flexplace_tvMensajeRespuesta);
-        tvRespuestaDescripcion = findViewById(R.id.registrar_flexplace_tvMensajeDescripcion);
-        tvButtonEstado = findViewById(R.id.registrar_flexplace_btVerHistorialFlexplace);
-        tvButtonNormativa = findViewById(R.id.registrar_flexplace_btVerNormativa);
-        tvButtonVolverMenu = findViewById(R.id.registrar_flexplace_btVolverAlMenu);
+        ivRespuesta = findViewById(R.id.forapprove_flex_finish_process_ivIcon);
+        tvRespuesta = findViewById(R.id.forapprove_flex_finish_process_tvTitle);
+        tvRespuestaDescripcion = findViewById(R.id.forapprove_flex_finish_process_tvMessage);
+        tvButtonEstado = findViewById(R.id.forapprove_flex_finish_process_tvButtonGoApproveFlex);
+        tvButtonVolverMenu = findViewById(R.id.forapprove_flex_finish_process_tvButtonBackToFlex);
         viewProgress = findViewById(R.id.registrar_flexplace_viewProgress);
     }
 
@@ -136,28 +147,8 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
     }
 
 
-    public void verSolicitudesFlexPlace(View view) {
-        Intent intent =  new Intent(this, ForApproveFlexPlaceActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void verNormativa(View view) {
-        Intent intent = new Intent(ForApproveFlexFinishProcessActivity.this, AboutFlexPlaceActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public void volverMenu(View view) {
-        goToParentActivity();
-    }
-
-    public void clickNull(View view) {
-    }
-
 
     private void displayMensaje400(Response<ResponseFinalizarCancelacion> response) {
-        tvButtonNormativa.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         tvRespuesta.setText("Registro inválido");
         ivRespuesta.setImageResource(R.drawable.ic_check_error);
@@ -196,7 +187,7 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
         tvButtonEstado.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         ivRespuesta.setImageResource(R.drawable.ic_check_alert);
-        tvRespuestaDescripcion.setText("Has rechazado los " + dia + " como FlexPlace para " +
+        tvRespuestaDescripcion.setText("Has rechazado la solicitud de FlexPlace de " +
                 nombreEmpleado + ".");
     }
 }

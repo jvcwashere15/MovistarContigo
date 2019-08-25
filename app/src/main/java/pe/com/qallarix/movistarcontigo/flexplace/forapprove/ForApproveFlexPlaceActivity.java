@@ -50,6 +50,8 @@ public class ForApproveFlexPlaceActivity extends TranquiParentActivity {
     private final int REJECTED = 2;
     private final int CANCELED = 3;
 
+    private int initTab = AWAITING;
+
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private final String STATUS_AWAITING = "02";
@@ -69,11 +71,13 @@ public class ForApproveFlexPlaceActivity extends TranquiParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flexplace_for_approve);
         currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        configurarToolbar();
+        getDataFromIntent();
         bindViews();
-        configurarRecyclerView();
-        configurarTabs();
-        displayHistoryList(AWAITING, false);
+        configurarToolbar();
+        setUpRecyclerView();
+        setUpTabs();
+        setInitTab(initTab);
+        displayHistoryList(initTab, false);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -83,8 +87,19 @@ public class ForApproveFlexPlaceActivity extends TranquiParentActivity {
         });
     }
 
+    private void getDataFromIntent() {
+        Bundle bundleExtras = getIntent().getExtras();
+        if (bundleExtras!= null && bundleExtras.containsKey("initTab"))
+            initTab = bundleExtras.getInt("initTab",AWAITING);
+    }
 
-    private void configurarTabs() {
+    private void setInitTab(int initTab) {
+        TabLayout.Tab tab = tabLayout.getTabAt(initTab);
+        tab.select();
+    }
+
+
+    private void setUpTabs() {
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -307,7 +322,7 @@ public class ForApproveFlexPlaceActivity extends TranquiParentActivity {
 
     }
 
-    private void configurarRecyclerView() {
+    private void setUpRecyclerView() {
         rvFlexRequests.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvFlexRequests.setLayoutManager(layoutManager);
@@ -433,7 +448,6 @@ public class ForApproveFlexPlaceActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
     }

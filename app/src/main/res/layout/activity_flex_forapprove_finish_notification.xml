@@ -15,9 +15,10 @@
         <include layout="@layout/my_toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="16dp">
             <TextView
-                android:id="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:id="@+id/forapprove_flex_finish_notification_tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Registro exitoso"
@@ -26,19 +27,19 @@
                 android:fontFamily="@font/telefonica_bold"
                 android:textColor="#2A2A3C"/>
             <ImageView
-                android:id="@+id/registrar_flexplace_ivRespuesta"
+                android:id="@+id/forapprove_flex_finish_notification_ivIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_above="@+id/forapprove_flex_finish_notification_tvTitle"
                 android:layout_marginBottom="8dp"
                 android:layout_centerInParent="true"
                 tools:srcCompat="@drawable/ic_check_ok" />
 
             <TextView
-                android:id="@+id/registrar_flexplace_tvMensajeDescripcion"
+                android:id="@+id/forapprove_flex_finish_notification_tvMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/registrar_flexplace_tvMensajeRespuesta"
+                android:layout_below="@+id/forapprove_flex_finish_notification_tvTitle"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="16dp"
@@ -48,25 +49,26 @@
                 android:fontFamily="@font/telefonica_regular"
                 android:gravity="center"
                 android:textSize="14sp"
-                tools:text="Has solicitado tus vacaciones. Recibirás una notificación al momento de la aprobación." />
-
+                tools:text="Has enviado una notificación a David Ricardo Mendoza Zavaleta para que cancele su FlexPlace." />
             <TextView
-                android:id="@+id/registrar_flexplace_btVerFlexAprobar"
+                android:id="@+id/forapprove_flex_finish_notification_tvButtonGoFlexApproved"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:textAllCaps="false"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:onClick="volverAtras"
+                style="@style/BotonVerdeFlat"
+                android:onClick="goToFlexApproved"
+                android:visibility="invisible"
+                android:layout_marginBottom="8dp"
+                android:layout_above="@id/forapprove_flex_finish_notification_tvButtonBackFlexDash"
+                android:text="Ir a  FlexPlace aprobados"/>
+            <TextView
+                android:id="@+id/forapprove_flex_finish_notification_tvButtonBackFlexDash"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="backToFlexPlace"
+                style="@style/BotonVerdeBlancoFlat"
                 android:visibility="invisible"
                 android:layout_alignParentBottom="true"
-                android:fontFamily="@font/telefonica_bold"
-                android:background="@drawable/boton_vacaciones_verde"
-                android:textColor="@android:color/white"
-                android:text="Ver FlexPlace aprobados"/>
+                android:text="Volver a Flexplace"/>
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout

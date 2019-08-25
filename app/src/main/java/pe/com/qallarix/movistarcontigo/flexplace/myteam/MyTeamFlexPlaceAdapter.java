@@ -14,12 +14,12 @@ import java.util.List;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.flexplace.myteam.pojos.FlexEquipo;
 
-public class TeamFlexPlaceAdapter extends RecyclerView.Adapter<TeamFlexPlaceAdapter.FlexPlaceEquipoHolder> {
+public class MyTeamFlexPlaceAdapter extends RecyclerView.Adapter<MyTeamFlexPlaceAdapter.FlexPlaceEquipoHolder> {
     Context context;
     List<FlexEquipo> solicitudFlexes;
     FlexEquipoOnClick flexEquipoOnClick;
 
-    public TeamFlexPlaceAdapter(Context context, FlexEquipoOnClick flexEquipoOnClick) {
+    public MyTeamFlexPlaceAdapter(Context context, FlexEquipoOnClick flexEquipoOnClick) {
         this.context = context;
         this.solicitudFlexes = new ArrayList<>();
         this.flexEquipoOnClick = flexEquipoOnClick;

@@ -27,7 +27,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flexplace_forapprove_reject);
+        setContentView(R.layout.activity_flex_forapprove_reject);
         getDataFromIntent();
         configurarToolbar();
         bindearVistas();
@@ -49,7 +49,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
 
     private void mostrarDialogError() {
         final AlertDialog.Builder builder = new AlertDialog
-                .Builder(ForApproveFlexRejectActivity.this);
+                .Builder(ForApproveFlexRejectActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Debes indicar un motivo de cancelación");
         builder.setCancelable(false);
@@ -109,7 +109,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
 
     public void mostrarDialogRechazarFlexPlace(){
         final AlertDialog.Builder builder = new AlertDialog
-                .Builder(ForApproveFlexRejectActivity.this);
+                .Builder(ForApproveFlexRejectActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¿Deseas continuar?");
         builder.setMessage("Vas a rechazar la solicitud de FlexPlace de " + nombreEmpleado + ".");
         builder.setCancelable(false);

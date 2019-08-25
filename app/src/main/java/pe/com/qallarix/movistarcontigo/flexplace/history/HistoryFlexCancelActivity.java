@@ -55,7 +55,8 @@ public class HistoryFlexCancelActivity extends AppCompatActivity {
     }
 
     private void mostrarDialogError() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(HistoryFlexCancelActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
+                HistoryFlexCancelActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
         builder.setMessage("Debes indicar un motivo de cancelación");
         builder.setCancelable(false);

@@ -53,7 +53,7 @@ import retrofit2.Response;
 public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
     private Spinner spMeses, spAnios;
     private RecyclerView rvLista;
-    private TeamFlexPlaceAdapter teamFlexPlaceAdapter;
+    private MyTeamFlexPlaceAdapter myTeamFlexPlaceAdapter;
     private Team currentTeam;
     private int checkMeses = 0,checkAnios = 0;
     private RadioButton rbLunes,rbMartes,rbMiercoles,rbJueves,rbViernes;
@@ -170,7 +170,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
     private void configurarRecycler() {
         rvLista.setHasFixedSize(true);
         rvLista.setLayoutManager(new LinearLayoutManager(this));
-        teamFlexPlaceAdapter = new TeamFlexPlaceAdapter(this, new TeamFlexPlaceAdapter.FlexEquipoOnClick() {
+        myTeamFlexPlaceAdapter = new MyTeamFlexPlaceAdapter(this, new MyTeamFlexPlaceAdapter.FlexEquipoOnClick() {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(MyTeamFlexPlaceActivity.this,
@@ -195,7 +195,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
                 }
             }
         });
-        rvLista.setAdapter(teamFlexPlaceAdapter);
+        rvLista.setAdapter(myTeamFlexPlaceAdapter);
     }
 
     private void binderVistas() {
@@ -294,7 +294,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
             case THURSDAY: flexEquipo = currentTeam.getCuatro();break;
             case FRIDAY: flexEquipo = currentTeam.getCinco();break;
         }
-        teamFlexPlaceAdapter.setFlexPlaceMiEquipo(flexEquipo);
+        myTeamFlexPlaceAdapter.setFlexPlaceMiEquipo(flexEquipo);
         if (flexEquipo.isEmpty())
             mostrarEmptyView();
     }
@@ -380,9 +380,13 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        goToParentActivity();
     }
 
     private void mostrarMensaje500() {

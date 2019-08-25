@@ -180,7 +180,6 @@
         <!-- - - - - - - - Módulo FlexPlace - - - - - - -->
         <activity
             android:name=".flexplace.FlexplaceActivity"
-            android:launchMode="singleTop"
             android:parentActivityName=".principal.MainActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -207,6 +206,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.forapprove.ForApproveFlexFinishNotificationActivity"
+            android:parentActivityName=".flexplace.forapprove.ForApproveFlexPlaceActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.forapprove.ForApproveFlexAwaitingDetailActivity"
@@ -214,7 +214,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.forapprove.ForApproveFlexFinishProcessActivity"
-            android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:parentActivityName=".flexplace.forapprove.ForApproveFlexPlaceActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.forapprove.ForApproveFlexRejectActivity"
