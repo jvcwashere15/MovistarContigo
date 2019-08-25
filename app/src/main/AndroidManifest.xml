@@ -16,11 +16,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ambassador.registered.AmbassadorRegisteredActivity" />
         <activity
-            android:name=".notificacion.NotificacionesActivity"
-            android:parentActivityName=".principal.MainActivity"
+            android:name=".notifications.NotificacionesActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".notificacion.MyFirebaseMessagingService">
+        <service android:name=".notifications.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -32,7 +32,7 @@
 
         <activity android:name=".util.TranquiParentActivity" /> <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
-            android:name=".autenticacion.SplashActivity"
+            android:name=".autentication.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,58 +41,58 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".autenticacion.LoginActivity"
+            android:name=".autentication.LoginActivity"
             android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autenticacion.TerminosActivity"
+            android:name=".autentication.TermsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autenticacion.VerificacionActivity"
+            android:name=".autentication.VerificationActivity"
             android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autenticacion.BienvenidoActivity"
+            android:name=".autentication.WelcomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autenticacion.AccountActivity"
+            android:name=".autentication.AccountActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - Main Activity - Dashboard - - - - -->
         <activity
-            android:name=".principal.MainActivity"
+            android:name=".main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - Módulo Descuentos - - - - - - - -->
         <activity
-            android:name=".descuentos.DescuentosActivity"
+            android:name=".discounts.DescuentosActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".descuentos.DetalleDescuentoActivity"
-            android:parentActivityName=".descuentos.DescuentosActivity"
+            android:name=".discounts.DetalleDescuentoActivity"
+            android:parentActivityName=".discounts.DescuentosActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - Módulo Salud - - - - - - - - - -->
         <activity
-            android:name=".salud.SaludActivity"
+            android:name=".health.HealthActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".salud.DetalleSaludActivity"
+            android:name=".health.HealthDetailActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".salud.SaludActivity"
+            android:parentActivityName=".health.HealthActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".salud.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+        <activity android:name=".health.PdfActivity" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Beneficios Especiales - - - - - - -->
         <activity
-            android:name=".especiales.EspecialesActivity"
+            android:name=".specials.SpecialsActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".especiales.DetalleEspecialActivity"
-            android:parentActivityName=".especiales.EspecialesActivity"
+            android:name=".specials.SpecialDetailActivity"
+            android:parentActivityName=".specials.SpecialsActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - - Módulo Embajador - - - - - - - - - - -->
         <activity
@@ -115,53 +115,53 @@
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Noticia - - - - - - - -->
         <activity
-            android:name=".noticias.DetalleNoticiaActivity"
-            android:parentActivityName=".principal.MainActivity"
+            android:name=".news.NewsDetailActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Vacaciones - - - - - -->
         <activity
-            android:name=".vacaciones.VacacionesActivity"
+            android:name=".vacations.VacationsActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".principal.MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.AcercaActivity"
-            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:name=".vacations.AboutVacationsActivity"
+            android:parentActivityName=".vacations.VacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.ForApproveFinishActivity"
-            android:parentActivityName=".vacaciones.aprobacion.ForApproveVacationsActivity"
+            android:name=".vacations.forapprove.ForApproveFinishActivity"
+            android:parentActivityName=".vacations.forapprove.ForApproveVacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.ForApproveDetailActivity"
-            android:parentActivityName=".vacaciones.aprobacion.ForApproveVacationsActivity"
+            android:name=".vacations.forapprove.ForApproveDetailActivity"
+            android:parentActivityName=".vacations.forapprove.ForApproveVacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.pendientes.PendingRequestsDetailActivity"
-            android:parentActivityName=".vacaciones.pendientes.PendingRequestsActivity"
+            android:name=".vacations.pendings.PendingRequestsDetailActivity"
+            android:parentActivityName=".vacations.pendings.PendingRequestsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.registro.RegisterVacationsFinishActivity"
-            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:name=".vacations.register.RegisterVacationsFinishActivity"
+            android:parentActivityName=".vacations.VacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.registro.RegisterVacationsActivity"
-            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:name=".vacations.register.RegisterVacationsActivity"
+            android:parentActivityName=".vacations.VacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.pendientes.PendingRequestsActivity"
+            android:name=".vacations.pendings.PendingRequestsActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:parentActivityName=".vacations.VacationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vacaciones.aprobacion.ForApproveVacationsActivity"
+            android:name=".vacations.forapprove.ForApproveVacationsActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".vacaciones.VacacionesActivity"
+            android:parentActivityName=".vacations.VacationsActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo FlexPlace - - - - - - -->
         <activity
             android:name=".flexplace.FlexplaceActivity"
-            android:parentActivityName=".principal.MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.AboutFlexPlaceActivity"

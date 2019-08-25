@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.descuentos.ServiceDescuentoApi;
+import pe.com.qallarix.movistarcontigo.discounts.ServiceDiscountApi;
 import pe.com.qallarix.movistarcontigo.openlearning.pojos.Categorias;
 import pe.com.qallarix.movistarcontigo.openlearning.pojos.Category;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
@@ -87,7 +87,7 @@ public class CategoriasActivity extends AppCompatActivity {
                 .createService(ServiceEstudioApi.class)
                 .getCategorias();
         return WebService1.getInstance(mDni)
-                .createService(ServiceDescuentoApi.class)
+                .createService(ServiceDiscountApi.class)
                 .getCategorias();
     }
 

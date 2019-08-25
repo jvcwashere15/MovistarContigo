@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-import pe.com.qallarix.movistarcontigo.descuentos.pojos.Discount;
-import pe.com.qallarix.movistarcontigo.salud.pojos.Plan;
+import pe.com.qallarix.movistarcontigo.discounts.pojos.Discount;
+import pe.com.qallarix.movistarcontigo.health.pojos.Plan;
 
 public class Analitycs {
 

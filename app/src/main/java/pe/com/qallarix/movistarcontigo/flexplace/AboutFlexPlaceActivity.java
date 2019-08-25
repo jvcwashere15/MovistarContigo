@@ -22,7 +22,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.single.BasePermissionListener;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.salud.PdfActivity;
+import pe.com.qallarix.movistarcontigo.health.PdfActivity;
 import pe.com.qallarix.movistarcontigo.util.PermissionUtils;
 
 public class AboutFlexPlaceActivity extends AppCompatActivity {

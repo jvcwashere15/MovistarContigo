@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
-        tools:context=".vacaciones.registro.RegisterVacationsFinishActivity">
+        tools:context=".vacations.register.RegisterVacationsFinishActivity">
         <include layout="@layout/my_toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"

@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
 
 public class TranquiParentActivity extends AppCompatActivity {
 

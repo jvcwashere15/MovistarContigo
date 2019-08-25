@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autenticacion.AccountActivity;
+import pe.com.qallarix.movistarcontigo.autentication.AccountActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
 public class DetalleEstudioActivity extends TranquiParentActivity {

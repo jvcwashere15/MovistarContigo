@@ -7,7 +7,7 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     android:background="@android:color/white"
-    tools:context=".vacaciones.aprobacion.fragments.PendientesFragment">
+    tools:context=".vacations.forapprove.fragments.PendientesFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/aprobacion_vacaciones_rvPendientes"

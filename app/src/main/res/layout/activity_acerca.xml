@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".vacaciones.AcercaActivity">
+    tools:context=".vacations.AboutVacationsActivity">
     <include layout="@layout/my_toolbar"/>
     <LinearLayout
         android:layout_width="match_parent"

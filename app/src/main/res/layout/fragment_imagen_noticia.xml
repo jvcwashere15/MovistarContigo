@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".noticias.ImagenNoticiaFragment">
+    tools:context=".news.NewsImageFragment">
     <ImageView
         android:id="@+id/detalle_noticia_ivImagen"
         android:layout_width="match_parent"
