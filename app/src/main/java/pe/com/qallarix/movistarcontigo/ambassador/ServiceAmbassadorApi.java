@@ -16,24 +16,46 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ServiceAmbassadorApi {
-    @GET("ambassador/benefit/mobile")
-    Call<AmbassadorMobile> getDataAmbassadorMobile();
-    @GET("ambassador/benefit/home")
-    Call<AmbassadorHome> getDataAmbassadorHome();
+//    @GET("ambassador/benefit/mobile")
+//    Call<AmbassadorMobile> getDataAmbassadorMobile();
+//    @GET("ambassador/benefit/home")
+//    Call<AmbassadorHome> getDataAmbassadorHome();
+//
+//    @GET("ambassador/break/type/network")
+//    Call<NetworkBreak> getDataComboRed();
+//    @GET("ambassador/break/type/query")
+//    Call<QueryBreak> getDataComboConsulta(@Query("codeNetwork") String codeNetwork);
+//    @GET("ambassador/break/type/product")
+//    Call<ProductBreak> getDataComboProducto(@Query("codeNetwork") String codeNetwork, @Query("codeQuery") String codeQuery);
+//
+//    @GET("ambassador/break/validate")
+//    Call<QuestionBreak> getDataPreguntas(@Query("codeProduct") String codeProduct);
+//
+//    @POST("ambassador/break")
+//    Call<RegisteredBreak> setQuiebre(@Body Break aBreak);
+//
+//    @GET("ambassador/break/traceability")
+//    Call<ResponseTraceability> getTraceability();
 
-    @GET("ambassador/break/type/network")
+
+
+
+    @GET("ambassador/benefits/movil")
+    Call<AmbassadorMobile> getDataAmbassadorMobile();
+    @GET("ambassador/benefits/fijo")
+    Call<AmbassadorHome> getDataAmbassadorHome();
+    @GET("ambassador/type/network")
     Call<NetworkBreak> getDataComboRed();
-    @GET("ambassador/break/type/query")
+    @GET("ambassador/type/query")
     Call<QueryBreak> getDataComboConsulta(@Query("codeNetwork") String codeNetwork);
-    @GET("ambassador/break/type/product")
+    @GET("ambassador/type/product")
     Call<ProductBreak> getDataComboProducto(@Query("codeNetwork") String codeNetwork, @Query("codeQuery") String codeQuery);
 
     @GET("ambassador/break/validate")
     Call<QuestionBreak> getDataPreguntas(@Query("codeProduct") String codeProduct);
 
     @POST("ambassador/break")
-    Call<RegisteredBreak> setQuiebre(@Body Break aBreak);
+    Call<RegisteredBreak> setQuiebre(@Body Break quiebre);
 
-    @GET("ambassador/break/traceability")
-    Call<ResponseTraceability> getTraceability();
+
 }

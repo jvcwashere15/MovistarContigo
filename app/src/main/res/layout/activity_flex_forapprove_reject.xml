@@ -197,7 +197,7 @@
                 android:textSize="15sp"
                 android:backgroundTint="@color/loginBoton"
                 android:inputType="text"
-                android:hint="Escribe el motivo del rechazo de tu FlexPlace"
+                android:hint="Escribe el motivo de rechazo del FlexPlace"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

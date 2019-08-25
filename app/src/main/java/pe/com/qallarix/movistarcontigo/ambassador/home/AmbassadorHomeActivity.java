@@ -20,7 +20,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.home.fragments.AmbassadorHomeW
 import pe.com.qallarix.movistarcontigo.ambassador.home.pojos.AmbassadorHome;
 import pe.com.qallarix.movistarcontigo.ambassador.home.pojos.Benefit;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,7 +52,7 @@ public class AmbassadorHomeActivity extends TranquiParentActivity {
     }
 
     private void loadDataHomeFromServicesAmbassador() {
-        final Call<AmbassadorHome> call = WebServiceAmbassador.getInstance(getDocumentNumber())
+        final Call<AmbassadorHome> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceAmbassadorApi.class)
                 .getDataAmbassadorHome();
         progressDialog = ProgressDialog.show(AmbassadorHomeActivity.this, "Embajador Hogar",
@@ -72,14 +72,14 @@ public class AmbassadorHomeActivity extends TranquiParentActivity {
                     Fragment fragment = getSupportFragmentManager().findFragmentByTag("fragment_hogar");
                     if (fragment == null) setearFragment();
                 }else{
-                    Toast.makeText(AmbassadorHomeActivity.this, "No se puedo cargar el Canal Embajador Hogar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AmbassadorHomeActivity.this, "No se pudo cargar el Canal Embajador Hogar", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
 
             @Override
             public void onFailure(Call<AmbassadorHome> call, Throwable t) {
-                Toast.makeText(AmbassadorHomeActivity.this, "No se puedo cargar el Canal Embajador Hogar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AmbassadorHomeActivity.this, "Falló la conexion al servidor", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

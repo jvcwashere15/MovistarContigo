@@ -44,7 +44,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.ProductBreak;
 import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.NetworkBreak;
 import pe.com.qallarix.movistarcontigo.ambassador.breaks.pojos.RegisteredBreak;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
+import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -140,7 +140,7 @@ public class AmbassadorBreaksActivity extends TranquiParentActivity {
                             etNombre.getText().toString(),
                             etTelefonoConsulta.getText().toString()
                     );
-                    Call<RegisteredBreak> call = WebServiceAmbassador.getInstance(getDocumentNumber())
+                    Call<RegisteredBreak> call = WebService1.getInstance(getDocumentNumber())
                             .createService(ServiceAmbassadorApi.class)
                             .setQuiebre(mBreak);
                     call.enqueue(new Callback<RegisteredBreak>() {
@@ -262,7 +262,7 @@ public class AmbassadorBreaksActivity extends TranquiParentActivity {
     }
 
     private void configurarComboNetwork() {
-        final Call<NetworkBreak> call = WebServiceAmbassador.getInstance(getDocumentNumber())
+        final Call<NetworkBreak> call = WebService1.getInstance(getDocumentNumber())
                 .createService(ServiceAmbassadorApi.class)
                 .getDataComboRed();
         progressDialog = ProgressDialog.show(AmbassadorBreaksActivity.this, "Embajador #YoteAyudo",
@@ -314,7 +314,7 @@ public class AmbassadorBreaksActivity extends TranquiParentActivity {
                     NetworkTypeList itemRed = networkTypeLists.get(position-1);
                     String codigoNetwork = itemRed.getCode();
                     opcionesCombo2.clear();
-                    Call<QueryBreak> call1 = WebServiceAmbassador.getInstance(getDocumentNumber())
+                    Call<QueryBreak> call1 = WebService1.getInstance(getDocumentNumber())
                             .createService(ServiceAmbassadorApi.class)
                             .getDataComboConsulta(codigoNetwork);
                     call1.enqueue(new Callback<QueryBreak>() {
@@ -368,7 +368,7 @@ public class AmbassadorBreaksActivity extends TranquiParentActivity {
                     String codigoQuery = queryTypeList.getCode();
                     String codeNetwork = networkTypeLists.get(spNetwork.getSelectedItemPosition()-1).getCode();
                     opcionesCombo3.clear();
-                    Call<ProductBreak> call = WebServiceAmbassador.getInstance(getDocumentNumber())
+                    Call<ProductBreak> call = WebService1.getInstance(getDocumentNumber())
                             .createService(ServiceAmbassadorApi.class)
                             .getDataComboProducto(codeNetwork,codigoQuery);
 
@@ -507,7 +507,7 @@ public class AmbassadorBreaksActivity extends TranquiParentActivity {
                             etTelefonoConsulta.setVisibility(View.VISIBLE);
                         }
                         questionList.clear();
-                        Call<QuestionBreak> call = WebServiceAmbassador.getInstance(getDocumentNumber())
+                        Call<QuestionBreak> call = WebService1.getInstance(getDocumentNumber())
                                 .createService(ServiceAmbassadorApi.class)
                                 .getDataPreguntas(codigoProducto);
                         progressDialog = ProgressDialog.show(AmbassadorBreaksActivity.this, "Embajador #YoteAyudo",
