@@ -17,7 +17,7 @@ public class WebServiceAmbassador {
 
     private final String BASE_URL_WS_EMBAJADOR_QA = "http://qallarix-ce-qa.azurewebsites.net/";
     private final String BASE_URL_WS_EMBAJADOR_PRODUCCION = "http://qallarix-ce-qa.azurewebsites.net/";
-    private final String BASE_URL_WS_EMBAJADOR = BASE_URL_WS_EMBAJADOR_PRODUCCION;
+    private final String BASE_URL_WS_EMBAJADOR = BASE_URL_WS_EMBAJADOR_QA;
 
     private static WebServiceAmbassador instance;
     private Retrofit retrofit;

@@ -23,7 +23,7 @@ import pe.com.qallarix.movistarcontigo.pojos.Beneficio;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorTotalBeneficiosFragment extends Fragment {
+public class AmbassadorTotalBenefitsFragment extends Fragment {
 
 
     private ViewPager vpBeneficios;
@@ -39,7 +39,7 @@ public class EmbajadorTotalBeneficiosFragment extends Fragment {
     private DotIndicator dotBeneficios,dotTodosPuedenSer,dotConsideraciones, dotRestricciones;
 
 
-    public EmbajadorTotalBeneficiosFragment() {
+    public AmbassadorTotalBenefitsFragment() {
         // Required empty public constructor
     }
 

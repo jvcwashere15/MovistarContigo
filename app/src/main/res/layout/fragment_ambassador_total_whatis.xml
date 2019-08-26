@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ambassador.total.fragments.AmbassadorTotalWhatIsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tab1_whatis_tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:textColor="#86888C"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/telefonica_regular"
+            android:text="¿Qué es Movistar Total?"/>
+        <TextView
+            android:id="@+id/tab1_whatis_tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:fontFamily="@font/telefonica_regular"
+            android:textSize="18sp"
+            android:textColor="#86888C"
+            android:text="Es la unión de tu móvil al fijo, internet y TV en un solo combo para disfrutar de más beneficios. Y por ser Embajador, consigue de 15% a 20% de descuento con Movistar Total."/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:background="@drawable/boton_vacaciones_verde_blanco">
+
+            <LinearLayout
+                android:id="@+id/lyt1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25">
+
+                <ImageView
+                    android:id="@+id/tab1_whatis_ivProduct1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/tab1_whatis_tvProduct1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="xxxxxxxx" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvplus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="+"
+                android:textColor="@color/loginBoton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/lyt3"
+                app:layout_constraintStart_toStartOf="@+id/lyt1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/lyt2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lyt1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25">
+
+                <ImageView
+                    android:id="@+id/tab1_whatis_ivProduct2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/tab1_whatis_tvProduct2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="xxxxxxxx" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvplus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="@color/loginBoton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/lyt4"
+                app:layout_constraintStart_toStartOf="@+id/lyt2"
+                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/lyt3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lyt2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25">
+                <ImageView
+                    android:id="@+id/tab1_whatis_ivProduct3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tab1_whatis_tvProduct3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="xxxxxxxx"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvplus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="@color/loginBoton"
+                app:layout_constraintBottom_toBottomOf="@+id/lyt4"
+                app:layout_constraintEnd_toEndOf="@+id/lyt4"
+                app:layout_constraintStart_toStartOf="@+id/lyt3"
+                app:layout_constraintTop_toTopOf="@+id/lyt4" />
+            <LinearLayout
+                android:id="@+id/lyt4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lyt3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25">
+                <ImageView
+                    android:id="@+id/tab1_whatis_ivProduct4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/tab1_whatis_tvProduct4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="xxxxxxxx"/>
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F4F4F4">
+
+            <TextView
+                android:id="@+id/tab1_requirements_tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/telefonica_regular"
+                android:gravity="center"
+                android:text="¿Qué requisitos necesito para migrar a Movistar Total?"
+                android:textColor="#86888C"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/tab1_requirements_vpRequirements"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tab1_requirements_tvTitle" />
+
+            <com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator
+                android:id="@+id/tab1_requirements_dotIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:selectedDotColor="#86888C"
+                app:unselectedDotColor="#86888C"
+                app:layout_constraintBottom_toBottomOf="@+id/tab1_requirements_vpRequirements"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>

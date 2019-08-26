@@ -16,7 +16,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.mobile.fragments.AmbassadorMob
 import pe.com.qallarix.movistarcontigo.ambassador.mobile.pojos.Benefit;
 import pe.com.qallarix.movistarcontigo.ambassador.mobile.pojos.AmbassadorMobile;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService1;
+import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,7 +47,7 @@ public class AmbassadorMobileActivity extends TranquiParentActivity {
     }
 
     private void loadDataMobileFromServiceAmbassador() {
-        final Call<AmbassadorMobile> call = WebService1.getInstance(getDocumentNumber())
+        final Call<AmbassadorMobile> call = WebServiceAmbassador.getInstance(getDocumentNumber())
                 .createService(ServiceAmbassadorApi.class)
                 .getDataAmbassadorMobile();
         progressDialog = ProgressDialog.show(AmbassadorMobileActivity.this, "Embajador Movil",

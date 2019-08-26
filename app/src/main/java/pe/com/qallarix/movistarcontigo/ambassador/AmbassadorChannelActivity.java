@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 
 import pe.com.qallarix.movistarcontigo.R;
@@ -13,7 +12,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.home.AmbassadorHomeActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.mobile.AmbassadorMobileActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.questions.AmbassadorQuestionsActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.registered.AmbassadorRegisteredActivity;
-import pe.com.qallarix.movistarcontigo.ambassador.total.EmbajadorMovistarTotalActivity;
+import pe.com.qallarix.movistarcontigo.ambassador.total.AmbassadorTotalActivity;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
 
@@ -66,7 +65,7 @@ public class AmbassadorChannelActivity extends TranquiParentActivity {
      * metodo para configurar los cardviews beneficios especiales
      */
     private void configurarCardViewsCanalEmbajador() {
-        configurarClickCvCanalEmbajador(cvMovistarTotal,EmbajadorMovistarTotalActivity.class);
+        configurarClickCvCanalEmbajador(cvMovistarTotal, AmbassadorTotalActivity.class);
         configurarClickCvCanalEmbajador(cvHogar, AmbassadorHomeActivity.class);
         configurarClickCvCanalEmbajador(cvMovil, AmbassadorMobileActivity.class);
         configurarClickCvCanalEmbajador(cvQuiebres, AmbassadorBreaksActivity.class);
@@ -87,32 +86,5 @@ public class AmbassadorChannelActivity extends TranquiParentActivity {
                 startActivity(intent);
             }
         });
-    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_just_account, menu);
-//        View view = menu.findItem(R.id.action_account).getActionView();
-//        TextView tvIniciales = view.findViewById(R.id.menu_tvIniciales);
-//        tvIniciales.setText(obtenerIniciales());
-//        tvIniciales.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(AmbassadorChannelActivity.this,AccountActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        return super.onCreateOptionsMenu(menu);
-//    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-//            case R.id.action_account:
-//                Intent intent = new Intent(AmbassadorChannelActivity.this,AccountActivity.class);
-//                startActivity(intent);
-//                return true;
-            default:return super.onOptionsItemSelected(item);
-        }
     }
 }

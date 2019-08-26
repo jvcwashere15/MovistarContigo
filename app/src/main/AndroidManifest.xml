@@ -111,7 +111,7 @@
             android:name=".ambassador.home.AmbassadorHomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ambassador.total.EmbajadorMovistarTotalActivity"
+            android:name=".ambassador.total.AmbassadorTotalActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Noticia - - - - - - - -->
         <activity

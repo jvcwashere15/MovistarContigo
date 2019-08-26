@@ -27,7 +27,7 @@ import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmbajadorTotalComoSoyFragment extends Fragment {
+public class AmbassadorTotalHowIAmFragment extends Fragment {
 
     LinearLayout lytCicloFacturacion1,lytCicloFacturacion2,
             lytCicloFacturacion3;
@@ -50,7 +50,7 @@ public class EmbajadorTotalComoSoyFragment extends Fragment {
     private DotIndicator dotFacturacion;
 
 
-    public EmbajadorTotalComoSoyFragment() {
+    public AmbassadorTotalHowIAmFragment() {
         // Required empty public constructor
     }
 

@@ -16,6 +16,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.ServiceAmbassadorApi;
 import pe.com.qallarix.movistarcontigo.ambassador.registered.adapter.RegisteredAdapter;
 import pe.com.qallarix.movistarcontigo.ambassador.registered.pojos.BreakRegistered;
 import pe.com.qallarix.movistarcontigo.ambassador.registered.pojos.ResponseTraceability;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.ResponseMovistarTotal;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
 import retrofit2.Call;
@@ -37,7 +38,7 @@ public class AmbassadorRegisteredActivity extends TranquiParentActivity {
         setUpShimmer();
         setUpToolbar();
         setUpRecycler();
-//        loadBreaksList();
+        loadBreaksList();
     }
 
     private void setUpShimmer() {
@@ -58,35 +59,35 @@ public class AmbassadorRegisteredActivity extends TranquiParentActivity {
         super.onPause();
     }
 
-//    private void loadBreaksList() {
-//        Call<ResponseTraceability> call = WebServiceAmbassador
-//                .getInstance(getDocumentNumber())
-//                .createService(ServiceAmbassadorApi.class)
-//                .getTraceability();
-//        shimmerFramePlaceholder.setVisibility(View.VISIBLE);
-//        shimmerFramePlaceholder.stopShimmer();
-//        call.enqueue(new Callback<ResponseTraceability>() {
-//            @Override
-//            public void onResponse(Call<ResponseTraceability> call, Response<ResponseTraceability> response) {
-//                if (response.code() == 200){
-//                    breaksList = response.body().getList();
-//                    registeredAdapter.setBreaks(breaksList);
-//                    if (breaksList.isEmpty()) displayEmptyView();
-//                }else{
-//                    displayMessageErrorServer();
-//                }
-//                isLoading = false;
-//                shimmerFramePlaceholder.setVisibility(View.GONE);
-//                shimmerFramePlaceholder.stopShimmer();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseTraceability> call, Throwable t) {
-//                Toast.makeText(AmbassadorRegisteredActivity.this, "Problemas con el servidor", Toast.LENGTH_SHORT).show();
-//                finish();
-//            }
-//        });
-//    }
+    private void loadBreaksList() {
+        Call<ResponseTraceability> call = WebServiceAmbassador
+                .getInstance(getDocumentNumber())
+                .createService(ServiceAmbassadorApi.class)
+                .getTraceability();
+        shimmerFramePlaceholder.setVisibility(View.VISIBLE);
+        shimmerFramePlaceholder.stopShimmer();
+        call.enqueue(new Callback<ResponseTraceability>() {
+            @Override
+            public void onResponse(Call<ResponseTraceability> call, Response<ResponseTraceability> response) {
+                if (response.code() == 200){
+                    breaksList = response.body().getList();
+                    registeredAdapter.setBreaks(breaksList);
+                    if (breaksList.isEmpty()) displayEmptyView();
+                }else{
+                    displayMessageErrorServer();
+                }
+                isLoading = false;
+                shimmerFramePlaceholder.setVisibility(View.GONE);
+                shimmerFramePlaceholder.stopShimmer();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseTraceability> call, Throwable t) {
+                Toast.makeText(AmbassadorRegisteredActivity.this, "Problemas con el servidor", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+    }
 
     private void displayEmptyView() {
         findViewById(R.id.ambassador_registered_emptyView).setVisibility(View.VISIBLE);

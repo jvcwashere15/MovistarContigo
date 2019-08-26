@@ -169,7 +169,7 @@ public class HistoryFlexPlaceActivity extends TranquiParentActivity {
     private void bindViews() {
         //tabs
         tabLayout = findViewById(R.id.flexplace_requests_tabLayout);
-        //List of requests
+        //Lista of requests
         rvVacaciones = findViewById(R.id.flexplace_rvListRequests);
         //Loading view
         viewLoader = findViewById(R.id.flexplace_loading_view);
