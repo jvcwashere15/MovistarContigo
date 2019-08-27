@@ -35,7 +35,7 @@ public interface ServiceAmbassadorApi {
     @POST("ambassador/break")
     Call<RegisteredBreak> setQuiebre(@Body Break aBreak);
 
-    @GET("ambassador/benefit/total")
+    @GET("ambassador/break/traceability")
     Call<ResponseTraceability> getTraceability();
 
     @GET("ambassador/benefit/total")
