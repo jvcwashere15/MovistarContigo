@@ -107,8 +107,7 @@ public class HistoryFlexFinishCancelActivity extends TranquiParentActivity {
         finish();
     }
 
-    public void clickNull(View view) {
-    }
+    public void clickNull(View view) {}
 
 
     private void bindearVistas() {

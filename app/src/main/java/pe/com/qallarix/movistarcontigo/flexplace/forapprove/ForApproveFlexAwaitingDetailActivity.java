@@ -84,7 +84,6 @@ public class ForApproveFlexAwaitingDetailActivity extends TranquiParentActivity 
                 intent.putExtra("dia", flexRequestDetail.getDayWeek());
                 intent.putExtra("idRequest", flexRequestDetail.getId());
                 startActivity(intent);
-                finish();
             }
         });
     }

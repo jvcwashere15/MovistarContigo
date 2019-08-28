@@ -121,17 +121,17 @@ public class HistoryFlexCancelActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                goToParentActivity();
+                onBackPressed();
                 return true;
             default:return super.onOptionsItemSelected(item);
         }
     }
 
     private void goToParentActivity() {
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(upIntent);
-        finish();
+//        Intent upIntent = NavUtils.getParentActivityIntent(this);
+//        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(upIntent);
+//        finish();
     }
 
     public void mostrarDialogCancelacionFlexPlace(String title, String mensaje){
@@ -161,10 +161,5 @@ public class HistoryFlexCancelActivity extends AppCompatActivity {
         });
         final AlertDialog alertDialog = builder.create();
         if (!isFinishing()) alertDialog.show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        goToParentActivity();
     }
 }

@@ -28,37 +28,44 @@ import retrofit2.Response;
 
 public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
 
-    private String observacion, dia, nombreEmpleado;
-    private boolean aprobar;
+    private String observation, day, employeeName;
+    private boolean approve;
     private long idRequest;
     private ImageView ivRespuesta;
     private View viewProgress;
-    private TextView tvRespuesta, tvRespuestaDescripcion, tvButtonEstado, tvButtonVolverMenu;
+    private TextView tvRespuesta, tvRespuestaDescripcion, tvViewProgressMessage,
+            tvButtonEstado, tvButtonVolverMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flex_forapprove_finish_process);
-        configurarToolbar();
-        bindearVistas();
+        bindViews();
+        setUpToolbar();
         getDataFromExtras();
-        registrarFlexPlace();
+        setUpViewProgress();
+        registerFlexPlace();
+    }
+
+    private void setUpViewProgress() {
+        if (approve) tvViewProgressMessage.setText("Aprobando Flexplace...");
+        else tvViewProgressMessage.setText("Rechazando Flexplace...");
     }
 
     private void getDataFromExtras() {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            dia = extras.getString("dia","");
-            nombreEmpleado = extras.getString("nombreEmpleado", "");
+            day = extras.getString("dia","");
+            employeeName = extras.getString("nombreEmpleado", "");
             //para realizar la transacción
             idRequest = extras.getLong("idRequest");
-            observacion = extras.getString("observacion","");
+            observation = extras.getString("observacion","");
             //boolean para aprobar o rechazar
-            aprobar = extras.getBoolean("aprobar",false);
+            approve = extras.getBoolean("aprobar",false);
         }
     }
 
-    public void configurarToolbar(){
+    public void setUpToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Detalle de FlexPlace");
@@ -77,7 +84,7 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(upIntent);
         finish();
     }
@@ -101,23 +108,24 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
 
     public void clickNull(View view) { }
 
-    private void bindearVistas() {
+    private void bindViews() {
         ivRespuesta = findViewById(R.id.forapprove_flex_finish_process_ivIcon);
         tvRespuesta = findViewById(R.id.forapprove_flex_finish_process_tvTitle);
         tvRespuestaDescripcion = findViewById(R.id.forapprove_flex_finish_process_tvMessage);
         tvButtonEstado = findViewById(R.id.forapprove_flex_finish_process_tvButtonGoApproveFlex);
         tvButtonVolverMenu = findViewById(R.id.forapprove_flex_finish_process_tvButtonBackToFlex);
         viewProgress = findViewById(R.id.registrar_flexplace_viewProgress);
+        tvViewProgressMessage = findViewById(R.id.viewprogress_tvMessageProcess);
     }
 
 
 
-    private void registrarFlexPlace() {
+    private void registerFlexPlace() {
         viewProgress.setVisibility(View.VISIBLE);
         Call<ResponseFinalizarCancelacion> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceforApproveApi.class)
-                .aprobarRechazarFlexPlace((int)idRequest,aprobar,observacion);
+                .aprobarRechazarFlexPlace((int)idRequest,approve,observation);
         call.enqueue(new Callback<ResponseFinalizarCancelacion>() {
             @Override
             public void onResponse(Call<ResponseFinalizarCancelacion> call, Response<ResponseFinalizarCancelacion> response) {
@@ -125,11 +133,11 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
                     Date date = Calendar.getInstance().getTime();
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     String strDate = dateFormat.format(date);
-                    if (aprobar)
+                    if (approve)
                         Analitycs.logEventoAprobacionFlexPlace(ForApproveFlexFinishProcessActivity.this,strDate,"true");
                     else
                         Analitycs.logEventoAprobacionFlexPlace(ForApproveFlexFinishProcessActivity.this,strDate,"false");
-                    if (aprobar) displayMensajeOKAprobado();
+                    if (approve) displayMensajeOKAprobado();
                     else displayMensajeOKRechazado();
                 }else if (response.code() == 404 || response.code() == 500){
                     displayMensajeError();
@@ -178,8 +186,8 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
         tvButtonEstado.setVisibility(View.VISIBLE);
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         ivRespuesta.setImageResource(R.drawable.ic_check_ok);
-        tvRespuestaDescripcion.setText("Has aprobado los " + dia + " como FlexPlace para " +
-                 nombreEmpleado + ".");
+        tvRespuestaDescripcion.setText("Has aprobado los " + day + " como FlexPlace para " +
+                 employeeName + ".");
     }
 
     private void displayMensajeOKRechazado() {
@@ -188,6 +196,6 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
         tvButtonVolverMenu.setVisibility(View.VISIBLE);
         ivRespuesta.setImageResource(R.drawable.ic_check_alert);
         tvRespuestaDescripcion.setText("Has rechazado la solicitud de FlexPlace de " +
-                nombreEmpleado + ".");
+                employeeName + ".");
     }
 }

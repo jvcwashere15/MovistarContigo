@@ -19,6 +19,7 @@ import android.util.Base64;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -51,13 +52,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
-    private Spinner spMeses, spAnios;
-    private RecyclerView rvLista;
+    private Spinner spMonths, spYears;
+    private RecyclerView rvList;
     private MyTeamFlexPlaceAdapter myTeamFlexPlaceAdapter;
     private Team currentTeam;
-    private int checkMeses = 0,checkAnios = 0;
-    private RadioButton rbLunes,rbMartes,rbMiercoles,rbJueves,rbViernes;
-    private TextView tvBotonGenerarReporte, tvMensajeEquipo;
+    private int checkMonths = 0, checkYears = 0;
+    private RadioButton rbMondays, rbThuesdays, rbWednesdays, rbThursdays, rbFridays;
+    private TextView tvTeamMessage;
+    private TextView btGenerateReports;
     private int dia,mes,anio;
     AlertDialog alertDialog;
 
@@ -90,11 +92,11 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
         configurarToolbar();
         configurarSpinnerMeses();
         configurarSpinnerAnios();
-        configurarRbDia(rbLunes,MONDAY,rbMartes,rbMiercoles,rbJueves,rbViernes);
-        configurarRbDia(rbMartes,THUESDAY,rbLunes,rbMiercoles,rbJueves,rbViernes);
-        configurarRbDia(rbMiercoles,WEDNESDAY,rbMartes,rbLunes,rbJueves,rbViernes);
-        configurarRbDia(rbJueves,THURSDAY,rbMartes,rbMiercoles,rbLunes,rbViernes);
-        configurarRbDia(rbViernes,FRIDAY,rbMartes,rbMiercoles,rbJueves,rbLunes);
+        configurarRbDia(rbMondays,MONDAY, rbThuesdays, rbWednesdays, rbThursdays, rbFridays);
+        configurarRbDia(rbThuesdays,THUESDAY, rbMondays, rbWednesdays, rbThursdays, rbFridays);
+        configurarRbDia(rbWednesdays,WEDNESDAY, rbThuesdays, rbMondays, rbThursdays, rbFridays);
+        configurarRbDia(rbThursdays,THURSDAY, rbThuesdays, rbWednesdays, rbMondays, rbFridays);
+        configurarRbDia(rbFridays,FRIDAY, rbThuesdays, rbWednesdays, rbThursdays, rbMondays);
         configurarRecycler();
         configurarFechaActual();
         cargarListaFlexPlaceEquipo();
@@ -103,7 +105,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
 
     private void configurarBotonGenerarReporte() {
 
-        tvBotonGenerarReporte.setOnClickListener(new View.OnClickListener() {
+        btGenerateReports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(
@@ -153,24 +155,24 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
         anio = calendar.get(Calendar.YEAR);
         mes = calendar.get(Calendar.MONTH) + 1;
         dia = 1;
-        spMeses.setSelection(mes-1);
+        spMonths.setSelection(mes-1);
         String[] aniosFlex = getResources().getStringArray(R.array.anios_flex);
         List<String> anios = Arrays.asList(aniosFlex);
         int index = 0;
         index = anios.indexOf(String.valueOf(anio));
-        spAnios.setSelection(index);
+        spYears.setSelection(index);
         switch (dia){
-            case MONDAY: rbLunes.setChecked(true);break;
-            case THUESDAY: rbLunes.setChecked(true);break;
-            case WEDNESDAY: rbLunes.setChecked(true);break;
-            case THURSDAY: rbLunes.setChecked(true);break;
-            case FRIDAY: rbLunes.setChecked(true);break;
+            case MONDAY: rbMondays.setChecked(true);break;
+            case THUESDAY: rbThuesdays.setChecked(true);break;
+            case WEDNESDAY: rbWednesdays.setChecked(true);break;
+            case THURSDAY: rbThursdays.setChecked(true);break;
+            case FRIDAY: rbFridays.setChecked(true);break;
         }
     }
 
     private void configurarRecycler() {
-        rvLista.setHasFixedSize(true);
-        rvLista.setLayoutManager(new LinearLayoutManager(this));
+        rvList.setHasFixedSize(true);
+        rvList.setLayoutManager(new LinearLayoutManager(this));
         myTeamFlexPlaceAdapter = new MyTeamFlexPlaceAdapter(this, new MyTeamFlexPlaceAdapter.FlexEquipoOnClick() {
             @Override
             public void onClick(View v, int position) {
@@ -196,17 +198,17 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
                 }
             }
         });
-        rvLista.setAdapter(myTeamFlexPlaceAdapter);
+        rvList.setAdapter(myTeamFlexPlaceAdapter);
     }
 
     private void binderVistas() {
-        spMeses = findViewById(R.id.flexplace_equipo_spMeses);
+        spMonths = findViewById(R.id.flexplace_equipo_spMeses);
         try {
             Field popup = Spinner.class.getDeclaredField("mPopup");
             popup.setAccessible(true);
 
             // Get private mPopup member variable and try cast to ListPopupWindow
-            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(spMeses);
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(spMonths);
 
             // Set popupWindow height to 500px
             popupWindow.setHeight(560);
@@ -214,13 +216,13 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
         catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
             // silently fail...
         }
-        spAnios = findViewById(R.id.flexplace_equipo_spAnios);
+        spYears = findViewById(R.id.flexplace_equipo_spAnios);
         try {
             Field popup = Spinner.class.getDeclaredField("mPopup");
             popup.setAccessible(true);
 
             // Get private mPopup member variable and try cast to ListPopupWindow
-            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(spAnios);
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(spYears);
 
             // Set popupWindow height to 500px
             popupWindow.setHeight(560);
@@ -228,13 +230,13 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
         catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
             // silently fail...
         }
-        rbLunes = findViewById(R.id.flexplace_equipo_rbLunes);
-        rbMartes = findViewById(R.id.flexplace_equipo_rbMartes);
-        rbMiercoles = findViewById(R.id.flexplace_equipo_rbMiercoles);
-        rbJueves = findViewById(R.id.flexplace_equipo_rbJueves);
-        rbViernes = findViewById(R.id.flexplace_equipo_rbViernes);
-        rvLista = findViewById(R.id.flexplace_equipo_rvListaFlexEquipo);
-        tvBotonGenerarReporte = findViewById(R.id.flexplace_equipo_tvBotonGenerarReporte);
+        rbMondays = findViewById(R.id.flexplace_equipo_rbLunes);
+        rbThuesdays = findViewById(R.id.flexplace_equipo_rbMartes);
+        rbWednesdays = findViewById(R.id.flexplace_equipo_rbMiercoles);
+        rbThursdays = findViewById(R.id.flexplace_equipo_rbJueves);
+        rbFridays = findViewById(R.id.flexplace_equipo_rbViernes);
+        rvList = findViewById(R.id.flexplace_equipo_rvListaFlexEquipo);
+        btGenerateReports = findViewById(R.id.flexplace_equipo_tvBotonGenerarReporte);
 
         tvMensajeViewLoader = findViewById(R.id.viewLoad_tvMensaje);
         viewLoader = findViewById(R.id.lista_solicitudes_viewProgress);
@@ -244,7 +246,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
         ivMessageImagen = findViewById(R.id.view_message_ivImagen);
         tvMessageBoton = findViewById(R.id.view_message_tvBoton);
 
-        tvMensajeEquipo = findViewById(R.id.flexplace_equipo_mensajeEquipo);
+        tvTeamMessage = findViewById(R.id.flexplace_equipo_mensajeEquipo);
 
         emptyView = findViewById(R.id.solicitudes_emptyview_view);
         tvEmptyView = findViewById(R.id.solicitudes_emptyview_text);
@@ -272,7 +274,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
                     else
                         text = String.format(getResources().getString(R.string.flexplace_equipo_texto_numeros_plural), miembros+"");
                     CharSequence styledText = Html.fromHtml(text);
-                    tvMensajeEquipo.setText(styledText);
+                    tvTeamMessage.setText(styledText);
                 }else {
                     mostrarMensaje500();
 
@@ -303,11 +305,11 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void configurarSpinnerAnios() {
-        spAnios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spYears.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (++checkAnios > 1){
-                    anio = Integer.parseInt(getResources().getStringArray(R.array.anios_flex)[spAnios.getSelectedItemPosition()]);
+                if (++checkYears > 1){
+                    anio = Integer.parseInt(getResources().getStringArray(R.array.anios_flex)[spYears.getSelectedItemPosition()]);
                     cargarListaFlexPlaceEquipo();
                 }
             }
@@ -321,11 +323,11 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
     }
 
     private void configurarSpinnerMeses() {
-        spMeses.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spMonths.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (++checkMeses > 1){
-                    mes = spMeses.getSelectedItemPosition() + 1;
+                if (++checkMonths > 1){
+                    mes = spMonths.getSelectedItemPosition() + 1;
                     cargarListaFlexPlaceEquipo();
                 }
             }
@@ -350,7 +352,7 @@ public class MyTeamFlexPlaceActivity extends TranquiParentActivity {
                             R.style.dia_selected);
                     rbAux1.setChecked(false);rbAux2.setChecked(false);
                     rbAux3.setChecked(false);rbAux4.setChecked(false);
-                    tvBotonGenerarReporte.setVisibility(View.VISIBLE);
+                    btGenerateReports.setVisibility(View.VISIBLE);
                     cargarListaFlexPlaceEquipo();
                 }else{
                     buttonView.setBackgroundResource(R.drawable.borde_seleccion_calendario);

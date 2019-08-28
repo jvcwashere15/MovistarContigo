@@ -97,6 +97,6 @@
             android:fontFamily="@font/telefonica_regular"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:text="Registrando FlexPlace..."/>
+            android:text="Cancelando FlexPlace..."/>
     </LinearLayout>
 </FrameLayout>

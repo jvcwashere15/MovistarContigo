@@ -74,7 +74,6 @@ public class HistoryFlexDetailActivity extends TranquiParentActivity {
                     intent.putExtra("idRequest",currentRequest.getId());
                     intent.putExtra("statusId",currentRequest.getStatusId());
                     startActivity(intent);
-                    finish();
                 }
 
             }
