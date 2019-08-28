@@ -16,7 +16,7 @@
             android:padding="16dp"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/rechazar_flexplace_tvLider"
+                android:id="@+id/rechazar_flexplace_tvEmployee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -35,11 +35,11 @@
                 android:textSize="15sp"
                 android:textColor="#757575"
                 android:fontFamily="@font/telefonica_regular"
-                android:text="Cancelarás tus días Flex en las siguientes fechas:"
+                android:text="Está solicitando sus días Flex en las siguientes fechas:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rechazar_flexplace_tvLider" />
+                app:layout_constraintTop_toBottomOf="@+id/rechazar_flexplace_tvEmployee" />
 
             <View
                 android:id="@+id/view0"
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/telefonica_bold"
-                android:text="Días solicitados"
+                android:text="Día Flex elegido"
                 android:textColor="#2A2A3C"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/rechazar_flexplace_etDescripcion"

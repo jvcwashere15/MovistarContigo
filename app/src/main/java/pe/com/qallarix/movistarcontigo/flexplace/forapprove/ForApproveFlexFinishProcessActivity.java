@@ -76,7 +76,7 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                goToParentActivity();
+               onBackPressed();
                 return true;
             default:return super.onOptionsItemSelected(item);
         }
@@ -84,7 +84,7 @@ public class ForApproveFlexFinishProcessActivity extends TranquiParentActivity {
 
     private void goToParentActivity() {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
-        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(upIntent);
         finish();
     }
