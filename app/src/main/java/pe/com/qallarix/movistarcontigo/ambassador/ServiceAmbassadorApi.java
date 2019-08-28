@@ -38,7 +38,7 @@ public interface ServiceAmbassadorApi {
     @GET("ambassador/break/traceability")
     Call<ResponseTraceability> getTraceability();
 
-    @GET("ambassador/benefit/total")
+    @GET(".json")
     Call<ResponseMovistarTotal> getMovistarTotal();
 
 

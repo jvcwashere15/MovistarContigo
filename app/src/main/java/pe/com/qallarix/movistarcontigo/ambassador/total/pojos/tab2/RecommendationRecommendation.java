@@ -1,6 +1,8 @@
 package pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab2;
 
-class RecommendationRecommendation {
+import java.io.Serializable;
+
+class RecommendationRecommendation implements Serializable {
     private long order;
     private String row1;
     private String row2;

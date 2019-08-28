@@ -1,8 +1,9 @@
 package pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab2;
+import java.io.Serializable;
 import java.util.List;
 
 
-public class Tab2 {
+public class Tab2 implements Serializable {
     private String title;
     private String legal;
     private String description;

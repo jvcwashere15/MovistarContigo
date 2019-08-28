@@ -2,26 +2,38 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
+        android:id="@+id/tab2_whoiam_tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Planes Movistar Total"
+        tools:text="Planes Movistar Total"
         android:textSize="32sp"
         android:padding="8dp"
         android:fontFamily="@font/telefonica_regular"
         android:textColor="#86888C"
         android:gravity="center"/>
     <TextView
+        android:id="@+id/tab2_whoiam_tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:fontFamily="@font/telefonica_regular"
         android:textColor="#86888C"
         android:textSize="18sp"
-        android:text="Elige el plan que deseas y nosotros te llamamos"/>
+        tools:text="x x x x x x x x x x"/>
+    <TextView
+        android:id="@+id/tab2_whoiam_tvLegal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/telefonica_regular"
+        android:textColor="#86888C"
+        android:textSize="18sp"
+        tools:text="x x x x x x x x x x x "/>
     <android.support.v4.view.ViewPager
         android:id="@+id/embajador_movistar_total_vpPlanes"
         android:layout_width="match_parent"

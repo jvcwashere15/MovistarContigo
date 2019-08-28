@@ -20,6 +20,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab2.Tab2;
 import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab3.Tab3;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
+import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassadorMT;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +42,7 @@ public class AmbassadorTotalActivity extends TranquiParentActivity {
     }
 
     private void displayFragmentsMovistarTotal() {
-        final Call<ResponseMovistarTotal> call = WebServiceAmbassador
+        final Call<ResponseMovistarTotal> call = WebServiceAmbassadorMT
                 .getInstance(getDocumentNumber())
                 .createService(ServiceAmbassadorApi.class)
                 .getMovistarTotal();
@@ -66,7 +67,7 @@ public class AmbassadorTotalActivity extends TranquiParentActivity {
 
     private void saveDataForTabs(ResponseMovistarTotal responseMovistarTotal) {
         tab1 = responseMovistarTotal.getBenefit().getTab1();
-//        tab2 = responseMovistarTotal.getBenefit().getTab2();
+        tab2 = responseMovistarTotal.getBenefit().getTab2();
 //        tab3 = responseMovistarTotal.getBenefit().getTab3();
     }
 
@@ -92,7 +93,7 @@ public class AmbassadorTotalActivity extends TranquiParentActivity {
                 if(index == 0){
                     setearFragment(AmbassadorTotalWhatIsFragment.newInstance(tab1));
                 }else if(index == 1){
-                    setearFragment(new AmbassadorTotalHowIAmFragment());
+                    setearFragment(AmbassadorTotalHowIAmFragment.newInstance(tab2));
                 }else if(index == 2){
                     setearFragment(new AmbassadorTotalBenefitsFragment());
                 }

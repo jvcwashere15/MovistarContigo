@@ -15,12 +15,16 @@ import android.widget.TextView;
 
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.ambassador.total.adapters.PlanMovistarTotalAdapter;
 import pe.com.qallarix.movistarcontigo.ambassador.total.adapters.TipoFacturacionAdapter;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab1.Tab1;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab2.Offer;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab2.Tab2;
 import pe.com.qallarix.movistarcontigo.pojos.PlanMovistarTotal;
 import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
 
@@ -29,11 +33,13 @@ import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
  */
 public class AmbassadorTotalHowIAmFragment extends Fragment {
 
+    private Tab2 tab2;
+
     LinearLayout lytCicloFacturacion1,lytCicloFacturacion2,
             lytCicloFacturacion3;
 
     TextView tvCicloFacturacion1,tvCicloFacturacion2,
-            tvCicloFacturacion3;
+            tvCicloFacturacion3, tvTitle, tvDescription, tvLegal;
 
     LinearLayout lytDescripcion1,lytDescripcion2,
             lytDescripcion3;
@@ -49,16 +55,39 @@ public class AmbassadorTotalHowIAmFragment extends Fragment {
     private DotIndicator dotPlanes;
     private DotIndicator dotFacturacion;
 
+    private List<Offer> offerList;
+
+
+    private static final String ARGUMENT_AMBASSADOR_TOTAL_WHO_I_AM = "ambassadorTotalWhoIAm";
+
 
     public AmbassadorTotalHowIAmFragment() {
         // Required empty public constructor
+    }
+
+    public static AmbassadorTotalHowIAmFragment newInstance(Tab2 tab2) {
+
+        Bundle args = new Bundle();
+        args.putSerializable(ARGUMENT_AMBASSADOR_TOTAL_WHO_I_AM,(Serializable) tab2);
+        AmbassadorTotalHowIAmFragment fragment = new AmbassadorTotalHowIAmFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        tab2 = (Tab2) getArguments().getSerializable(ARGUMENT_AMBASSADOR_TOTAL_WHO_I_AM);
+        offerList = tab2.getOffers();
         View rootView = inflater.inflate(R.layout.fragment_embajador_total_como_soy, container, false);
+
+        tvTitle = rootView.findViewById(R.id.tab2_whoiam_tvTitle);
+        tvDescription = rootView.findViewById(R.id.tab2_whoiam_tvDescription);
+        tvLegal = rootView.findViewById(R.id.tab2_whoiam_tvLegal);
+
+
         lytCicloFacturacion1 = rootView.findViewById(R.id.embajador_total_facturacion_lyt1);
         lytCicloFacturacion2 = rootView.findViewById(R.id.embajador_total_facturacion_lyt2);
         lytCicloFacturacion3 = rootView.findViewById(R.id.embajador_total_facturacion_lyt3);
@@ -137,6 +166,10 @@ public class AmbassadorTotalHowIAmFragment extends Fragment {
     }
 
     private void cargaDataPlanesMovistarTotal() {
+        tvTitle.setText(tab2.getTitle());
+        tvDescription.setText(tab2.getDescription());
+        tvLegal.setText(tab2.getLegal());
+
         planMovistarTotals = new ArrayList<>();
         planMovistarTotals.add(new PlanMovistarTotal(
                 "40 Mbps",
