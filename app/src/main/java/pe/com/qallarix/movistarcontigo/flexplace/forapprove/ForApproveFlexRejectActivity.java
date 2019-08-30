@@ -19,7 +19,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
     private String fechaInicio, fechaFin, dia, fechaSolicitud, nombreEmpleado;
     private long idRequest;
     private TextView tvFechaSolicitud, tvFechaInicio, tvFechaFin, tvDia, tvBotonRechazar,
-            tvDescripcionLider, tvLider;
+            tvDescripcionLider, tvEmployee;
     private EditText etDescripcion;
     private String mTextoBoton;
 
@@ -51,7 +51,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog
                 .Builder(ForApproveFlexRejectActivity.this,R.style.DialogMensajeStyle);
         builder.setTitle("¡Ups!");
-        builder.setMessage("Debes indicar un motivo de cancelación");
+        builder.setMessage("Debes indicar un motivo de rechazo");
         builder.setCancelable(false);
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) { dialog.dismiss(); }
@@ -61,6 +61,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
     }
 
     private void displayDetalleFlexPlaceCancelar() {
+        tvEmployee.setText(nombreEmpleado);
         tvFechaInicio.setText(fechaInicio);
         tvFechaFin.setText(fechaFin);
         tvDia.setText(dia);
@@ -72,7 +73,7 @@ public class ForApproveFlexRejectActivity extends AppCompatActivity {
         tvFechaInicio = findViewById(R.id.rechazar_flexplace_tvFechaInicio);
         tvFechaFin = findViewById(R.id.rechazar_flexplace_tvFechaFin);
         tvDia = findViewById(R.id.rechazar_flexplace_tvDiasSolicitados);
-        tvLider = findViewById(R.id.rechazar_flexplace_tvLider);
+        tvEmployee = findViewById(R.id.rechazar_flexplace_tvEmployee);
         tvDescripcionLider = findViewById(R.id.rechazar_flexplace_tvDescLider);
         etDescripcion = findViewById(R.id.rechazar_flexplace_etDescripcion);
         tvBotonRechazar = findViewById(R.id.rechazar_flexplace_tvBotonRechazar);

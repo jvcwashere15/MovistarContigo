@@ -13,24 +13,24 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WebServiceAmbassador {
+public class WebServiceAmbassadorMT {
 
-    private final String BASE_URL_WS_EMBAJADOR_QA = "http://qallarix-ce-qa.azurewebsites.net/";
-    private final String BASE_URL_WS_EMBAJADOR_PRODUCCION = "http://qallarix-ce-qa.azurewebsites.net/";
-    private final String BASE_URL_WS_EMBAJADOR = BASE_URL_WS_EMBAJADOR_QA;
+    private final String BASE_URL_WS_EMBAJADOR_MT_QA = "https://tranqui-30df0.firebaseio.com/";
+    private final String BASE_URL_WS_EMBAJADOR_MT_PRODUCCION = "https://tranqui-30df0.firebaseio.com/";
+    private final String BASE_URL_WS_MT_EMBAJADOR = BASE_URL_WS_EMBAJADOR_MT_PRODUCCION;
 
-    private static WebServiceAmbassador instance;
+    private static WebServiceAmbassadorMT instance;
     private Retrofit retrofit;
     private HttpLoggingInterceptor httpLoggingInterceptor;
     private OkHttpClient.Builder okHttpClientBuilder;
     private static final String BASIC_AUTH = "Basic " + Base64.encodeToString("qallarix:cWFsbGFyaXgqbW92aXN0YXI=".getBytes(), Base64.NO_WRAP);
     private String mDni;
 
-    public static void setInstance(WebServiceAmbassador instance) {
-        WebServiceAmbassador.instance = instance;
+    public static void setInstance(WebServiceAmbassadorMT instance) {
+        WebServiceAmbassadorMT.instance = instance;
     }
 
-    public WebServiceAmbassador(String dni){
+    public WebServiceAmbassadorMT(String dni){
         mDni = dni;
         httpLoggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
         okHttpClientBuilder = new OkHttpClient.Builder()
@@ -41,8 +41,6 @@ public class WebServiceAmbassador {
                     public Response intercept(Chain chain) throws IOException {
                         Request original = chain.request();
                         Request.Builder requestBuild = original.newBuilder()
-                                .addHeader("documentNumber",mDni)
-                                .addHeader("Authorization",BASIC_AUTH)
                                 .method(original.method(),original.body());
                         Request request = requestBuild.build();
                         return chain.proceed(request);
@@ -52,15 +50,15 @@ public class WebServiceAmbassador {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL_WS_EMBAJADOR)
+                .baseUrl(BASE_URL_WS_MT_EMBAJADOR)
                 .client(okHttpClientBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    public static synchronized WebServiceAmbassador getInstance(String dni){
+    public static synchronized WebServiceAmbassadorMT getInstance(String dni){
         if (instance == null)
-            instance = new WebServiceAmbassador(dni);
+            instance = new WebServiceAmbassadorMT(dni);
         return instance;
     }
 

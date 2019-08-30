@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.VPBeneficioFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.VPBenefitFragment;
 import pe.com.qallarix.movistarcontigo.pojos.Beneficio;
 
 public class BeneficioAdapter extends FragmentPagerAdapter {
@@ -22,7 +22,7 @@ public class BeneficioAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return VPBeneficioFragment.newInstance(beneficios.get(position), color);
+        return VPBenefitFragment.newInstance(beneficios.get(position), color);
     }
 
     @Override

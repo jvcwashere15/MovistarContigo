@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.PlanMovistarTotalFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.MovistarTotalPlanFragment;
 import pe.com.qallarix.movistarcontigo.pojos.PlanMovistarTotal;
 
 
@@ -21,7 +21,7 @@ public class PlanMovistarTotalAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PlanMovistarTotalFragment.newInstance(planMovistarTotals.get(position));
+        return MovistarTotalPlanFragment.newInstance(planMovistarTotals.get(position));
     }
 
     @Override

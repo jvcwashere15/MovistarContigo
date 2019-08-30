@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.TipoFacturacionFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.FacturationTypeFragment;
 import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
 
 
@@ -21,7 +21,7 @@ public class TipoFacturacionAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return TipoFacturacionFragment.newInstance(tipoFacturacions.get(position));
+        return FacturationTypeFragment.newInstance(tipoFacturacions.get(position));
     }
 
     @Override

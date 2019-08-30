@@ -90,12 +90,13 @@
             android:layout_height="wrap_content"
             android:theme="@style/StyleProgressBar"/>
         <TextView
+            android:id="@+id/viewprogress_tvMessageProcess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:fontFamily="@font/telefonica_regular"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:text="Registrando FlexPlace..."/>
+            tools:text="Registrando FlexPlace..."/>
     </LinearLayout>
 </FrameLayout>

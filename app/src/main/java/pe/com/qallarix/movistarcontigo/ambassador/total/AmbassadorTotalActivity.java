@@ -6,28 +6,72 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.EmbajadorTotalBeneficiosFragment;
-import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.EmbajadorTotalComoSoyFragment;
-import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.EmbajadorTotalQueEsFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.ServiceAmbassadorApi;
+import pe.com.qallarix.movistarcontigo.ambassador.registered.pojos.ResponseTraceability;
+import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.AmbassadorTotalBenefitsFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.AmbassadorTotalHowIAmFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.AmbassadorTotalWhatIsFragment;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.ResponseMovistarTotal;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab1.Tab1;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab2.Tab2;
+import pe.com.qallarix.movistarcontigo.ambassador.total.pojos.tab3.Tab3;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
+import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
+import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassadorMT;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class EmbajadorMovistarTotalActivity extends TranquiParentActivity {
+public class AmbassadorTotalActivity extends TranquiParentActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
-
+    private Tab1 tab1;
+    private Tab2 tab2;
+    private Tab3 tab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_embajador_movistar_total);
-        configurarToolbar();
-        configurarTabs();
-        setearFragment(new EmbajadorTotalQueEsFragment());
+        setContentView(R.layout.activity_ambassador_total);
+        setUpToolbar();
+        setUpTabs();
+        displayFragmentsMovistarTotal();
     }
 
-    private void configurarToolbar(){
+    private void displayFragmentsMovistarTotal() {
+        final Call<ResponseMovistarTotal> call = WebServiceAmbassadorMT
+                .getInstance(getDocumentNumber())
+                .createService(ServiceAmbassadorApi.class)
+                .getMovistarTotal();
+
+        call.enqueue(new Callback<ResponseMovistarTotal>() {
+            @Override
+            public void onResponse(Call<ResponseMovistarTotal> call, Response<ResponseMovistarTotal> response) {
+                if (response.code() == 200){
+                    ResponseMovistarTotal responseMovistarTotal = response.body();
+                    saveDataForTabs(responseMovistarTotal);
+                    setearFragment(AmbassadorTotalWhatIsFragment.newInstance(tab1));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseMovistarTotal> call, Throwable t) {
+                Toast.makeText(AmbassadorTotalActivity.this, "Error con el servidor", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+    }
+
+    private void saveDataForTabs(ResponseMovistarTotal responseMovistarTotal) {
+        tab1 = responseMovistarTotal.getBenefit().getTab1();
+        tab2 = responseMovistarTotal.getBenefit().getTab2();
+//        tab3 = responseMovistarTotal.getBenefit().getTab3();
+    }
+
+    private void setUpToolbar(){
         toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back_navigation);
         toolbar.setTitle("Movistar Total");
@@ -40,18 +84,18 @@ public class EmbajadorMovistarTotalActivity extends TranquiParentActivity {
         });
     }
 
-    private void configurarTabs() {
+    private void setUpTabs() {
         tabLayout = findViewById(R.id.embajador_total_tabLayout);
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int index = tab.getPosition();
                 if(index == 0){
-                    setearFragment(new EmbajadorTotalQueEsFragment());
+                    setearFragment(AmbassadorTotalWhatIsFragment.newInstance(tab1));
                 }else if(index == 1){
-                    setearFragment(new EmbajadorTotalComoSoyFragment());
+                    setearFragment(AmbassadorTotalHowIAmFragment.newInstance(tab2));
                 }else if(index == 2){
-                    setearFragment(new EmbajadorTotalBeneficiosFragment());
+                    setearFragment(new AmbassadorTotalBenefitsFragment());
                 }
             }
 
@@ -96,7 +140,7 @@ public class EmbajadorMovistarTotalActivity extends TranquiParentActivity {
 //        tvIniciales.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(EmbajadorMovistarTotalActivity.this,AccountActivity.class);
+//                Intent intent = new Intent(AmbassadorTotalActivity.this,AccountActivity.class);
 //                startActivity(intent);
 //            }
 //        });
@@ -106,7 +150,7 @@ public class EmbajadorMovistarTotalActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
 //            case R.id.action_account:
-//                Intent intent = new Intent(EmbajadorMovistarTotalActivity.this,AccountActivity.class);
+//                Intent intent = new Intent(AmbassadorTotalActivity.this,AccountActivity.class);
 //                startActivity(intent);
 //                return true;
             default:return super.onOptionsItemSelected(item);

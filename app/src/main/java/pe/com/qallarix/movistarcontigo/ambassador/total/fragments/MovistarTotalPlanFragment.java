@@ -18,7 +18,7 @@ import pe.com.qallarix.movistarcontigo.pojos.PlanMovistarTotal;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlanMovistarTotalFragment extends Fragment {
+public class MovistarTotalPlanFragment extends Fragment {
 
     private PlanMovistarTotal planMovistarTotal;
     private TextView tvInternetMegas;
@@ -34,15 +34,15 @@ public class PlanMovistarTotalFragment extends Fragment {
 
     private static final String ARGUMENT_PLAN_MOVISTAR_TOTAL = "planMovistarTotal";
 
-    public PlanMovistarTotalFragment() {
+    public MovistarTotalPlanFragment() {
         // Required empty public constructor
     }
 
 
-    public static PlanMovistarTotalFragment newInstance(PlanMovistarTotal planMovistarTotal) {
+    public static MovistarTotalPlanFragment newInstance(PlanMovistarTotal planMovistarTotal) {
         Bundle args = new Bundle();
         args.putSerializable(ARGUMENT_PLAN_MOVISTAR_TOTAL,planMovistarTotal);
-        PlanMovistarTotalFragment fragment = new PlanMovistarTotalFragment();
+        MovistarTotalPlanFragment fragment = new MovistarTotalPlanFragment();
         fragment.setArguments(args);
         return fragment;
     }

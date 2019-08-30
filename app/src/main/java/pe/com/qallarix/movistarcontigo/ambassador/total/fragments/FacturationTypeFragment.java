@@ -18,23 +18,23 @@ import pe.com.qallarix.movistarcontigo.pojos.TipoFacturacion;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TipoFacturacionFragment extends Fragment {
+public class FacturationTypeFragment extends Fragment {
 
     private TipoFacturacion tipoFacturacion;
     private TextView tvDescripcion;
     private ImageView ivImagen;
     private static final String ARGUMENT_TIPO_FACTURACION = "tipoFacturacion";
 
-    public TipoFacturacionFragment() {
+    public FacturationTypeFragment() {
         // Required empty public constructor
     }
 
 
-    public static TipoFacturacionFragment newInstance(TipoFacturacion tipoFacturacion) {
+    public static FacturationTypeFragment newInstance(TipoFacturacion tipoFacturacion) {
 
         Bundle args = new Bundle();
         args.putSerializable(ARGUMENT_TIPO_FACTURACION,tipoFacturacion);
-        TipoFacturacionFragment fragment = new TipoFacturacionFragment();
+        FacturationTypeFragment fragment = new FacturationTypeFragment();
         fragment.setArguments(args);
         return fragment;
     }

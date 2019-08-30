@@ -111,7 +111,7 @@
             android:name=".ambassador.home.AmbassadorHomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ambassador.total.EmbajadorMovistarTotalActivity"
+            android:name=".ambassador.total.AmbassadorTotalActivity"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - Módulo Noticia - - - - - - - -->
         <activity
@@ -184,6 +184,7 @@
         <activity
             android:name=".flexplace.myteam.MyTeamFlexPlaceActivity"
             android:parentActivityName=".flexplace.FlexplaceActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".flexplace.forapprove.ForApproveFlexFinishNotificationActivity"

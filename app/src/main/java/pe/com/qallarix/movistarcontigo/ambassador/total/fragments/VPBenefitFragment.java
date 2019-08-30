@@ -19,7 +19,7 @@ import pe.com.qallarix.movistarcontigo.pojos.Beneficio;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class VPBeneficioFragment extends Fragment {
+public class VPBenefitFragment extends Fragment {
 
     private Beneficio beneficio;
     private int color;
@@ -31,15 +31,15 @@ public class VPBeneficioFragment extends Fragment {
     private static final String ARGUMENT_COLOR = "color";
 
 
-    public VPBeneficioFragment() {
+    public VPBenefitFragment() {
         // Required empty public constructor
     }
 
-    public static VPBeneficioFragment newInstance(Beneficio beneficio, int color) {
+    public static VPBenefitFragment newInstance(Beneficio beneficio, int color) {
         Bundle args = new Bundle();
         args.putSerializable(ARGUMENT_BENEFICIO,beneficio);
         args.putInt(ARGUMENT_COLOR,color);
-        VPBeneficioFragment fragment = new VPBeneficioFragment();
+        VPBenefitFragment fragment = new VPBenefitFragment();
         fragment.setArguments(args);
         return fragment;
     }

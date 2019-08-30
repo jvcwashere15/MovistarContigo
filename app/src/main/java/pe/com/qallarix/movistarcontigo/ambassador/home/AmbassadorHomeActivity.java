@@ -20,7 +20,7 @@ import pe.com.qallarix.movistarcontigo.ambassador.home.fragments.AmbassadorHomeW
 import pe.com.qallarix.movistarcontigo.ambassador.home.pojos.AmbassadorHome;
 import pe.com.qallarix.movistarcontigo.ambassador.home.pojos.Benefit;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService1;
+import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,7 +52,7 @@ public class AmbassadorHomeActivity extends TranquiParentActivity {
     }
 
     private void loadDataHomeFromServicesAmbassador() {
-        final Call<AmbassadorHome> call = WebService1.getInstance(getDocumentNumber())
+        final Call<AmbassadorHome> call = WebServiceAmbassador.getInstance(getDocumentNumber())
                 .createService(ServiceAmbassadorApi.class)
                 .getDataAmbassadorHome();
         progressDialog = ProgressDialog.show(AmbassadorHomeActivity.this, "Embajador Hogar",

@@ -327,9 +327,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Analitycs.logEventoClickDashboard(getActivity(),titleAnalitycs);
-                if (titleAnalitycs.equals(TITLE_FLEXPLACE))
-                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
-                else
+//                if (titleAnalitycs.equals(TITLE_FLEXPLACE))
+//                    mostrarMensaje("¡Muy pronto podrás registrar tu FlexPlace desde el app!");
+//                else
                     irAlBeneficio(activityClass);
             }
         });
