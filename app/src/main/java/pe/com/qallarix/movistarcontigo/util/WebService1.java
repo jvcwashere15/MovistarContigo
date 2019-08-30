@@ -17,7 +17,7 @@ public class WebService1 {
 
     private final String BASE_URL_WS1_QA = "https://qallarix-ws-qa.azurewebsites.net/";
     private final String BASE_URL_WS1_PRODUCCION = "https://tcqallarix.azurewebsites.net/";
-    private final String BASE_URL_W1 = BASE_URL_WS1_QA;
+    private final String BASE_URL_W1 = BASE_URL_WS1_PRODUCCION;
 
 
 

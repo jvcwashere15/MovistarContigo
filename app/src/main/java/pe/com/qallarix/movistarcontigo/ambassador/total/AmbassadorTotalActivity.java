@@ -1,5 +1,7 @@
 package pe.com.qallarix.movistarcontigo.ambassador.total;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.ambassador.ServiceAmbassadorApi;
+import pe.com.qallarix.movistarcontigo.ambassador.home.AmbassadorHomeActivity;
 import pe.com.qallarix.movistarcontigo.ambassador.registered.pojos.ResponseTraceability;
 import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.AmbassadorTotalBenefitsFragment;
 import pe.com.qallarix.movistarcontigo.ambassador.total.fragments.AmbassadorTotalHowIAmFragment;
@@ -31,6 +34,7 @@ public class AmbassadorTotalActivity extends TranquiParentActivity {
     private Tab1 tab1;
     private Tab2 tab2;
     private Tab3 tab3;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +50,19 @@ public class AmbassadorTotalActivity extends TranquiParentActivity {
                 .getInstance(getDocumentNumber())
                 .createService(ServiceAmbassadorApi.class)
                 .getMovistarTotal();
-
+        progressDialog = ProgressDialog.show(AmbassadorTotalActivity.this, "Embajador Movistar Total",
+                "Cargando Canal Embajador Movistar Total...", true, true, new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        call.cancel();
+                        finish();
+                    }
+                });
         call.enqueue(new Callback<ResponseMovistarTotal>() {
             @Override
             public void onResponse(Call<ResponseMovistarTotal> call, Response<ResponseMovistarTotal> response) {
                 if (response.code() == 200){
+                    progressDialog.dismiss();
                     ResponseMovistarTotal responseMovistarTotal = response.body();
                     saveDataForTabs(responseMovistarTotal);
                     setearFragment(AmbassadorTotalWhatIsFragment.newInstance(tab1));
