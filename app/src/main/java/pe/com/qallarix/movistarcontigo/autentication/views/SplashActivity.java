@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication;
+package pe.com.qallarix.movistarcontigo.autentication.views;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +17,8 @@ import java.util.TimerTask;
 import pe.com.qallarix.movistarcontigo.BuildConfig;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
+import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.login.views.LoginActivityView;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.main.MainActivity;
@@ -84,7 +86,7 @@ public class SplashActivity extends TranquiParentActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Intent loginIntent = new Intent(SplashActivity.this,LoginActivity.class);
+                Intent loginIntent = new Intent(SplashActivity.this, LoginActivityView.class);
                 startActivity(loginIntent);
                 finish();
             }
@@ -109,7 +111,7 @@ public class SplashActivity extends TranquiParentActivity {
                     finish();
                 }else{
                     FirebaseMessaging.getInstance().unsubscribeFromTopic(TopicsNotification.TOPIC_NOTIFICATIONS);
-                    Intent intentLogin = new Intent(SplashActivity.this,LoginActivity.class);
+                    Intent intentLogin = new Intent(SplashActivity.this, LoginActivityView.class);
                     startActivity(intentLogin);
                     finish();
                 }

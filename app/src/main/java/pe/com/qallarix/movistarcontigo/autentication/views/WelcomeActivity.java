@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication;
+package pe.com.qallarix.movistarcontigo.autentication.views;
 
 import android.content.Context;
 import android.content.Intent;

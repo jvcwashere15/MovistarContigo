@@ -20,7 +20,7 @@ import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.autentication.AccountActivity;
+import pe.com.qallarix.movistarcontigo.autentication.views.AccountActivity;
 import pe.com.qallarix.movistarcontigo.news.pojos.News;
 import pe.com.qallarix.movistarcontigo.notifications.NotificacionesActivity;
 import pe.com.qallarix.movistarcontigo.main.fragments.BenefitsFragment;

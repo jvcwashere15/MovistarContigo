@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".autentication.LoginActivity">
-
-
+    tools:context=".autentication.login.views.LoginActivityView">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -144,13 +142,14 @@
                             android:id="@+id/login_tvTerminosCondiciones"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:onClick="viewTermsAndConditions"
                             android:fontFamily="@font/telefonica_regular"
                             android:background="?attr/selectableItemBackground"
                             android:text="@string/login_terminos_condiciones"
                             android:textColor="@color/colorCanalEmbajador" />
                     </LinearLayout>
 
-                    <TextView
+                    <Button
                         android:id="@+id/login_btIngresar"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
@@ -158,13 +157,9 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
                         android:layout_marginBottom="8dp"
-                        android:background="@drawable/boton_vacaciones_verde"
-                        android:fontFamily="@font/telefonica_bold"
+                        android:onClick="initLogin"
                         android:text="@string/boton_texto_ingresar"
-                        android:gravity="center"
-                        android:textAllCaps="false"
-                        android:textColor="@color/loginTextoBoton"
-                        android:textSize="18sp"
+                        style="@style/BotonVerdeFlat"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -174,26 +169,8 @@
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </FrameLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#55000000"
-        android:id="@+id/login_viewProgress"
-        android:gravity="center"
-        android:visibility="gone"
-        android:onClick="clickNull">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/StyleProgressBar"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:fontFamily="@font/telefonica_regular"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:text="Validando documento..."/>
-    </LinearLayout>
+    <include
+        layout="@layout/view_progress_process"
+        android:id="@+id/login_view_loading"
+        android:visibility="gone"/>
 </FrameLayout>

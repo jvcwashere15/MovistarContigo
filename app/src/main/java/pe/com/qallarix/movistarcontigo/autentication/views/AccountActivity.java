@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication;
+package pe.com.qallarix.movistarcontigo.autentication.views;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.messaging.FirebaseMessaging;
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.login.views.LoginActivityView;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.CerrarSesionToken;
 import pe.com.qallarix.movistarcontigo.main.MainActivity;
 import pe.com.qallarix.movistarcontigo.util.TopicsNotification;
@@ -146,7 +148,7 @@ public class AccountActivity extends TranquiParentActivity {
     }
 
     private void irAInicioLogin() {
-        Intent mainIntent = new Intent(AccountActivity.this, LoginActivity.class);
+        Intent mainIntent = new Intent(AccountActivity.this, LoginActivityView.class);
         mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
