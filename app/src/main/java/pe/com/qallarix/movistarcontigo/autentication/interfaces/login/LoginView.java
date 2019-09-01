@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication.login.interfaces;
+package pe.com.qallarix.movistarcontigo.autentication.interfaces.login;
 
 public interface LoginView {
 
@@ -15,4 +15,6 @@ public interface LoginView {
     void showMessageDocumentInvalid();
 
     boolean internetConnectionExists();
+
+    void hideSoftKeyboard();
 }

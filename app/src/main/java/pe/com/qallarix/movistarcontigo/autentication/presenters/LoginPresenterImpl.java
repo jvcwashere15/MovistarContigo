@@ -1,12 +1,12 @@
-package pe.com.qallarix.movistarcontigo.autentication.login.presenters;
+package pe.com.qallarix.movistarcontigo.autentication.presenters;
 
 import android.text.TextUtils;
 
-import pe.com.qallarix.movistarcontigo.autentication.login.UtilLogin;
-import pe.com.qallarix.movistarcontigo.autentication.login.interactors.LoginInteractorImpl;
-import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginInteractor;
-import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginPresenter;
-import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginView;
+import pe.com.qallarix.movistarcontigo.autentication.UtilAuthentication;
+import pe.com.qallarix.movistarcontigo.autentication.interactors.LoginInteractorImpl;
+import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginInteractor;
+import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginView;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
 public class LoginPresenterImpl extends TranquiParentActivity implements LoginPresenter {
@@ -21,11 +21,11 @@ public class LoginPresenterImpl extends TranquiParentActivity implements LoginPr
 
     @Override
     public void attemptLogin(String documentType, String documentNumber, boolean isChecked) {
+        loginView.hideSoftKeyboard();
         if (loginView != null){
-
             if (documentNumber != null && !TextUtils.isEmpty(documentNumber)) {
-                if (UtilLogin.documentoEsValido(documentNumber)){
-                    if (UtilLogin.acceptedsTerms(isChecked)){
+                if (UtilAuthentication.documentoEsValido(documentNumber)){
+                    if (UtilAuthentication.acceptedsTerms(isChecked)){
                         if (loginView.internetConnectionExists()){
                             loginView.showLoading();
                             loginInteractor.getTokenFromService(documentType,documentNumber);

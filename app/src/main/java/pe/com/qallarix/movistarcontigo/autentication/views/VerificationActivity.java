@@ -23,7 +23,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.interfaces.ServiceEmployeeApi;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ValidacionToken;

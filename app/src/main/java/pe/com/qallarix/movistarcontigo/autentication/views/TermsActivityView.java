@@ -7,7 +7,8 @@ import android.view.View;
 
 import pe.com.qallarix.movistarcontigo.R;
 
-public class TermsActivity extends AppCompatActivity {
+
+public class TermsActivityView extends AppCompatActivity {
 
     private Toolbar toolbar;
 
@@ -15,12 +16,16 @@ public class TermsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terminos);
-        configurarToolbar();
+        bindViews();
+        setUpToolbar();
+    }
+
+    private void bindViews() {
+        toolbar = findViewById(R.id.toolbar);
     }
 
 
-    private void configurarToolbar(){
-        toolbar = findViewById(R.id.toolbar);
+    private void setUpToolbar(){
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.setTitle("Términos y Condiciones");
         setSupportActionBar(toolbar);
@@ -30,6 +35,5 @@ public class TermsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 }

@@ -1,21 +1,19 @@
-package pe.com.qallarix.movistarcontigo.autentication.login.views;
+package pe.com.qallarix.movistarcontigo.autentication.views;
 
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autentication.login.UtilLogin;
-import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginPresenter;
-import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginView;
-import pe.com.qallarix.movistarcontigo.autentication.login.presenters.LoginPresenterImpl;
-import pe.com.qallarix.movistarcontigo.autentication.views.TermsActivity;
-import pe.com.qallarix.movistarcontigo.autentication.views.VerificationActivity;
+import pe.com.qallarix.movistarcontigo.autentication.UtilAuthentication;
+import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginView;
+import pe.com.qallarix.movistarcontigo.autentication.presenters.LoginPresenterImpl;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
-import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
 import pe.com.qallarix.movistarcontigo.util.WebServiceVacations;
@@ -23,10 +21,10 @@ import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import pe.com.qallarix.movistarcontigo.util.WebServiceNotification;
 
 
-public class LoginActivityView extends TranquiParentActivity implements LoginView {
+public class LoginActivityView extends AppCompatActivity implements LoginView {
 
     private EditText editTextDni;
-    private final String DOCUMENT_TYPE = "1";
+    private static final String DOCUMENT_TYPE = "1";
     private CheckBox cbTerminos;
     private View viewLoading;
     private LoginPresenter loginPresenter;
@@ -93,31 +91,37 @@ public class LoginActivityView extends TranquiParentActivity implements LoginVie
 
     @Override
     public void accessDenied(String messageDenied) {
-        mostrarMensaje(messageDenied);
+        UtilAuthentication.mostrarMensaje(messageDenied,this);
     }
 
     @Override
     public void showMessageYouMustAcceptTerms() {
-        mostrarMensaje("Debe aceptar los términos");
+        UtilAuthentication.mostrarMensaje("Debe aceptar los términos",this);
     }
 
     @Override
     public void showMessageDocumentInvalid() {
-        mostrarMensaje("El documento ingresado no es válido");
+        UtilAuthentication.mostrarMensaje("El documento ingresado no es válido",this);
     }
 
     @Override
     public boolean internetConnectionExists() {
-        return UtilLogin.internetConnectionExists(this);
+        return UtilAuthentication.internetConnectionExists(this);
+    }
+
+    @Override
+    public void hideSoftKeyboard() {
+        UtilAuthentication.hideSoftKeyboard(this);
     }
 
     public void initLogin(View view) {
-        hideSoftKeyboard(this);
         loginPresenter.attemptLogin(DOCUMENT_TYPE,editTextDni.getText().toString(),cbTerminos.isChecked());
     }
 
     public void viewTermsAndConditions(View view) {
-        Intent intent = new Intent(LoginActivityView.this, TermsActivity.class);
+        Intent intent = new Intent(LoginActivityView.this, TermsActivityView.class);
         startActivity(intent);
     }
+
+
 }

@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication;
+package pe.com.qallarix.movistarcontigo.autentication.interfaces;
 
 import pe.com.qallarix.movistarcontigo.autentication.pojos.CerrarSesionToken;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ResponseToken;
