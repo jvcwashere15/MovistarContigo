@@ -38,13 +38,13 @@ public class SplashActivityView extends AppCompatActivity implements SplashView 
     private TextView tvVersionName;
     private SplashPresenter splashPresenter;
     private View vNoConnectionInternet;
-    private final String DOCUMENT_TYPE = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         bindViews();
+        setVersionName();
         splashPresenter = new SplashPresenterImpl(this);
         splashPresenter.validateSession();
     }
@@ -63,8 +63,7 @@ public class SplashActivityView extends AppCompatActivity implements SplashView 
     }
 
     @Override
-    public void onSuccesfullActiveSession(Employee employee,String currentToken) {
-        guardarNuevasPreferencias(employee,currentToken);
+    public void onSuccesfullActiveSession() {
         goToMainDashBoardScreen();
     }
 
@@ -81,42 +80,13 @@ public class SplashActivityView extends AppCompatActivity implements SplashView 
     }
 
     @Override
-    public void setVersionName() {
-        tvVersionName.setText(BuildConfig.VERSION_NAME);
+    public SharedPreferences getPreferences() {
+        return getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
     }
 
     @Override
-    public boolean tokenExist() {
-        SharedPreferences sharedPreferences = getSharedPreferences(
-                "quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        if (sharedPreferences != null && sharedPreferences.contains("tokenAccess"))
-            return true;
-        return false;
-    }
-
-    @Override
-    public String getTokenNotification() {
-        SharedPreferences sharedPreferences = getSharedPreferences(
-                "quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        if (sharedPreferences != null && sharedPreferences.contains("tokenNotification"))
-            return sharedPreferences.getString("tokenNotification","");
-        return "";
-    }
-
-    @Override
-    public String getDocumentNumberFromPreferences() {
-        SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        if (sharedPreferences != null && sharedPreferences.contains("documentNumber"))
-            return sharedPreferences.getString("documentNumber","");
-        return "";
-    }
-
-    @Override
-    public String getTokenFromPreferences() {
-        SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        if (sharedPreferences != null && sharedPreferences.contains("tokenAccess"))
-            return sharedPreferences.getString("tokenAccess","");
-        return "";
+    public Context getContextView() {
+        return SplashActivityView.this;
     }
 
     public void bindViews() {
@@ -137,29 +107,8 @@ public class SplashActivityView extends AppCompatActivity implements SplashView 
         finish();
     }
 
-    private void guardarNuevasPreferencias(Employee employee, String currentToken) {
-        SharedPreferences sharedPreferences = getSharedPreferences("quallarix.movistar.pe.com.quallarix",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("documentType", DOCUMENT_TYPE);
-        editor.putString("tokenAccess", currentToken);
-        editor.putString("category", employee.getCategory());
-        editor.putString("clase", employee.getClase());
-        editor.putString("initials", employee.getInitials());
-        editor.putString("documentNumber", employee.getDocumentNumber());
-        editor.putString("email", employee.getEmail());
-        editor.putString("firstName", employee.getFirstName());
-        editor.putString("fullName", employee.getFullName());
-        editor.putString("sex", employee.getSex());
-        editor.putString("shortName", employee.getShortName());
-        editor.putString("cip", employee.getCip());
-        editor.putString("vicePresidency", employee.getVicePresidency());
-        editor.putString("management", employee.getManagement());
-        editor.putString("direction", employee.getDirection());
-        editor.putBoolean("isFlexPlace", employee.isFlexPlace());
-        editor.commit();
-        Analitycs.setUserProperties(SplashActivityView.this,
-                employee.getClase(),employee.getCategory(),
-                employee.getVicePresidency(),employee.getManagement(),
-                employee.getCip(),employee.getDirection());
+    public void setVersionName() {
+        tvVersionName.setText(BuildConfig.VERSION_NAME);
     }
+
 }

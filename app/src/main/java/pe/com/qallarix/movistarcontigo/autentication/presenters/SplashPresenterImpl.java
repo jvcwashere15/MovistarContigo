@@ -1,8 +1,8 @@
 package pe.com.qallarix.movistarcontigo.autentication.presenters;
 
+import android.content.SharedPreferences;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import pe.com.qallarix.movistarcontigo.autentication.interactors.SplashInteractorImpl;
 import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashInteractor;
 import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashPresenter;
@@ -25,13 +25,13 @@ public class SplashPresenterImpl implements SplashPresenter {
     public void validateSession() {
         if (splashView != null) {
             if (splashView.internetConnectionExists()) {
-                if (splashView.tokenExist()) {
-                    splashView.setVersionName();
+                SharedPreferences sharedPreferences = splashView.getPreferences();
+                if (splashInteractor.tokenExist(sharedPreferences)) {
                     splashInteractor.validateSession(
                             DOCUMENT_TYPE,
-                            splashView.getDocumentNumberFromPreferences(),
-                            splashView.getTokenFromPreferences(),
-                            splashView.getTokenNotification(),
+                            splashInteractor.getDocumentNumber(sharedPreferences),
+                            splashInteractor.getToken(sharedPreferences),
+                            splashInteractor.getTokenNotification(sharedPreferences),
                             MOBILE_TYPE);
                 } else
                     waitAndReportSessionNotActive();
@@ -50,7 +50,10 @@ public class SplashPresenterImpl implements SplashPresenter {
     @Override
     public void onSuccesfullActiveSession(Employee employee) {
         if (splashView != null)
-            splashView.onSuccesfullActiveSession(employee, splashView.getTokenFromPreferences());
+            splashInteractor.saveNewPreferences(employee,
+                    splashView.getPreferences(),
+                    splashView.getContextView());
+            splashView.onSuccesfullActiveSession();
     }
 
     @Override
@@ -69,6 +72,6 @@ public class SplashPresenterImpl implements SplashPresenter {
             }
         };
         Timer timer = new Timer();
-        timer.schedule(timerTask, 2500);
+        timer.schedule(timerTask, 3000);
     }
 }
