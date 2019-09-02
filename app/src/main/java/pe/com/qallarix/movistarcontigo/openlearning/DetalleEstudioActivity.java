@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autentication.views.AccountActivity;
+import pe.com.qallarix.movistarcontigo.autentication.account.AccountActivityView;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 
 public class DetalleEstudioActivity extends TranquiParentActivity {
@@ -114,7 +114,7 @@ public class DetalleEstudioActivity extends TranquiParentActivity {
         tvIniciales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetalleEstudioActivity.this,AccountActivity.class);
+                Intent intent = new Intent(DetalleEstudioActivity.this, AccountActivityView.class);
                 startActivity(intent);
             }
         });
@@ -124,7 +124,7 @@ public class DetalleEstudioActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_account:
-                Intent intent = new Intent(DetalleEstudioActivity.this,AccountActivity.class);
+                Intent intent = new Intent(DetalleEstudioActivity.this, AccountActivityView.class);
                 startActivity(intent);
                 return true;
             default:return super.onOptionsItemSelected(item);

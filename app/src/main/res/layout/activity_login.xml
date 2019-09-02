@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".autentication.views.LoginActivityView">
+    tools:context=".autentication.login.LoginActivityView">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -157,7 +157,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
                         android:layout_marginBottom="8dp"
-                        android:onClick="initLogin"
+                        android:onClick="attemptLogin"
                         android:text="@string/boton_texto_ingresar"
                         style="@style/BotonVerdeFlat"
                         app:layout_constraintBottom_toBottomOf="parent"

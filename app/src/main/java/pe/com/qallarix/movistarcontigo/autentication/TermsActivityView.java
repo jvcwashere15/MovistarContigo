@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication.views;
+package pe.com.qallarix.movistarcontigo.autentication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

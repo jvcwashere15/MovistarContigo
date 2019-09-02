@@ -1,16 +1,15 @@
-package pe.com.qallarix.movistarcontigo.autentication.interactors;
+package pe.com.qallarix.movistarcontigo.autentication.splash;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.ServiceEmployeeApi;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashInteractor;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashInteractor;
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashPresenter;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ValidacionToken;
-import pe.com.qallarix.movistarcontigo.autentication.views.SplashActivityView;
 import pe.com.qallarix.movistarcontigo.util.TopicsNotification;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;

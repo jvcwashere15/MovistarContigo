@@ -7,7 +7,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".autentication.views.WelcomeActivity">
+    tools:context=".autentication.welcome.WelcomeActivityView">
 
     <TextView
         android:layout_width="wrap_content"

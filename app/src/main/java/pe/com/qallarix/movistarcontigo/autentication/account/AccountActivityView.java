@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication.views;
+package pe.com.qallarix.movistarcontigo.autentication.account;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.messaging.FirebaseMessaging;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.login.LoginActivityView;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.CerrarSesionToken;
 import pe.com.qallarix.movistarcontigo.main.MainActivity;
 import pe.com.qallarix.movistarcontigo.util.TopicsNotification;
@@ -22,7 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class AccountActivity extends TranquiParentActivity {
+public class AccountActivityView extends TranquiParentActivity {
     private TextView tvNombreUsuario;
     private TextView tvHolaUsuario;
     private TextView tvCargo;
@@ -82,7 +83,7 @@ public class AccountActivity extends TranquiParentActivity {
                 if (internetConectionExists()){
                     cerrarSesion();
                 }else{
-                    Toast.makeText(AccountActivity.this, "Problemas con la red, revisa tu conexion a internet.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivityView.this, "Problemas con la red, revisa tu conexion a internet.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -90,7 +91,7 @@ public class AccountActivity extends TranquiParentActivity {
         btIrAHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mainIntent = new Intent(AccountActivity.this, MainActivity.class);
+                Intent mainIntent = new Intent(AccountActivityView.this, MainActivity.class);
                 mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(mainIntent);
                 finish();
@@ -147,7 +148,7 @@ public class AccountActivity extends TranquiParentActivity {
     }
 
     private void irAInicioLogin() {
-        Intent mainIntent = new Intent(AccountActivity.this, LoginActivityView.class);
+        Intent mainIntent = new Intent(AccountActivityView.this, LoginActivityView.class);
         mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();

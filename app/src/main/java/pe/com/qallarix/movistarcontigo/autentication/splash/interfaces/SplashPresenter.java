@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication.interfaces.splash;
+package pe.com.qallarix.movistarcontigo.autentication.splash.interfaces;
 
 import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
 

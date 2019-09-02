@@ -266,7 +266,7 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
 //        tvIniciales.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(DetalleDescuentoActivity.this,AccountActivity.class);
+//                Intent intent = new Intent(DetalleDescuentoActivity.this,AccountActivityView.class);
 //                startActivity(intent);
 //            }
 //        });
@@ -278,7 +278,7 @@ public class DetalleDescuentoActivity extends TranquiParentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
 //            case R.id.action_account:
-//                Intent intent = new Intent(DetalleDescuentoActivity.this,AccountActivity.class);
+//                Intent intent = new Intent(DetalleDescuentoActivity.this,AccountActivityView.class);
 //                startActivity(intent);
 //                return true;
             case android.R.id.home:

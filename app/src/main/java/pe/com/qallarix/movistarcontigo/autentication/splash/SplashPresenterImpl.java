@@ -1,12 +1,12 @@
-package pe.com.qallarix.movistarcontigo.autentication.presenters;
+package pe.com.qallarix.movistarcontigo.autentication.splash;
 
 import android.content.SharedPreferences;
 import java.util.Timer;
 import java.util.TimerTask;
-import pe.com.qallarix.movistarcontigo.autentication.interactors.SplashInteractorImpl;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashInteractor;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashPresenter;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashView;
+
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashInteractor;
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashView;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
 
 public class SplashPresenterImpl implements SplashPresenter {
@@ -24,20 +24,16 @@ public class SplashPresenterImpl implements SplashPresenter {
     @Override
     public void validateSession() {
         if (splashView != null) {
-            if (splashView.internetConnectionExists()) {
-                SharedPreferences sharedPreferences = splashView.getPreferences();
-                if (splashInteractor.tokenExist(sharedPreferences)) {
-                    splashInteractor.validateSession(
-                            DOCUMENT_TYPE,
-                            splashInteractor.getDocumentNumber(sharedPreferences),
-                            splashInteractor.getToken(sharedPreferences),
-                            splashInteractor.getTokenNotification(sharedPreferences),
-                            MOBILE_TYPE);
-                } else
-                    waitAndReportSessionNotActive();
-            } else {
-                splashView.showViewNoConnectionInternet();
-            }
+            SharedPreferences sharedPreferences = splashView.getPreferences();
+            if (splashInteractor.tokenExist(sharedPreferences)) {
+                splashInteractor.validateSession(
+                        DOCUMENT_TYPE,
+                        splashInteractor.getDocumentNumber(sharedPreferences),
+                        splashInteractor.getToken(sharedPreferences),
+                        splashInteractor.getTokenNotification(sharedPreferences),
+                        MOBILE_TYPE);
+            } else
+                waitAndReportSessionNotActive();
         }
     }
 

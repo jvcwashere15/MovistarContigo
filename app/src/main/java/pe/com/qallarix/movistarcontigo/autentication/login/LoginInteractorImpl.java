@@ -1,8 +1,8 @@
-package pe.com.qallarix.movistarcontigo.autentication.interactors;
+package pe.com.qallarix.movistarcontigo.autentication.login;
 
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.ServiceEmployeeApi;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginInteractor;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginInteractor;
+import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginPresenter;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import retrofit2.Call;
@@ -31,7 +31,6 @@ public class LoginInteractorImpl implements LoginInteractor {
                         loginPresenter.onErrorLogin("problemas al iniciar login");
                     }
                 }
-
                 @Override
                 public void onFailure(Call<ResponseToken> call, Throwable t) {
                     loginPresenter.onErrorLogin("Error en el servidor");

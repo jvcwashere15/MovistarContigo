@@ -20,7 +20,7 @@ import java.util.List;
 
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
-import pe.com.qallarix.movistarcontigo.autentication.views.AccountActivity;
+import pe.com.qallarix.movistarcontigo.autentication.account.AccountActivityView;
 import pe.com.qallarix.movistarcontigo.news.pojos.News;
 import pe.com.qallarix.movistarcontigo.notifications.NotificacionesActivity;
 import pe.com.qallarix.movistarcontigo.main.fragments.BenefitsFragment;
@@ -168,7 +168,7 @@ public class MainActivity extends TranquiParentActivity {
         tvIniciales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,AccountActivity.class);
+                Intent intent = new Intent(MainActivity.this, AccountActivityView.class);
                 startActivity(intent);
             }
         });

@@ -1,17 +1,13 @@
-package pe.com.qallarix.movistarcontigo.autentication.views;
+package pe.com.qallarix.movistarcontigo.autentication.verification;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +19,15 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.ServiceEmployeeApi;
+import pe.com.qallarix.movistarcontigo.autentication.verification.interfaces.VerificationPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.verification.interfaces.VerificationView;
+import pe.com.qallarix.movistarcontigo.autentication.login.LoginActivityView;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ResponseToken;
 import pe.com.qallarix.movistarcontigo.autentication.pojos.ValidacionToken;
 import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
+import pe.com.qallarix.movistarcontigo.autentication.welcome.WelcomeActivityView;
 import pe.com.qallarix.movistarcontigo.util.TopicsNotification;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
@@ -36,7 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class VerificationActivity extends TranquiParentActivity {
+public class VerificationActivityView extends TranquiParentActivity implements VerificationView {
 
     private View
             vProgressVerificacion,
@@ -50,31 +50,26 @@ public class VerificationActivity extends TranquiParentActivity {
             tokenAccess,
             documentType;
     private Pinview mPinview;
-    private ImageView btAtras;
 
+    private VerificationPresenter verificationPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verificacion);
-        getDataIntent();
-        bindearVistas();
+        setContentView(R.layout.activity_verification);
+        bindViews();
+        verificationPresenter = new VerificationPresenterImpl(this);
 
-
-        btAtras = findViewById(R.id.verificacion_btAtras);
-        btAtras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        getDataFromIntent();
         configurarPinview();
         setearDni();
+
         configurarBotonValidarToken();
         configurarBotonVolverEnviarcodigo(documentType,documentNumber);
+
     }
 
-    private void bindearVistas() {
+    private void bindViews() {
         vProgressVerificacion = findViewById(R.id.verificacion_lytValidarCodigo);
         vProgressVolverAEnviar = findViewById(R.id.verificacion_lytEnviarCodigo);
         mPinview = findViewById(R.id.verificacion_pinview);
@@ -83,7 +78,7 @@ public class VerificationActivity extends TranquiParentActivity {
         btValidar = findViewById(R.id.verificacion_btAceptar);
     }
 
-    private void getDataIntent() {
+    private void getDataFromIntent() {
         documentNumber = getIntent().getExtras().getString("documentNumber","");
         documentType = getIntent().getExtras().getString("documentType","");
     }
@@ -92,10 +87,11 @@ public class VerificationActivity extends TranquiParentActivity {
         mPinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
             @Override
             public void onDataEntered(Pinview pinview, boolean b) {
-                hideSoftKeyboard(VerificationActivity.this);
+                hideSoftKeyboard(VerificationActivityView.this);
                 tokenAccess = mPinview.getValue();
                 FirebaseInstanceId.getInstance().getInstanceId()
-                        .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                        .addOnCompleteListener(
+                                new OnCompleteListener<InstanceIdResult>() {
                             @Override
                             public void onComplete(@NonNull Task<InstanceIdResult> task) {
                                 if (!task.isSuccessful()) {
@@ -120,7 +116,7 @@ public class VerificationActivity extends TranquiParentActivity {
         btValidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hideSoftKeyboard(VerificationActivity.this);
+                hideSoftKeyboard(VerificationActivityView.this);
                 String codigoVerificacion = mPinview.getValue();
                 if (codigoVerificacion != null && !TextUtils.isEmpty(codigoVerificacion) && codigoVerificacion.length()==5) {
                     tokenAccess = codigoVerificacion;
@@ -182,8 +178,8 @@ public class VerificationActivity extends TranquiParentActivity {
                     Employee employee = response.body().getEmployee();
                     guardarEmpleadoSharedPreferences(employee);
                     FirebaseMessaging.getInstance().subscribeToTopic(TopicsNotification.TOPIC_NOTIFICATIONS);
-                    Analitycs.logEventoLogin(VerificationActivity.this);
-                    Analitycs.setUserProperties(VerificationActivity.this,
+                    Analitycs.logEventoLogin(VerificationActivityView.this);
+                    Analitycs.setUserProperties(VerificationActivityView.this,
                             employee.getClase(),employee.getCategory(),
                             employee.getVicePresidency(),employee.getManagement(),
                             employee.getCip(),employee.getDirection());
@@ -195,14 +191,14 @@ public class VerificationActivity extends TranquiParentActivity {
 
             @Override
             public void onFailure(Call<ValidacionToken> call, Throwable t) {
-                Toast.makeText(VerificationActivity.this, "Se produjo un error al intentar validar el token", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VerificationActivityView.this, "Se produjo un error al intentar validar el token", Toast.LENGTH_SHORT).show();
                 vProgressVerificacion.setVisibility(View.GONE);
             }
         });
     }
 
     private void irAPantallaBienvenida() {
-        Intent intent = new Intent(VerificationActivity.this, WelcomeActivity.class);
+        Intent intent = new Intent(VerificationActivityView.this, WelcomeActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
@@ -230,25 +226,6 @@ public class VerificationActivity extends TranquiParentActivity {
         editor.commit();
     }
 
-
-    private void configurarFocusEditTextCodigo(final EditText et1, final EditText et2) {
-        et1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {}
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(et1.getText().toString().trim().length() == 1){
-                    et1.clearFocus();
-                    et2.requestFocus();
-                }
-            }
-        });
-    }
-
     private void setearDni() {
 
         if (documentNumber.length() == 8){
@@ -258,12 +235,16 @@ public class VerificationActivity extends TranquiParentActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
     public void clickNull(View view) {
         Toast.makeText(this, "Espere...", Toast.LENGTH_SHORT).show();
+    }
+
+    public void backToLogin(View view) {
+        startActivity(new Intent(this, LoginActivityView.class));
+        finish();
+    }
+
+    public void validateToken(View view) {
+
     }
 }

@@ -1,38 +1,20 @@
-package pe.com.qallarix.movistarcontigo.autentication.views;
+package pe.com.qallarix.movistarcontigo.autentication.splash;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.firebase.messaging.FirebaseMessaging;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import pe.com.qallarix.movistarcontigo.BuildConfig;
 import pe.com.qallarix.movistarcontigo.R;
-import pe.com.qallarix.movistarcontigo.analitycs.Analitycs;
 import pe.com.qallarix.movistarcontigo.autentication.UtilAuthentication;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.ServiceEmployeeApi;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashPresenter;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.splash.SplashView;
-import pe.com.qallarix.movistarcontigo.autentication.pojos.Employee;
-import pe.com.qallarix.movistarcontigo.autentication.pojos.ValidacionToken;
-import pe.com.qallarix.movistarcontigo.autentication.presenters.SplashPresenterImpl;
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.splash.interfaces.SplashView;
+import pe.com.qallarix.movistarcontigo.autentication.login.LoginActivityView;
 import pe.com.qallarix.movistarcontigo.main.MainActivity;
-import pe.com.qallarix.movistarcontigo.util.TopicsNotification;
-import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
-import pe.com.qallarix.movistarcontigo.util.WebService1;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SplashActivityView extends AppCompatActivity implements SplashView {
     private TextView tvVersionName;
@@ -46,7 +28,14 @@ public class SplashActivityView extends AppCompatActivity implements SplashView 
         bindViews();
         setVersionName();
         splashPresenter = new SplashPresenterImpl(this);
-        splashPresenter.validateSession();
+
+            if (UtilAuthentication.internetConnectionExists(this)) {
+                splashPresenter.validateSession();
+            } else {
+                showViewNoConnectionInternet();
+            }
+
+
     }
 
 

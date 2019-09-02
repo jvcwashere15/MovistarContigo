@@ -1,18 +1,20 @@
-package pe.com.qallarix.movistarcontigo.autentication.views;
+package pe.com.qallarix.movistarcontigo.autentication.login;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.autentication.UtilAuthentication;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginPresenter;
-import pe.com.qallarix.movistarcontigo.autentication.interfaces.login.LoginView;
-import pe.com.qallarix.movistarcontigo.autentication.presenters.LoginPresenterImpl;
+import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginPresenter;
+import pe.com.qallarix.movistarcontigo.autentication.login.interfaces.LoginView;
+import pe.com.qallarix.movistarcontigo.autentication.TermsActivityView;
+import pe.com.qallarix.movistarcontigo.autentication.verification.VerificationActivityView;
 import pe.com.qallarix.movistarcontigo.util.NumericKeyBoardTransformationMethod;
 import pe.com.qallarix.movistarcontigo.util.WebService1;
 import pe.com.qallarix.movistarcontigo.util.WebServiceAmbassador;
@@ -82,7 +84,7 @@ public class LoginActivityView extends AppCompatActivity implements LoginView {
 
     @Override
     public void accessSucesfull(String codeToken) {
-        Intent intent = new Intent(LoginActivityView.this, VerificationActivity.class);
+        Intent intent = new Intent(LoginActivityView.this, VerificationActivityView.class);
         intent.putExtra("token",codeToken);
         intent.putExtra("documentType",DOCUMENT_TYPE);
         intent.putExtra("documentNumber",editTextDni.getText().toString());
@@ -105,17 +107,22 @@ public class LoginActivityView extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public boolean internetConnectionExists() {
-        return UtilAuthentication.internetConnectionExists(this);
-    }
-
-    @Override
     public void hideSoftKeyboard() {
         UtilAuthentication.hideSoftKeyboard(this);
     }
 
-    public void initLogin(View view) {
-        loginPresenter.attemptLogin(DOCUMENT_TYPE,editTextDni.getText().toString(),cbTerminos.isChecked());
+    public void attemptLogin(View view) {
+        String documentNumber = editTextDni.getText().toString();
+        if (documentNumber != null && !TextUtils.isEmpty(documentNumber)) {
+            if (UtilAuthentication.documentoEsValido(documentNumber)){
+                if (UtilAuthentication.acceptedsTerms(cbTerminos.isChecked())){
+                    loginPresenter.attemptLogin(DOCUMENT_TYPE,documentNumber);
+                }else
+                    showMessageYouMustAcceptTerms();
+            }else
+                showMessageDocumentInvalid();
+        } else
+            showMessageEmptyDNI();
     }
 
     public void viewTermsAndConditions(View view) {

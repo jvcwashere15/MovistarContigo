@@ -104,7 +104,7 @@ public class PdfActivity extends TranquiParentActivity {
 //        tvIniciales.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(PdfActivity.this,AccountActivity.class);
+//                Intent intent = new Intent(PdfActivity.this,AccountActivityView.class);
 //                startActivity(intent);
 //            }
 //        });

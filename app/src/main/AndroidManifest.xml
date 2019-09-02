@@ -32,7 +32,7 @@
 
         <activity android:name=".util.TranquiParentActivity" /> <!-- - - - - - - - Módulo Autenticación - - - - - - -->
         <activity
-            android:name=".autentication.views.SplashActivityView"
+            android:name=".autentication.splash.SplashActivityView"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,21 +41,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".autentication.views.LoginActivityView"
+            android:name=".autentication.login.LoginActivityView"
             android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autentication.views.TermsActivityView"
+            android:name=".autentication.TermsActivityView"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autentication.views.VerificationActivity"
+            android:name=".autentication.verification.VerificationActivityView"
             android:configChanges="keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autentication.views.WelcomeActivity"
+            android:name=".autentication.welcome.WelcomeActivityView"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".autentication.views.AccountActivity"
+            android:name=".autentication.account.AccountActivityView"
             android:screenOrientation="portrait" /> <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- - - - - - - Main Activity - Dashboard - - - - -->
         <activity

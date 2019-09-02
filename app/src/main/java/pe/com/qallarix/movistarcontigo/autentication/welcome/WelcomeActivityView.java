@@ -1,4 +1,4 @@
-package pe.com.qallarix.movistarcontigo.autentication.views;
+package pe.com.qallarix.movistarcontigo.autentication.welcome;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import pe.com.qallarix.movistarcontigo.R;
 import pe.com.qallarix.movistarcontigo.main.MainActivity;
 
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivityView extends AppCompatActivity {
 
     private TextView tvNombreUsuario;
     private TextView btComenzar;
@@ -37,7 +37,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btComenzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+                Intent intent = new Intent(WelcomeActivityView.this,MainActivity.class);
                 startActivity(intent);
                 finishAffinity();
             }

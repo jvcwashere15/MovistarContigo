@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
-    tools:context=".autentication.views.VerificationActivity">
+    tools:context=".autentication.verification.VerificationActivityView">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -24,6 +24,7 @@
                     android:layout_height="32dp"
                     android:layout_alignParentStart="true"
                     android:tint="@color/colorCanalEmbajador"
+                    android:onClick="backToLogin"
                     app:srcCompat="@drawable/ic_back_navigation"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -88,6 +89,7 @@
                 android:textAllCaps="false"
                 android:textSize="18sp"
                 android:gravity="center"
+                android:onClick="validateToken"
                 android:layout_marginTop="40dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/telefonica_bold"
