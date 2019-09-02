@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 
 public interface ServiceFlexplaceApi {
     @GET("flexplace/employee/dashboard")
-    Call<DashBoardFlexPlace> getInfoDashboardFlexplace(@Query("documentNumber") String documentNumber);
+    Call<DashBoardFlexPlace> getInfoDashboardFlexplace();
 
 }

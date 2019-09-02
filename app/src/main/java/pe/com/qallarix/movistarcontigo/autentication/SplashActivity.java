@@ -56,8 +56,7 @@ public class SplashActivity extends TranquiParentActivity {
         if (internetConectionExists()){
             mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
             FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                    .setDeveloperModeEnabled(BuildConfig.DEBUG)
-                    .setMinimumFetchIntervalInSeconds(0)
+                    .setMinimumFetchIntervalInSeconds(12*3600)
                     .build();
             mFirebaseRemoteConfig.setConfigSettings(configSettings);
             HashMap<String,Object> defaults = new HashMap<>();

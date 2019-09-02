@@ -132,7 +132,7 @@ public class FlexplaceActivity extends TranquiParentActivity {
         Call<DashBoardFlexPlace> call = WebServiceFlexPlace
                 .getInstance(getDocumentNumber())
                 .createService(ServiceFlexplaceApi.class)
-                .getInfoDashboardFlexplace(getDocumentNumber());
+                .getInfoDashboardFlexplace();
 
         call.enqueue(new Callback<DashBoardFlexPlace>() {
             @Override
