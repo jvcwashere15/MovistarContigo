@@ -19,12 +19,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp">
                 <ImageView
-                    android:id="@+id/verificacion_btAtras"
+                    android:id="@+id/verification_btBack"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_alignParentStart="true"
                     android:tint="@color/colorCanalEmbajador"
-                    android:onClick="backToLogin"
+                    android:onClick="backToLoginScreen"
                     app:srcCompat="@drawable/ic_back_navigation"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                 android:textSize="35sp"
                 android:text="@string/verificacion_texto_titulo"/>
             <TextView
-                android:id="@+id/verificacion_tvDni"
+                android:id="@+id/verification_tvDNI"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -62,7 +62,7 @@
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Se envío un codigo de \nautenticación a tu correo corporativo"/>
             <com.goodiebag.pinview.Pinview
-                android:id="@+id/verificacion_pinview"
+                android:id="@+id/verification_pinviewCode"
                 app:pinBackground="@drawable/login_input_dni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,26 +82,22 @@
                 android:textSize="16sp"
                 android:fontFamily="@font/telefonica_regular"
                 android:text="Ingresa el código de 5 dígitos"/>
-            <TextView
-                android:id="@+id/verificacion_btAceptar"
+            <Button
+                android:id="@+id/verification_btAcceptAndContinue"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:gravity="center"
                 android:onClick="validateToken"
                 android:layout_marginTop="40dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/telefonica_bold"
-                android:background="@drawable/boton_vacaciones_verde"
+                style="@style/BotonVerdeFlat"
                 android:text="@string/verificacion_boton_texto"/>
             <TextView
-                android:id="@+id/verificacion_tvVolverEnviarCodigo"
+                android:id="@+id/verificacion_tvResubmitCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 android:textStyle="bold"
+                android:onClick="resubmitCode"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:textColor="@color/colorDescuentos"
                 android:fontFamily="@font/telefonica_regular"
@@ -110,7 +106,7 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/verificacion_lytValidarCodigo"
+        android:id="@+id/verificacion_viewLoading"
         android:onClick="clickNull"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -130,25 +126,25 @@
             android:textSize="18sp"
             android:textColor="@android:color/white"/>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/verificacion_lytEnviarCodigo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#55000000"
-        android:visibility="invisible"
-        android:onClick="clickNull"
-        android:gravity="center">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/StyleProgressBar"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/telefonica_regular"
-            android:text="Enviando código nuevamente..."
-            android:textSize="18sp"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:id="@+id/verificacion_lytEnviarCodigo"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="#55000000"-->
+        <!--android:visibility="invisible"-->
+        <!--android:onClick="clickNull"-->
+        <!--android:gravity="center">-->
+        <!--<ProgressBar-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:theme="@style/StyleProgressBar"/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:fontFamily="@font/telefonica_regular"-->
+            <!--android:text="Enviando código nuevamente..."-->
+            <!--android:textSize="18sp"-->
+            <!--android:textColor="@android:color/white"/>-->
+    <!--</LinearLayout>-->
 </FrameLayout>

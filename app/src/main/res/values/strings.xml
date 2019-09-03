@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Movistar \nContigo</string>
+
+
+    <string name="verification_display_dni">Número de DNI: </string>
+    <string name="verification_display_ce">Número de C.E.: </string>
+    <string name="verification_dialog_token_invalid">Debe ingresar el código de verificación de 5 dígitos</string>
+    <string name="verification_loading_validating_token">Validando código</string>
+    <string name="verification_error_validating_token">Se produjo un error al intentar validar el token</string>
+
+
+
+
     <string name="boton_texto_ingresar">Ingresar</string>
     <string name="texto_input_dni">Número de DNI/C.E.</string>
     <string name="login_hint_input">Ingresa tu número de DNI/C.E.</string>

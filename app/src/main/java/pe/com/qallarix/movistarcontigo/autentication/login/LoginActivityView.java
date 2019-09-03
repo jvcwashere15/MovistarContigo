@@ -68,11 +68,6 @@ public class LoginActivityView extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showMessageNoInternet() {
-        Toast.makeText(LoginActivityView.this, "No hay conexion a internet", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void showLoading() {
         viewLoading.setVisibility(View.VISIBLE);
     }
@@ -83,10 +78,8 @@ public class LoginActivityView extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void accessSucesfull(String codeToken) {
+    public void accessGranted(String codeToken) {
         Intent intent = new Intent(LoginActivityView.this, VerificationActivityView.class);
-        intent.putExtra("token",codeToken);
-        intent.putExtra("documentType",DOCUMENT_TYPE);
         intent.putExtra("documentNumber",editTextDni.getText().toString());
         startActivity(intent);
     }

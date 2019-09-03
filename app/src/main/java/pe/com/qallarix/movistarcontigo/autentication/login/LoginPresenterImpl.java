@@ -31,7 +31,7 @@ public class LoginPresenterImpl extends TranquiParentActivity implements LoginPr
     public void onSuccessLogin(String codeToken) {
         if (loginView != null){
             loginView.hideLoading();
-            loginView.accessSucesfull(codeToken);
+            loginView.accessGranted(codeToken);
         }
     }
 
