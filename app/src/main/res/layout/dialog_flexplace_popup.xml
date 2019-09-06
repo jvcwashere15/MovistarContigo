@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/boton_blanco">
+
+        <ImageView
+            android:id="@+id/dialog_noti_vacaciones_ivResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_ispopup" />
+
+        <TextView
+            android:id="@+id/dialog_noti_vacaciones_tvTitulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/telefonica_bold"
+            android:gravity="center"
+            android:textColor="#2A2A3C"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_noti_vacaciones_ivResultado"
+            android:text="¿Esta semana hiciste uso tu día Flex?" />
+
+        <TextView
+            android:id="@+id/dialog_noti_vacaciones_tvMensaje"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:fontFamily="@font/telefonica_regular"
+            android:text="@string/flexplace_description_popup"
+            android:textColor="@color/colorTextoCanalEmbajador"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_noti_vacaciones_tvTitulo" />
+
+        <LinearLayout
+            android:id="@+id/dialog_noti_vacaciones_btOkEntiendo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_noti_vacaciones_tvMensaje">
+            <TextView
+                android:id="@+id/flexplace_popup_yes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/BotonVerdeFlat"
+                android:text="¡Sí, lo usé!"
+                android:paddingRight="0dp"
+                android:paddingLeft="0dp"
+                android:textSize="12sp"
+                android:layout_marginRight="4dp"
+                />
+            <TextView
+                android:id="@+id/flexplace_popup_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="0dp"
+                android:paddingLeft="0dp"
+                android:textSize="12sp"
+                style="@style/BotonVerdeFlat"
+                android:layout_marginLeft="4dp"
+                android:text="No, fui a la oficina"
+                />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/flexplace_popup_view_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#55000000">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/StyleProgressBar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/telefonica_bold"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:text="Enviando su respuesta..."/>
+    </LinearLayout>
+</FrameLayout>

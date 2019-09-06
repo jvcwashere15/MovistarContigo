@@ -1,5 +1,6 @@
 package pe.com.qallarix.movistarcontigo.flexplace;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v4.app.NavUtils;
@@ -10,7 +11,9 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -24,6 +27,7 @@ import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
 import pe.com.qallarix.movistarcontigo.flexplace.pojos.Dashboard;
 import pe.com.qallarix.movistarcontigo.flexplace.register.RegistrarFlexPlaceActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.forapprove.ForApproveFlexPlaceActivity;
+import pe.com.qallarix.movistarcontigo.pojos.Message;
 import pe.com.qallarix.movistarcontigo.util.TranquiParentActivity;
 import pe.com.qallarix.movistarcontigo.util.WebServiceFlexPlace;
 import retrofit2.Call;
@@ -54,6 +58,9 @@ public class FlexplaceActivity extends TranquiParentActivity {
 
     private boolean isLoading = true;
     private String leader = "";
+    private boolean isPopUp;
+
+    private final String KEY_IS_POP_UP = "isPopUp";
 
     private ShimmerFrameLayout mShimmerViewContainer;
     @Override
@@ -61,12 +68,20 @@ public class FlexplaceActivity extends TranquiParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flexplace);
         configurarToolbar();
+        getDataFromExtras();
         bindearVistas();
         cargarMenuFlexPlace();
         configurarBotonRegistrar();
         configurarBotonHistorial();
         configurarBotonSolicitudes();
         configurarBotonMiEquipo();
+    }
+
+    private void getDataFromExtras() {
+        Bundle bundleExtras = getIntent().getExtras();
+        if (bundleExtras != null && bundleExtras.containsKey(KEY_IS_POP_UP)){
+            isPopUp = bundleExtras.getBoolean(KEY_IS_POP_UP,false);
+        }
     }
 
     private void configurarBotonMiEquipo() {
@@ -154,6 +169,8 @@ public class FlexplaceActivity extends TranquiParentActivity {
                     else
                         displayResumenFlexPlaceFuturo(dashboard.getDateStart());
 
+                    if (isPopUp)
+                        mostrarPopUpQuestion();
                 }else if (response.code() == 400){
                     displayResultadoException(response.errorBody());
                 }else{
@@ -172,6 +189,122 @@ public class FlexplaceActivity extends TranquiParentActivity {
         });
 
     }
+
+    private void mostrarPopUpQuestion() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_flexplace_popup);
+        Window window = dialog.getWindow();
+        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        dialog.show();
+
+        TextView tvButtonYes = dialog.findViewById(R.id.flexplace_popup_yes);
+        TextView tvButtonNo = dialog.findViewById(R.id.flexplace_popup_no);
+        final View vProgress = dialog.findViewById(R.id.flexplace_popup_view_progress);
+
+        vProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // "nada" para evitar cancelar proceso de envio de respuesta
+            }
+        });
+
+        tvButtonYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vProgress.setVisibility(View.VISIBLE);
+                Call<Message> call = WebServiceFlexPlace
+                        .getInstance(getDocumentNumber())
+                        .createService(ServiceFlexplaceApi.class)
+                        .registerPopUp(true);
+                call.enqueue(new Callback<Message>() {
+                    @Override
+                    public void onResponse(Call<Message> call, Response<Message> response) {
+                        vProgress.setVisibility(View.GONE);
+                        if (response.code() == 200){
+                            dialog.dismiss();
+                            mostrarPopUpThankYou();
+                        }else{
+                            Toast.makeText(FlexplaceActivity.this,
+                                    "Se produjo un error al registrar su respuesta",
+                                    Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Message> call, Throwable t) {
+                        vProgress.setVisibility(View.GONE);
+                        Toast.makeText(FlexplaceActivity.this,
+                                "Se produjo un error al registrar su respuesta",
+                                Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+
+
+            }
+        });
+
+        tvButtonNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vProgress.setVisibility(View.VISIBLE);
+                Call<Message> call = WebServiceFlexPlace
+                        .getInstance(getDocumentNumber())
+                        .createService(ServiceFlexplaceApi.class)
+                        .registerPopUp(false);
+                call.enqueue(new Callback<Message>() {
+                    @Override
+                    public void onResponse(Call<Message> call, Response<Message> response) {
+                        vProgress.setVisibility(View.GONE);
+                        if (response.code() == 200){
+                            dialog.dismiss();
+                            mostrarPopUpThankYou();
+                        }else{
+                            Toast.makeText(FlexplaceActivity.this,
+                                    "Se produjo un error al registrar su respuesta",
+                                    Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Message> call, Throwable t) {
+                        vProgress.setVisibility(View.GONE);
+                        Toast.makeText(FlexplaceActivity.this,
+                                "Se produjo un error al registrar su respuesta",
+                                Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+    }
+
+    private void mostrarPopUpThankYou() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_flexplace_popup_thankyou);
+        Window window = dialog.getWindow();
+        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        dialog.show();
+
+        TextView tvBotonOkEntiendo = dialog.findViewById(R.id.flexplace_popup_btOkEntiendo);
+
+        tvBotonOkEntiendo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+
 
     private void displayResumenFlexPlaceFuturo(String dateStart) {
         tvMessage.setText("Tu solicitud");

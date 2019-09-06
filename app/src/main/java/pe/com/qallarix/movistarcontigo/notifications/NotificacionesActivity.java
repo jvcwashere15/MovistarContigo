@@ -144,6 +144,21 @@ public class NotificacionesActivity extends TranquiParentActivity {
                                                         }
                                                     }
                                                     break;
+                                                case "dashboard":
+                                                    if (notification.getAction() != null &&
+                                                            !TextUtils.isEmpty(notification.getAction())) {
+                                                        String action = notification.getAction();
+                                                        switch (action){
+                                                            case "register":
+                                                                notifyIntent = new Intent(NotificacionesActivity.this,
+                                                                        ForApproveFlexRequestDetailActivity.class);
+                                                                notifyIntent.putExtra("isPopUp",true);
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+                                                    }
+                                                    break;
                                                 default:
                                                     break;
                                             }

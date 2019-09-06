@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.Map;
 
 import pe.com.qallarix.movistarcontigo.R;
+import pe.com.qallarix.movistarcontigo.flexplace.FlexplaceActivity;
+import pe.com.qallarix.movistarcontigo.flexplace.pojos.DashBoardFlexPlace;
 import pe.com.qallarix.movistarcontigo.specials.SpecialDetailActivity;
 import pe.com.qallarix.movistarcontigo.discounts.DetalleDescuentoActivity;
 import pe.com.qallarix.movistarcontigo.flexplace.history.HistoryFlexDetailActivity;
@@ -115,6 +117,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                         case "register":
                                             notifyIntent = new Intent(this,
                                                     ForApproveFlexRequestDetailActivity.class);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case "dashboard":
+                                if (data.containsKey("action") && data.get("action")!= null) {
+                                    String action = data.get("action");
+                                    switch (action){
+                                        case "register":
+                                            notifyIntent = new Intent(this,
+                                                    FlexplaceActivity.class);
+                                            notifyIntent.putExtra("isPopUp",true);
                                             break;
                                         default:
                                             break;

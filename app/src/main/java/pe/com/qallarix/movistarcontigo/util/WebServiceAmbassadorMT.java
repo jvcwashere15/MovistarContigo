@@ -17,7 +17,7 @@ public class WebServiceAmbassadorMT {
 
     private final String BASE_URL_WS_EMBAJADOR_MT_QA = "https://tranqui-30df0.firebaseio.com/";
     private final String BASE_URL_WS_EMBAJADOR_MT_PRODUCCION = "https://tranqui-30df0.firebaseio.com/";
-    private final String BASE_URL_WS_MT_EMBAJADOR = BASE_URL_WS_EMBAJADOR_MT_PRODUCCION;
+    private final String BASE_URL_WS_MT_EMBAJADOR = BASE_URL_WS_EMBAJADOR_MT_QA;
 
     private static WebServiceAmbassadorMT instance;
     private Retrofit retrofit;
